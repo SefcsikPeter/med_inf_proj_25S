@@ -1,1 +1,18 @@
-<p>story works!</p>
+<div *ngIf="slide" class="story-container">
+  <h2>{{ title }}</h2>
+
+  <div class="slide">
+    <h4>Slide {{ currentSlide + 1 }} of {{ totalSlides }}</h4>
+    <p>{{ slide.content }}</p>
+    <img *ngIf="slide.image" [src]="slide.image" alt="Slide image" />
+  </div>
+
+  <div class="nav-buttons">
+    <button class="btn btn-secondary" (click)="prevSlide()" [disabled]="currentSlide === 0">Previous</button>
+    <button class="btn btn-primary" (click)="nextSlide()" [disabled]="currentSlide === totalSlides - 1">Next</button>
+  </div>
+</div>
+
+<div *ngIf="!slide">
+  <p>Loading story...</p>
+</div>

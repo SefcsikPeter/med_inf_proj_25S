@@ -1,0 +1,30 @@
+[
+  {
+    "id": 0,
+    "title": "What is an epidemic?",
+    "slides": [
+      {
+        "content": "When someone is infected by a new disease, it is kind of like gossip in school.",
+        "image": ""
+      },
+      {
+        "content": "When one of your friends tells a story about someone in your school to your friend group, you and your friends start telling the story to other people - but not everyone you meet",
+        "image": ""
+      }
+    ]
+  },
+    {
+    "id": 1,
+    "title": "The SIR Model",
+    "slides": [
+      {
+        "content": "Example",
+        "image": ""
+      },
+      {
+        "content": "Just some text",
+        "image": ""
+      }
+    ]
+  }
+]
