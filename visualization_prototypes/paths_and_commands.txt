@@ -1,5 +1,0 @@
-start server:
-python -m http.server 8000
-
-infection_tree
-http://localhost:8000/Users/ptsef/OneDrive/Desktop/MedInfProject/visualization_prototypes/infection_tree.html
