@@ -1,0 +1,2 @@
+sources
+[1] https://www.cdc.gov/cfa-modeling-and-forecasting/about/explainer-transmission-models.html
