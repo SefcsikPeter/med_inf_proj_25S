@@ -2,11 +2,15 @@ import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StoryService } from '../../service/story.service';
 import {MatProgressBar} from '@angular/material/progress-bar';
+import {RadialTreeComponent} from '../radial-tree/radial-tree.component';
+import {SliderComponent} from '../slider/slider.component';
+import {Subject} from 'rxjs';
+import {debounceTime} from 'rxjs/operators';
 
 @Component({
   selector: 'app-story',
   standalone: true,
-  imports: [CommonModule, MatProgressBar],
+  imports: [CommonModule, MatProgressBar, RadialTreeComponent, SliderComponent],
   templateUrl: './story.component.html',
   styleUrl: './story.component.css'
 })
@@ -18,8 +22,25 @@ export class StoryComponent implements OnInit {
   title: string = '';
   slide: any = null;
   imagePath: string = '';
+  popSize: number = 12;
 
   constructor(private storyService: StoryService) {}
+
+  private sliderInput$ = new Subject<number>(); // 🔁 reactive value stream
+  private subscription = this.sliderInput$.pipe(
+    debounceTime(200)
+  ).subscribe(value => {
+    this.popSize = value;
+    console.log('Debounced value:', value);
+  });
+
+  onSliderChange(value: number) {
+    this.sliderInput$.next(value); // 👈 send value into Subject
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe(); // 💡 always clean up
+  }
 
   ngOnInit(): void {
     this.loadSlide(this.currentSlide);

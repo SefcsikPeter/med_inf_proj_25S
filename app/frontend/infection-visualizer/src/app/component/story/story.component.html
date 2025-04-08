@@ -7,6 +7,10 @@
   <div class="slide" style="justify-content: center">
     <p style="display: flex; justify-content: center; padding: 0 1rem;">{{ slide.content }}</p>
     <img *ngIf="imagePath != 'http://localhost:8000/static/images/'" [src]="imagePath" alt="Slide image" style="width: 600px; display: block; margin: 0 auto;" />
+    <div *ngIf="currentSlide === 1" class="rad-tree">
+      <app-radial-tree [popSize]="popSize" [stepSize]="50"></app-radial-tree>
+      <app-slider [min]="1" [max]="500" (valueChange)="onSliderChange($event)"></app-slider>
+    </div>
   </div>
 
   <div class="slide-nav">
