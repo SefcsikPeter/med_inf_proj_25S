@@ -138,15 +138,16 @@ export class InfectionTreeComponent implements OnInit {
           update(d);
         });
 
-      nodeEnter.append("circle")
-        .attr("r", 4)
-        .attr("fill", (d: any) => {
-          if (d === root) return "green";
+      nodeEnter.append("text")
+        .attr("text-anchor", "middle")
+        .attr("alignment-baseline", "middle")
+        .text((d: any) => {
+          if (d === root) return "🧍";
           switch (d.data.status) {
-            case "sev": return "orange";
-            case "crit": return "purple";
-            case "dead": return "red";
-            default: return "#999";
+            case "sev": return "🛏️";
+            case "crit": return "🏥";
+            case "dead": return "🪦";
+            default: return "👤";
           }
         });
 
