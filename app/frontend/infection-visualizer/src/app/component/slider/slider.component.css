@@ -1,0 +1,10 @@
+.slider .track {
+    stroke: #ddd;
+    stroke-linecap: round;
+  }
+  
+  .slider .handle {
+    fill: steelblue;
+    cursor: pointer;
+  }
+  
