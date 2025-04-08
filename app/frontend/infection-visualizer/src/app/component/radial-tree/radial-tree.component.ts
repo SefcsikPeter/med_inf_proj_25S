@@ -71,7 +71,7 @@ export class RadialTreeComponent implements OnInit {
     root.descendants().forEach((d: any) => d.y = d.depth * stepSize);
 
     const maxDepth = d3.max(root.descendants(), (d: any) => d.depth) || 1;
-    const outerRadius = maxDepth * stepSize + 100;
+    const outerRadius = maxDepth * stepSize + 10;
     const diameter = outerRadius * 2;
 
     const svg = d3.select(this.treeContainer.nativeElement)
