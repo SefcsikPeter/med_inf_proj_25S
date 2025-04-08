@@ -7,8 +7,13 @@ import json
 from infection_simulation import get_inf_tree
 from fastapi import Query, Path, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+import os
+print('cwd', os.getcwd())
 
 app = FastAPI()
+
+app.mount("/static", StaticFiles(directory="static"), name="static")
 
 app.add_middleware(
     CORSMiddleware,
@@ -56,7 +61,8 @@ def get_story_slide(
         "title": story.get("title", "Untitled"),
         "slide": slides[page],
         "page": page,
-        "total_pages": len(slides)
+        "total_pages": len(slides),
+        "image": slides[page].get('image')
     }
 
 if __name__ == "__main__":

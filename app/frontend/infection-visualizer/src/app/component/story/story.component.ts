@@ -17,6 +17,7 @@ export class StoryComponent implements OnInit {
   totalSlides: number = 0;
   title: string = '';
   slide: any = null;
+  imagePath: string = '';
 
   constructor(private storyService: StoryService) {}
 
@@ -27,10 +28,13 @@ export class StoryComponent implements OnInit {
   loadSlide(index: number): void {
     this.storyService.getStorySlide(this.storyId, index).subscribe({
       next: (data) => {
+        console.log(data)
         this.slide = data.slide;
         this.title = data.title;
         this.currentSlide = data.page;
         this.totalSlides = data.total_pages;
+        this.imagePath = 'http://localhost:8000/static/images/' + data.image;
+        console.log(this.imagePath)
       },
       error: (err) => {
         console.error('Failed to load story slide:', err);
