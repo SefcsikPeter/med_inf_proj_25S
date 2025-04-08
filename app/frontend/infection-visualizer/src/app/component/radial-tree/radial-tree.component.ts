@@ -17,7 +17,8 @@ import { InfectionTreeService } from '../../service/infection-tree.service';
 })
 export class RadialTreeComponent implements OnInit {
   @ViewChild('treeContainer', { static: true }) treeContainer!: ElementRef;
-  @Input() popSize: number = 25;
+  @Input() popSize: number = 250;
+  @Input() stepSize: number = 50;
   infectionTreeData: any;
 
   constructor(private treeService: InfectionTreeService) {}
@@ -27,7 +28,8 @@ export class RadialTreeComponent implements OnInit {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['popSize'] && !changes['popSize'].firstChange) {
+    if ((changes['popSize'] && !changes['popSize'].firstChange) ||
+      (changes['stepSize'] && !changes['stepSize'].firstChange)) {
       this.fetchTree();
     }
   }
@@ -65,7 +67,7 @@ export class RadialTreeComponent implements OnInit {
       .separation((a: any, b: any) => (a.parent === b.parent ? 1 : 2) / a.depth);
     tree(root);
 
-    const stepSize = 100;
+    const stepSize = this.stepSize;
     root.descendants().forEach((d: any) => d.y = d.depth * stepSize);
 
     const maxDepth = d3.max(root.descendants(), (d: any) => d.depth) || 1;
@@ -101,20 +103,23 @@ export class RadialTreeComponent implements OnInit {
         .radius((d: any) => d.y) as any);
 
     svg.append("g")
-      .selectAll("circle")
+      .selectAll("text.node-emoji")
       .data(root.descendants())
-      .join("circle")
-      .attr("transform", (d: any) =>
-        `rotate(${d.x * 180 / Math.PI - 90}) translate(${d.y},0)`
-      )
-      .attr("r", 3)
-      .attr("fill", (d: any) => {
-        if (d.depth === 0) return "green";
+      .join("text")
+      .attr("class", "node-emoji")
+      .attr("text-anchor", "middle")
+      .attr("alignment-baseline", "middle")
+      .attr("transform", (d: any) => `
+      rotate(${d.x * 180 / Math.PI - 90})
+      translate(${d.y},0)
+      `)
+      .text((d: any) => {
+        if (d.depth === 0) return "🧍";
         switch (d.data.status) {
-          case "sev": return "orange";
-          case "crit": return "purple";
-          case "dead": return "red";
-          default: return "#999";
+          case "sev": return "🛏️";
+          case "crit": return "🏥";
+          case "dead": return "🪦";
+          default: return "👤";
         }
       });
 
