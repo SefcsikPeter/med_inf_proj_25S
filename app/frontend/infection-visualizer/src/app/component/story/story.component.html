@@ -1,12 +1,13 @@
 <div *ngIf="slide" class="story-container">
-  <h2>{{ title }}</h2>
-
+  <mat-progress-bar mode="determinate" value="{{((currentSlide + 1) * 100) / totalSlides}}"></mat-progress-bar>
+  <div style="display: flex; align-items: center; justify-content: space-between; padding: 0 1rem;">
+    <h2>{{ title }}</h2>
+    <a>Slide {{ currentSlide + 1 }} of {{ totalSlides }}</a>
+  </div>
   <div class="slide">
-    <h4>Slide {{ currentSlide + 1 }} of {{ totalSlides }}</h4>
     <p>{{ slide.content }}</p>
     <img *ngIf="slide.image" [src]="slide.image" alt="Slide image" />
   </div>
-
   <div class="nav-buttons">
     <button class="btn btn-secondary" (click)="prevSlide()" [disabled]="currentSlide === 0">Previous</button>
     <button class="btn btn-primary" (click)="nextSlide()" [disabled]="currentSlide === totalSlides - 1">Next</button>

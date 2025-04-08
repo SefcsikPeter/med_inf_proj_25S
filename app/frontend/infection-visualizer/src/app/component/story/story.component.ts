@@ -1,11 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StoryService } from '../../service/story.service';
+import {MatProgressBar} from '@angular/material/progress-bar';
 
 @Component({
   selector: 'app-story',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, MatProgressBar],
   templateUrl: './story.component.html',
   styleUrl: './story.component.css'
 })
