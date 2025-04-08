@@ -18,11 +18,12 @@ export class SliderComponent implements AfterViewInit {
 
   createSlider() {
     const width = 300;
+    const height = 30;
 
     const svg = d3.select('#slider')
       .append('svg')
       .attr('width', width)
-      .attr('height', 100);
+      .attr('height', height);
 
     const x = d3.scaleLinear()
       .domain([this.min, this.max])
@@ -31,7 +32,7 @@ export class SliderComponent implements AfterViewInit {
 
     const slider = svg.append('g')
       .attr('class', 'slider')
-      .attr('transform', 'translate(0,50)');
+      .attr('transform', 'translate(0,15)');
 
     slider.append('line')
       .attr('class', 'track')
