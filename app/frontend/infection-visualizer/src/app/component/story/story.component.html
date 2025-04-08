@@ -9,7 +9,7 @@
     <img *ngIf="imagePath != 'http://localhost:8000/static/images/'" [src]="imagePath" alt="Slide image" style="width: 600px; display: block; margin: 0 auto;" />
   </div>
 
-  <div style="display: flex; justify-content: space-between; padding: 0 1rem;">
+  <div class="slide-nav">
     <button class="btn btn-secondary" (click)="prevSlide()" [disabled]="currentSlide === 0">Previous</button>
     <button class="btn btn-primary" (click)="nextSlide()" [disabled]="currentSlide === totalSlides - 1">Next</button>
   </div>
