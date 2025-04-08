@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, ElementRef, ViewChild, OnInit } from '@angular/core';
+import { Component, AfterViewInit, ElementRef, ViewChild, OnInit, Input, SimpleChanges } from '@angular/core';
 import * as d3 from 'd3';
 import { InfectionTreeService } from '../../service/infection-tree.service';
 
@@ -9,19 +9,40 @@ import { InfectionTreeService } from '../../service/infection-tree.service';
   templateUrl: './infection-tree.component.html',
   styleUrl: './infection-tree.component.css'
 })
-export class InfectionTreeComponent implements AfterViewInit, OnInit {
+export class InfectionTreeComponent implements OnInit {
   @ViewChild('treeContainer', { static: true }) treeContainer!: ElementRef;
+  @Input() popSize: number = 25;
 
   infectionTreeData: any;
 
   constructor(private treeService: InfectionTreeService) {}
 
-  ngAfterViewInit() {
-    
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['popSize'] && !changes['popSize'].firstChange) {
+      this.fetchTree(); // Re-fetch if slider changes
+    } else {
+      this.fetchTree();
+    }
+  }
+
+
+  fetchTree(): void {
+    d3.select(this.treeContainer.nativeElement).selectAll('*').remove(); // clear old SVG
+    this.treeService.getInfectionTree(this.popSize).subscribe({
+      next: (data) => {
+        this.infectionTreeData = data;
+        console.log(this.infectionTreeData)
+        this.createTree();
+      },
+      error: (err) => {
+        console.error('Error fetching infection tree:', err);
+      }
+    });
   }
 
   ngOnInit(): void {
-    this.treeService.getInfectionTree(50).subscribe({
+    /*
+    this.treeService.getInfectionTree(this.popSize).subscribe({
       next: (data) => {
         this.infectionTreeData = data;
         this.createTree();
@@ -31,9 +52,11 @@ export class InfectionTreeComponent implements AfterViewInit, OnInit {
         console.error('Error fetching infection tree:', err);
       }
     });
+     */
   }
 
   createTree() {
+    d3.select(this.treeContainer.nativeElement).selectAll('*').remove();
     const nodes = this.infectionTreeData.nodes;
     const links = this.infectionTreeData.links;
     const nodeById = new Map(nodes.map((d: { id: any; }) => [d.id, { ...d, children: [] }]));
@@ -52,7 +75,7 @@ export class InfectionTreeComponent implements AfterViewInit, OnInit {
     const rootNode = nodes.find((d: { id: unknown; }) => !targetIds.has(d.id));
     let root: any;
     root = d3.hierarchy(nodeById.get(rootNode.id));
-    
+
     const dx = 10;
     const width = 1000;
     let margin: any;
@@ -105,7 +128,7 @@ export class InfectionTreeComponent implements AfterViewInit, OnInit {
 
       const node = gNode.selectAll<SVGGElement, any>("g")
         .data(nodes, (d: any) => d.id);
-      
+
       const nodeEnter = node.enter().append("g")
         .attr("transform", (d: any) => `translate(${source.y0},${source.x0})`)
         .attr("fill-opacity", 0)
@@ -114,7 +137,7 @@ export class InfectionTreeComponent implements AfterViewInit, OnInit {
           d.children = d.children ? null : d._children;
           update(d);
         });
-      
+
       nodeEnter.append("circle")
         .attr("r", 4)
         .attr("fill", (d: any) => {
@@ -126,7 +149,7 @@ export class InfectionTreeComponent implements AfterViewInit, OnInit {
             default: return "#999";
           }
         });
-      
+
       node.merge(nodeEnter).transition().duration(duration) //maybe change
         .attr("transform", (d: any) => `translate(${d.y},${d.x})`)
         .attr("fill-opacity", 1)
@@ -136,26 +159,26 @@ export class InfectionTreeComponent implements AfterViewInit, OnInit {
         .attr("transform", (d: any) => `translate(${source.y},${source.x})`)
         .attr("fill-opacity", 0)
         .attr("stroke-opacity", 0);
-      
+
       const link = gLink.selectAll<SVGPathElement, any>("path")
         .data(links, (d: any) => d.target.id);
-      
+
       const linkEnter = link.enter().append("path")
         .attr("d", (d: any) => {
           const o = { x: source.x0, y: source.y0 };
           return diagonal({ source: o, target: o } as any);
         });
-      
+
       link.merge(linkEnter).transition().duration(duration)
         .attr("d", diagonal as any);
-      
+
       link.exit().transition().duration(duration).remove()
         .attr("d", (d: any) => {
           const o = { x: source.x, y: source.y };
           return diagonal({ source: o, target: o } as any);
         });
-      
-      
+
+
       root.eachBefore((d: any) => {
           d.x0 = d.x;
           d.y0 = d.y;
