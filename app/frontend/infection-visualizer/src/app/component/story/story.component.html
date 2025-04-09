@@ -8,13 +8,16 @@
     <p style="display: flex; justify-content: center; padding: 0 1rem;">{{ slide.content }}</p>
     <img *ngIf="imagePath != 'http://localhost:8000/static/images/'" [src]="imagePath" alt="Slide image" style="width: 600px; display: block; margin: 0 auto;" />
     <div *ngIf="currentSlide === 2" class="rad-tree">
+      <app-radial-tree [maxDepth]="4" [infectionTreeData]="infectionTreeData" [stepSize]="50"></app-radial-tree>
+    </div>
+    <div *ngIf="currentSlide === 100" class="rad-tree">
       <div class="d-flex align-items-center gap-2">
         <app-slider [min]="0" [max]="5" (valueChange)="onSliderChange($event)"></app-slider>
         <span class="">Days Passed: {{ maxDepth }}</span>
       </div>
       <app-radial-tree [maxDepth]="maxDepth" [infectionTreeData]="infectionTreeData" [stepSize]="50"></app-radial-tree>
     </div>
-    <div *ngIf="currentSlide === 3">
+    <div *ngIf="currentSlide === 100">
       <app-line-plot [plotData]="infectionTreeData['plot_data']"></app-line-plot>
     </div>
   </div>
