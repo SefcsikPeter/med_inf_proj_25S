@@ -27,7 +27,7 @@ export class LinePlotComponent implements OnInit {
   private drawChart(): void {
     const xLabel = 'days';
     const yLabel = 'people';
-    const margin = { top: 10, right: 30, bottom: 30, left: 60 };
+    const margin = { top: 20, right: 30, bottom: 50, left: 60 };
     const width = 460 - margin.left - margin.right;
     const height = 400 - margin.top - margin.bottom;
     const xMax = d3.max(this.plotData, d => d.x)!;
@@ -71,6 +71,18 @@ export class LinePlotComponent implements OnInit {
       .attr("text-anchor", "left")
       .attr("alignment-baseline", "middle");
 
+    const focusLineX = svg.append("line")
+      .attr("stroke", "gray")
+      .attr("stroke-width", 1)
+      .attr("stroke-dasharray", "4")
+      .style("opacity", 0);
+
+    const focusLineY = svg.append("line")
+      .attr("stroke", "gray")
+      .attr("stroke-width", 1)
+      .attr("stroke-dasharray", "4")
+      .style("opacity", 0);
+
     console.log('pldata', this.plotData)
     svg.append("path")
       .datum(this.plotData)
@@ -102,6 +114,8 @@ export class LinePlotComponent implements OnInit {
         const d0 = this.plotData[i - 1];
         const d1 = this.plotData[i];
         const selectedData = x0 - d0.x < d1.x - x0 ? d0 : d1;
+        const pointX = x(selectedData.x);
+        const pointY = y(selectedData.y);
 
         if (selectedData) {
           focus
@@ -120,11 +134,42 @@ export class LinePlotComponent implements OnInit {
             .attr("y", y(selectedData.y))
             .attr("text-anchor", "start")
           ;
+
+          focusLineX
+            .attr("x1", 0)
+            .attr("x2", pointX)
+            .attr("y1", pointY)
+            .attr("y2", pointY)
+            .style("opacity", 1);
+
+          focusLineY
+            .attr("x1", pointX)
+            .attr("x2", pointX)
+            .attr("y1", pointY)
+            .attr("y2", height)
+            .style("opacity", 1);
         }
       })
       .on("mouseout", () => {
         focus.style("opacity", 0);
         focusText.style("opacity", 0);
+        focusLineX.style("opacity", 0);
+        focusLineY.style("opacity", 0);
       });
+
+    svg.append("text")
+      .attr("text-anchor", "middle")
+      .attr("x", width / 2)
+      .attr("y", height + margin.bottom - 10)
+      .text(xLabel)
+      .style("font-size", "12px");
+
+    svg.append("text")
+      .attr("text-anchor", "middle")
+      .attr("transform", `rotate(-90)`)
+      .attr("x", -height / 2)
+      .attr("y", -margin.left + 20)
+      .text(yLabel)
+      .style("font-size", "12px");
   }
 }
