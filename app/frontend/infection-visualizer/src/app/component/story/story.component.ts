@@ -23,7 +23,7 @@ export class StoryComponent implements OnInit {
   title: string = '';
   slide: any = null;
   imagePath: string = '';
-  popSize: number = 12;
+  popSize: number = 200;
   infectionTreeData: any;
   maxDepth = 3;
 
@@ -34,8 +34,7 @@ export class StoryComponent implements OnInit {
   private subscription = this.sliderInput$.pipe(
     debounceTime(200)
   ).subscribe(value => {
-    this.popSize = value;
-    console.log(this.popSize);
+    this.maxDepth = value;
     this.fetchTree();
     console.log(this.infectionTreeData)
   });
