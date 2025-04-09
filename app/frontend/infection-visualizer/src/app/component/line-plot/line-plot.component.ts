@@ -30,6 +30,7 @@ export class LinePlotComponent implements OnInit {
     const margin = { top: 10, right: 30, bottom: 30, left: 60 };
     const width = 460 - margin.left - margin.right;
     const height = 400 - margin.top - margin.bottom;
+    const xMax = d3.max(this.plotData, d => d.x)!;
 
     const svg = d3.select(this.chartContainer.nativeElement)
       .append("svg")
@@ -107,10 +108,18 @@ export class LinePlotComponent implements OnInit {
             .attr("cx", x(selectedData.x))
             .attr("cy", y(selectedData.y));
 
+          let textOffset = 15
+          if (selectedData.x > xMax/2) {
+            //TODO: change so that it is dynamic
+            textOffset = -150;
+          }
+
           focusText
             .text(`${xLabel}: ${selectedData.x} - ${yLabel}: ${selectedData.y}`)
-            .attr("x", x(selectedData.x) + 15)
-            .attr("y", y(selectedData.y));
+            .attr("x", x(selectedData.x) + textOffset)
+            .attr("y", y(selectedData.y))
+            .attr("text-anchor", "start")
+          ;
         }
       })
       .on("mouseout", () => {
