@@ -14,6 +14,10 @@
       {
         "content": "Try playing around with the slider to see, how the gossip spreads, each circle represents a day and each person represents someone who heard the gossip.",
         "image": ""
+      },
+      {
+        "content": "An other way of showing the amount of people who heard the gossip is to plot it in a graph like this",
+        "image": ""
       }
     ]
   },

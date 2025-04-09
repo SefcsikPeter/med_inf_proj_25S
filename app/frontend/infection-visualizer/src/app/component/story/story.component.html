@@ -12,8 +12,10 @@
         <app-slider [min]="0" [max]="5" (valueChange)="onSliderChange($event)"></app-slider>
         <span class="">Days Passed: {{ maxDepth }}</span>
       </div>
-
       <app-radial-tree [maxDepth]="maxDepth" [infectionTreeData]="infectionTreeData" [stepSize]="50"></app-radial-tree>
+    </div>
+    <div *ngIf="currentSlide === 3">
+      <app-line-plot [plotData]="infectionTreeData['plot_data']"></app-line-plot>
     </div>
   </div>
 

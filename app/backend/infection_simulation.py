@@ -80,8 +80,10 @@ def get_dummy_tree(num_iter):
     G = nx.DiGraph()
     G.add_node(0)
     cnt = 1
+    plot_data = []
     for i in range(0, num_iter):
         nodes = list(G.nodes)
+        plot_data.append([i, len(nodes)])
         for n in nodes:
             if len(list(G.successors(n))) < 1:
                 for j in range(0, np.random.choice([1, 2, 3])):
@@ -89,4 +91,6 @@ def get_dummy_tree(num_iter):
                     cnt += 1
     for i in G.nodes:
         G.nodes[i]['status'] = 'inf'
-    return json_graph.node_link_data(G)
+    data = json_graph.node_link_data(G)
+    data['plot_data'] = plot_data
+    return data

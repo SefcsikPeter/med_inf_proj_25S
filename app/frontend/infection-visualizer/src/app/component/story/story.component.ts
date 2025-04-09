@@ -7,11 +7,12 @@ import {SliderComponent} from '../slider/slider.component';
 import {Subject} from 'rxjs';
 import {debounceTime} from 'rxjs/operators';
 import {InfectionTreeService} from '../../service/infection-tree.service';
+import {LinePlotComponent} from '../line-plot/line-plot.component';
 
 @Component({
   selector: 'app-story',
   standalone: true,
-  imports: [CommonModule, MatProgressBar, RadialTreeComponent, SliderComponent],
+  imports: [CommonModule, MatProgressBar, RadialTreeComponent, SliderComponent, LinePlotComponent],
   templateUrl: './story.component.html',
   styleUrl: './story.component.css'
 })
