@@ -1,14 +1,18 @@
 [
   {
     "id": 0,
-    "title": "What is an epidemic?",
+    "title": "What is an Epidemic?",
     "slides": [
       {
         "content": "When someone is infected by a new disease, it is kind of like gossip in school.",
         "image": "gossip.png"
       },
       {
-        "content": "When one of your friends tells a story about someone in your school to your friend group, you and your friends start telling the story to other people - but not everyone you meet",
+        "content": "When one of your friends tells a story about someone in your school to your friend group, you and your friends start telling the story to other people - but not everyone you meet.",
+        "image": "gossip_not_listening.png"
+      },
+      {
+        "content": "Try playing around with the slider to see, how the gossip spreads, each circle represents a day and each person represents someone who heard the gossip.",
         "image": ""
       }
     ]
