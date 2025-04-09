@@ -35,7 +35,6 @@ export class StoryComponent implements OnInit {
     debounceTime(200)
   ).subscribe(value => {
     this.maxDepth = value;
-    this.fetchTree();
     console.log(this.infectionTreeData)
   });
 
