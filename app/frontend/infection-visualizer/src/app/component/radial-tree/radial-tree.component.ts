@@ -114,9 +114,10 @@ export class RadialTreeComponent implements OnInit {
       .attr("class", "node-emoji")
       .attr("text-anchor", "middle")
       .attr("alignment-baseline", "middle")
+      .style("font-size", "20px")
       .attr("transform", (d: any) => `
-      rotate(${d.x * 180 / Math.PI - 90})
-      translate(${d.y},0)
+      translate(${Math.cos(d.x - Math.PI / 2) * d.y},
+                ${Math.sin(d.x - Math.PI / 2) * d.y})
       `)
       .text((d: any) => {
         if (d.depth === 0) return "🧍";
