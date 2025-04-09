@@ -32,7 +32,7 @@ export class StoryComponent implements OnInit {
 
   private sliderInput$ = new Subject<number>();
   private subscription = this.sliderInput$.pipe(
-    debounceTime(200)
+    debounceTime(50)
   ).subscribe(value => {
     this.maxDepth = value;
     console.log(this.infectionTreeData)
