@@ -12,10 +12,19 @@ export class InfectionTreeService {
   constructor(private http: HttpClient) { }
 
   getInfectionTree(popSize?: number): Observable<any> {
-    const url = popSize 
+    const url = popSize
       ? `${this.baseUrl}/inf-tree?pop_size=${popSize}`
       : `${this.baseUrl}/inf-tree`;
-    
+
+    return this.http.get(url);
+  }
+
+  getDummyTree(numIter?: number): Observable<any> {
+    const url = numIter
+      ? `${this.baseUrl}/dummy-tree?num_iter=${numIter}`
+      : `${this.baseUrl}/dummy-tree`;
+    console.log(url)
+
     return this.http.get(url);
   }
 }

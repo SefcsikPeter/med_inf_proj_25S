@@ -75,3 +75,18 @@ def get_inf_tree(pop_size=250):
     sim.run()
     print(pop_size)
     return build_infection_tree(sim)
+
+def get_dummy_tree(num_iter):
+    G = nx.DiGraph()
+    G.add_node(0)
+    cnt = 1
+    for i in range(0, num_iter):
+        nodes = list(G.nodes)
+        for n in nodes:
+            if len(list(G.successors(n))) < 1:
+                for j in range(0, np.random.choice([1, 2, 3])):
+                    G.add_edge(n, cnt)
+                    cnt += 1
+    for i in G.nodes:
+        G.nodes[i]['status'] = 'inf'
+    return json_graph.node_link_data(G)

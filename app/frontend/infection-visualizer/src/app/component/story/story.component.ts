@@ -53,7 +53,7 @@ export class StoryComponent implements OnInit {
   }
 
   fetchTree(): void {
-    this.treeService.getInfectionTree(this.popSize).subscribe({
+    this.treeService.getDummyTree(5).subscribe({
       next: (data) => {
         this.infectionTreeData = data;
       },

@@ -4,7 +4,7 @@ import covasim as cv
 import networkx as nx
 import numpy as np
 import json
-from infection_simulation import get_inf_tree
+from infection_simulation import get_inf_tree, get_dummy_tree
 from fastapi import Query, Path, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
@@ -17,7 +17,7 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:4200"],  # 👈 Angular dev server
+    allow_origins=["http://localhost:4200"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -37,6 +37,15 @@ def get_graph(pop_size: int = Query(250, description="Population size")):
         pop_size = 250 by default, population size for simulation
     '''
     return get_inf_tree(pop_size)
+
+@app.get("/dummy-tree")
+def get_graph(num_iter: int = Query(5, description="Number of iterations")):
+    '''
+    Creates dummy tree as json for story
+    params:
+        num_iter = 5 by default, determines the tree depth
+    '''
+    return get_dummy_tree(num_iter)
 
 @app.get("/story/{story_id}")
 def get_story_slide(
