@@ -1,0 +1,29 @@
+.card {
+  width: 120px;
+  height: 160px;
+  margin: 12px;
+  padding: 10px;
+  text-align: center;
+  border-radius: 10px;
+  text-decoration: none;
+  color: black;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card:hover {
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  cursor: pointer;
+}
+
+.progress-bar {
+  height: 6px;
+  background-color: green;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}

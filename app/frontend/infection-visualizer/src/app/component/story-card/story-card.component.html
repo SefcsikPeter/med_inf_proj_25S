@@ -1,1 +1,6 @@
-<p>story-card works!</p>
+<a [routerLink]="['/story', storyId]" class="card" [style.background]="bgColor">
+  <div class="progress-bar" [style.width]="progressWidth"></div>
+  <h3>{{ title }}</h3>
+  <p>Learning goals</p>
+  <p><strong>{{ progress }} %</strong></p>
+</a>

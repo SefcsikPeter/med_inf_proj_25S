@@ -8,3 +8,13 @@
 <app-slider [min]="1" [max]="500" (valueChange)="onSliderChange($event)"></app-slider>
 
 <p>Current value: {{ popSize }}</p>
+
+<div style="display: flex; flex-wrap: wrap; justify-content: center;">
+  <app-story-card
+    *ngFor="let s of stories"
+    [title]="s.title"
+    [progress]="s.progress"
+    [storyId]="s.id"
+  ></app-story-card>
+</div>
+
