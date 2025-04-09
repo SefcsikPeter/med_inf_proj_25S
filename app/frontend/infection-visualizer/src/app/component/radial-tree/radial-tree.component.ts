@@ -20,6 +20,7 @@ export class RadialTreeComponent implements OnInit {
   @Input() stepSize: number = 50;
   @Input() infectionTreeData: any;
   @Input() maxDepth: number = Infinity;
+  showNodeIds: boolean = false;
 
   constructor(private treeService: InfectionTreeService) {}
 
@@ -144,6 +145,6 @@ export class RadialTreeComponent implements OnInit {
       .attr("paint-order", "stroke")
       .attr("stroke", "white")
       .attr("fill", "currentColor")
-      .text((d: any) => d.data.id);
+      .text((d: any) => this.showNodeIds ? d.data.id : '');
   }
 }
