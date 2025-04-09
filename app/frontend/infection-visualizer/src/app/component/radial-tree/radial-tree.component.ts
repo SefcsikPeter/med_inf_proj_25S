@@ -19,6 +19,7 @@ export class RadialTreeComponent implements OnInit {
   @ViewChild('treeContainer', { static: true }) treeContainer!: ElementRef;
   @Input() stepSize: number = 50;
   @Input() infectionTreeData: any;
+  @Input() maxDepth: number = Infinity;
 
   constructor(private treeService: InfectionTreeService) {}
 
@@ -28,7 +29,8 @@ export class RadialTreeComponent implements OnInit {
 
   ngOnChanges(changes: SimpleChanges): void {
     if ((changes['infectionTreeData'] && !changes['infectionTreeData'].firstChange) ||
-      (changes['stepSize'] && !changes['stepSize'].firstChange)) {
+      (changes['stepSize'] && !changes['stepSize'].firstChange) ||
+      (changes['maxDepth'] && !changes['maxDepth'].firstChange)) {
       this.fetchTree();
     }
   }
@@ -60,10 +62,15 @@ export class RadialTreeComponent implements OnInit {
     tree(root);
 
     const stepSize = this.stepSize;
-    root.descendants().forEach((d: any) => d.y = d.depth * stepSize);
+    root.descendants().forEach((d: any) => {
+      d.y = d.depth * stepSize;
+    });
 
-    const maxDepth = d3.max(root.descendants(), (d: any) => d.depth) || 1;
-    const outerRadius = maxDepth * stepSize + 10;
+    const visibleNodes = root.descendants().filter((d: any) => d.depth <= this.maxDepth);
+    const visibleLinks = root.links().filter((l: any) => l.source.depth < this.maxDepth && l.target.depth <= this.maxDepth);
+
+    const visibleMaxDepth = d3.max(visibleNodes, (d: any) => d.depth) || 1;
+    const outerRadius = visibleMaxDepth * stepSize + 10;
     const diameter = outerRadius * 2;
 
     const svg = d3.select(this.treeContainer.nativeElement)
@@ -73,14 +80,19 @@ export class RadialTreeComponent implements OnInit {
       .attr("viewBox", [-outerRadius, -outerRadius, diameter, diameter])
       .style("font", "10px sans-serif");
 
+    const nodeDepths = Array.from(new Set(visibleNodes.map((d: any) => d.depth)))
+      .filter(d => d > 0)
+      .sort((a, b) => a - b);
+
     svg.append("g")
       .attr("stroke", "#ccc")
       .attr("stroke-dasharray", "2,2")
       .attr("fill", "none")
       .selectAll("circle")
-      .data(d3.range(1, maxDepth + 1))
+      .data(nodeDepths)
       .join("circle")
       .attr("r", (d: number) => d * stepSize);
+
 
     svg.append("g")
       .attr("fill", "none")
@@ -88,7 +100,7 @@ export class RadialTreeComponent implements OnInit {
       .attr("stroke-opacity", 0.4)
       .attr("stroke-width", 1.5)
       .selectAll("path")
-      .data(root.links())
+      .data(visibleLinks)
       .join("path")
       .attr("d", d3.linkRadial()
         .angle((d: any) => d.x)
@@ -96,7 +108,7 @@ export class RadialTreeComponent implements OnInit {
 
     svg.append("g")
       .selectAll("text.node-emoji")
-      .data(root.descendants())
+      .data(visibleNodes)
       .join("text")
       .attr("class", "node-emoji")
       .attr("text-anchor", "middle")
@@ -119,7 +131,7 @@ export class RadialTreeComponent implements OnInit {
       .attr("stroke-linejoin", "round")
       .attr("stroke-width", 3)
       .selectAll("text")
-      .data(root.descendants())
+      .data(visibleNodes)
       .join("text")
       .attr("transform", (d: any) => `
         rotate(${d.x * 180 / Math.PI - 90})

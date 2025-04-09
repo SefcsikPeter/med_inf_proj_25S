@@ -25,6 +25,7 @@ export class StoryComponent implements OnInit {
   imagePath: string = '';
   popSize: number = 12;
   infectionTreeData: any;
+  maxDepth = 3;
 
   constructor(private storyService: StoryService,
               private treeService: InfectionTreeService) {}
