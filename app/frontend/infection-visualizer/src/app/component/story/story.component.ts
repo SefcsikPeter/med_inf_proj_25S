@@ -6,6 +6,7 @@ import {RadialTreeComponent} from '../radial-tree/radial-tree.component';
 import {SliderComponent} from '../slider/slider.component';
 import {Subject} from 'rxjs';
 import {debounceTime} from 'rxjs/operators';
+import {InfectionTreeService} from '../../service/infection-tree.service';
 
 @Component({
   selector: 'app-story',
@@ -23,27 +24,43 @@ export class StoryComponent implements OnInit {
   slide: any = null;
   imagePath: string = '';
   popSize: number = 12;
+  infectionTreeData: any;
 
-  constructor(private storyService: StoryService) {}
+  constructor(private storyService: StoryService,
+              private treeService: InfectionTreeService) {}
 
-  private sliderInput$ = new Subject<number>(); // 🔁 reactive value stream
+  private sliderInput$ = new Subject<number>();
   private subscription = this.sliderInput$.pipe(
     debounceTime(200)
   ).subscribe(value => {
     this.popSize = value;
-    console.log('Debounced value:', value);
+    console.log(this.popSize);
+    this.fetchTree();
+    console.log(this.infectionTreeData)
   });
 
   onSliderChange(value: number) {
-    this.sliderInput$.next(value); // 👈 send value into Subject
+    this.sliderInput$.next(value);
   }
 
   ngOnDestroy(): void {
-    this.subscription.unsubscribe(); // 💡 always clean up
+    this.subscription.unsubscribe();
   }
 
   ngOnInit(): void {
     this.loadSlide(this.currentSlide);
+    this.fetchTree();
+  }
+
+  fetchTree(): void {
+    this.treeService.getInfectionTree(this.popSize).subscribe({
+      next: (data) => {
+        this.infectionTreeData = data;
+      },
+      error: (err) => {
+        console.error('Error fetching infection tree:', err);
+      }
+    });
   }
 
   loadSlide(index: number): void {

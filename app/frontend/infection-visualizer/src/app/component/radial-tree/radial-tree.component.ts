@@ -17,9 +17,8 @@ import { InfectionTreeService } from '../../service/infection-tree.service';
 })
 export class RadialTreeComponent implements OnInit {
   @ViewChild('treeContainer', { static: true }) treeContainer!: ElementRef;
-  @Input() popSize: number = 250;
   @Input() stepSize: number = 50;
-  infectionTreeData: any;
+  @Input() infectionTreeData: any;
 
   constructor(private treeService: InfectionTreeService) {}
 
@@ -28,23 +27,16 @@ export class RadialTreeComponent implements OnInit {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if ((changes['popSize'] && !changes['popSize'].firstChange) ||
+    if ((changes['infectionTreeData'] && !changes['infectionTreeData'].firstChange) ||
       (changes['stepSize'] && !changes['stepSize'].firstChange)) {
       this.fetchTree();
     }
   }
 
+
   fetchTree(): void {
     d3.select(this.treeContainer.nativeElement).selectAll('*').remove();
-    this.treeService.getInfectionTree(this.popSize).subscribe({
-      next: (data) => {
-        this.infectionTreeData = data;
-        this.createRadialTree();
-      },
-      error: (err) => {
-        console.error('Error fetching infection tree:', err);
-      }
-    });
+    this.createRadialTree();
   }
 
   createRadialTree(): void {
