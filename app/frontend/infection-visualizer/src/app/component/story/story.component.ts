@@ -28,6 +28,7 @@ export class StoryComponent implements OnInit {
   popSize: number = 200;
   infectionTreeData: any;
   maxDepth = 0;
+  dataType: number = NaN;
 
   constructor(private storyService: StoryService,
               private treeService: InfectionTreeService,
@@ -58,11 +59,28 @@ export class StoryComponent implements OnInit {
     this.route.queryParamMap.subscribe(params => {
       this.currentSlide = Number(params.get('page')) || 0;
     });
+    this.loadData();
     this.loadSlide(this.currentSlide);
-    this.fetchTree();
   }
 
-  fetchTree(): void {
+  loadData(): void {
+    this.storyService.getStoryData(this.storyId).subscribe({
+      next: (data) => {
+        this.title = data.title;
+        this.totalSlides = data.total_pages;
+        this.dataType = data.data[0].type;
+
+        if (this.dataType === 0) {
+          this.fetchDummyTree();
+        }
+        console.log('loaded data', data);
+      },
+      error: (err) => {
+        console.log('Error fetching story data', err);
+      }
+    })
+  }
+  fetchDummyTree(): void {
     this.treeService.getDummyTree(5).subscribe({
       next: (data) => {
         this.infectionTreeData = data;
@@ -78,9 +96,7 @@ export class StoryComponent implements OnInit {
       next: (data) => {
         console.log(data)
         this.slide = data.slide;
-        this.title = data.title;
         this.currentSlide = data.page;
-        this.totalSlides = data.total_pages;
         this.imagePath = 'http://localhost:8000/static/images/';
         if (data.image != null) {
           this.imagePath = this.imagePath + data.image;

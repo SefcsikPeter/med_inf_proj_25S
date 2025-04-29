@@ -16,4 +16,10 @@ export class StoryService {
 
     return this.http.get<any>(url, { params });
   }
+
+  getStoryData(storyId: number): Observable<any> {
+    const url = `${this.baseUrl}/${storyId}/data`;
+
+    return this.http.get<any>(url);
+  }
 }

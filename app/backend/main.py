@@ -67,11 +67,33 @@ def get_story_slide(
         raise HTTPException(status_code=404, detail="Slide not found")
 
     return {
-        "title": story.get("title", "Untitled"),
+        #"title": story.get("title", "Untitled"),
         "slide": slides[page],
         "page": page,
-        "total_pages": len(slides),
+        #"total_pages": len(slides),
         "image": slides[page].get('image')
+    }
+
+@app.get("/story/{story_id}/data")
+def get_story_data(
+    story_id: int = Path(..., description="ID of the story"),
+):
+    try:
+        with open("stories.json", "r") as f:
+            stories = json.load(f)
+    except FileNotFoundError:
+        raise HTTPException(status_code=500, detail="stories.json not found")
+
+    story = next((s for s in stories if s["id"] == story_id), None)
+    if not story:
+        raise HTTPException(status_code=404, detail="Story not found")
+
+    slides = story.get("slides", [])
+
+    return {
+        "title": story.get("title", "Untitled"),
+        "total_pages": len(slides),
+        "data": story.get("data", []),
     }
 
 if __name__ == "__main__":
