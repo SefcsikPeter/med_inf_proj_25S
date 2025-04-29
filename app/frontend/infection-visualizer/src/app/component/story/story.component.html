@@ -22,25 +22,35 @@
 
     <!-- Container for up to three components on the story page -->
     <div *ngIf="currentSlide === 4" style="display: flex; justify-content: center; gap: 2rem; margin-top: 2rem;">
-      <!-- Radial Tree with Slider -->
-      <div class="col-3" style="border: 1px solid #ccc; padding: 1rem; border-radius: 8px;">
-        <div class="d-flex align-items-center gap-2" style="margin-bottom: 1rem;">
-          <div class="flex-grow-1" style="min-width: 150px;">
-            <app-slider [min]="0" [max]="5" (valueChange)="onSliderChange($event)"></app-slider>
-          </div>
-          <span>Days Passed: {{ maxDepth }}</span>
+
+      <!-- Visualization 1 -->
+      <div *ngIf="false" class="col-3 visualization-container">
+        <div>
+          <h4>Radial Tree</h4>
+          <app-radial-tree [maxDepth]="maxDepth" [infectionTreeData]="infectionTreeData" [stepSize]="50"></app-radial-tree>
         </div>
-        <app-radial-tree [maxDepth]="maxDepth" [infectionTreeData]="infectionTreeData" [stepSize]="50"></app-radial-tree>
       </div>
 
-      <!-- Line Plot -->
-      <div class="col-3" style="border: 1px solid #ccc; padding: 1rem; border-radius: 8px;">
-        <app-line-plot [plotData]="infectionTreeData['plot_data']"></app-line-plot>
+      <!-- Visualization 2 -->
+      <div *ngIf="false" class="col-3 visualization-container">
+        <div>
+          <h4>Line Plot</h4>
+          <app-line-plot [plotData]="infectionTreeData['plot_data']"></app-line-plot>
+        </div>
       </div>
 
-      <!-- Just for testing -->
-      <div class="col-3" style="border: 1px solid #ccc; padding: 1rem; border-radius: 8px;">
-        <app-line-plot [plotData]="infectionTreeData['plot_data']"></app-line-plot>
+      <!-- Sliders -->
+      <div *ngIf="false" class="col-3 visualization-container">
+        <div>
+          <h4>Sliders</h4>
+          <div class="d-flex align-items-center gap-2" style="margin-bottom: 1rem;">
+            <span>☀️</span>
+            <div class="flex-grow-1" style="min-width: 150px;">
+              <app-slider [min]="0" [max]="5" (valueChange)="onSliderChange($event)"></app-slider>
+            </div>
+            <span style="white-space: nowrap;">Days Passed: {{ maxDepth }}</span>
+          </div>
+        </div>
       </div>
     </div>
 
