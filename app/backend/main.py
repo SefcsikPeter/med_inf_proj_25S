@@ -58,21 +58,28 @@ def get_story_slide(
     except FileNotFoundError:
         raise HTTPException(status_code=500, detail="stories.json not found")
 
-    story = next((s for s in stories if s["id"] == story_id), None)
-    if not story:
+    story_index = next((i for i, s in enumerate(stories) if s["id"] == story_id), None)
+    if story_index is None:
         raise HTTPException(status_code=404, detail="Story not found")
 
-    slides = story.get("slides", [])
+    slides = stories[story_index].get("slides", [])
     if page < 0 or page >= len(slides):
         raise HTTPException(status_code=404, detail="Slide not found")
 
+    stories[story_index]["progress"] = page
+
+    try:
+        with open("stories.json", "w") as f:
+            json.dump(stories, f, indent=2)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error saving progress: {str(e)}")
+
     return {
-        #"title": story.get("title", "Untitled"),
         "slide": slides[page],
         "page": page,
-        #"total_pages": len(slides),
         "image": slides[page].get('image')
     }
+
 
 @app.get("/story/{story_id}/data")
 def get_story_data(
