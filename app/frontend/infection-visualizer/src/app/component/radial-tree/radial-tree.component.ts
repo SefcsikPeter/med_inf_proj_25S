@@ -43,6 +43,9 @@ export class RadialTreeComponent implements OnInit {
   }
 
   createRadialTree(): void {
+    const containerWidth = this.treeContainer.nativeElement.offsetWidth;
+    const containerHeight = this.treeContainer.nativeElement.offsetHeight || containerWidth; // in case height is not set
+
     const { nodes, links } = this.infectionTreeData;
     const nodeById = new Map(nodes.map((d: any) => [d.id, { ...d, children: [] }]));
 
@@ -62,40 +65,42 @@ export class RadialTreeComponent implements OnInit {
       .separation((a: any, b: any) => (a.parent === b.parent ? 1 : 2) / a.depth);
     tree(root);
 
-    const stepSize = this.stepSize;
     root.descendants().forEach((d: any) => {
-      d.y = d.depth * stepSize;
+      d.y = d.depth * this.stepSize;
     });
 
     const visibleNodes = root.descendants().filter((d: any) => d.depth <= this.maxDepth);
     const visibleLinks = root.links().filter((l: any) => l.source.depth < this.maxDepth && l.target.depth <= this.maxDepth);
 
     const visibleMaxDepth = d3.max(visibleNodes, (d: any) => d.depth) || 1;
-    const outerRadius = visibleMaxDepth * stepSize + 10;
-    const diameter = outerRadius * 2;
+    const outerRadius = visibleMaxDepth * this.stepSize + 10;
+
+    const scaleFactor = (Math.min(containerWidth, containerHeight) / 2 - 20) / outerRadius;
 
     const svg = d3.select(this.treeContainer.nativeElement)
       .append("svg")
-      .attr("width", diameter)
-      .attr("height", diameter)
-      .attr("viewBox", [-outerRadius, -outerRadius, diameter, diameter])
+      .attr("width", containerWidth)
+      .attr("height", containerHeight)
+      .attr("viewBox", [-containerWidth / 2, -containerHeight / 2, containerWidth, containerHeight].join(' '))
       .style("font", "10px sans-serif");
+
+    const container = svg.append("g")
+      .attr("transform", `scale(${scaleFactor})`);
 
     const nodeDepths = Array.from(new Set(visibleNodes.map((d: any) => d.depth)))
       .filter(d => d > 0)
       .sort((a, b) => a - b);
 
-    svg.append("g")
+    container.append("g")
       .attr("stroke", "#ccc")
       .attr("stroke-dasharray", "2,2")
       .attr("fill", "none")
       .selectAll("circle")
       .data(nodeDepths)
       .join("circle")
-      .attr("r", (d: number) => d * stepSize);
+      .attr("r", (d: number) => d * this.stepSize);
 
-
-    svg.append("g")
+    container.append("g")
       .attr("fill", "none")
       .attr("stroke", "#555")
       .attr("stroke-opacity", 0.4)
@@ -107,7 +112,7 @@ export class RadialTreeComponent implements OnInit {
         .angle((d: any) => d.x)
         .radius((d: any) => d.y) as any);
 
-    svg.append("g")
+    container.append("g")
       .selectAll("text.node-emoji")
       .data(visibleNodes)
       .join("text")
@@ -116,8 +121,8 @@ export class RadialTreeComponent implements OnInit {
       .attr("alignment-baseline", "middle")
       .style("font-size", "20px")
       .attr("transform", (d: any) => `
-      translate(${Math.cos(d.x - Math.PI / 2) * d.y},
-                ${Math.sin(d.x - Math.PI / 2) * d.y})
+        translate(${Math.cos(d.x - Math.PI / 2) * d.y},
+                  ${Math.sin(d.x - Math.PI / 2) * d.y})
       `)
       .text((d: any) => {
         if (d.depth === 0) return "🧍";
@@ -129,17 +134,17 @@ export class RadialTreeComponent implements OnInit {
         }
       });
 
-    svg.append("g")
+    container.append("g")
       .attr("stroke-linejoin", "round")
       .attr("stroke-width", 3)
       .selectAll("text")
       .data(visibleNodes)
       .join("text")
       .attr("transform", (d: any) => `
-        rotate(${d.x * 180 / Math.PI - 90})
-        translate(${d.y},0)
-        rotate(${d.x >= Math.PI ? 180 : 0})
-      `)
+          rotate(${d.x * 180 / Math.PI - 90})
+          translate(${d.y},0)
+          rotate(${d.x >= Math.PI ? 180 : 0})
+        `)
       .attr("dy", "0.31em")
       .attr("x", (d: any) => d.x < Math.PI === !d.children ? 6 : -6)
       .attr("text-anchor", (d: any) => d.x < Math.PI === !d.children ? "start" : "end")

@@ -17,3 +17,15 @@
   align-items: center;
   height: 100%;
 }
+
+.tree-container {
+  width: 100%;
+  max-width: 500px; /* Maximum size, e.g., for large screens */
+  height: auto;
+  aspect-ratio: 1 / 1; /* Keep it a square */
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
