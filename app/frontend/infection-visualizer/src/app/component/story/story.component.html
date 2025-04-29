@@ -7,7 +7,7 @@
   <div class="slide" style="justify-content: center">
     <p style="display: flex; justify-content: center; padding: 0 1rem;">{{ slide.content }}</p>
     <img *ngIf="imagePath != 'http://localhost:8000/static/images/'" [src]="imagePath" alt="Slide image" style="width: 600px; display: block; margin: 0 auto;" />
-    
+
     <div *ngIf="currentSlide === 2" class="container">
       <div class="row justify-content-center">
         <div class="col-12 col-md-6 col-lg-4">
@@ -18,19 +18,21 @@
           ></app-radial-tree>
         </div>
       </div>
-    </div>    
-  
+    </div>
+
     <!-- Container for up to three components on the story page -->
     <div *ngIf="currentSlide === 4" style="display: flex; justify-content: center; gap: 2rem; margin-top: 2rem;">
       <!-- Radial Tree with Slider -->
       <div class="col-3" style="border: 1px solid #ccc; padding: 1rem; border-radius: 8px;">
         <div class="d-flex align-items-center gap-2" style="margin-bottom: 1rem;">
-          <app-slider [min]="0" [max]="5" (valueChange)="onSliderChange($event)"></app-slider>
+          <div class="flex-grow-1" style="min-width: 150px;">
+            <app-slider [min]="0" [max]="5" (valueChange)="onSliderChange($event)"></app-slider>
+          </div>
           <span>Days Passed: {{ maxDepth }}</span>
         </div>
         <app-radial-tree [maxDepth]="maxDepth" [infectionTreeData]="infectionTreeData" [stepSize]="50"></app-radial-tree>
       </div>
-  
+
       <!-- Line Plot -->
       <div class="col-3" style="border: 1px solid #ccc; padding: 1rem; border-radius: 8px;">
         <app-line-plot [plotData]="infectionTreeData['plot_data']"></app-line-plot>
@@ -41,13 +43,13 @@
         <app-line-plot [plotData]="infectionTreeData['plot_data']"></app-line-plot>
       </div>
     </div>
-  
+
     <!-- Extra bottom margin if needed -->
     <div *ngIf="currentSlide === 4">
       <div style="margin-bottom: 100px;"></div>
     </div>
   </div>
-  
+
 
   <div class="slide-nav">
     <button class="btn btn-secondary" (click)="prevSlide()" [disabled]="currentSlide === 0">Previous</button>

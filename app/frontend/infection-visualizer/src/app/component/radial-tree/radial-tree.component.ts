@@ -21,10 +21,12 @@ export class RadialTreeComponent implements OnInit {
   @Input() infectionTreeData: any;
   @Input() maxDepth: number = Infinity;
   showNodeIds: boolean = false;
+  private resizeObserver!: ResizeObserver;
 
   constructor(private treeService: InfectionTreeService) {}
 
   ngOnInit(): void {
+    this.observeResize();
     this.fetchTree();
   }
 
@@ -36,6 +38,16 @@ export class RadialTreeComponent implements OnInit {
     }
   }
 
+  observeResize(): void {
+    this.resizeObserver = new ResizeObserver(() => {
+      this.fetchTree();
+    });
+    this.resizeObserver.observe(this.treeContainer.nativeElement);
+  }
+
+  ngOnDestroy(): void {
+    this.resizeObserver?.disconnect();
+  }
 
   fetchTree(): void {
     d3.select(this.treeContainer.nativeElement).selectAll('*').remove();
