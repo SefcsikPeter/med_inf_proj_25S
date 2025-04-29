@@ -4,15 +4,15 @@
     "title": "What is an Epidemic?",
     "slides": [
       {
-        "content": "When someone is infected by a new disease, it is kind of like gossip in school.",
+        "text": "When someone is infected by a new disease, it is kind of like gossip in school.",
         "image": "gossip.png"
       },
       {
-        "content": "When one of your friends tells a story about someone in your school to your friend group, you and your friends start telling the story to other people - but not everyone you meet.",
+        "text": "When one of your friends tells a story about someone in your school to your friend group, you and your friends start telling the story to other people - but not everyone you meet.",
         "image": "gossip_not_listening.png"
       },
       {
-        "content": "Some people hear the story and pass it on, and others don't. But if enough people keep sharing it, soon almost the whole school knows.",
+        "text": "Some people hear the story and pass it on, and others don't. But if enough people keep sharing it, soon almost the whole school knows.",
         "vis1": {
           "type": 0,
           "depth": 4,
@@ -24,23 +24,24 @@
         }
       },
       {
-        "content": "A disease spreads the same way, one person might only infect a few other people, but when they also start infecting other people, the disease starts spreading faster and faster! That is how an epidemic starts."
+        "text": "A disease spreads the same way, one person might only infect a few other people, but when they also start infecting other people, the disease starts spreading faster and faster! That is how an epidemic starts."
       },
       {
-        "content": "Example page"
+        "text": "Example page"
       }
-    ]
+    ],
+    "progress": 3
   },
-    {
+  {
     "id": 1,
     "title": "How Can We Visualize Epidemics?",
     "slides": [
       {
-        "content": "Try playing around with the slider to see, how the gossip spreads, each circle represents a day and each person represents someone who heard the gossip.",
+        "text": "Try playing around with the slider to see, how the gossip spreads, each circle represents a day and each person represents someone who heard the gossip.",
         "image": ""
       },
       {
-        "content": "Another way of showing the amount of people who heard the gossip is using plots like this. We'll get into more details on how we can read them in the next pages",
+        "text": "Another way of showing the amount of people who heard the gossip is using plots like this. We'll get into more details on how we can read them in the next pages",
         "image": ""
       }
     ]
