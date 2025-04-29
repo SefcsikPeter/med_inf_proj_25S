@@ -2,6 +2,8 @@
   {
     "id": 0,
     "title": "What is an Epidemic?",
+    "chapter": 0,
+    "level": 0,
     "slides": [
       {
         "text": "When someone is infected by a new disease, it is kind of like gossip in school.",
@@ -25,16 +27,15 @@
       },
       {
         "text": "A disease spreads the same way, one person might only infect a few other people, but when they also start infecting other people, the disease starts spreading faster and faster! That is how an epidemic starts."
-      },
-      {
-        "text": "Example page"
       }
     ],
-    "progress": 1
+    "progress": 4
   },
   {
     "id": 1,
     "title": "How Can We Visualize Epidemics?",
+    "chapter": 1,
+    "level": 0,
     "slides": [
       {
         "text": "Try playing around with the slider to see, how the gossip spreads, each circle represents a day and each person represents someone who heard the gossip.",
