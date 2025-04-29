@@ -1,14 +1,14 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StoryService } from '../../service/story.service';
-import {MatProgressBar} from '@angular/material/progress-bar';
-import {RadialTreeComponent} from '../radial-tree/radial-tree.component';
-import {SliderComponent} from '../slider/slider.component';
-import {Subject} from 'rxjs';
-import {debounceTime} from 'rxjs/operators';
-import {InfectionTreeService} from '../../service/infection-tree.service';
-import {LinePlotComponent} from '../line-plot/line-plot.component';
-import {ActivatedRoute, Router} from '@angular/router';
+import { MatProgressBar } from '@angular/material/progress-bar';
+import { RadialTreeComponent } from '../radial-tree/radial-tree.component';
+import { SliderComponent } from '../slider/slider.component';
+import { Subject, firstValueFrom } from 'rxjs';
+import { debounceTime } from 'rxjs/operators';
+import { InfectionTreeService } from '../../service/infection-tree.service';
+import { LinePlotComponent } from '../line-plot/line-plot.component';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-story',
@@ -17,7 +17,7 @@ import {ActivatedRoute, Router} from '@angular/router';
   templateUrl: './story.component.html',
   styleUrl: './story.component.css'
 })
-export class StoryComponent implements OnInit {
+export class StoryComponent implements OnInit, OnDestroy {
   @Input() storyId: number = 0;
 
   currentSlide: number = 0;
@@ -26,21 +26,26 @@ export class StoryComponent implements OnInit {
   slide: any = null;
   imagePath: string = '';
   popSize: number = 200;
-  infectionTreeData: any;
+  infectionTreeData: any = {};
   maxDepth = 0;
-  dataType: number = NaN;
+  showVis1: boolean = false;
+  vis1: any;
+  showVis2: boolean = false;
+  showSliders: boolean = false;
 
-  constructor(private storyService: StoryService,
-              private treeService: InfectionTreeService,
-              private route: ActivatedRoute,
-              private router: Router) {}
+  constructor(
+    private storyService: StoryService,
+    private treeService: InfectionTreeService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
 
   private sliderInput$ = new Subject<number>();
   private subscription = this.sliderInput$.pipe(
     debounceTime(50)
   ).subscribe(value => {
     this.maxDepth = value;
-    console.log(this.infectionTreeData)
+    console.log(this.infectionTreeData);
   });
 
   onSliderChange(value: number) {
@@ -59,6 +64,7 @@ export class StoryComponent implements OnInit {
     this.route.queryParamMap.subscribe(params => {
       this.currentSlide = Number(params.get('page')) || 0;
     });
+
     this.loadData();
     this.loadSlide(this.currentSlide);
   }
@@ -68,45 +74,48 @@ export class StoryComponent implements OnInit {
       next: (data) => {
         this.title = data.title;
         this.totalSlides = data.total_pages;
-        this.dataType = data.data[0].type;
-
-        if (this.dataType === 0) {
-          this.fetchDummyTree();
-        }
-        console.log('loaded data', data);
+        console.log('loaded title and size', data);
       },
       error: (err) => {
-        console.log('Error fetching story data', err);
-      }
-    })
-  }
-  fetchDummyTree(): void {
-    this.treeService.getDummyTree(5).subscribe({
-      next: (data) => {
-        this.infectionTreeData = data;
-      },
-      error: (err) => {
-        console.error('Error fetching infection tree:', err);
+        console.log('Error fetching title and size', err);
       }
     });
   }
 
-  loadSlide(index: number): void {
+  async fetchDummyTree(numIter: number): Promise<boolean> {
+    try {
+      const data = await firstValueFrom(this.treeService.getDummyTree(numIter));
+      this.infectionTreeData = data;
+      return true;
+    } catch (err) {
+      console.error('Error fetching infection tree:', err);
+      return false;
+    }
+  }
+
+  async loadSlide(index: number): Promise<void> {
     this.storyService.getStorySlide(this.storyId, index).subscribe({
-      next: (data) => {
-        console.log(data)
+      next: async (data) => {
         this.slide = data.slide;
         this.currentSlide = data.page;
         this.imagePath = 'http://localhost:8000/static/images/';
         if (data.image != null) {
-          this.imagePath = this.imagePath + data.image;
+          this.imagePath += data.image;
+        }
+
+        if (data.slide.vis1 != null) {
+          this.vis1 = data.slide.vis1;
+
+          if (this.vis1.data.type === 0) {
+            this.showVis1 = await this.fetchDummyTree(this.vis1.data.num_iter);
+          }
         }
 
         this.router.navigate([], {
           relativeTo: this.route,
           queryParams: { page: this.currentSlide },
-          queryParamsHandling: 'merge', // keeps other query params if any
-          replaceUrl: true // optional: prevents adding a new browser history entry
+          queryParamsHandling: 'merge',
+          replaceUrl: true
         });
       },
       error: (err) => {

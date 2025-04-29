@@ -8,6 +8,7 @@
     <p style="display: flex; justify-content: center; padding: 0 1rem;">{{ slide.content }}</p>
     <img *ngIf="imagePath != 'http://localhost:8000/static/images/'" [src]="imagePath" alt="Slide image" style="width: 600px; display: block; margin: 0 auto;" />
 
+    <!--
     <div *ngIf="currentSlide === 2" class="container">
       <div class="row justify-content-center">
         <div class="col-12 col-md-6 col-lg-4">
@@ -19,20 +20,28 @@
         </div>
       </div>
     </div>
+    -->
 
     <!-- Container for up to three components on the story page -->
-    <div *ngIf="currentSlide === 4" style="display: flex; justify-content: center; gap: 2rem; margin-top: 2rem;">
+    <div *ngIf="showVis1 || showVis2 || showSliders" style="display: flex; justify-content: center; gap: 2rem; margin-top: 2rem;">
 
       <!-- Visualization 1 -->
-      <div *ngIf="true" class="col-3 visualization-container">
+      <div *ngIf="showVis1" class="col-3 visualization-container">
         <div>
-          <h4>Radial Tree</h4>
-          <app-radial-tree [maxDepth]="maxDepth" [infectionTreeData]="infectionTreeData" [stepSize]="50"></app-radial-tree>
+          <div class="row align-items-center">
+            <div class="col-auto">
+              <h4>Radial Tree</h4>
+            </div>
+            <div class="col-auto">
+              <button class="btn btn-primary" (click)="fetchDummyTree(vis1.data.num_iter)"> Generate New Tree </button>
+            </div>
+          </div>
+          <app-radial-tree [maxDepth]="this.vis1.depth" [infectionTreeData]="infectionTreeData" [stepSize]="this.vis1.step"></app-radial-tree>
         </div>
       </div>
 
       <!-- Visualization 2 -->
-      <div *ngIf="false" class="col-3 visualization-container">
+      <div *ngIf="showVis2" class="col-3 visualization-container">
         <div>
           <h4>Line Plot</h4>
           <app-line-plot [plotData]="infectionTreeData['plot_data']"></app-line-plot>
@@ -40,7 +49,7 @@
       </div>
 
       <!-- Sliders -->
-      <div *ngIf="true" class="col-3 visualization-container">
+      <div *ngIf="showSliders" class="col-3 visualization-container">
         <div>
           <h4>Sliders</h4>
           <div class="d-flex align-items-center gap-2" style="margin-bottom: 1rem;">
@@ -52,11 +61,6 @@
           </div>
         </div>
       </div>
-    </div>
-
-    <!-- Extra bottom margin if needed -->
-    <div *ngIf="currentSlide === 4">
-      <div style="margin-bottom: 100px;"></div>
     </div>
   </div>
 

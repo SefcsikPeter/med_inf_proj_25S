@@ -2,12 +2,6 @@
   {
     "id": 0,
     "title": "What is an Epidemic?",
-    "data": [
-      {
-        "type": 0,
-        "num_iter": 5
-      }
-    ],
     "slides": [
       {
         "content": "When someone is infected by a new disease, it is kind of like gossip in school.",
@@ -22,7 +16,11 @@
         "vis1": {
           "type": 0,
           "depth": 4,
-          "step": 50
+          "step": 50,
+          "data": {
+            "type": 0,
+            "num_iter": 5
+          }
         }
       },
       {
