@@ -5,22 +5,8 @@
     <a>Slide {{ currentSlide + 1 }} of {{ totalSlides }}</a>
   </div>
   <div class="slide" style="justify-content: center">
-    <p style="display: flex; justify-content: center; padding: 0 1rem;">{{ slide.content }}</p>
+    <p style="display: flex; justify-content: center; padding: 0 1rem;">{{ slide.text }}</p>
     <img *ngIf="imagePath != 'http://localhost:8000/static/images/'" [src]="imagePath" alt="Slide image" style="width: 600px; display: block; margin: 0 auto;" />
-
-    <!--
-    <div *ngIf="currentSlide === 2" class="container">
-      <div class="row justify-content-center">
-        <div class="col-12 col-md-6 col-lg-4">
-          <app-radial-tree
-            [maxDepth]="4"
-            [infectionTreeData]="infectionTreeData"
-            [stepSize]="50"
-          ></app-radial-tree>
-        </div>
-      </div>
-    </div>
-    -->
 
     <!-- Container for up to three components on the story page -->
     <div *ngIf="showVis1 || showVis2 || showSliders" style="display: flex; justify-content: center; gap: 2rem; margin-top: 2rem;">
