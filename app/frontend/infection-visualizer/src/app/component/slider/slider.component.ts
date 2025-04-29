@@ -17,7 +17,9 @@ export class SliderComponent implements AfterViewInit {
   }
 
   createSlider() {
-    const width = 300;
+    const container = document.getElementById('slider');
+    const width = container?.clientWidth || 300;
+
     const height = 30;
 
     const svg = d3.select('#slider')
