@@ -7,7 +7,7 @@ import {RadialTreeComponent} from './component/radial-tree/radial-tree.component
 export const routes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'infection-tree', component: InfectionTreeComponent},
-    { path: 'story', component: StoryComponent},
+    { path: 'story/:story_id', component: StoryComponent },
     { path: 'rad-tree', component: RadialTreeComponent},
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: '**', redirectTo: 'home' }

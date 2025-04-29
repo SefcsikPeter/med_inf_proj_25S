@@ -8,6 +8,7 @@ import {Subject} from 'rxjs';
 import {debounceTime} from 'rxjs/operators';
 import {InfectionTreeService} from '../../service/infection-tree.service';
 import {LinePlotComponent} from '../line-plot/line-plot.component';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-story',
@@ -29,7 +30,9 @@ export class StoryComponent implements OnInit {
   maxDepth = 0;
 
   constructor(private storyService: StoryService,
-              private treeService: InfectionTreeService) {}
+              private treeService: InfectionTreeService,
+              private route: ActivatedRoute,
+              private router: Router) {}
 
   private sliderInput$ = new Subject<number>();
   private subscription = this.sliderInput$.pipe(
@@ -48,6 +51,13 @@ export class StoryComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.route.paramMap.subscribe(params => {
+      this.storyId = Number(params.get('story_id')) || 0;
+    });
+
+    this.route.queryParamMap.subscribe(params => {
+      this.currentSlide = Number(params.get('page')) || 0;
+    });
     this.loadSlide(this.currentSlide);
     this.fetchTree();
   }
@@ -75,6 +85,13 @@ export class StoryComponent implements OnInit {
         if (data.image != null) {
           this.imagePath = this.imagePath + data.image;
         }
+
+        this.router.navigate([], {
+          relativeTo: this.route,
+          queryParams: { page: this.currentSlide },
+          queryParamsHandling: 'merge', // keeps other query params if any
+          replaceUrl: true // optional: prevents adding a new browser history entry
+        });
       },
       error: (err) => {
         console.error('Failed to load story slide:', err);
