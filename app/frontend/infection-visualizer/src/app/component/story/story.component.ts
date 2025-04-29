@@ -127,12 +127,19 @@ export class StoryComponent implements OnInit, OnDestroy {
   nextSlide(): void {
     if (this.currentSlide < this.totalSlides - 1) {
       this.loadSlide(this.currentSlide + 1);
+      this.showVis1 = false;
+      this.showVis2 = false;
+      this.showSliders = false;
     }
   }
 
   prevSlide(): void {
     if (this.currentSlide > 0) {
       this.loadSlide(this.currentSlide - 1);
+      this.showVis1 = false;
+      this.showVis2 = false;
+      this.showSliders = false;
     }
+
   }
 }
