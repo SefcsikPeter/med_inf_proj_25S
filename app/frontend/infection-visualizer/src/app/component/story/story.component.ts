@@ -71,8 +71,10 @@ export class StoryComponent implements OnInit {
         this.title = data.title;
         this.currentSlide = data.page;
         this.totalSlides = data.total_pages;
-        this.imagePath = 'http://localhost:8000/static/images/' + data.image;
-        console.log(this.imagePath)
+        this.imagePath = 'http://localhost:8000/static/images/';
+        if (data.image != null) {
+          this.imagePath = this.imagePath + data.image;
+        }
       },
       error: (err) => {
         console.error('Failed to load story slide:', err);
