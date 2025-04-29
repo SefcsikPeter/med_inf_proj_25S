@@ -28,14 +28,20 @@ export class LinePlotComponent implements OnInit {
     const xLabel = 'days';
     const yLabel = 'people';
     const margin = { top: 20, right: 30, bottom: 50, left: 60 };
-    const width = 460 - margin.left - margin.right;
-    const height = 400 - margin.top - margin.bottom;
+    const containerEl = this.chartContainer.nativeElement as HTMLElement;
+    const fullWidth = containerEl.offsetWidth || 460;
+    const fullHeight = containerEl.offsetHeight || 400;
+
+    const width = fullWidth - margin.left - margin.right;
+    const height = fullHeight - margin.top - margin.bottom;
+
     const xMax = d3.max(this.plotData, d => d.x)!;
 
     const svg = d3.select(this.chartContainer.nativeElement)
       .append("svg")
-      .attr("width", width + margin.left + margin.right)
-      .attr("height", height + margin.top + margin.bottom)
+      .attr("viewBox", `0 0 ${fullWidth} ${fullHeight}`)
+      .attr("preserveAspectRatio", "xMidYMid meet")
+      .classed("responsive-svg", true)
       .append("g")
       .attr("transform", `translate(${margin.left},${margin.top})`);
 
