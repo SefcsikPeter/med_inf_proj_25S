@@ -11,6 +11,8 @@ import * as d3 from 'd3';
 export class LinePlotComponent implements OnInit {
   @ViewChild('chart', { static: true }) private chartContainer!: ElementRef;
   @Input() plotData: { x: number, y: number }[] = [];
+  @Input() onlyShowX: boolean = false;
+  @Input() onlyShowY: boolean = false;
 
   ngOnInit(): void {
     if (this.plotData.length > 0) {
@@ -49,16 +51,20 @@ export class LinePlotComponent implements OnInit {
       .domain(d3.extent(this.plotData, d => d.x) as [number, number])
       .range([0, width]);
 
-    svg.append("g")
+    if (!this.onlyShowY) {
+      svg.append("g")
       .attr("transform", `translate(0,${height})`)
       .call(d3.axisBottom(x));
+    }
 
     const y = d3.scaleLinear()
       .domain([0, d3.max(this.plotData, d => d.y)!])
       .range([height, 0]);
 
-    svg.append("g")
-      .call(d3.axisLeft(y));
+    if (!this.onlyShowX) {
+      svg.append("g")
+        .call(d3.axisLeft(y));
+    }
 
     const bisect = d3.bisector((d: any) => d.x).left;
 
@@ -90,7 +96,8 @@ export class LinePlotComponent implements OnInit {
       .style("opacity", 0);
 
     console.log('pldata', this.plotData)
-    svg.append("path")
+    if (!this.onlyShowX && !this.onlyShowY) {
+      svg.append("path")
       .datum(this.plotData)
       .attr("fill", "none")
       .attr("stroke", "steelblue")
@@ -99,6 +106,7 @@ export class LinePlotComponent implements OnInit {
         .x((d) => x(d.x))
         .y((d) => y(d.y))
       );
+    }
 
     svg.append("rect")
       .style("fill", "none")
@@ -163,19 +171,23 @@ export class LinePlotComponent implements OnInit {
         focusLineY.style("opacity", 0);
       });
 
-    svg.append("text")
+    if (!this.onlyShowY) {
+      svg.append("text")
       .attr("text-anchor", "middle")
       .attr("x", width / 2)
       .attr("y", height + margin.bottom - 10)
       .text(xLabel)
       .style("font-size", "12px");
+    }
 
-    svg.append("text")
+    if (!this.onlyShowX) {
+      svg.append("text")
       .attr("text-anchor", "middle")
       .attr("transform", `rotate(-90)`)
       .attr("x", -height / 2)
       .attr("y", -margin.left + 20)
       .text(yLabel)
       .style("font-size", "12px");
+    }
   }
 }
