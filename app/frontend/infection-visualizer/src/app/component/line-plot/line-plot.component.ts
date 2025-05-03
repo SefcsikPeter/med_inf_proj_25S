@@ -13,6 +13,8 @@ export class LinePlotComponent implements OnInit {
   @Input() plotData: { x: number, y: number }[] = [];
   @Input() onlyShowX: boolean = false;
   @Input() onlyShowY: boolean = false;
+  @Input() showDots: boolean = true;
+  @Input() drawLine: boolean = true;
 
   ngOnInit(): void {
     if (this.plotData.length > 0) {
@@ -95,8 +97,7 @@ export class LinePlotComponent implements OnInit {
       .attr("stroke-dasharray", "4")
       .style("opacity", 0);
 
-    console.log('pldata', this.plotData)
-    if (!this.onlyShowX && !this.onlyShowY) {
+    if (!this.onlyShowX && !this.onlyShowY && this.drawLine) {
       svg.append("path")
       .datum(this.plotData)
       .attr("fill", "none")
@@ -188,6 +189,17 @@ export class LinePlotComponent implements OnInit {
       .attr("y", -margin.left + 20)
       .text(yLabel)
       .style("font-size", "12px");
+    }
+
+    if (this.showDots) {
+      svg.selectAll("circle")
+      .data(this.plotData)
+      .enter()
+      .append("circle")
+      .attr("cx", d=> x(d.x))
+      .attr("cy", d=> y(d.y))
+      .attr("r", 5)
+      .style("fill", "green")
     }
   }
 }
