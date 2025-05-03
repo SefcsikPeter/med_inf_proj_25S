@@ -13,7 +13,7 @@
 
       <!-- Visualization 1 -->
       <div *ngIf="showVis1" class="col-3 visualization-container">
-        <div>
+        <div *ngIf="this.vis1.type===0">
           <div class="row align-items-center">
             <div class="col-auto">
               <h4>Radial Tree</h4>
@@ -23,6 +23,13 @@
             </div>
           </div>
           <app-radial-tree [maxDepth]="this.vis1.depth" [infectionTreeData]="infectionTreeData" [stepSize]="this.vis1.step"></app-radial-tree>
+        </div>
+
+        <div *ngIf="this.vis1.type===1">
+            <div>
+              <h4>Line Plot</h4>
+              <app-line-plot [plotData]="infectionTreeData['plot_data']"></app-line-plot>
+            </div>
         </div>
       </div>
 
