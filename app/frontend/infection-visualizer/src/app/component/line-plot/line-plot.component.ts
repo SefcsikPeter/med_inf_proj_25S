@@ -15,6 +15,8 @@ export class LinePlotComponent implements OnInit {
   @Input() onlyShowY: boolean = false;
   @Input() showDots: boolean = true;
   @Input() drawLine: boolean = true;
+  @Input() xLabel: string = "days";
+  @Input() yLabel: string = "people";
 
   ngOnInit(): void {
     if (this.plotData.length > 0) {
@@ -29,8 +31,6 @@ export class LinePlotComponent implements OnInit {
 
 
   private drawChart(): void {
-    const xLabel = 'days';
-    const yLabel = 'people';
     const margin = { top: 20, right: 30, bottom: 50, left: 60 };
     const containerEl = this.chartContainer.nativeElement as HTMLElement;
     const fullWidth = containerEl.offsetWidth || 460;
@@ -144,7 +144,7 @@ export class LinePlotComponent implements OnInit {
           }
 
           focusText
-            .text(`${xLabel}: ${selectedData.x} - ${yLabel}: ${selectedData.y}`)
+            .text(`${this.xLabel}: ${selectedData.x} - ${this.yLabel}: ${selectedData.y}`)
             .attr("x", x(selectedData.x) + textOffset)
             .attr("y", y(selectedData.y))
             .attr("text-anchor", "start")
@@ -177,7 +177,7 @@ export class LinePlotComponent implements OnInit {
       .attr("text-anchor", "middle")
       .attr("x", width / 2)
       .attr("y", height + margin.bottom - 10)
-      .text(xLabel)
+      .text(this.xLabel)
       .style("font-size", "12px");
     }
 
@@ -187,7 +187,7 @@ export class LinePlotComponent implements OnInit {
       .attr("transform", `rotate(-90)`)
       .attr("x", -height / 2)
       .attr("y", -margin.left + 20)
-      .text(yLabel)
+      .text(this.yLabel)
       .style("font-size", "12px");
     }
 
