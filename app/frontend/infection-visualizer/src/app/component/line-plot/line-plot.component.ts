@@ -17,6 +17,7 @@ export class LinePlotComponent implements OnInit {
   @Input() drawLine: boolean = true;
   @Input() xLabel: string = "days";
   @Input() yLabel: string = "people";
+  dailyTemp = [[0, 16], [1, 15], [2, 15], [3, 14], [4, 14], [5, 15], [6, 15], [7, 15], [8, 18], [9, 20], [10, 21], [11, 20], [12, 20], [13, 20], [14, 20], [15, 19], [16, 19], [17, 19], [18, 18], [19, 18], [20, 18], [21, 17], [22, 16], [23, 16], [24, 14]];
 
   ngOnInit(): void {
     if (this.plotData.length > 0) {

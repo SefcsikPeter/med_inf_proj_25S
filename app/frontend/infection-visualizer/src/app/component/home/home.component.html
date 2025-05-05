@@ -1,9 +1,11 @@
-<h2 class="text-center">Welcome to Home</h2>
+<h2 class="text-center">Please Select Your Next Story</h2>
 
-<app-infection-tree [popSize]="popSize"></app-infection-tree>
-<app-slider [min]="1" [max]="500" (valueChange)="onSliderChange($event)"></app-slider>
+<div *ngIf="false">
+  <app-infection-tree [popSize]="popSize"></app-infection-tree>
+  <app-slider [min]="1" [max]="500" (valueChange)="onSliderChange($event)"></app-slider>
 
-<p>Current value: {{ popSize }}</p>
+  <p>Current value: {{ popSize }}</p>
+</div>
 
 <div style="display: flex; flex-wrap: wrap; justify-content: center;">
   <app-story-card
@@ -11,6 +13,7 @@
     [title]="s.title"
     [progress]="s.progress"
     [storyId]="s.id"
+    [page]="s.page"
   ></app-story-card>
 </div>
 

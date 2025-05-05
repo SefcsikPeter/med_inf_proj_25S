@@ -40,7 +40,7 @@ export class StoryComponent implements OnInit, OnDestroy {
     private router: Router
   ) {}
 
-  private sliderInput$ = new Subject<number>();
+  sliderInput$ = new Subject<number>();
   private subscription = this.sliderInput$.pipe(
     debounceTime(50)
   ).subscribe(value => {
@@ -67,6 +67,7 @@ export class StoryComponent implements OnInit, OnDestroy {
 
     this.loadData();
     this.loadSlide(this.currentSlide);
+    this.fetchDummyTree(5);
   }
 
   loadData(): void {

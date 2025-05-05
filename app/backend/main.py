@@ -66,7 +66,7 @@ def get_story_slide(
     if page < 0 or page >= len(slides):
         raise HTTPException(status_code=404, detail="Slide not found")
 
-    stories[story_index]["progress"] = page
+    stories[story_index]["progress"] = page + 1
 
     try:
         with open("stories.json", "w") as f:
@@ -78,6 +78,27 @@ def get_story_slide(
         "slide": slides[page],
         "page": page,
         "image": slides[page].get('image')
+    }
+
+@app.get("/story")
+def get_story_data():
+    try:
+        with open("stories.json", "r") as f:
+            stories = json.load(f)
+    except FileNotFoundError:
+        raise HTTPException(status_code=500, detail="stories.json not found")
+
+    formatted_stories = []
+    for story in stories:
+        formatted_stories.append({
+            "id": story["id"],
+            "progress": story["progress"]/len(story.get("slides", [])) if "progress" in story else 0,
+            "title": story["title"],
+            "page": (story["progress"] - 1 if story["progress"] > 0 else 0) if "progress" in story else 0
+        })
+
+    return {
+        "stories": formatted_stories
     }
 
 

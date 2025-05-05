@@ -22,4 +22,10 @@ export class StoryService {
 
     return this.http.get<any>(url);
   }
+
+  getStories(): Observable<any> {
+    const url = `${this.baseUrl}`;
+
+    return this.http.get<any>(url);
+  }
 }

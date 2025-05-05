@@ -1,6 +1,11 @@
-<a [routerLink]="['/story', storyId]" class="card" [style.background]="bgColor">
+<a
+  [routerLink]="['/story', storyId]"
+  [queryParams]="{ page: page }"
+  class="card"
+  [style.background]="bgColor"
+>
   <div class="progress-bar" [style.width]="progressWidth"></div>
-  <h3>{{ title }}</h3>
-  <p>Learning goals</p>
-  <p><strong>{{ progress }} %</strong></p>
+  <h6>{{ title }}</h6>
+  <p><strong>{{ parseInt('' + progress * 100) }}%</strong></p>
 </a>
+
