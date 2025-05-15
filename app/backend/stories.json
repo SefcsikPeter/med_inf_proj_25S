@@ -15,14 +15,14 @@
       },
       {
         "text": "Some people hear the story and pass it on, and others don't. But if enough people keep sharing it, soon almost the whole school knows.",
+        "data": {
+          "type": "dummy_tree",
+          "num_iter": 5
+        },
         "vis1": {
-          "type": 0,
+          "type": "rad_tree",
           "depth": 4,
-          "step": 50,
-          "data": {
-            "type": 0,
-            "num_iter": 5
-          }
+          "step": 50
         }
       },
       {
@@ -87,12 +87,12 @@
       },
       {
         "text": "test",
+        "data": {
+          "type": "dummy_tree",
+          "num_iter": 5
+        },
         "vis1": {
-          "type": 1,
-          "data": {
-            "type": 0,
-            "num_iter": 5
-          }
+          "type": "line_plot"
         }
       }
     ],

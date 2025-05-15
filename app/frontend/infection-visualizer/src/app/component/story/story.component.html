@@ -12,26 +12,7 @@
     <div *ngIf="showVis1 || showVis2 || showSliders" style="display: flex; justify-content: center; gap: 2rem; margin-top: 2rem;">
 
       <!-- Visualization 1 -->
-      <div *ngIf="showVis1" class="col-3 visualization-container">
-        <div *ngIf="this.vis1.type===0">
-          <div class="row align-items-center">
-            <div class="col-auto">
-              <h4>Radial Tree</h4>
-            </div>
-            <div class="col-auto">
-              <button class="btn btn-primary" (click)="fetchDummyTree(vis1.data.num_iter)"> Generate New Tree </button>
-            </div>
-          </div>
-          <app-radial-tree [maxDepth]="this.vis1.depth" [infectionTreeData]="infectionTreeData" [stepSize]="this.vis1.step"></app-radial-tree>
-        </div>
-
-        <div *ngIf="this.vis1.type===1">
-            <div>
-              <h4>Line Plot</h4>
-              <app-line-plot [plotData]="infectionTreeData['plot_data']"></app-line-plot>
-            </div>
-        </div>
-      </div>
+      <app-visualization-wrapper [vis]="this.vis1" [data]="infectionTreeData" [showVis]="showVis1"  (fetchData)="handleWrapperFetch()"></app-visualization-wrapper>
 
       <!-- Visualization 2 -->
       <div *ngIf="showVis2" class="col-3 visualization-container">

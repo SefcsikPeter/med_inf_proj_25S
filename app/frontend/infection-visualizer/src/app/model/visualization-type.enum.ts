@@ -1,5 +1,5 @@
 export enum VisualizationTypeEnum {
-  'inf_tree',
-  'rad_tree',
-  'line_plot',
+  inf_tree = 'inf_tree',
+  rad_tree = 'rad_tree',
+  line_plot = 'line_plot',
 }

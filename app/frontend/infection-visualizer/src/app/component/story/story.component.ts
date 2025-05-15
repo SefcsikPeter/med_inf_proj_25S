@@ -9,11 +9,13 @@ import { debounceTime } from 'rxjs/operators';
 import { InfectionTreeService } from '../../service/infection-tree.service';
 import { LinePlotComponent } from '../line-plot/line-plot.component';
 import { ActivatedRoute, Router } from '@angular/router';
+import {VisualizationWrapperComponent} from '../visualization-wrapper/visualization-wrapper.component';
+import {VisData} from '../../model/vis-data';
 
 @Component({
   selector: 'app-story',
   standalone: true,
-  imports: [CommonModule, MatProgressBar, RadialTreeComponent, SliderComponent, LinePlotComponent],
+  imports: [CommonModule, MatProgressBar, RadialTreeComponent, SliderComponent, LinePlotComponent, VisualizationWrapperComponent],
   templateUrl: './story.component.html',
   styleUrl: './story.component.css'
 })
@@ -98,17 +100,16 @@ export class StoryComponent implements OnInit, OnDestroy {
     this.storyService.getStorySlide(this.storyId, index).subscribe({
       next: async (data) => {
         this.slide = data.slide;
+        console.log('slide', this.slide)
         this.currentSlide = data.page;
         this.imagePath = 'http://localhost:8000/static/images/';
         if (data.image != null) {
           this.imagePath += data.image;
         }
-
-        if (data.slide.vis1 != null) {
-          this.vis1 = data.slide.vis1;
-
-          if (this.vis1.data.type === 0) {
-            this.showVis1 = await this.fetchDummyTree(this.vis1.data.num_iter);
+        if (this.slide.vis1 != null) {
+          this.vis1 = this.slide.vis1;
+          if (this.slide.data != null) {
+            this.showVis1 = await this.fetchDummyTree(this.slide.data.num_iter);
           }
         }
 
@@ -141,6 +142,11 @@ export class StoryComponent implements OnInit, OnDestroy {
       this.showVis2 = false;
       this.showSliders = false;
     }
-
   }
+
+  handleWrapperFetch() {
+    this.fetchDummyTree(this.slide.data.num_iter);
+  }
+
+
 }

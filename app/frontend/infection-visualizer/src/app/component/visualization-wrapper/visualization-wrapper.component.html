@@ -1,0 +1,21 @@
+<!-- Visualization 1 -->
+<div *ngIf="showVis" class="col-12 visualization-container">
+  <div *ngIf="this.vis.type === VisualizationTypeEnum.rad_tree">
+    <div class="row align-items-center">
+      <div class="col-auto">
+        <h4>Radial Tree</h4>
+      </div>
+      <div class="col-auto">
+        <button class="btn btn-primary" (click)="fetchClick()"> Generate New Tree </button>
+      </div>
+    </div>
+    <app-radial-tree [maxDepth]="radDepth" [infectionTreeData]="data" [stepSize]="this.radStep"></app-radial-tree>
+  </div>
+
+  <div *ngIf="this.vis.type === VisualizationTypeEnum.line_plot">
+      <div>
+        <h4>Line Plot</h4>
+        <app-line-plot [plotData]="data['plot_data']"></app-line-plot>
+      </div>
+  </div>
+</div>
