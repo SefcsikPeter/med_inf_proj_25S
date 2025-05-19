@@ -23,7 +23,16 @@
           "type": "rad_tree",
           "depth": 4,
           "step": 50
-        }
+        },
+        "sliders": [
+          {
+            "type": "days",
+            "min": 0,
+            "max": 5,
+            "symbol": "sun",
+            "text": "days"
+          }
+        ]
       },
       {
         "text": "A disease spreads the same way, one person might only infect a few other people, but when they also start infecting other people, the disease starts spreading faster and faster! That is how an epidemic starts."

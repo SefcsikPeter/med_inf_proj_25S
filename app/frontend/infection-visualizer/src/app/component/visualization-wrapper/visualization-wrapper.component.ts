@@ -30,12 +30,15 @@ export class VisualizationWrapperComponent implements OnInit {
   radStep = 50;
 
   ngOnInit() {
-    if (this.vis.depth) {
-      this.radDepth = this.vis.depth;
-    }
-    if (this.vis.step) {
-      this.radStep = this.vis.step;
-      console.log('visdata', this.vis)
+    console.log('vis in wrapper', this.vis)
+    if (this.vis) {
+      if (this.vis.depth) {
+        this.radDepth = this.vis.depth;
+      }
+      if (this.vis.step) {
+        this.radStep = this.vis.step;
+        console.log('visdata', this.vis)
+      }
     }
   }
 
