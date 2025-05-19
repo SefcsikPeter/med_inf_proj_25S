@@ -15,12 +15,7 @@
       <app-visualization-wrapper [vis]="this.vis1" [data]="infectionTreeData" [showVis]="showVis1"  (fetchData)="handleWrapperFetch()"></app-visualization-wrapper>
 
       <!-- Visualization 2 -->
-      <div *ngIf="showVis2" class="col-3 visualization-container">
-        <div>
-          <h4>Line Plot</h4>
-          <app-line-plot [plotData]="infectionTreeData['plot_data']"></app-line-plot>
-        </div>
-      </div>
+      <app-visualization-wrapper [vis]="this.vis2" [data]="infectionTreeData" [showVis]="showVis2"  (fetchData)="handleWrapperFetch()"></app-visualization-wrapper>
 
       <!-- Sliders -->
       <div *ngIf="showSliders" class="col-3 visualization-container">

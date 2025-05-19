@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, ViewChild, Input } from '@angular/core';
+import {Component, OnInit, ElementRef, ViewChild, Input, AfterViewInit} from '@angular/core';
 import * as d3 from 'd3';
 
 @Component({
@@ -35,7 +35,7 @@ export class LinePlotComponent implements OnInit {
     const margin = { top: 20, right: 30, bottom: 50, left: 60 };
     const containerEl = this.chartContainer.nativeElement as HTMLElement;
     const fullWidth = containerEl.offsetWidth || 460;
-    const fullHeight = containerEl.offsetHeight || 400;
+    const fullHeight = containerEl.offsetHeight || fullWidth;
 
     const width = fullWidth - margin.left - margin.right;
     const height = fullHeight - margin.top - margin.bottom;

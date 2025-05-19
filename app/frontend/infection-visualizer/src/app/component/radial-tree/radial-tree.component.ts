@@ -56,7 +56,7 @@ export class RadialTreeComponent implements OnInit {
 
   createRadialTree(): void {
     const containerWidth = this.treeContainer.nativeElement.offsetWidth;
-    const containerHeight = this.treeContainer.nativeElement.offsetHeight || containerWidth; // in case height is not set
+    const containerHeight = this.treeContainer.nativeElement.offsetHeight || containerWidth;
 
     const { nodes, links } = this.infectionTreeData;
     const nodeById = new Map(nodes.map((d: any) => [d.id, { ...d, children: [] }]));

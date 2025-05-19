@@ -93,10 +93,15 @@
         },
         "vis1": {
           "type": "line_plot"
+        },
+        "vis2": {
+          "type": "rad_tree",
+          "depth": 4,
+          "step": 50
         }
       }
     ],
-    "progress": 3
+    "progress": 8
   },
   {
     "id": 3,

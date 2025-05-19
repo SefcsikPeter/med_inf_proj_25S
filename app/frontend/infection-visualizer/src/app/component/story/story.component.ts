@@ -32,6 +32,7 @@ export class StoryComponent implements OnInit, OnDestroy {
   maxDepth = 0;
   showVis1: boolean = false;
   vis1: any;
+  vis2: any;
   showVis2: boolean = false;
   showSliders: boolean = false;
 
@@ -110,6 +111,13 @@ export class StoryComponent implements OnInit, OnDestroy {
           this.vis1 = this.slide.vis1;
           if (this.slide.data != null) {
             this.showVis1 = await this.fetchDummyTree(this.slide.data.num_iter);
+          }
+        }
+
+        if (this.slide.vis2 != null) {
+          this.vis2 = this.slide.vis2;
+          if (this.slide.data != null) {
+            this.showVis2 = await this.fetchDummyTree(this.slide.data.num_iter);
           }
         }
 
