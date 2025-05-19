@@ -18,9 +18,7 @@ import {LinePlotComponent} from '../line-plot/line-plot.component';
   styleUrl: './visualization-wrapper.component.css'
 })
 export class VisualizationWrapperComponent implements OnInit {
-  //contains visualization parameters
   @Input() vis: Visualization = {type: VisualizationTypeEnum.rad_tree};
-  //contains the actual data to be visualized, not the parameters for fetching it
   @Input() data: any;
   @Input() showVis: boolean = false;
 
