@@ -22,6 +22,7 @@ export class McQuestionComponent implements OnInit {
     options: ['1', '2', '3', '4'],
     correctAnswer: '2'
   };
+  @Input() imagePath: string = 'http://localhost:8000/static/images/gossip.png';
 
   shuffledOptions: string[] = [];
 
