@@ -10,10 +10,11 @@
         <app-slider
           [min]="slider.min"
           [max]="slider.max"
+          [currentValue]="slider.current_value"
           (valueChange)="onSliderValueChange(slider.type, $event)">
         </app-slider>
       </div>
-      <span>{{ slider.text }}: {{ sliderValues[slider.type] ?? slider.min }}</span>
+      <span>{{ slider.text }}: {{ sliderValues[slider.type] ?? slider.current_value }}</span>
     </div>
   }
   </div>

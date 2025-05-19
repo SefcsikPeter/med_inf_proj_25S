@@ -29,6 +29,7 @@
             "type": "depth",
             "min": 0,
             "max": 5,
+            "current_value": 4,
             "symbol": "sun",
             "text": "days"
           }

@@ -10,6 +10,7 @@ import * as d3 from 'd3';
 export class SliderComponent implements AfterViewInit {
   @Input() min = 0;
   @Input() max = 100;
+  @Input() currentValue = 0;
   @Output() valueChange = new EventEmitter<number>();
 
   ngAfterViewInit(): void {
@@ -49,7 +50,7 @@ export class SliderComponent implements AfterViewInit {
       .attr('class', 'handle')
       .attr('r', 9)
       .attr('fill', 'steelblue')
-      .attr('cx', x(this.min));
+      .attr('cx', x(this.currentValue));
 
     slider.call(d3.drag<SVGGElement, unknown>()
       .on('start drag', (event) => {
