@@ -103,7 +103,9 @@
           {
             "type": "days",
             "min": 0,
-            "max": 5
+            "max": 5,
+            "symbol": "sun",
+            "text": "days"
           }
         ]
       }
