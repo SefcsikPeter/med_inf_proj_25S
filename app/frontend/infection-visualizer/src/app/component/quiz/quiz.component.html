@@ -1,1 +1,35 @@
-<p>quiz works!</p>
+<div *ngIf="question" class="quiz-container">
+
+  <mat-progress-bar
+    mode="determinate"
+    [value]="((currentQuestionIndex + 1) * 100) / totalQuestions">
+  </mat-progress-bar>
+
+  <!-- Title and progress -->
+  <div style="display: flex; align-items: center; justify-content: space-between; padding: 0 1rem;">
+    <h2>{{ title }}</h2>
+    <a>Question {{ currentQuestionIndex + 1 }} of {{ totalQuestions }}</a>
+  </div>
+
+  <!-- Question display -->
+  <div class="question-area">
+    <app-mc-question
+      [question]="question"
+      [imagePath]="imagePath">
+    </app-mc-question>
+  </div>
+
+  <!-- Navigation -->
+  <div class="quiz-nav">
+    <button class="btn btn-secondary" (click)="prevQuestion()" [disabled]="currentQuestionIndex === 0">
+      Previous
+    </button>
+    <button class="btn btn-primary" (click)="nextQuestion()" [disabled]="currentQuestionIndex === totalQuestions - 1">
+      Next
+    </button>
+  </div>
+</div>
+
+<div *ngIf="!question">
+  <p>Loading quiz...</p>
+</div>
