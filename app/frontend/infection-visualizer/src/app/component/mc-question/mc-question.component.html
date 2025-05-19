@@ -1,1 +1,38 @@
-<p>mc-question works!</p>
+<div class="card mb-3">
+  <div class="card-body">
+    <h5 class="card-title">{{ question.text }}</h5>
+
+    @for (option of question.options; track option) {
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="options"
+          [id]="option"
+          [value]="option"
+          [(ngModel)]="selectedAnswer"
+        >
+        <label class="form-check-label" [for]="option">
+          {{ option }}
+        </label>
+      </div>
+    }
+
+
+    <button class="btn btn-primary mt-3" (click)="submitAnswer()">Submit</button>
+
+    @if (answerSubmitted) {
+      <div class="mt-3">
+      <div
+        class="alert"
+        [ngClass]="{
+          'alert-success': isCorrect,
+          'alert-danger': !isCorrect
+        }"
+      >
+        {{ isCorrect ? 'Correct!' : 'Incorrect. Try again.' }}
+      </div>
+    </div>
+    }
+  </div>
+</div>
