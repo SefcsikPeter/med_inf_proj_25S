@@ -18,18 +18,6 @@
       <app-visualization-wrapper [vis]="this.vis2" [data]="infectionTreeData" [showVis]="showVis2"  (fetchData)="handleWrapperFetch()"></app-visualization-wrapper>
 
       <!-- Sliders -->
-      <div *ngIf="showSliders" class="col-3 visualization-container">
-        <div>
-          <h4>Sliders</h4>
-          <div class="d-flex align-items-center gap-2" style="margin-bottom: 1rem;">
-            <span>☀️</span>
-            <div class="flex-grow-1" style="min-width: 150px;">
-              <app-slider [min]="0" [max]="5" (valueChange)="onSliderChange($event)"></app-slider>
-            </div>
-            <span style="white-space: nowrap;">Days Passed: {{ maxDepth }}</span>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 

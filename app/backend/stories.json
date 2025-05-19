@@ -98,7 +98,15 @@
           "type": "rad_tree",
           "depth": 4,
           "step": 50
-        }
+        },
+        "sliders": [
+          {
+            "type": "days",
+            "min": 0,
+            "max": 5,
+            "step": 1
+          }
+        ]
       }
     ],
     "progress": 8
