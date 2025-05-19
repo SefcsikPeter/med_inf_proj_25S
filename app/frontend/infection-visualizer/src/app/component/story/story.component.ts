@@ -43,6 +43,7 @@ export class StoryComponent implements OnInit {
     private router: Router
   ) {}
   ngOnInit(): void {
+    this.showSliders = false;
     this.route.paramMap.subscribe(params => {
       this.storyId = Number(params.get('story_id')) || 0;
     });

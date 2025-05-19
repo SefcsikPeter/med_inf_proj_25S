@@ -27,17 +27,19 @@ export class SliderWrapperComponent implements OnInit{
   protected readonly SymbolsEnum = SymbolsEnum;
 
   ngOnInit(): void {
-    for (const slider of this.sliders) {
-      const key = slider.type;
+    if (this.showSliders) {
+      for (const slider of this.sliders) {
+        const key = slider.type;
 
-      this.sliderSubjects[key] = new Subject<number>();
+        this.sliderSubjects[key] = new Subject<number>();
 
-      this.sliderSubjects[key]
-        .pipe(debounceTime(100))
-        .subscribe(value => {
-          this.sliderValues[key] = value;
-          this.sliderValuesChange.emit({ ...this.sliderValues });
-        });
+        this.sliderSubjects[key]
+          .pipe(debounceTime(100))
+          .subscribe(value => {
+            this.sliderValues[key] = value;
+            this.sliderValuesChange.emit({ ...this.sliderValues });
+          });
+      }
     }
   }
 

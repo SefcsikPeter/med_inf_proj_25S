@@ -86,7 +86,7 @@ def get_dummy_tree(num_iter):
         plot_data.append([i, len(nodes)])
         for n in nodes:
             if len(list(G.successors(n))) < 1:
-                for j in range(0, np.random.choice([1, 2, 3])):
+                for j in range(0, np.random.choice([1, 2, 3, 4])):
                     G.add_edge(n, cnt)
                     cnt += 1
     for i in G.nodes:

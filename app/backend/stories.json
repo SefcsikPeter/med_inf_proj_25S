@@ -15,6 +15,14 @@
       },
       {
         "text": "Some people hear the story and pass it on, and others don't. But if enough people keep sharing it, soon almost the whole school knows.",
+        "image": "whole_school.png"
+      },
+      {
+        "text": "If we try to keep track of how the gossip spreads, we can't always take each conversation each person had into consideration. Instead, we can do something similar to rolling the dice for each person.",
+        "image": "dice.jpg"
+      },
+      {
+        "text": "To see how many people someone tells the gossip to, we can pretend to roll a 4-sided dice for each person - the number it lands on shows how many people they tell. You can see an example for this below. If you click Re-Generate, you can see how re-rolling the dice for each person changes the outcome!",
         "data": {
           "type": "dummy_tree",
           "num_iter": 5
@@ -23,23 +31,54 @@
           "type": "rad_tree",
           "depth": 4,
           "step": 50
+        }
+      },
+      {
+        "text": "Now you can also try changing the slider around to see how the gossip spreads day-by-day. Each ring represents a new day.",
+        "data": {
+          "type": "dummy_tree",
+          "num_iter": 5
+        },
+        "vis1": {
+          "type": "rad_tree",
+          "depth": 0,
+          "step": 50
         },
         "sliders": [
           {
             "type": "depth",
             "min": 0,
             "max": 5,
-            "current_value": 4,
+            "current_value": 0,
             "symbol": "sun",
             "text": "days"
           }
         ]
       },
       {
-        "text": "A disease spreads the same way, one person might only infect a few other people, but when they also start infecting other people, the disease starts spreading faster and faster! That is how an epidemic starts."
+        "text": "A disease spreads the same way, one person might only infect a few other people, but when they also start infecting other people, the disease starts spreading faster and faster! That is how an epidemic starts.",
+        "data": {
+          "type": "dummy_tree",
+          "num_iter": 5
+        },
+        "vis1": {
+          "type": "rad_tree",
+          "depth": 5,
+          "step": 50
+        },
+        "sliders": [
+          {
+            "type": "depth",
+            "min": 0,
+            "max": 5,
+            "current_value": 5,
+            "symbol": "sun",
+            "text": "days"
+          }
+        ]
       }
     ],
-    "progress": 3
+    "progress": 7
   },
   {
     "id": 1,
