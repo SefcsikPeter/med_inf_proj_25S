@@ -100,6 +100,7 @@ export class StoryComponent implements OnInit, OnDestroy {
   }
 
   async loadSlide(index: number): Promise<void> {
+    console.log('loading slide', this.slide)
     this.storyService.getStorySlide(this.storyId, index).subscribe({
       next: async (data) => {
         this.slide = data.slide;

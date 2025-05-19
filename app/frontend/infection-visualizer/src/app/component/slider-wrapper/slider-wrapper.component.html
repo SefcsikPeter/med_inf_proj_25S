@@ -5,7 +5,7 @@
   <div class="flex-grow-1">
   @for (slider of sliders; track slider.type) {
     <div class="d-flex align-items-center gap-2" style="margin-bottom: 1rem;">
-      <span>{{ SymbolsEnum['' + slider.symbol] }}</span>
+      <span>{{ SymbolsEnum[slider.symbol] }}</span>
       <div style="flex-grow: 1;">
         <app-slider [min]="slider.min" [max]="slider.max"></app-slider>
       </div>

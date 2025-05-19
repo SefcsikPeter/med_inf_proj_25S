@@ -1,3 +1,3 @@
-export enum SymbolsEnum {
-  sun = '☀️'
-}
+export const SymbolsEnum: Record<string, string> = {
+  sun: '☀️'
+};
