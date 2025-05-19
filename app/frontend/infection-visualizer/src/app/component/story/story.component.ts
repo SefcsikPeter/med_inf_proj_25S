@@ -11,11 +11,12 @@ import { LinePlotComponent } from '../line-plot/line-plot.component';
 import { ActivatedRoute, Router } from '@angular/router';
 import {VisualizationWrapperComponent} from '../visualization-wrapper/visualization-wrapper.component';
 import {VisData} from '../../model/vis-data';
+import {SliderWrapperComponent} from '../slider-wrapper/slider-wrapper.component';
 
 @Component({
   selector: 'app-story',
   standalone: true,
-  imports: [CommonModule, MatProgressBar, RadialTreeComponent, SliderComponent, LinePlotComponent, VisualizationWrapperComponent],
+  imports: [CommonModule, MatProgressBar, RadialTreeComponent, SliderComponent, LinePlotComponent, VisualizationWrapperComponent, SliderWrapperComponent],
   templateUrl: './story.component.html',
   styleUrl: './story.component.css'
 })
@@ -33,6 +34,7 @@ export class StoryComponent implements OnInit, OnDestroy {
   showVis1: boolean = false;
   vis1: any;
   vis2: any;
+  sliders: any;
   showVis2: boolean = false;
   showSliders: boolean = false;
 
@@ -119,6 +121,12 @@ export class StoryComponent implements OnInit, OnDestroy {
           if (this.slide.data != null) {
             this.showVis2 = await this.fetchDummyTree(this.slide.data.num_iter);
           }
+        }
+
+        if (this.slide.sliders != null) {
+          this.sliders = this.slide.sliders;
+          this.showSliders = true;
+          console.log(this.sliders)
         }
 
         this.router.navigate([], {

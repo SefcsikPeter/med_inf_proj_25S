@@ -18,7 +18,9 @@ export class SliderComponent implements AfterViewInit {
 
   createSlider() {
     const container = document.getElementById('slider');
-    const width = container?.clientWidth || 300;
+    let width = container?.clientWidth || 150;
+    width = width - 1;
+    console.log(container?.clientWidth)
 
     const height = 30;
 

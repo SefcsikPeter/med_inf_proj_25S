@@ -3,14 +3,7 @@
     stroke-linecap: round;
   }
 
-  .slider .handle {
-    fill: steelblue;
-    cursor: pointer;
-  }
-
-.slider-container {
-  width: 100%;
-  height: 40px; /* enough for the SVG */
-  display: flex;
-  align-items: center;
+.slider .handle {
+  fill: steelblue;
+  cursor: pointer;
 }
