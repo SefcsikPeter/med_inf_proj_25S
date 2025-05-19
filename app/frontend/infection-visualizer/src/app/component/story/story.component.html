@@ -10,15 +10,28 @@
 
     <!-- Container for up to three components on the story page -->
     <div *ngIf="showVis1 || showVis2 || showSliders" style="display: flex; justify-content: center; gap: 2rem; margin-top: 2rem;">
-
       <!-- Visualization 1 -->
-      <app-visualization-wrapper [vis]="this.vis1" [data]="infectionTreeData" [showVis]="showVis1"  (fetchData)="handleWrapperFetch()"></app-visualization-wrapper>
+      <app-visualization-wrapper
+        [vis]="this.vis1"
+        [data]="infectionTreeData"
+        [showVis]="showVis1"
+        (fetchData)="handleWrapperFetch()"
+      ></app-visualization-wrapper>
 
       <!-- Visualization 2 -->
-      <app-visualization-wrapper [vis]="this.vis2" [data]="infectionTreeData" [showVis]="showVis2"  (fetchData)="handleWrapperFetch()"></app-visualization-wrapper>
+      <app-visualization-wrapper
+        [vis]="this.vis2"
+        [data]="infectionTreeData"
+        [showVis]="showVis2"
+        (fetchData)="handleWrapperFetch()"
+      ></app-visualization-wrapper>
 
       <!-- Sliders -->
-      <app-slider-wrapper [showSliders]="this.showSliders" [sliders]="this.sliders" (sliderValuesChange)="handleSliderValues($event)"></app-slider-wrapper>
+      <app-slider-wrapper
+        [showSliders]="this.showSliders"
+        [sliders]="this.sliders"
+        (sliderValuesChange)="handleSliderValues($event)"
+      ></app-slider-wrapper>
     </div>
   </div>
 

@@ -31,6 +31,7 @@ export class StoryComponent implements OnInit, OnDestroy {
   infectionTreeData: any = {};
   maxDepth = 0;
   showVis1: boolean = false;
+  dataParams: any;
   vis1: any;
   vis2: any;
   sliders: any;
@@ -71,7 +72,6 @@ export class StoryComponent implements OnInit, OnDestroy {
 
     this.loadData();
     this.loadSlide(this.currentSlide);
-    this.fetchDummyTree(5);
   }
 
   loadData(): void {
@@ -109,18 +109,19 @@ export class StoryComponent implements OnInit, OnDestroy {
         if (data.image != null) {
           this.imagePath += data.image;
         }
+        if (this.slide.data != null) {
+          this.dataParams = this.slide.data;
+          await this.handleWrapperFetch();
+        }
+
         if (this.slide.vis1 != null) {
           this.vis1 = this.slide.vis1;
-          if (this.slide.data != null) {
-            this.showVis1 = await this.fetchDummyTree(this.slide.data.num_iter);
-          }
+          this.showVis1 = true;
         }
 
         if (this.slide.vis2 != null) {
           this.vis2 = this.slide.vis2;
-          if (this.slide.data != null) {
-            this.showVis2 = await this.fetchDummyTree(this.slide.data.num_iter);
-          }
+          this.showVis2 = true;
         }
 
         if (this.slide.sliders != null) {
@@ -160,8 +161,12 @@ export class StoryComponent implements OnInit, OnDestroy {
     }
   }
 
-  handleWrapperFetch() {
-    this.fetchDummyTree(this.slide.data.num_iter);
+  async handleWrapperFetch(): Promise<boolean> {
+    if (this.dataParams.type === "dummy_tree") {
+      return this.fetchDummyTree(this.dataParams.num_iter);
+    } else {
+      return false;
+    }
   }
 
   handleSliderValues(values: Record<string, number>) {
