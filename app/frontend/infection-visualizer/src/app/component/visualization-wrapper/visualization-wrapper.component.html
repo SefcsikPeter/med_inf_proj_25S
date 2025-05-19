@@ -7,7 +7,7 @@
         <h4>Radial Tree</h4>
       </div>
       <div class="col-auto">
-        <button class="btn btn-primary" (click)="fetchClick()"> Generate New Tree </button>
+        <button class="btn btn-primary" (click)="fetchClick()"> Re-Generate </button>
       </div>
     </div>
     <app-radial-tree [maxDepth]="depth" [infectionTreeData]="data" [stepSize]="step"></app-radial-tree>
@@ -19,7 +19,7 @@
         <h4>Line Plot</h4>
       </div>
       <div class="col-auto">
-        <button class="btn btn-primary" (click)="fetchClick()"> Generate New Tree </button>
+        <button class="btn btn-primary" (click)="fetchClick()"> Re-Generate </button>
       </div>
     </div>
     <app-line-plot [plotData]="data['plot_data']"></app-line-plot>
