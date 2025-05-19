@@ -7,10 +7,14 @@
     <div class="d-flex align-items-center gap-2" style="margin-bottom: 1rem;">
       <span>{{ SymbolsEnum[slider.symbol] }}</span>
       <div style="flex-grow: 1;">
-        <app-slider [min]="slider.min" [max]="slider.max"></app-slider>
+        <app-slider
+          [min]="slider.min"
+          [max]="slider.max"
+          (valueChange)="sliderSubjects[slider.type].next($event)">
+        </app-slider>
       </div>
-      <span>{{slider.text}}</span>
+      <span>{{ slider.text }}: {{ sliderValues[slider.type] ?? slider.min }}</span>
     </div>
   }
-</div>
+  </div>
 </div>
