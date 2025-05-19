@@ -1,7 +1,6 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 import {RadialTreeComponent} from '../radial-tree/radial-tree.component';
 import {NgIf} from '@angular/common';
-import {VisData} from '../../model/vis-data';
 import {Visualization} from '../../model/visualization';
 import {VisualizationTypeEnum} from '../../model/visualization-type.enum';
 import {LinePlotComponent} from '../line-plot/line-plot.component';
@@ -17,31 +16,40 @@ import {LinePlotComponent} from '../line-plot/line-plot.component';
   templateUrl: './visualization-wrapper.component.html',
   styleUrl: './visualization-wrapper.component.css'
 })
-export class VisualizationWrapperComponent implements OnInit {
+export class VisualizationWrapperComponent implements OnInit, OnChanges {
   @Input() vis: Visualization = {type: VisualizationTypeEnum.rad_tree};
   @Input() data: any;
   @Input() showVis: boolean = false;
 
   @Output() fetchData = new EventEmitter<void>();
 
-  radDepth = 3;
-  radStep = 50;
+  depth = 3;
+  step = 50;
 
   ngOnInit() {
-    console.log('vis in wrapper', this.vis)
-    if (this.vis) {
-      if (this.vis.depth) {
-        this.radDepth = this.vis.depth;
-      }
-      if (this.vis.step) {
-        this.radStep = this.vis.step;
-        console.log('visdata', this.vis)
-      }
-    }
+    this.updateData();
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    this.updateData()
   }
 
   fetchClick() {
     this.fetchData.emit()
+  }
+
+  updateData() {
+    if (this.vis) {
+      if (this.vis.depth) {
+        this.depth = this.vis.depth;
+      } else if (this.vis.depth === 0) {
+        this.depth = this.vis.depth;
+      }
+      if (this.vis.step) {
+        this.step = this.vis.step;
+        console.log('visdata', this.vis)
+      }
+    }
   }
 
 

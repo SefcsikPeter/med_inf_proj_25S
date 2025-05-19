@@ -19,7 +19,7 @@ import {SliderWrapperComponent} from '../slider-wrapper/slider-wrapper.component
   templateUrl: './story.component.html',
   styleUrl: './story.component.css'
 })
-export class StoryComponent implements OnInit, OnDestroy {
+export class StoryComponent implements OnInit {
   @Input() storyId: number = 0;
 
   currentSlide: number = 0;
@@ -27,9 +27,7 @@ export class StoryComponent implements OnInit, OnDestroy {
   title: string = '';
   slide: any = null;
   imagePath: string = '';
-  popSize: number = 200;
   infectionTreeData: any = {};
-  maxDepth = 0;
   showVis1: boolean = false;
   dataParams: any;
   vis1: any;
@@ -44,23 +42,6 @@ export class StoryComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private router: Router
   ) {}
-
-  sliderInput$ = new Subject<number>();
-  private subscription = this.sliderInput$.pipe(
-    debounceTime(50)
-  ).subscribe(value => {
-    this.maxDepth = value;
-    console.log(this.infectionTreeData);
-  });
-
-  onSliderChange(value: number) {
-    this.sliderInput$.next(value);
-  }
-
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
-  }
-
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       this.storyId = Number(params.get('story_id')) || 0;
@@ -170,6 +151,16 @@ export class StoryComponent implements OnInit, OnDestroy {
   }
 
   handleSliderValues(values: Record<string, number>) {
-    console.log('Slider values from child:', values);
+    if (values['depth']) {
+      this.vis1 = {
+        ...this.vis1,
+        depth: values['depth']
+      };
+    } else if (values['depth'] === 0) {
+      this.vis1 = {
+        ...this.vis1,
+        depth: values['depth']
+      };
+    }
   }
 }
