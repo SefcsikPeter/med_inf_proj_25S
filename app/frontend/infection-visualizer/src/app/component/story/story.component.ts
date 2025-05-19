@@ -10,7 +10,6 @@ import { InfectionTreeService } from '../../service/infection-tree.service';
 import { LinePlotComponent } from '../line-plot/line-plot.component';
 import { ActivatedRoute, Router } from '@angular/router';
 import {VisualizationWrapperComponent} from '../visualization-wrapper/visualization-wrapper.component';
-import {VisData} from '../../model/vis-data';
 import {SliderWrapperComponent} from '../slider-wrapper/slider-wrapper.component';
 
 @Component({
@@ -165,5 +164,7 @@ export class StoryComponent implements OnInit, OnDestroy {
     this.fetchDummyTree(this.slide.data.num_iter);
   }
 
-
+  handleSliderValues(values: Record<string, number>) {
+    console.log('Slider values from child:', values);
+  }
 }

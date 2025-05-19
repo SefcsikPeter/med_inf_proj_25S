@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {NgIf} from '@angular/common';
 import {SliderComponent} from '../slider/slider.component';
 import {SymbolsEnum} from '../../model/symbols.enum';
@@ -18,6 +18,8 @@ import {debounceTime} from 'rxjs/operators';
 export class SliderWrapperComponent implements OnInit{
   @Input() showSliders: boolean = false;
   @Input() sliders: any[] = [];
+  @Output() sliderValuesChange = new EventEmitter<Record<string, number>>();
+
   sliderSubjects: Record<string, Subject<number>> = {};
   sliderValues: Record<string, number> = {};
 
@@ -34,7 +36,12 @@ export class SliderWrapperComponent implements OnInit{
         .pipe(debounceTime(100))
         .subscribe(value => {
           this.sliderValues[key] = value;
+          this.sliderValuesChange.emit({ ...this.sliderValues });
         });
     }
+  }
+
+  onSliderValueChange(key: string, value: number) {
+    this.sliderSubjects[key].next(value);
   }
 }

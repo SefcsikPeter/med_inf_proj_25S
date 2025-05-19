@@ -10,7 +10,7 @@
         <app-slider
           [min]="slider.min"
           [max]="slider.max"
-          (valueChange)="sliderSubjects[slider.type].next($event)">
+          (valueChange)="onSliderValueChange(slider.type, $event)">
         </app-slider>
       </div>
       <span>{{ slider.text }}: {{ sliderValues[slider.type] ?? slider.min }}</span>
