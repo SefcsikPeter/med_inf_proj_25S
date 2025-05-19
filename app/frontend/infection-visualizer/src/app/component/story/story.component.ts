@@ -8,14 +8,14 @@ import { Subject, firstValueFrom } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 import { InfectionTreeService } from '../../service/infection-tree.service';
 import { LinePlotComponent } from '../line-plot/line-plot.component';
-import { ActivatedRoute, Router } from '@angular/router';
+import {ActivatedRoute, Router, RouterLink} from '@angular/router';
 import {VisualizationWrapperComponent} from '../visualization-wrapper/visualization-wrapper.component';
 import {SliderWrapperComponent} from '../slider-wrapper/slider-wrapper.component';
 
 @Component({
   selector: 'app-story',
   standalone: true,
-  imports: [CommonModule, MatProgressBar, RadialTreeComponent, SliderComponent, LinePlotComponent, VisualizationWrapperComponent, SliderWrapperComponent],
+  imports: [CommonModule, MatProgressBar, RadialTreeComponent, SliderComponent, LinePlotComponent, VisualizationWrapperComponent, SliderWrapperComponent, RouterLink],
   templateUrl: './story.component.html',
   styleUrl: './story.component.css'
 })
