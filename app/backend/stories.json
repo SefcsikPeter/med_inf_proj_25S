@@ -112,8 +112,11 @@
         "image": ""
       },
       {
-        "text": "You could think of how the temperature changes during a day hour by hour. (Dont worry, you don't need to understand the graph below yet)",
-        "image": ""
+        "text": "You could think of how the temperature changes during a day hour by hour.",
+        "vis1": {
+          "type": "line_plot",
+          "temps": true
+        }
       },
       {
         "text": "We can start to understand line plots by going back to our gossip example. Imagine the first axis showing how many days have passed since the gossip started spreading",
@@ -160,7 +163,7 @@
         ]
       }
     ],
-    "progress": 8
+    "progress": 3
   },
   {
     "id": 3,

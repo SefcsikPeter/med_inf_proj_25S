@@ -25,6 +25,7 @@ export class VisualizationWrapperComponent implements OnInit, OnChanges {
 
   depth = 3;
   step = 50;
+  temps: boolean = false;
 
   ngOnInit() {
     this.updateData();
@@ -48,6 +49,10 @@ export class VisualizationWrapperComponent implements OnInit, OnChanges {
       if (this.vis.step) {
         this.step = this.vis.step;
         console.log('visdata', this.vis)
+      }
+      if (this.vis.temps) {
+        this.temps = this.vis.temps;
+        console.log('temps')
       }
     }
   }

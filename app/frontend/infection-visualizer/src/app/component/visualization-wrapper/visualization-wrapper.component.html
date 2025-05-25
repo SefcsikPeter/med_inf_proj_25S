@@ -19,10 +19,16 @@
         <h4>Line Plot</h4>
       </div>
       <div class="col-auto">
-        <button class="btn btn-primary" (click)="fetchClick()"> Re-Generate </button>
+        @if (!temps) {
+          <button class="btn btn-primary" (click)="fetchClick()"> Re-Generate </button>
+        }
       </div>
     </div>
-    <app-line-plot [plotData]="data['plot_data']"></app-line-plot>
+    @if (!temps) {
+      <app-line-plot [plotData]="data['plot_data']"></app-line-plot>
+    } @else {
+      <app-line-plot [temps]="temps"></app-line-plot>
+    }
   </div>
 
 </div>

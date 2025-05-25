@@ -4,4 +4,5 @@ export interface Visualization {
   type: VisualizationTypeEnum;
   depth?: number;
   step?: number;
+  temps?: boolean;
 }

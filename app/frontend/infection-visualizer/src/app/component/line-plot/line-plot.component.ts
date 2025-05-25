@@ -17,9 +17,21 @@ export class LinePlotComponent implements OnInit {
   @Input() drawLine: boolean = true;
   @Input() xLabel: string = "days";
   @Input() yLabel: string = "people";
-  dailyTemp = [[0, 16], [1, 15], [2, 15], [3, 14], [4, 14], [5, 15], [6, 15], [7, 15], [8, 18], [9, 20], [10, 21], [11, 20], [12, 20], [13, 20], [14, 20], [15, 19], [16, 19], [17, 19], [18, 18], [19, 18], [20, 18], [21, 17], [22, 16], [23, 16], [24, 14]];
+  @Input() temps: boolean = false;
+  dailyTemp: { x: number, y: number }[] = [
+  { x: 0, y: 12 }, { x: 1, y: 11 }, { x: 2, y: 11 }, { x: 3, y: 10 },
+  { x: 4, y: 10 }, { x: 5, y: 9 }, { x: 6, y: 9 }, { x: 7, y: 10 },
+  { x: 8, y: 12 }, { x: 9, y: 14 }, { x: 10, y: 16 }, { x: 11, y: 18 },
+  { x: 12, y: 20 }, { x: 13, y: 21 }, { x: 14, y: 22 }, { x: 15, y: 22 },
+  { x: 16, y: 21 }, { x: 17, y: 20 }, { x: 18, y: 18 }, { x: 19, y: 17 },
+  { x: 20, y: 15 }, { x: 21, y: 14 }, { x: 22, y: 13 }, { x: 23, y: 12 }
+];
+
 
   ngOnInit(): void {
+    if (this.temps) {
+      this.plotData = this.dailyTemp;
+    }
     if (this.plotData.length > 0) {
       if (Array.isArray(this.plotData[0])) {
         this.plotData = (this.plotData as any[]).map(([x, y]) => ({ x, y }));
