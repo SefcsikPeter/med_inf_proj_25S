@@ -40,7 +40,12 @@
     @if (currentSlide < totalSlides - 1) {
       <button class="btn btn-primary" (click)="nextSlide()" [disabled]="currentSlide === totalSlides - 1">Next</button>
     } @else {
-      <button class="btn btn-primary" routerLink="/mc" [disabled]="currentSlide !== totalSlides - 1">Take Quiz</button>
+      <button
+        class="btn btn-primary"
+        [routerLink]="['/quiz', storyId]"
+        [queryParams]="{ page: 0 }"
+        [disabled]="currentSlide !== totalSlides - 1"
+      > Take Quiz </button>
     }
   </div>
 </div>
