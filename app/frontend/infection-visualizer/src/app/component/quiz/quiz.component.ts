@@ -67,6 +67,12 @@ export class QuizComponent implements OnInit {
     if (this.currentQuestionIndex < this.totalQuestions - 1) {
       this.currentQuestionIndex++;
       this.loadQuestion(this.currentQuestionIndex);
+
+      this.router.navigate([], {
+        relativeTo: this.route,
+        queryParams: { page: this.currentQuestionIndex },
+        queryParamsHandling: 'merge' // optional: keeps other params
+      });
     }
   }
 
@@ -74,6 +80,13 @@ export class QuizComponent implements OnInit {
     if (this.currentQuestionIndex > 0) {
       this.currentQuestionIndex--;
       this.loadQuestion(this.currentQuestionIndex);
+
+      this.router.navigate([], {
+        relativeTo: this.route,
+        queryParams: { page: this.currentQuestionIndex },
+        queryParamsHandling: 'merge'
+      });
     }
   }
+
 }
