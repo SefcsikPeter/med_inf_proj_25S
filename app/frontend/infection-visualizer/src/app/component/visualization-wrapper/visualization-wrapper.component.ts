@@ -26,6 +26,12 @@ export class VisualizationWrapperComponent implements OnInit, OnChanges {
   depth = 3;
   step = 50;
   temps: boolean = false;
+  onlyShowX: boolean = false;
+  demoNum: boolean = false;
+  drawLine: boolean = true;
+  showDots: boolean = true;
+  yLab: string = "";
+  xLab: string = "";
 
   ngOnInit() {
     this.updateData();
@@ -48,11 +54,27 @@ export class VisualizationWrapperComponent implements OnInit, OnChanges {
       }
       if (this.vis.step) {
         this.step = this.vis.step;
-        console.log('visdata', this.vis)
       }
       if (this.vis.temps) {
         this.temps = this.vis.temps;
-        console.log('temps')
+      }
+      if (this.vis.only_show_x) {
+        this.onlyShowX = this.vis.only_show_x;
+      }
+      if (this.vis.demo_num) {
+        this.demoNum = this.vis.demo_num;
+      }
+      if (this.vis.draw_line !== undefined) {
+        this.drawLine = this.vis.draw_line;
+      }
+      if (this.vis.show_dots !== undefined) {
+        this.showDots = this.vis.show_dots;
+      }
+      if (this.vis.y_lab) {
+        this.yLab = this.vis.y_lab;
+      }
+      if (this.vis.x_lab) {
+        this.xLab = this.vis.x_lab;
       }
     }
   }

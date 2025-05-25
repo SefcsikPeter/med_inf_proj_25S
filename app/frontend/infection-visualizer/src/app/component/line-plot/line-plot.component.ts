@@ -13,11 +13,12 @@ export class LinePlotComponent implements OnInit {
   @Input() plotData: { x: number, y: number }[] = [];
   @Input() onlyShowX: boolean = false;
   @Input() onlyShowY: boolean = false;
-  @Input() showDots: boolean = true;
-  @Input() drawLine: boolean = true;
+  @Input() showDots: boolean = false;
+  @Input() drawLine: boolean = false;
   @Input() xLabel: string = "days";
   @Input() yLabel: string = "people";
   @Input() temps: boolean = false;
+  @Input() demoNum: boolean = false;
   dailyTemp: { x: number, y: number }[] = [
   { x: 0, y: 12 }, { x: 1, y: 11 }, { x: 2, y: 11 }, { x: 3, y: 10 },
   { x: 4, y: 10 }, { x: 5, y: 9 }, { x: 6, y: 9 }, { x: 7, y: 10 },
@@ -26,11 +27,17 @@ export class LinePlotComponent implements OnInit {
   { x: 16, y: 21 }, { x: 17, y: 20 }, { x: 18, y: 18 }, { x: 19, y: 17 },
   { x: 20, y: 15 }, { x: 21, y: 14 }, { x: 22, y: 13 }, { x: 23, y: 12 }
 ];
+  nums: { x: number, y: number }[] = [
+  { x: 0, y: 12 }, { x: 5, y: 12 }, { x: 12, y: 12 }, { x: 23, y: 12 }
+];
 
 
   ngOnInit(): void {
     if (this.temps) {
       this.plotData = this.dailyTemp;
+    }
+    if (this.demoNum) {
+      this.plotData = this.nums;
     }
     if (this.plotData.length > 0) {
       if (Array.isArray(this.plotData[0])) {
@@ -205,14 +212,15 @@ export class LinePlotComponent implements OnInit {
     }
 
     if (this.showDots) {
-      svg.selectAll("circle")
-      .data(this.plotData)
-      .enter()
-      .append("circle")
-      .attr("cx", d=> x(d.x))
-      .attr("cy", d=> y(d.y))
-      .attr("r", 5)
-      .style("fill", "green")
+      svg.selectAll(".data-point")
+        .data(this.plotData)
+        .enter()
+        .append("circle")
+        .attr("class", "data-point")
+        .attr("cx", d => this.onlyShowY ? x(0) : x(d.x))
+        .attr("cy", d => this.onlyShowX ? y(0) : y(d.y))
+        .attr("r", 5)
+        .style("fill", "green");
     }
   }
 }

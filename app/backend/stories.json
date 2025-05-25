@@ -115,28 +115,63 @@
         "text": "You could think of how the temperature changes during a day hour by hour.",
         "vis1": {
           "type": "line_plot",
-          "temps": true
+          "temps": true,
+          "y_lab": "temperature",
+          "x_lab": "hours"
         }
       },
       {
-        "text": "We can start to understand line plots by going back to our gossip example. Imagine the first axis showing how many days have passed since the gossip started spreading",
-        "todo": "add interactive line for demo"
+        "text": "The two related things in this case are the hours of the day and the temperatures measured.",
+        "image": "time_temp_rel.png"
       },
       {
-        "text": "Now imagine the second axis showing the number of people that have heard the gossip.",
-        "todo": "add interactive line for demo"
+        "text": "We can represent each on a scale like this. These scales are essentially just some lines with marks and numbers.",
+        "image": "x_scale.png"
       },
       {
-        "text": "If we combine the two, we can draw two lines, one from the day axis and an other from the people axis and draw a dot where they intersect.",
-        "todo": "add  image for this"
+        "text": "The number at the first mark is the smallest number we plan to include in our scale, in this case, this is 0. Numbers after this one show the distance between two marks.",
+        "image": "x_scale_zero.png"
       },
       {
-        "text": "We can repeat this, drawing a dot for each day.",
-        "todo": "add  image for this"
+        "text": "To calculate the distance between two marks, you can take two numbers at different marks, subtract the smaller from the larger one and and divide this by the number of marks between the two numbers. You can see how to do this again below.",
+        "image": "step_size.png"
       },
       {
-        "text": "If we connect these dots, we get a line plot! Try hovering with your mouse over the plot to see what each point means.",
-        "todo": "add interaction for this where line plot also contains dots for easier understanding"
+        "text": "Let's say that this scale represents the hours in a day. The first mark is at 0, and the last is at 23. The distance between each marking is 2. Now we can add some hours as dots. If we want to add hours 0, 5, 12, and 23, we can use the numbers at the marks and the distance between them, to find their place.",
+        "vis1": {
+          "type": "line_plot",
+          "demo_num": true,
+          "only_show_x": true,
+          "x_lab": "hours"
+        }
+      },
+      {
+        "text": "Now that we have our scale for the hours, we can add an other one like this for the temperatures. It works just like the other one, you just need to count upwards instead of counting to the right.",
+        "vis1": {
+          "type": "line_plot",
+          "temps": true,
+          "draw_line": false,
+          "show_dots": false,
+          "y_lab": "temperature",
+          "x_lab": "hours"
+        }
+      },
+      {
+        "text": "Now that we have two scales, we also need two values so that we can add a dot. Let's say that the temperature at 12 o'clock was 20 degrees. To add a dot for this, we can count to 5 on the time scale and 10 on the temperature scale. Now, if we draw a line from both scales, we get the place of our new dot. This dot means that the temperature at 5 o'clock was 10 degrees.",
+        "image": "temp_at_time.png"
+      },
+      {
+        "text": "Here are some more examples for you to see how this works. The red dot means that at 2 o'clock, the temperature was 2 degrees. The yellow dot means that at 7 o'clock, the temperature was 10 degrees. The blue dot means that at 14 o'clock, the temperature was 5 degrees.",
+        "image": "colored_points.png"
+      },
+      {
+        "text": "Now that we understan how it is done, we can add a dot for each temperature at each time and get something like this. If you use your mouse to hover over a dot, you can see how it was drawn and what it means. A line plot is drawn, by connecting the dots using lines like the ones connecting the dots here, but it is usually drawn without the dots.",
+        "vis1": {
+          "type": "line_plot",
+          "temps": true,
+          "y_lab": "temperature",
+          "x_lab": "hours"
+        }
       },
       {
         "text": "test",
@@ -163,7 +198,7 @@
         ]
       }
     ],
-    "progress": 3
+    "progress": 12
   },
   {
     "id": 3,
