@@ -1,10 +1,13 @@
 import { Injectable } from '@angular/core';
-import { of } from 'rxjs';
+import {Observable, of} from 'rxjs';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class QuizService {
+  private baseUrl = 'http://localhost:8000/quiz';
+  constructor(private http: HttpClient) {}
   getQuiz() {
     return of({
       title: 'Test Quiz',
@@ -23,5 +26,11 @@ export class QuizService {
         }
       ]
     });
+  }
+
+  getQuizData(storyId: number): Observable<any> {
+    const url = `${this.baseUrl}/${storyId}/data`;
+    console.log(url)
+    return this.http.get<any>(url);
   }
 }

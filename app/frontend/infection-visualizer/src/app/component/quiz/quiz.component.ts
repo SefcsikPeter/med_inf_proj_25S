@@ -18,6 +18,7 @@ import { McQuestionComponent } from '../mc-question/mc-question.component';
   styleUrl: './quiz.component.css'
 })
 export class QuizComponent implements OnInit {
+  storyId: number = 0;
   currentQuestionIndex: number = 0;
   totalQuestions: number = 0;
   questions: any[] = [];
@@ -37,6 +38,20 @@ export class QuizComponent implements OnInit {
     });
 
     this.loadQuiz();
+    this.loadData();
+  }
+
+  loadData(): void {
+    this.quizService.getQuizData(this.storyId).subscribe({
+      next: (data) => {
+        this.title = data.title;
+        this.totalQuestions = data.total_pages;
+        console.log('loaded title and size', data);
+      },
+      error: (err) => {
+        console.log('Error fetching title and size', err);
+      }
+    });
   }
 
   loadQuiz(): void {

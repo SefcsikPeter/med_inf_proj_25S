@@ -4,7 +4,7 @@
     "title": "What is an Epidemic?",
     "questions": [
       {
-        "question": "Test",
+        "question": "Test 1",
         "options": [
           "1",
           "2",
@@ -12,6 +12,16 @@
           "4"
         ],
         "correct": "2"
+      },
+      {
+        "question": "Test 2",
+        "options": [
+          "test 1",
+          "test 2",
+          "test 3",
+          "test 4"
+        ],
+        "correct": "test 2"
       }
     ]
   }

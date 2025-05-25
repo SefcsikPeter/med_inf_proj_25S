@@ -124,5 +124,26 @@ def get_story_data(
         "data": story.get("data", []),
     }
 
+@app.get("/quiz/{story_id}/data")
+def get_quiz_data(
+    story_id: int = Path(..., description="ID of the story of the quiz"),
+):
+    try:
+        with open("quizzes.json", "r") as f:
+            quizzes = json.load(f)
+    except FileNotFoundError:
+        raise HTTPException(status_code=500, detail="quizzes.json not found")
+
+    quiz = next((s for s in quizzes if s["id"] == story_id), None)
+    if not quiz:
+        raise HTTPException(status_code=404, detail="Quiz not found")
+
+    questions = quiz.get("questions", [])
+
+    return {
+        "title": quiz.get("title", "Untitled"),
+        "total_pages": len(questions)
+    }
+
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)
