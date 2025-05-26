@@ -172,7 +172,16 @@
           "y_lab": "temperature",
           "x_lab": "hours"
         }
-      },
+      }
+    ],
+    "progress": 11
+  },
+  {
+    "id": 3,
+    "title": "Test Story",
+    "chapter": 1,
+    "level": 1,
+    "slides": [
       {
         "text": "test",
         "data": {
@@ -196,18 +205,6 @@
             "text": "days"
           }
         ]
-      }
-    ],
-    "progress": 12
-  },
-  {
-    "id": 3,
-    "title": "Test Story",
-    "chapter": 1,
-    "level": 1,
-    "slides": [
-      {
-        "text": "Structure Demo"
       }
     ],
     "progress": 1
