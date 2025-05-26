@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NgClass } from '@angular/common';
 
@@ -12,7 +12,7 @@ import { NgClass } from '@angular/common';
   templateUrl: './mc-question.component.html',
   styleUrl: './mc-question.component.css'
 })
-export class McQuestionComponent implements OnInit {
+export class McQuestionComponent implements OnInit, OnChanges {
   @Input() question: {
     text: string;
     options: string[];
@@ -46,5 +46,9 @@ export class McQuestionComponent implements OnInit {
       [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
     }
     return shuffled;
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    this.shuffledOptions = this.shuffleArray(this.question.options);
   }
 }
