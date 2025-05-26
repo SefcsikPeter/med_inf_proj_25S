@@ -4,25 +4,28 @@
     "title": "What is an Epidemic?",
     "questions": [
       {
-        "question": "Test 1",
+        "question": "What is the analogy we used to explain disease spread?",
         "options": [
-          "1",
-          "2",
-          "3",
-          "4"
+          "Sharing lunch",
+          "Gossip in school",
+          "Tag",
+          "Wearing masks"
         ],
-        "correct": "2"
+        "correct": "Gossip in school",
+        "image": "gossip.png"
       },
       {
-        "question": "Test 2",
+        "question": "What tool do we use to simulate gossip spreading?",
         "options": [
-          "test 1",
-          "test 2",
-          "test 3",
-          "test 4"
+          "Coin",
+          "Dice",
+          "Compass",
+          "Map"
         ],
-        "correct": "test 2"
+        "correct": "Dice",
+        "image": "dice.jpg"
       }
-    ]
+    ],
+    "progress": 2
   }
 ]

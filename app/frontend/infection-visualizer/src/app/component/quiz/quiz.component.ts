@@ -21,7 +21,6 @@ export class QuizComponent implements OnInit {
   storyId: number = 0;
   currentQuestionIndex: number = 0;
   totalQuestions: number = 0;
-  questions: any[] = [];
   question: any = null;
   imagePath: string = '';
   title: string = '';
@@ -37,8 +36,8 @@ export class QuizComponent implements OnInit {
       this.currentQuestionIndex = Number(params.get('page')) || 0;
     });
 
-    this.loadQuiz();
     this.loadData();
+    this.loadQuestion(this.currentQuestionIndex);
   }
 
   loadData(): void {
@@ -54,28 +53,28 @@ export class QuizComponent implements OnInit {
     });
   }
 
-  loadQuiz(): void {
-    this.quizService.getQuiz().subscribe({
-      next: (data) => {
-        this.title = data.title || 'Quiz';
-        this.questions = data.questions;
-        this.totalQuestions = this.questions.length;
-        this.loadQuestion(this.currentQuestionIndex);
+async loadQuestion(index: number): Promise<void> {
+    this.quizService.getQuizQuestion(this.storyId, index).subscribe({
+      next: async (data) => {
+        console.log(data)
+        this.question = data.slide;
+        this.currentQuestionIndex = data.page;
+        this.imagePath = 'http://localhost:8000/static/images/';
+        if (data.image != null) {
+          this.imagePath += data.image;
+        }
+
+        this.router.navigate([], {
+          relativeTo: this.route,
+          queryParams: { page: this.currentQuestionIndex },
+          queryParamsHandling: 'merge',
+          replaceUrl: true
+        });
       },
       error: (err) => {
-        console.error('Failed to load quiz:', err);
+        console.error('Failed to load question:', err);
       }
     });
-  }
-
-  loadQuestion(index: number): void {
-    if (index >= 0 && index < this.totalQuestions) {
-      this.question = this.questions[index];
-      this.imagePath = 'http://localhost:8000/static/images/';
-      if (this.question.image) {
-        this.imagePath += this.question.image;
-      }
-    }
   }
 
   nextQuestion(): void {

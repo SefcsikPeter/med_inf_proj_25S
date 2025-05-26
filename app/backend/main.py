@@ -145,5 +145,38 @@ def get_quiz_data(
         "total_pages": len(questions)
     }
 
+@app.get("/quiz/{story_id}")
+def get_question(
+    story_id: int = Path(..., description="ID of the story"),
+    page: int = Query(0, description="Page number (question index)")
+):
+    try:
+        with open("quizzes.json", "r") as f:
+            quizzes = json.load(f)
+    except FileNotFoundError:
+        raise HTTPException(status_code=500, detail="quizzes.json not found")
+
+    quiz_index = next((i for i, q in enumerate(quizzes) if q["id"] == story_id), None)
+    if quiz_index is None:
+        raise HTTPException(status_code=404, detail="Quiz for story not found")
+
+    questions= quizzes[quiz_index].get("questions", [])
+    if page < 0 or page >= len(questions):
+        raise HTTPException(status_code=404, detail="Question not found")
+
+    quizzes[quiz_index]["progress"] = page + 1
+
+    try:
+        with open("quizzes.json", "w") as f:
+            json.dump(quizzes, f, indent=2)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error saving progress: {str(e)}")
+
+    return {
+        "slide": questions[page],
+        "page": page,
+        "image": questions[page].get('image')
+    }
+
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Observable, of} from 'rxjs';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpParams} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -8,24 +8,12 @@ import {HttpClient} from '@angular/common/http';
 export class QuizService {
   private baseUrl = 'http://localhost:8000/quiz';
   constructor(private http: HttpClient) {}
-  getQuiz() {
-    return of({
-      title: 'Test Quiz',
-      questions: [
-        {
-          text: 'What is the analogy used to explain disease spread?',
-          options: ['Sharing lunch', 'Gossip in school', 'Tag', 'Wearing masks'],
-          correctAnswer: 'Gossip in school',
-          image: 'gossip.png'
-        },
-        {
-          text: 'What tool do we use to simulate gossip spreading?',
-          options: ['Coin', 'Dice', 'Compass', 'Map'],
-          correctAnswer: 'Dice',
-          image: 'dice.jpg'
-        }
-      ]
-    });
+
+  getQuizQuestion(storyId: number, page: number = 0): Observable<any> {
+    const url = `${this.baseUrl}/${storyId}`;
+    const params = new HttpParams().set('page', page.toString());
+
+    return this.http.get<any>(url, {params});
   }
 
   getQuizData(storyId: number): Observable<any> {
