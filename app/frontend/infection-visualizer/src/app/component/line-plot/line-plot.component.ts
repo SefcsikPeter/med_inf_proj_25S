@@ -27,8 +27,19 @@ export class LinePlotComponent implements OnInit {
   { x: 16, y: 21 }, { x: 17, y: 20 }, { x: 18, y: 18 }, { x: 19, y: 17 },
   { x: 20, y: 15 }, { x: 21, y: 14 }, { x: 22, y: 13 }, { x: 23, y: 12 }
 ];
+  dailyTempQuiz1: { x: number, y: number }[] = [
+  { x: 0, y: 1 }, { x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 },
+  { x: 4, y: 0 }, { x: 5, y: 0 }, { x: 6, y: 0 }, { x: 7, y: 1 },
+  { x: 8, y: 2 }, { x: 9, y: 3 }, { x: 10, y: 4 }, { x: 11, y: 6 },
+  { x: 12, y: 7 }, { x: 13, y: 8 }, { x: 14, y: 8 }, { x: 15, y: 7 },
+  { x: 16, y: 6 }, { x: 17, y: 5 }, { x: 18, y: 3 }, { x: 19, y: 2 },
+  { x: 20, y: 1 }, { x: 21, y: 1 }, { x: 22, y: 1 }, { x: 23, y: 1 }
+];
   nums: { x: number, y: number }[] = [
   { x: 0, y: 12 }, { x: 5, y: 12 }, { x: 12, y: 12 }, { x: 23, y: 12 }
+];
+  numsQuiz1: { x: number, y: number }[] = [
+  { x: 0, y: 12 }, { x: 5, y: 12 }, { x: 12, y: 12 }, { x: 80, y: 12 }
 ];
 
 
