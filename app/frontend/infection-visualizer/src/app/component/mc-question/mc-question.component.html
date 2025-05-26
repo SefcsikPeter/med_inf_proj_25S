@@ -39,7 +39,16 @@
                 'alert-danger': !isCorrect
               }"
             >
-              {{ isCorrect ? 'Correct!' : 'Incorrect. Try again.' }}
+              {{ isCorrect ? 'Correct!' : '' }}
+              @if (!isCorrect) {
+                <ng-container>
+                  Try again! You can review this part by
+                  <a
+                    [routerLink]="['/story', storyId]"
+                    [queryParams]="{ page: question.hint }"
+                  >clicking here</a>.
+                </ng-container>
+              }
             </div>
           </div>
         }

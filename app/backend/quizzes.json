@@ -12,7 +12,8 @@
           "Wearing masks"
         ],
         "correct": "Gossip in school",
-        "image": "gossip.png"
+        "image": "gossip.png",
+        "hint": 0
       },
       {
         "question": "What tool do we use to simulate gossip spreading?",
@@ -23,7 +24,8 @@
           "Map"
         ],
         "correct": "Dice",
-        "image": "dice.jpg"
+        "image": "dice.jpg",
+        "hint": 3
       }
     ],
     "progress": 2
