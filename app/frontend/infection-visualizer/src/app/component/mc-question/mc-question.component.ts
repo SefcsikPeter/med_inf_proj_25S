@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NgClass } from '@angular/common';
 import {RouterLink} from '@angular/router';
@@ -15,6 +15,7 @@ import {RouterLink} from '@angular/router';
   styleUrl: './mc-question.component.css'
 })
 export class McQuestionComponent implements OnInit, OnChanges {
+  @Output() answerStatus = new EventEmitter<boolean>();
   @Input() question: {
     text: string;
     options: string[];
@@ -42,7 +43,9 @@ export class McQuestionComponent implements OnInit, OnChanges {
   submitAnswer() {
     this.answerSubmitted = true;
     this.isCorrect = this.selectedAnswer === this.question.correct;
+    this.answerStatus.emit(this.isCorrect);
   }
+
 
   shuffleArray<T>(array: T[]): T[] {
     const shuffled = [...array];

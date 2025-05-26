@@ -24,6 +24,7 @@ export class QuizComponent implements OnInit {
   question: any = null;
   imagePath: string = '';
   title: string = '';
+  isAnswerCorrect = false;
 
   constructor(
     private quizService: QuizService,
@@ -107,6 +108,10 @@ async loadQuestion(index: number): Promise<void> {
         queryParamsHandling: 'merge'
       });
     }
+  }
+
+  onAnswerStatusChanged(isCorrect: boolean): void {
+    this.isAnswerCorrect = isCorrect;
   }
 
 }
