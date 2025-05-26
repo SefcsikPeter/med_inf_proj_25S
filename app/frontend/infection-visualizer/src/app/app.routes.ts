@@ -10,7 +10,7 @@ export const routes: Routes = [
     { path: 'infection-tree', component: InfectionTreeComponent},
     { path: 'story/:story_id', component: StoryComponent },
     { path: 'rad-tree', component: RadialTreeComponent},
-    { path: 'quiz/:quiz_id', component: QuizComponent},
+    { path: 'quiz/:story_id', component: QuizComponent},
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: '**', redirectTo: 'home' }
 ];

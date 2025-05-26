@@ -28,6 +28,37 @@
         "hint": 3
       }
     ],
-    "progress": 2
+    "progress": 1
+  },
+  {
+    "id": 2,
+    "title": "Line Plots",
+    "questions": [
+      {
+        "question": "What is the analogy we used to explain disease spread?",
+        "options": [
+          "Sharing lunch",
+          "Gossip in school",
+          "Tag",
+          "Wearing masks"
+        ],
+        "correct": "Gossip in school",
+        "image": "gossip.png",
+        "hint": 0
+      },
+      {
+        "question": "What tool do we use to simulate gossip spreading?",
+        "options": [
+          "Coin",
+          "Dice",
+          "Compass",
+          "Map"
+        ],
+        "correct": "Dice",
+        "image": "dice.jpg",
+        "hint": 3
+      }
+    ],
+    "progress": 1
   }
 ]

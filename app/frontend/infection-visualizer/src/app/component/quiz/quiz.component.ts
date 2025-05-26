@@ -32,6 +32,11 @@ export class QuizComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.route.paramMap.subscribe(params => {
+      this.storyId = Number(params.get('story_id')) || 0;
+      console.log(this.storyId)
+    });
+
     this.route.queryParamMap.subscribe(params => {
       this.currentQuestionIndex = Number(params.get('page')) || 0;
     });
@@ -39,6 +44,7 @@ export class QuizComponent implements OnInit {
     this.loadData();
     this.loadQuestion(this.currentQuestionIndex);
   }
+
 
   loadData(): void {
     this.quizService.getQuizData(this.storyId).subscribe({
