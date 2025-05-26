@@ -44,6 +44,7 @@ export class McQuestionComponent implements OnInit, OnChanges {
     this.answerSubmitted = true;
     this.isCorrect = this.selectedAnswer === this.question.correct;
     this.answerStatus.emit(this.isCorrect);
+    console.log(this.isCorrect)
   }
 
 
@@ -58,5 +59,7 @@ export class McQuestionComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     this.shuffledOptions = this.shuffleArray(this.question.options);
+    this.answerSubmitted = false;
+    this.isCorrect = false;
   }
 }

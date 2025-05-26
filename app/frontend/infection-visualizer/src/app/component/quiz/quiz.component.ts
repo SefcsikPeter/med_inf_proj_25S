@@ -95,6 +95,7 @@ async loadQuestion(index: number): Promise<void> {
         queryParamsHandling: 'merge' // optional: keeps other params
       });
     }
+    this.isAnswerCorrect = false;
   }
 
   prevQuestion(): void {
