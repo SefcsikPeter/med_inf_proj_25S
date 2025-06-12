@@ -1,0 +1,45 @@
+<div class="graph-vertical">
+  <!-- Row 1 -->
+  <app-story-card
+    [title]="lessons[0].title"
+    [progress]="lessons[0].progress"
+    [storyId]="lessons[0].id"
+    [page]="lessons[0].page">
+  </app-story-card>
+
+  <!-- Line down -->
+  <div class="connector vertical-line"></div>
+
+  <div style="display: flex; justify-content: center; align-items: center;">
+    <!-- Left card -->
+    <app-story-card
+      [title]="lessons[2].title"
+      [progress]="lessons[2].progress"
+      [storyId]="lessons[2].id"
+      [page]="lessons[2].page">
+    </app-story-card>
+
+    <!-- Horizontal connector -->
+    <div class="connector horizontal-line"></div>
+
+    <!-- Middle card -->
+    <app-story-card
+      [title]="lessons[1].title"
+      [progress]="lessons[1].progress"
+      [storyId]="lessons[1].id"
+      [page]="lessons[1].page">
+    </app-story-card>
+
+    <!-- Horizontal connector -->
+    <div class="connector horizontal-line"></div>
+
+    <!-- Right card -->
+    <app-story-card
+      [title]="lessons[3].title"
+      [progress]="lessons[3].progress"
+      [storyId]="lessons[3].id"
+      [page]="lessons[3].page">
+    </app-story-card>
+  </div>
+
+</div>

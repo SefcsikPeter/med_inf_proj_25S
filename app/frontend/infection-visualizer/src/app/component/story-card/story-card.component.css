@@ -1,29 +1,41 @@
 .card {
+  position: relative;
   width: 120px;
   height: 160px;
   margin: 12px;
   padding: 10px;
   text-align: center;
   border-radius: 10px;
-  text-decoration: none;
-  color: black;
-  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
-
-.card:hover {
-  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  transition: background 0.3s ease;
   cursor: pointer;
 }
 
-.progress-bar {
-  height: 6px;
-  background-color: green;
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
+.card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.quiz-link {
   position: absolute;
-  top: 0;
+  bottom: 8px;
   left: 0;
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: 500;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: none;
+  text-decoration: underline;
+}
+
+.card:hover .quiz-link {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }

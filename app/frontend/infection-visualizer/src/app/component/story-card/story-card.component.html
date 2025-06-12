@@ -1,11 +1,17 @@
-<a
-  [routerLink]="['/story', storyId]"
-  [queryParams]="{ page: page }"
+<div
   class="card"
   [style.background]="bgColor"
+  [style.color]="textColor"
+  (click)="navigateToStory()"
 >
-  <div class="progress-bar" [style.width]="progressWidth"></div>
   <h6>{{ title }}</h6>
   <p><strong>{{ parseInt('' + progress * 100) }}%</strong></p>
-</a>
 
+  <button
+    class="quiz-link"
+    (click)="skipToQuiz($event)"
+    [style.color]="textColor"
+  >
+    Skip to Quiz →
+  </button>
+</div>

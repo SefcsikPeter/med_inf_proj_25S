@@ -7,13 +7,6 @@
   <p>Current value: {{ popSize }}</p>
 </div>
 
-<div style="display: flex; flex-wrap: wrap; justify-content: center;">
-  <app-story-card
-    *ngFor="let s of stories"
-    [title]="s.title"
-    [progress]="s.progress"
-    [storyId]="s.id"
-    [page]="s.page"
-  ></app-story-card>
-</div>
+<app-lesson-graph [lessons]="stories"></app-lesson-graph>
+
 

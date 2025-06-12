@@ -99,7 +99,7 @@
         "image": ""
       }
     ],
-    "progress": 2
+    "progress": 1
   },
   {
     "id": 2,
@@ -174,7 +174,7 @@
         }
       }
     ],
-    "progress": 11
+    "progress": 8
   },
   {
     "id": 3,
@@ -184,7 +184,7 @@
     "slides": [
       {
         "text": "An important task when inspecting the spreading of a disease is to track who infected whom.",
-        "image": "gossip.png"
+        "image": "infection.png"
       },
       {
         "text": "For a simple example, let's go back to our gossip analogy. Let's say that there's a friend group of 5 people: Alexa, Bobby, Tom, Leila, and Max. Max heard some new gossip from a person outside of their friend group and told it to Leila. Leila told it to Bobby and Tom and Tom told it to Alexa. The table below summarizes the interactions.",
@@ -195,67 +195,27 @@
         "image": "small_graph.png"
       },
       {
-        "text": "If we try to keep track of how the gossip spreads, we can't always take each conversation each person had into consideration. Instead, we can do something similar to rolling the dice for each person.",
-        "image": "dice.jpg"
+        "text": "In mathematics, this representation is called a directed graph. A graph is a representation containing links and nodes, this graph in our case is called directional, because the links are arrows with a specific direction from a node to an other.",
+        "image": "nodes_and_links.png"
       },
       {
-        "text": "To see how many people someone tells the gossip to, we can pretend to roll a 4-sided dice for each person - the number it lands on shows how many people they tell. You can see an example for this below. If you click Re-Generate, you can see how re-rolling the dice for each person changes the outcome!",
-        "data": {
-          "type": "dummy_tree",
-          "num_iter": 5
-        },
-        "vis1": {
-          "type": "rad_tree",
-          "depth": 4,
-          "step": 50
-        }
+        "text": "Directional graphs give a much better overview than a table containing the interactions, but if we add more people, it is still easy to loose track. For example, it would be difficult to say, who started the gossip in this group on a glance.",
+        "image": "larger_graph.png"
       },
       {
-        "text": "Now you can also try changing the slider around to see how the gossip spreads day-by-day. Each ring represents a new day.",
-        "data": {
-          "type": "dummy_tree",
-          "num_iter": 5
-        },
-        "vis1": {
-          "type": "rad_tree",
-          "depth": 0,
-          "step": 50
-        },
-        "sliders": [
-          {
-            "type": "depth",
-            "min": 0,
-            "max": 5,
-            "current_value": 0,
-            "symbol": "sun",
-            "text": "days"
-          }
-        ]
+        "text": "Apart from being directed, our graph also has an other important property which makes it interesting. It also doesn't contain any loops. Loops in directed graphs are a series of links where the last link points to the same node as where the first link starts from. You can see loop examples in red below.",
+        "image": "loop_examples.png"
       },
       {
-        "text": "A disease spreads the same way, one person might only infect a few other people, but when they also start infecting other people, the disease starts spreading faster and faster! That is how an epidemic starts.",
-        "data": {
-          "type": "dummy_tree",
-          "num_iter": 5
-        },
-        "vis1": {
-          "type": "rad_tree",
-          "depth": 5,
-          "step": 50
-        },
-        "sliders": [
-          {
-            "type": "depth",
-            "min": 0,
-            "max": 5,
-            "current_value": 5,
-            "symbol": "sun",
-            "text": "days"
-          }
-        ]
+        "text": "Graphs without loops are called trees. This is because they have a single node called the root node to which no link points to. If we reorder the graph a bit like below, we can see that it sort of resembles an upside down tree with the root node being at the top.",
+        "image": "larger_graph_to_tree.png"
+      },
+      {
+        "text": "This is the same tree as on the previous page, but rotated and drawn in a different style. We don't need to draw the links as arrows, because in this representation, all the arrows point from the left to the right. Here, we can see that Frank started spreading the gossip and it is also easy to track, who told the gossip to whom and how many people the gossip needed to get through to get from a person to an other.",
+        "image": ""
       }
     ],
-    "progress": 3
+    "progress": 6
   },
   {
     "id": 4,

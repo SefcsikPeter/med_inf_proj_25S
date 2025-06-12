@@ -6,11 +6,12 @@ import { debounceTime } from 'rxjs/operators';
 import {StoryCardComponent} from '../story-card/story-card.component';
 import {CommonModule} from '@angular/common';
 import {StoryService} from '../../service/story.service';
+import {LessonGraphComponent} from '../lesson-graph/lesson-graph.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [SliderComponent, InfectionTreeComponent, StoryCardComponent, CommonModule],
+  imports: [SliderComponent, InfectionTreeComponent, StoryCardComponent, CommonModule, LessonGraphComponent],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
