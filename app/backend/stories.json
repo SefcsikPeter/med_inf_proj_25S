@@ -219,6 +219,72 @@
   },
   {
     "id": 4,
+    "title": "Motivation for Epidemic Modelling",
+    "chapter": 1,
+    "level": 0,
+    "slides": [
+      {
+        "text": "",
+        "image": ""
+      },
+      {
+        "text": "",
+        "image": ""
+      },
+      {
+        "text": "",
+        "image": ""
+      }
+    ],
+    "progress": 1
+  },
+  {
+    "id": 5,
+    "title": "SIR",
+    "chapter": 1,
+    "level": 1,
+    "slides": [
+      {
+        "text": "The SIR model is one of the simplest ones for modelling an epidemic.",
+        "image": "SIR.png"
+      },
+      {
+        "text": "SIR is a compartmental model, meaning that it divides people into different compartments. You can imagine compartments as boxes and people as beads.",
+        "image": "SIR_box.png"
+      },
+      {
+        "text": "The total number of beads is the number of people we would like to model.",
+        "image": "beads.png"
+      },
+      {
+        "text": "The compartments in the SIR model are S: Suspectible, I: Infected, R: Recovered, this is where the model gets its name from. People in S can get infected by the disease but are not infected yet, people in I are allready infected and people in R were infected once, but are recovered now, they usually can't get infected by the same disease again.",
+        "image": ""
+      },
+      {
+        "text": "For a simple example, we can model gossip in school. We only need the S and I compartmetns for this because people can only know and not know about the gossip but can't recover from knowing it.",
+        "image": "SI.png"
+      },
+      {
+        "text": "Let's say that there is one person who starts spreading the gossip. That one person goes into the I compartment and everyone else goes into the S compartment.",
+        "image": "SI_gossip.png"
+      },
+      {
+        "text": "After initially placing the beads in the compartments, we can start moving them from one compartment to the other. How we move the beads depends on the transition rate.",
+        "image": "SI_transition.png"
+      },
+      {
+        "text": "The transition rate means how many people someone tells the gossip to each day. If we assume this rate to be 1, we need to move one person from the S compartment to the I compartment for each person in the I compartment.",
+        "image": "SI_transition=1.png"
+      },
+      {
+        "text": "Sometimes we need to model a lot of people, but when we add a lot more beads to our boxes, it becomes very difficult to count them. Instead, we can use line plots to show how many people are in a compartment each day.",
+        "image": "SI_transition=1.png"
+      }
+    ],
+    "progress": 9
+  },
+  {
+    "id": 6,
     "title": "Test Story",
     "chapter": 1,
     "level": 1,

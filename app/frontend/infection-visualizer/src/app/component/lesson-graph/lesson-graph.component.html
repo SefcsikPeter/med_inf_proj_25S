@@ -1,5 +1,5 @@
 <div class="graph-vertical">
-  <!-- Row 1 -->
+  <!-- Row 0 -->
   <app-story-card
     [title]="lessons[0].title"
     [progress]="lessons[0].progress"
@@ -10,6 +10,7 @@
   <!-- Line down -->
   <div class="connector vertical-line"></div>
 
+  <!-- Row 1 -->
   <div style="display: flex; justify-content: center; align-items: center;">
     <!-- Left card -->
     <app-story-card
@@ -39,6 +40,42 @@
       [progress]="lessons[3].progress"
       [storyId]="lessons[3].id"
       [page]="lessons[3].page">
+    </app-story-card>
+  </div>
+
+  <!-- Line down -->
+  <div class="connector vertical-line"></div>
+
+  <!-- Row 2 -->
+  <div style="display: flex; justify-content: center; align-items: center;">
+    <!-- Left card -->
+    <app-story-card
+      [title]="lessons[5].title"
+      [progress]="lessons[5].progress"
+      [storyId]="lessons[5].id"
+      [page]="lessons[5].page">
+    </app-story-card>
+
+    <!-- Horizontal connector -->
+    <div class="connector horizontal-line"></div>
+
+    <!-- Middle card -->
+    <app-story-card
+      [title]="lessons[4].title"
+      [progress]="lessons[4].progress"
+      [storyId]="lessons[4].id"
+      [page]="lessons[4].page">
+    </app-story-card>
+
+    <!-- Horizontal connector -->
+    <div class="connector horizontal-line"></div>
+
+    <!-- Right card -->
+    <app-story-card
+      [title]="lessons[6].title"
+      [progress]="lessons[6].progress"
+      [storyId]="lessons[6].id"
+      [page]="lessons[6].page">
     </app-story-card>
   </div>
 
