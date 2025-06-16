@@ -4,6 +4,8 @@ import numpy as np
 import json
 from networkx.readwrite import json_graph
 from collections import deque
+from epimodels.discrete.models import SIR as SIR_disc
+from epimodels.continuous.models import SIR as SIR
 
 def build_infection_tree(sim):
     '''
@@ -94,3 +96,32 @@ def get_dummy_tree(num_iter):
     data = json_graph.node_link_data(G)
     data['plot_data'] = plot_data
     return data
+
+def get_sir_data(
+    transmission_rate=1,
+    recovery_rate=0,
+    discrete=True,
+    pop_size=12,
+    inf=1,
+    n_days=8
+):
+    if discrete:
+        model = SIR_disc()
+    else:
+        model = SIR()
+
+    model([pop_size - inf, inf, 0], [0, n_days], pop_size, {'beta': transmission_rate, 'gamma': recovery_rate})
+    traces = model.traces
+
+    json_data = [
+        {
+            "time": float(traces["time"][i]),
+            "S": float(traces["S"][i]),
+            "I": float(traces["I"][i]),
+            "R": float(traces["R"][i]),
+        }
+        for i in range(len(traces["time"]))
+    ]
+
+    return json_data
+

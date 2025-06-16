@@ -4,7 +4,7 @@ import covasim as cv
 import networkx as nx
 import numpy as np
 import json
-from infection_simulation import get_inf_tree, get_dummy_tree
+from infection_simulation import get_inf_tree, get_dummy_tree, get_sir_data
 from fastapi import Query, Path, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
@@ -46,6 +46,15 @@ def get_graph(num_iter: int = Query(5, description="Number of iterations")):
         num_iter = 5 by default, determines the tree depth
     '''
     return get_dummy_tree(num_iter)
+
+@app.get("/sir")
+def get_graph(transmission_rate: int = Query(1, description="Transition rate"), recovery_rate: int = Query(0, description="Recovery rate")):
+    '''
+    Creates sir lineplot data
+    params:
+        transmission_rate = 1 by default, determines the tree depth
+    '''
+    return get_sir_data()
 
 @app.get("/story/{story_id}")
 def get_story_slide(
