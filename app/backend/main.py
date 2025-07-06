@@ -224,6 +224,12 @@ def submit_quiz_answers(
             quizzes = json.load(f)
     except FileNotFoundError:
         raise HTTPException(status_code=500, detail="quizzes.json not found")
+    
+    try:
+        with open("stories.json", "r") as f:
+            stories = json.load(f)
+    except FileNotFoundError:
+        raise HTTPException(status_code=500, detail="stories.json not found")
 
     quiz_index = next((i for i, q in enumerate(quizzes) if q["id"] == story_id), None)
     if quiz_index is None:
@@ -252,6 +258,13 @@ def submit_quiz_answers(
                 json.dump(quizzes, f, indent=2)
         except Exception as e:
             raise HTTPException(status_code=500, detail=f"Error saving quiz result: {str(e)}")
+        
+        stories[quiz["id"]]["progress"] = len(stories[quiz["id"]]["slides"])
+        try:
+            with open("stories.json", "w") as f:
+                json.dump(stories, f, indent=2)
+        except Exception as e:
+            raise HTTPException(status_code=500, detail=f"Error saving progress: {str(e)}")
 
     return {
         "passed": all_correct,
