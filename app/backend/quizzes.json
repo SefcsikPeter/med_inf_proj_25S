@@ -28,8 +28,28 @@
         "hint": 3
       }
     ],
+    "progress": 2,
+    "passed": true
+  },
+  {
+    "id": 1,
+    "title": "Motivation for Epidemic Visualization",
+    "questions": [
+      {
+        "question": "Test question",
+        "options": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ],
+        "correct": "1",
+        "image": "gossip.png",
+        "hint": 0
+      }
+    ],
     "progress": 1,
-    "passed": false
+    "passed": true
   },
   {
     "id": 2,

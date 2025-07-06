@@ -25,6 +25,7 @@ export class QuizComponent implements OnInit {
   imagePath: string = '';
   title: string = '';
   isAnswerCorrect = false;
+  answers: string[] = [];
 
   constructor(
     private quizService: QuizService,
@@ -52,6 +53,7 @@ export class QuizComponent implements OnInit {
       next: (data) => {
         this.title = data.title;
         this.totalQuestions = data.total_pages;
+        this.answers = Array(this.totalQuestions).fill("");
         console.log('loaded title and size', data);
       },
       error: (err) => {
@@ -92,7 +94,7 @@ async loadQuestion(index: number): Promise<void> {
       this.router.navigate([], {
         relativeTo: this.route,
         queryParams: { page: this.currentQuestionIndex },
-        queryParamsHandling: 'merge' // optional: keeps other params
+        queryParamsHandling: 'merge'
       });
     }
     this.isAnswerCorrect = false;
@@ -113,6 +115,23 @@ async loadQuestion(index: number): Promise<void> {
 
   onAnswerStatusChanged(isCorrect: boolean): void {
     this.isAnswerCorrect = isCorrect;
+  }
+
+  recordAnswer(answer: string): void {
+    this.answers[this.currentQuestionIndex] = answer;
+    console.log(`Answer for question ${this.currentQuestionIndex}: ${answer}`);
+  }
+
+  submitAnswers() {
+    this.quizService.submitAnswers(this.storyId, this.answers).subscribe({
+      next: (data) => {
+        console.log('submitted answers', data);
+        this.router.navigate(['/'])
+      },
+      error: (err) => {
+        console.error(err)
+      }
+    })
   }
 
 }

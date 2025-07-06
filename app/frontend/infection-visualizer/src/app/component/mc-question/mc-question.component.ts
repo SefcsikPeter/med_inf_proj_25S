@@ -16,6 +16,7 @@ import {RouterLink} from '@angular/router';
 })
 export class McQuestionComponent implements OnInit, OnChanges {
   @Output() answerStatus = new EventEmitter<boolean>();
+  @Output() answerSelected = new EventEmitter<string>();
   @Input() question: {
     text: string;
     options: string[];
@@ -44,7 +45,7 @@ export class McQuestionComponent implements OnInit, OnChanges {
     this.answerSubmitted = true;
     this.isCorrect = this.selectedAnswer === this.question.correct;
     this.answerStatus.emit(this.isCorrect);
-    console.log(this.isCorrect)
+    this.answerSelected.emit(this.selectedAnswer);
   }
 
 

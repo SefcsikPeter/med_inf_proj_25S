@@ -86,7 +86,9 @@
     "title": "Motivation for Epidemic Visualization",
     "chapter": 1,
     "level": 0,
-    "requires": [0],
+    "requires": [
+      0
+    ],
     "slides": [
       {
         "text": "To better understand the spreading of diseases, we need a way to visualize the number of people getting infected day by day.",
@@ -108,7 +110,10 @@
     "title": "Line Plots",
     "chapter": 1,
     "level": 1,
-    "requires": [0, 1],
+    "requires": [
+      0,
+      1
+    ],
     "slides": [
       {
         "text": "Line plots are one of the most common ways to show the relation between two things.",
@@ -184,7 +189,10 @@
     "title": "Infection Trees",
     "chapter": 0,
     "level": 0,
-    "requires": [0, 1],
+    "requires": [
+      0,
+      1
+    ],
     "slides": [
       {
         "text": "An important task when inspecting the spreading of a disease is to track who infected whom.",
@@ -226,7 +234,10 @@
     "title": "Motivation for Epidemic Modelling",
     "chapter": 1,
     "level": 0,
-    "requires": [0, 1],
+    "requires": [
+      0,
+      1
+    ],
     "slides": [
       {
         "text": "",
@@ -248,7 +259,11 @@
     "title": "SIR",
     "chapter": 1,
     "level": 1,
-    "requires": [0, 1, 2],
+    "requires": [
+      0,
+      1,
+      2
+    ],
     "slides": [
       {
         "text": "The SIR model is one of the simplest ones for modelling an epidemic.",

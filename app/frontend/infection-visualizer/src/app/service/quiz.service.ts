@@ -21,4 +21,9 @@ export class QuizService {
     console.log(url)
     return this.http.get<any>(url);
   }
+
+  submitAnswers(storyId: number, selectedAnswers: string[]): Observable<any> {
+    const url = `${this.baseUrl}/${storyId}/submit`;
+    return this.http.post<any>(url, selectedAnswers);
+  }
 }
