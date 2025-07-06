@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Body
 import uvicorn
 import covasim as cv
 import networkx as nx
@@ -204,6 +204,55 @@ def get_question(
         "page": page,
         "image": questions[page].get('image')
     }
+
+@app.post("/quiz/{story_id}/submit")
+def submit_quiz_answers(
+    story_id: int = Path(..., description="ID of the story/quiz"),
+    selected_answers: list[str] = Body(..., description="List of selected answers by the student")
+):
+    """
+    Checks if submitted answers are correct.
+    If all are correct, quiz is marked as passed.
+    """
+    try:
+        with open("quizzes.json", "r") as f:
+            quizzes = json.load(f)
+    except FileNotFoundError:
+        raise HTTPException(status_code=500, detail="quizzes.json not found")
+
+    quiz_index = next((i for i, q in enumerate(quizzes) if q["id"] == story_id), None)
+    if quiz_index is None:
+        raise HTTPException(status_code=404, detail="Quiz not found")
+
+    quiz = quizzes[quiz_index]
+
+    questions = quiz.get("questions", [])
+    
+    if len(selected_answers) != len(questions):
+        raise HTTPException(status_code=400, detail="Number of answers does not match number of questions")
+
+    all_correct = True
+    for idx, question in enumerate(questions):
+        correct_answer = question.get("correct")
+        if correct_answer is None:
+            raise HTTPException(status_code=500, detail=f"Questions not answered correctly")
+        if selected_answers[idx] != correct_answer:
+            all_correct = False
+            break
+    
+    if all_correct:
+        quizzes[quiz_index]["passed"] = True
+        try:
+            with open("quizzes.json", "w") as f:
+                json.dump(quizzes, f, indent=2)
+        except Exception as e:
+            raise HTTPException(status_code=500, detail=f"Error saving quiz result: {str(e)}")
+
+    return {
+        "passed": all_correct,
+        "message": "All answers correct, quiz passed!" if all_correct else "Some answers were incorrect.",
+    }
+
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)
