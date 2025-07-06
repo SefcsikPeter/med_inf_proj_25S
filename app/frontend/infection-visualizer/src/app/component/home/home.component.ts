@@ -22,7 +22,7 @@ export class HomeComponent implements OnDestroy, OnInit {
 
   stories: any;
 
-  private sliderInput$ = new Subject<number>(); // 🔁 reactive value stream
+  private sliderInput$ = new Subject<number>();
   private subscription = this.sliderInput$.pipe(
     debounceTime(200)
   ).subscribe(value => {

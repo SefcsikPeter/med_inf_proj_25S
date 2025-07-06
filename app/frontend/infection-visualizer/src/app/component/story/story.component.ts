@@ -11,6 +11,7 @@ import { LinePlotComponent } from '../line-plot/line-plot.component';
 import {ActivatedRoute, Router, RouterLink} from '@angular/router';
 import {VisualizationWrapperComponent} from '../visualization-wrapper/visualization-wrapper.component';
 import {SliderWrapperComponent} from '../slider-wrapper/slider-wrapper.component';
+import { EpiModelService } from '../../service/epi-model.service';
 
 @Component({
   selector: 'app-story',
@@ -39,6 +40,7 @@ export class StoryComponent implements OnInit {
   constructor(
     private storyService: StoryService,
     private treeService: InfectionTreeService,
+    private modelSerivce: EpiModelService,
     private route: ActivatedRoute,
     private router: Router
   ) {}
@@ -73,9 +75,22 @@ export class StoryComponent implements OnInit {
     try {
       const data = await firstValueFrom(this.treeService.getDummyTree(numIter));
       this.infectionTreeData = data;
+      console.log(data);
       return true;
     } catch (err) {
       console.error('Error fetching infection tree:', err);
+      return false;
+    }
+  }
+
+  async fetchSIRData(): Promise<boolean> {
+    try {
+      const data = await firstValueFrom(this.modelSerivce.getSIR(this.dataParams));
+      this.infectionTreeData = data;
+      console.log('data', this.infectionTreeData)
+      return true;
+    } catch (err) {
+      console.error('Error fetching SIR data:', err);
       return false;
     }
   }
@@ -146,6 +161,8 @@ export class StoryComponent implements OnInit {
   async handleWrapperFetch(): Promise<boolean> {
     if (this.dataParams.type === "dummy_tree") {
       return this.fetchDummyTree(this.dataParams.num_iter);
+    } else if (this.dataParams.type === "sir") {
+      return this.fetchSIRData();
     } else {
       return false;
     }

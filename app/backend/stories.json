@@ -4,6 +4,7 @@
     "title": "What is an Epidemic?",
     "chapter": 0,
     "level": 0,
+    "requires": [],
     "slides": [
       {
         "text": "When someone is infected by a new disease, it is kind of like gossip in school.",
@@ -78,13 +79,14 @@
         ]
       }
     ],
-    "progress": 1
+    "progress": 7
   },
   {
     "id": 1,
     "title": "Motivation for Epidemic Visualization",
     "chapter": 1,
     "level": 0,
+    "requires": [0],
     "slides": [
       {
         "text": "To better understand the spreading of diseases, we need a way to visualize the number of people getting infected day by day.",
@@ -99,13 +101,14 @@
         "image": ""
       }
     ],
-    "progress": 1
+    "progress": 3
   },
   {
     "id": 2,
     "title": "Line Plots",
     "chapter": 1,
     "level": 1,
+    "requires": [0, 1],
     "slides": [
       {
         "text": "Line plots are one of the most common ways to show the relation between two things.",
@@ -174,13 +177,14 @@
         }
       }
     ],
-    "progress": 8
+    "progress": 1
   },
   {
     "id": 3,
     "title": "Infection Trees",
     "chapter": 0,
     "level": 0,
+    "requires": [0, 1],
     "slides": [
       {
         "text": "An important task when inspecting the spreading of a disease is to track who infected whom.",
@@ -215,13 +219,14 @@
         "image": ""
       }
     ],
-    "progress": 6
+    "progress": 3
   },
   {
     "id": 4,
     "title": "Motivation for Epidemic Modelling",
     "chapter": 1,
     "level": 0,
+    "requires": [0, 1],
     "slides": [
       {
         "text": "",
@@ -236,13 +241,14 @@
         "image": ""
       }
     ],
-    "progress": 1
+    "progress": 0
   },
   {
     "id": 5,
     "title": "SIR",
     "chapter": 1,
     "level": 1,
+    "requires": [0, 1, 2],
     "slides": [
       {
         "text": "The SIR model is one of the simplest ones for modelling an epidemic.",
@@ -269,25 +275,51 @@
         "image": "SI_gossip.png"
       },
       {
-        "text": "After initially placing the beads in the compartments, we can start moving them from one compartment to the other. How we move the beads depends on the transition rate.",
+        "text": "After initially placing the beads in the compartments, we can start moving them from one compartment to the other. How we move the beads depends on the transmission rate.",
         "image": "SI_transition.png"
       },
       {
-        "text": "The transition rate means how many people someone tells the gossip to each day. If we assume this rate to be 1, we need to move one person from the S compartment to the I compartment for each person in the I compartment.",
+        "text": "The transmission rate means how many people someone tells the gossip to each day. If we assume this rate to be 1, we need to move one person from the S compartment to the I compartment for each person in the I compartment.",
         "image": "SI_transition=1.png"
       },
       {
         "text": "Sometimes we need to model a lot of people, but when we add a lot more beads to our boxes, it becomes very difficult to count them. Instead, we can use line plots to show how many people are in a compartment each day.",
-        "image": "SI_transition=1.png"
+        "data": {
+          "type": "sir"
+        },
+        "vis1": {
+          "type": "line_plot"
+        }
+      },
+      {
+        "text": "Here, each color represents the compartment with the same color as in our box example, where the dotted line represents the number of people in S, the dashed line represents I, and R is missing since we did not include that compartment in our example yet.",
+        "image": ""
+      },
+      {
+        "text": "Now that we have seen how S and I relate to each other, we can also add the R compartment. Similarly to how people move from S to I, people can also move from I to R.",
+        "image": ""
+      },
+      {
+        "text": "To know how many people move from I to R, we need to know how many days it takes a person on average to recover from the disease.",
+        "image": ""
+      },
+      {
+        "text": "After the days required to recover from the disease have passed, we can start moving people that have been in the I compartment for that many days into the R compartment. The rate of this movement is called the recovery rate.",
+        "image": ""
+      },
+      {
+        "text": "To see the transitions between the three compartments, we can take a new example where we have a school with 200 people. In this school, a person got infected by a new disease. People infected by this disease take 7 days to recover and infect 1 person a day on average before recovering. For now, we assume that infected people keep going to school.",
+        "image": ""
       }
     ],
-    "progress": 9
+    "progress": 0
   },
   {
     "id": 6,
     "title": "Test Story",
     "chapter": 1,
     "level": 1,
+    "requires": [],
     "slides": [
       {
         "text": "test",
@@ -314,6 +346,6 @@
         ]
       }
     ],
-    "progress": 1
+    "progress": 0
   }
 ]

@@ -10,11 +10,4 @@ import { StoryCardComponent } from '../story-card/story-card.component';
 })
 export class LessonGraphComponent {
   @Input() lessons: any[] = [];
-
-  isUnlocked(lesson: any): boolean {
-    return lesson.prerequisiteIds.every((id: number) => {
-      const prereq = this.lessons.find(l => l.id === id);
-      return prereq && prereq.progress >= 1;
-    });
-  }
 }

@@ -90,21 +90,39 @@ def get_story_slide(
     }
 
 @app.get("/story")
-def get_story_data():
+def get_stories():
     try:
         with open("stories.json", "r") as f:
             stories = json.load(f)
     except FileNotFoundError:
         raise HTTPException(status_code=500, detail="stories.json not found")
+    
+    try:
+        with open("quizzes.json", "r") as f:
+            quizzes = json.load(f)
+    except FileNotFoundError:
+        raise HTTPException(status_code=500, detail="quizzes.json not found")
+    
+    passed_quizzes = []
+    for q in quizzes:
+        if q["passed"]:
+            passed_quizzes.append(q["id"])
 
     formatted_stories = []
+    locked = False
     for story in stories:
+        for s in story["requires"]:
+            if s not in passed_quizzes:
+                locked = True
+
         formatted_stories.append({
             "id": story["id"],
             "progress": story["progress"]/len(story.get("slides", [])) if "progress" in story else 0,
             "title": story["title"],
-            "page": (story["progress"] - 1 if story["progress"] > 0 else 0) if "progress" in story else 0
+            "page": (story["progress"] - 1 if story["progress"] > 0 else 0) if "progress" in story else 0,
+            "locked": locked
         })
+        locked = False
 
     return {
         "stories": formatted_stories

@@ -13,12 +13,13 @@ export class StoryCardComponent {
   @Input() progress: number = 0;
   @Input() storyId!: number;
   @Input() page: number = 0;
+  @Input() locked: boolean = false;
 
   constructor(private router: Router) {}
 
   get bgColor(): string {
-    const startColor = { r: 255, g: 255, b: 255 }; // white
-    const endColor = { r: 208, g: 0, b: 111 };     // juicy magenta
+    const startColor = { r: 255, g: 255, b: 255 };
+    const endColor = { r: 208, g: 0, b: 111 };
 
     const mix = (start: number, end: number) =>
       Math.round(start + (end - start) * this.progress);
@@ -46,13 +47,15 @@ export class StoryCardComponent {
   }
 
   navigateToStory(): void {
-    this.router.navigate(['/story', this.storyId], {
-      queryParams: { page: this.page }
-    });
+    if (!this.locked) {
+      this.router.navigate(['/story', this.storyId], {
+        queryParams: { page: this.page }
+      });
+    } 
   }
 
   skipToQuiz(event: MouseEvent): void {
-    event.stopPropagation(); // prevent triggering the card click
+    event.stopPropagation();
     this.router.navigate(['/quiz', this.storyId], {
       queryParams: { page: 0 }
     });

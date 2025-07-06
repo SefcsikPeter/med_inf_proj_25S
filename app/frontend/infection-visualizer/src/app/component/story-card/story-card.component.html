@@ -1,17 +1,20 @@
 <div
   class="card"
-  [style.background]="bgColor"
-  [style.color]="textColor"
+  [style.background]="locked ? '#e0e0e0' : bgColor"
+  [style.color]="locked ? '#6a6a6a' : textColor"
+  [style.cursor]="locked ? 'not-allowed' : 'pointer'"
   (click)="navigateToStory()"
 >
   <h6>{{ title }}</h6>
-  <p><strong>{{ parseInt('' + progress * 100) }}%</strong></p>
 
-  <button
-    class="quiz-link"
-    (click)="skipToQuiz($event)"
-    [style.color]="textColor"
-  >
-    Skip to Quiz →
-  </button>
+  @if (!locked){
+    <p><strong>{{ parseInt('' + progress * 100) }}%</strong></p>
+    <button
+      class="quiz-link"
+      (click)="skipToQuiz($event)"
+      [style.color]="textColor"
+    >
+      Skip to Quiz →
+    </button>
+  }
 </div>

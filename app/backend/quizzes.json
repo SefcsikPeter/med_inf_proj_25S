@@ -28,7 +28,8 @@
         "hint": 3
       }
     ],
-    "progress": 2
+    "progress": 1,
+    "passed": false
   },
   {
     "id": 2,
@@ -71,6 +72,7 @@
         "hint": 9
       }
     ],
-    "progress": 1
+    "progress": 1,
+    "passed": false
   }
 ]
