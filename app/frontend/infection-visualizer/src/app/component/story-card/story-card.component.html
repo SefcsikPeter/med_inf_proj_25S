@@ -3,7 +3,7 @@
   [style.background]="locked ? '#e0e0e0' : bgColor"
   [style.color]="locked ? '#6a6a6a' : textColor"
   [style.cursor]="locked ? 'not-allowed' : 'pointer'"
-  [style.border]="locked ? null : '2px solid #e02988'"
+  [style.border]="locked  || progress > 0 ? null : '2px solid #e02988'"
   (click)="navigateToStory()"
 >
   <h6>{{ title }}</h6>
