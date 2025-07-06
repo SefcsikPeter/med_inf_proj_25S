@@ -11,6 +11,7 @@
       <!-- Question and options -->
       <div style="flex: 1;">
         <h5 class="card-title">{{ question.text }}</h5>
+        <h5>{{ question.question }}</h5>
 
         @for (option of shuffledOptions; track option) {
           <div class="form-check">

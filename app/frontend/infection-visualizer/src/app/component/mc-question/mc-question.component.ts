@@ -19,11 +19,13 @@ export class McQuestionComponent implements OnInit, OnChanges {
   @Output() answerSelected = new EventEmitter<string>();
   @Input() question: {
     text: string;
+    question: string;
     options: string[];
     correct: string;
     hint: number;
   } = {
     text: 'Question not loaded correctly',
+    question: '',
     options: ['1', '2', '3', '4'],
     correct: '2',
     hint: 0
