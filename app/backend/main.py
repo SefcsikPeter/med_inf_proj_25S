@@ -114,12 +114,17 @@ def get_stories():
         for s in story["requires"]:
             if s not in passed_quizzes:
                 locked = True
+    
+        passed = False
+        if story["id"] in passed_quizzes:
+            passed = True
 
         formatted_stories.append({
             "id": story["id"],
             "progress": story["progress"]/len(story.get("slides", [])) if "progress" in story else 0,
             "title": story["title"],
             "page": (story["progress"] - 1 if story["progress"] > 0 else 0) if "progress" in story else 0,
+            "passed": passed,
             "locked": locked
         })
         locked = False

@@ -14,6 +14,7 @@ export class StoryCardComponent {
   @Input() storyId!: number;
   @Input() page: number = 0;
   @Input() locked: boolean = false;
+  @Input() quizPassed: boolean = false;
 
   constructor(private router: Router) {}
 

@@ -10,6 +10,13 @@
 
   @if (!locked){
     <p><strong>{{ parseInt('' + progress * 100) }}%</strong></p>
+    @if (progress == 1) {
+      @if (quizPassed) {
+        <p>Quiz: ✔</p>
+      } @else {
+        <p>Quiz: X</p>
+      }
+    }
     <button
       class="quiz-link"
       (click)="skipToQuiz($event)"
