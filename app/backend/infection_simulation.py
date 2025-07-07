@@ -128,7 +128,8 @@ def get_sir_data(
     plots = []
     plots.append(S_data)
     plots.append(I_data)
-    plots.append(R_data)
+    if recovery_rate is not 0:
+        plots.append(R_data)
 
     return {
         "plot_data": plots
