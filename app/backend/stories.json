@@ -300,7 +300,13 @@
       {
         "text": "Sometimes we need to model a lot of people, but when we add a lot more beads to our boxes, it becomes very difficult to count them. Instead, we can use line plots to show how many people are in a compartment each day.",
         "data": {
-          "type": "sir"
+          "type": "sir",
+          "transmission_rate": 1,
+          "recovery_rate": 0,
+          "discrete": true,
+          "pop_size": 12,
+          "n_inf": 1,
+          "n_days": 8
         },
         "vis1": {
           "type": "multiline_plot",
@@ -310,7 +316,20 @@
       },
       {
         "text": "Here, each color represents the compartment with the same color as in our box example, where the dotted line represents the number of people in S, the dashed line represents I, and R is missing since we did not include that compartment in our example yet.",
-        "image": ""
+        "data": {
+          "type": "sir",
+          "transmission_rate": 1,
+          "recovery_rate": 0,
+          "discrete": true,
+          "pop_size": 12,
+          "n_inf": 1,
+          "n_days": 8
+        },
+        "vis1": {
+          "type": "multiline_plot",
+          "x_lab": "days",
+          "y_lab": "people"
+        }
       },
       {
         "text": "Now that we have seen how S and I relate to each other, we can also add the R compartment. Similarly to how people move from S to I, people can also move from I to R.",
@@ -329,7 +348,7 @@
         "image": ""
       }
     ],
-    "progress": 9
+    "progress": 8
   },
   {
     "id": 6,

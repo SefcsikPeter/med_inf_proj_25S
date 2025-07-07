@@ -102,7 +102,7 @@ def get_sir_data(
     recovery_rate=0,
     discrete=True,
     pop_size=12,
-    inf=1,
+    n_inf=1,
     n_days=8
 ):
     if discrete:
@@ -110,7 +110,7 @@ def get_sir_data(
     else:
         model = SIR()
 
-    model([pop_size - inf, inf, 0], [0, n_days], pop_size, {
+    model([pop_size - n_inf, n_inf, 0], [0, n_days], pop_size, {
         'beta': transmission_rate,
         'gamma': recovery_rate
     })

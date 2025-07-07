@@ -48,13 +48,27 @@ def get_graph(num_iter: int = Query(5, description="Number of iterations")):
     return get_dummy_tree(num_iter)
 
 @app.get("/sir")
-def get_graph(transmission_rate: int = Query(1, description="Transition rate"), recovery_rate: int = Query(0, description="Recovery rate")):
+def get_graph(
+    transmission_rate: int = Query(1, description="Transition rate"),
+    recovery_rate: int = Query(0, description="Recovery rate"),
+    discrete: bool = Query(True, description="discrete or continuous"),
+    pop_size: int = Query(12, description="population size"),
+    n_inf: int = Query(1, description="number of initially infected"),
+    n_days: int = Query(8, description="number of days in simulation")
+    ):
     '''
     Creates sir lineplot data
     params:
         transmission_rate = 1 by default, determines the tree depth
     '''
-    return get_sir_data()
+    return get_sir_data(
+        transmission_rate=transmission_rate,
+        recovery_rate=recovery_rate,
+        discrete=discrete,
+        pop_size=pop_size,
+        n_inf=n_inf,
+        n_days=n_days
+        )
 
 @app.get("/story/{story_id}")
 def get_story_slide(

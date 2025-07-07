@@ -11,13 +11,34 @@ export class EpiModelService {
   constructor(private http: HttpClient) { }
 
   getSIR(dataParams: any): Observable<any> {
-    let url = this.baseUrl + "/sir"
+    const url = this.baseUrl + "/sir";
+
+    let params = new URLSearchParams();
+
+    console.log('sir parameters', dataParams.discrete)
+
     if (dataParams.transmission_rate) {
-      url += "?transmission_rate="
-      url += dataParams.transmission_rate
+      params.append('transmission_rate', dataParams.transmission_rate);
     }
-    console.log(url)
-    
-    return this.http.get(url);
+    if (dataParams.recovery_rate) {
+      params.append('recovery_rate', dataParams.recovery_rate);
+    }
+    if (dataParams.discrete !== undefined && dataParams.discrete !== null) {
+      params.append('discrete', String(dataParams.discrete));
+    }
+    if (dataParams.pop_size) {
+      params.append('pop_size', dataParams.pop_size);
+    }
+    if (dataParams.n_inf) {
+      params.append('n_inf', dataParams.n_inf);
+    }
+    if (dataParams.n_days) {
+      params.append('n_days', dataParams.n_days);
+    }
+
+    const fullUrl = `${url}?${params.toString()}`;
+    console.log(fullUrl);
+
+    return this.http.get(fullUrl);
   }
 }

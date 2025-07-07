@@ -108,6 +108,7 @@ export class StoryComponent implements OnInit {
         }
         if (this.slide.data != null) {
           this.dataParams = this.slide.data;
+          console.log(this.dataParams)
           await this.handleWrapperFetch();
         }
 
