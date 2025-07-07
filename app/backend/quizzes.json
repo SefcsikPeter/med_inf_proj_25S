@@ -28,7 +28,7 @@
         "hint": 3
       }
     ],
-    "progress": 1,
+    "progress": 2,
     "passed": true
   },
   {
@@ -92,7 +92,87 @@
         "hint": 9
       }
     ],
-    "progress": 3,
+    "progress": 1,
     "passed": true
+  },
+  {
+    "id": 3,
+    "title": "Test Quiz",
+    "questions": [
+      {
+        "question": "Test question",
+        "options": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ],
+        "correct": "1",
+        "image": "gossip.png",
+        "hint": 0
+      }
+    ],
+    "progress": 0,
+    "passed": false
+  },
+  {
+    "id": 4,
+    "title": "Motivation for Epidemic Visualization",
+    "questions": [
+      {
+        "question": "Test question",
+        "options": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ],
+        "correct": "1",
+        "image": "gossip.png",
+        "hint": 0
+      }
+    ],
+    "progress": 0,
+    "passed": false
+  },
+  {
+    "id": 5,
+    "title": "Motivation for Epidemic Visualization",
+    "questions": [
+      {
+        "question": "Test question",
+        "options": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ],
+        "correct": "1",
+        "image": "gossip.png",
+        "hint": 0
+      }
+    ],
+    "progress": 0,
+    "passed": false
+  },
+  {
+    "id": 6,
+    "title": "Motivation for Epidemic Visualization",
+    "questions": [
+      {
+        "question": "Test question",
+        "options": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ],
+        "correct": "1",
+        "image": "gossip.png",
+        "hint": 0
+      }
+    ],
+    "progress": 0,
+    "passed": false
   }
 ]

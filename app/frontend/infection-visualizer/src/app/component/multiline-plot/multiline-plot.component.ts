@@ -13,8 +13,35 @@ export class MultilinePlotComponent implements OnInit {
   @Input() plotData: [number, number][][] = [];
   @Input() xLabel: string = "days";
   @Input() yLabel: string = "people";
+  @Input() temps: boolean = false;
+  @Input() showDots: boolean = false;
+
+  temps1: [number, number][] = [
+    [0, 12], [1, 11], [2, 11], [3, 10],
+    [4, 10], [5, 9], [6, 9], [7, 10],
+    [8, 12], [9, 14], [10, 16], [11, 18],
+    [12, 20], [13, 21], [14, 22], [15, 22],
+    [16, 21], [17, 20], [18, 18], [19, 17],
+    [20, 15], [21, 14], [22, 13], [23, 12]
+  ];
+
+  temps2: [number, number][] = [
+    [0, 11], [1, 11], [2, 10], [3, 10],
+    [4, 9], [5, 9], [6, 8], [7, 10],
+    [8, 13], [9, 15], [10, 17], [11, 19],
+    [12, 21], [13, 21], [14, 23], [15, 22],
+    [16, 20], [17, 19], [18, 17], [19, 16],
+    [20, 14], [21, 13], [22, 12], [23, 11]
+  ];
+
+  tempsComb: [number, number][][] = [];
 
   ngOnInit(): void {
+    if (this.temps) {
+      this.tempsComb.push(this.temps1)
+      this.tempsComb.push(this.temps2)
+      this.plotData = this.tempsComb
+    }
     this.drawChart()
   }
 
@@ -71,7 +98,7 @@ export class MultilinePlotComponent implements OnInit {
 
     this.plotData.forEach((lineData, i) => {
       svg.append("path")
-        .datum(lineData)  // ✅ lineData is [ [x, y], [x, y], ... ]
+        .datum(lineData)
         .attr("fill", "none")
         .attr("stroke", d3.schemeCategory10[i % 10])
         .attr("stroke-width", 1.5)
@@ -80,5 +107,19 @@ export class MultilinePlotComponent implements OnInit {
           .y(d => y(d[1]))
         );
     });
+
+    if (this.showDots) {
+      this.plotData.forEach((lineData, i) => {
+        svg.selectAll(`.data-point-${i}`)
+          .data(lineData)
+          .enter()
+          .append("circle")
+          .attr("class", `data-point data-point-${i}`)
+          .attr("cx", d => x(d[0]))
+          .attr("cy", d => y(d[1]))
+          .attr("r", 5)
+          .style("fill", d3.schemeCategory10[i % 10]);
+      });
+    }
   }
 }

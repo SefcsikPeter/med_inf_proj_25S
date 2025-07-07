@@ -31,7 +31,7 @@ export class VisualizationWrapperComponent implements OnInit, OnChanges {
   onlyShowX: boolean = false;
   demoNum: boolean = false;
   drawLine: boolean = true;
-  showDots: boolean = true;
+  showDots: boolean = false;
   yLab: string = "";
   xLab: string = "";
 
