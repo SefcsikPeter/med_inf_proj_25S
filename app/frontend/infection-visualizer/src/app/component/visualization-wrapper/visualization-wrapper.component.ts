@@ -4,6 +4,7 @@ import {NgIf} from '@angular/common';
 import {Visualization} from '../../model/visualization';
 import {VisualizationTypeEnum} from '../../model/visualization-type.enum';
 import {LinePlotComponent} from '../line-plot/line-plot.component';
+import { MultilinePlotComponent } from '../multiline-plot/multiline-plot.component';
 
 @Component({
   selector: 'app-visualization-wrapper',
@@ -11,7 +12,8 @@ import {LinePlotComponent} from '../line-plot/line-plot.component';
   imports: [
     RadialTreeComponent,
     NgIf,
-    LinePlotComponent
+    LinePlotComponent,
+    MultilinePlotComponent
   ],
   templateUrl: './visualization-wrapper.component.html',
   styleUrl: './visualization-wrapper.component.css'

@@ -36,4 +36,20 @@
     ></app-line-plot>
   </div>
 
+  <div *ngIf="this.vis.type === VisualizationTypeEnum.multiline_plot">
+    <div class="row align-items-center block-title">
+      <div class="col-auto">
+        <h4>Line Plot</h4>
+      </div>
+      <div class="col-auto">
+        <button class="btn btn-primary" (click)="fetchClick()"> Re-Generate </button>
+      </div>
+    </div>
+    <app-multiline-plot
+      [plotData]="data['plot_data']"
+      [yLabel]="yLab"
+      [xLabel]="xLab"
+    ></app-multiline-plot>
+  </div>
+
 </div>

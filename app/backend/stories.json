@@ -303,7 +303,9 @@
           "type": "sir"
         },
         "vis1": {
-          "type": "line_plot"
+          "type": "multiline_plot",
+          "x_lab": "days",
+          "y_lab": "people"
         }
       },
       {
@@ -327,7 +329,7 @@
         "image": ""
       }
     ],
-    "progress": 0
+    "progress": 9
   },
   {
     "id": 6,
@@ -339,28 +341,15 @@
       {
         "text": "test",
         "data": {
-          "type": "dummy_tree",
-          "num_iter": 5
+          "type": "sir"
         },
         "vis1": {
-          "type": "line_plot"
-        },
-        "vis2": {
-          "type": "rad_tree",
-          "depth": 4,
-          "step": 50
-        },
-        "sliders": [
-          {
-            "type": "days",
-            "min": 0,
-            "max": 5,
-            "symbol": "sun",
-            "text": "days"
-          }
-        ]
+          "type": "multiline_plot",
+          "x_lab": "days",
+          "y_lab": "people"
+        }
       }
     ],
-    "progress": 0
+    "progress": 1
   }
 ]

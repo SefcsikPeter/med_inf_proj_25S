@@ -110,18 +110,28 @@ def get_sir_data(
     else:
         model = SIR()
 
-    model([pop_size - inf, inf, 0], [0, n_days], pop_size, {'beta': transmission_rate, 'gamma': recovery_rate})
+    model([pop_size - inf, inf, 0], [0, n_days], pop_size, {
+        'beta': transmission_rate,
+        'gamma': recovery_rate
+    })
+
     traces = model.traces
+    times = traces['time']
+    S = traces['S']
+    I = traces['I']
+    R = traces['R']
 
-    json_data = [
-        {
-            "time": float(traces["time"][i]),
-            "S": float(traces["S"][i]),
-            "I": float(traces["I"][i]),
-            "R": float(traces["R"][i]),
-        }
-        for i in range(len(traces["time"]))
-    ]
+    # Convert to desired format
+    S_data = [[float(t), float(s)] for t, s in zip(times, S)]
+    I_data = [[float(t), float(i)] for t, i in zip(times, I)]
+    R_data = [[float(t), float(r)] for t, r in zip(times, R)]
+    plots = []
+    plots.append(S_data)
+    plots.append(I_data)
+    plots.append(R_data)
 
-    return json_data
+    return {
+        "plot_data": plots
+    }
+
 
