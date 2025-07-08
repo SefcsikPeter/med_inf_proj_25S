@@ -27,4 +27,11 @@ export class InfectionTreeService {
 
     return this.http.get(url);
   }
+
+  getExampleTree(): Observable<any> {
+    const url = `${this.baseUrl}/example-tree`;
+    console.log(url)
+
+    return this.http.get(url);
+  }
 }
