@@ -50,7 +50,7 @@ def get_graph(num_iter: int = Query(5, description="Number of iterations")):
 @app.get("/sir")
 def get_graph(
     transmission_rate: int = Query(1, description="Transition rate"),
-    recovery_rate: int = Query(0, description="Recovery rate"),
+    recovery_rate: float = Query(0, description="Recovery rate"),
     discrete: bool = Query(True, description="discrete or continuous"),
     pop_size: int = Query(12, description="population size"),
     n_inf: int = Query(1, description="number of initially infected"),
