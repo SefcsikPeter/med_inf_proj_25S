@@ -92,15 +92,25 @@
     "slides": [
       {
         "text": "To better understand the spreading of diseases, we need a way to visualize the number of people getting infected day by day.",
-        "image": ""
+        "data": {
+          "type": "sir",
+          "n_days": 30,
+          "pop_size": 1000,
+          "recovery_rate": 0.125
+        },
+        "vis1": {
+          "type": "multiline_plot",
+          "x_lab": "days",
+          "y_lab": "people"
+        }
       },
       {
         "text": "Seeing the number of daily infections or hospitalizations caused by a disease can help doctors estimate the need of hospital beds.",
-        "image": ""
+        "image": "hospital_bed.png"
       },
       {
-        "text": "And it also lets us see if we need to war masks or should avoid going to public spaces like school or the mall.",
-        "image": ""
+        "text": "And it also lets us see if we need to wear masks or should avoid going to public spaces like school or the mall.",
+        "image": "mask.png"
       }
     ],
     "progress": 3
@@ -195,7 +205,7 @@
         }
       },
       {
-        "text": "",
+        "text": "Here, you can see the temperatures of two consecutive days in the same plot. For this, we drew each plot the same way we discussed before, and colored them using different colors to differentiate them easier. You can observe, how not drawing the dots creates a 'less messy' plot where no details of one line are hidden by the other.",
         "vis1": {
           "type": "multiline_plot",
           "temps": true,
@@ -210,9 +220,24 @@
           "x_lab": "hours",
           "show_dots": false
         }
+      },
+      {
+        "text": "You can add as many lines to line plots as you like, but you need to keep in mind that with each added line, it can become harder to understand the plot. We will see different uses of the line plots in epidemic modelling, like how we drew the graph below in following chapters.",
+        "data": {
+          "type": "sir",
+          "pop_size": 1000,
+          "recovery_rate": 0.25,
+          "n_days": 30,
+          "discrete": false
+        },
+        "vis1": {
+          "type": "multiline_plot",
+          "y_lab": "People",
+          "x_lab": "days"
+        }
       }
     ],
-    "progress": 13
+    "progress": 11
   },
   {
     "id": 3,
@@ -378,7 +403,7 @@
         "image": ""
       }
     ],
-    "progress": 9
+    "progress": 14
   },
   {
     "id": 6,
