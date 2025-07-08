@@ -20,7 +20,7 @@ export class RadialTreeComponent implements OnInit {
   @Input() stepSize: number = 50;
   @Input() infectionTreeData: any;
   @Input() maxDepth: number = Infinity;
-  showNodeIds: boolean = false;
+  @Input() showNodeIds: boolean = false;
   private resizeObserver!: ResizeObserver;
 
   constructor(private treeService: InfectionTreeService) {}

@@ -34,6 +34,7 @@ export class VisualizationWrapperComponent implements OnInit, OnChanges {
   showDots: boolean = false;
   yLab: string = "";
   xLab: string = "";
+  showNodeIds: boolean = false;
 
   ngOnInit() {
     this.updateData();
@@ -77,6 +78,9 @@ export class VisualizationWrapperComponent implements OnInit, OnChanges {
       }
       if (this.vis.x_lab) {
         this.xLab = this.vis.x_lab;
+      }
+      if (this.vis.show_id) {
+        this.showNodeIds = this.vis.show_id;
       }
     }
   }

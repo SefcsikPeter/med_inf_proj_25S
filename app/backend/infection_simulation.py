@@ -63,7 +63,34 @@ def build_infection_tree(sim):
     
     # return annotated tree as json
     return json_graph.node_link_data(G)
-    
+
+
+def build_custom_infection_tree():
+    '''
+    Builds infection tree for story example
+    '''
+    G = nx.DiGraph()
+
+    names = [
+        "Frank", "Sophie", "Melinda", "John", "Lisa", "Belle", 
+        "Max", "Flora", "Tom"
+    ]
+    for name in names:
+        G.add_node(name, status="inf")
+
+    edges = [
+        ("Frank", "Sophie"),
+        ("Frank", "Melinda"),
+        ("Sophie", "John"),
+        ("Sophie", "Lisa"),
+        ("Melinda", "Belle"),
+        ("Lisa", "Max"),
+        ("Lisa", "Flora"),
+        ("Max", "Tom"),
+    ]
+    G.add_edges_from(edges)
+
+    return json_graph.node_link_data(G)
 
 
 def get_inf_tree(pop_size=250):

@@ -83,6 +83,18 @@ export class StoryComponent implements OnInit {
     }
   }
 
+  async fetchExampleTree(): Promise<boolean> {
+    try {
+      const data = await firstValueFrom(this.treeService.getExampleTree());
+      this.infectionTreeData = data;
+      console.log(data);
+      return true;
+    } catch (err) {
+      console.error('Error fetching infection tree:', err);
+      return false;
+    }
+  }
+
   async fetchSIRData(): Promise<boolean> {
     try {
       const data = await firstValueFrom(this.modelSerivce.getSIR(this.dataParams));
@@ -162,6 +174,8 @@ export class StoryComponent implements OnInit {
   async handleWrapperFetch(): Promise<boolean> {
     if (this.dataParams.type === "dummy_tree") {
       return this.fetchDummyTree(this.dataParams.num_iter);
+    } else if (this.dataParams.type === "example_tree") {
+      return this.fetchExampleTree();
     } else if (this.dataParams.type === "sir") {
       return this.fetchSIRData();
     } else {

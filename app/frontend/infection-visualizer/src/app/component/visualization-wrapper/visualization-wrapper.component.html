@@ -10,7 +10,12 @@
         <button class="btn btn-primary" (click)="fetchClick()"> Re-Generate </button>
       </div>
     </div>
-    <app-radial-tree [maxDepth]="depth" [infectionTreeData]="data" [stepSize]="step"></app-radial-tree>
+    <app-radial-tree
+    [maxDepth]="depth"
+    [infectionTreeData]="data"
+    [stepSize]="step"
+    [showNodeIds]="showNodeIds"
+    ></app-radial-tree>
   </div>
 
   <div *ngIf="this.vis.type === VisualizationTypeEnum.line_plot">

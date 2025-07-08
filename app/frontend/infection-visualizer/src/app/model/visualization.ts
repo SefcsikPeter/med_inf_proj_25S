@@ -11,4 +11,5 @@ export interface Visualization {
   show_dots?: boolean;
   y_lab?: string;
   x_lab?: string;
+  show_id?: boolean;
 }

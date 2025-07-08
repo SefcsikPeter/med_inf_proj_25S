@@ -279,10 +279,17 @@
       },
       {
         "text": "This is the same tree as on the previous page, but rotated and drawn in a different style. We don't need to draw the links as arrows, because in this representation, all the arrows point from the left to the right. Here, we can see that Frank started spreading the gossip and it is also easy to track, who told the gossip to whom and how many people the gossip needed to get through to get from a person to an other.",
-        "image": ""
+        "data": {
+          "type": "example_tree"
+        },
+        "vis1": {
+          "type": "rad_tree",
+          "show_id": true,
+          "depth": 6
+        }
       }
     ],
-    "progress": 7
+    "progress": 8
   },
   {
     "id": 4,

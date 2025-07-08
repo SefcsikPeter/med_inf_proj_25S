@@ -4,7 +4,7 @@ import covasim as cv
 import networkx as nx
 import numpy as np
 import json
-from infection_simulation import get_inf_tree, get_dummy_tree, get_sir_data
+from infection_simulation import get_inf_tree, get_dummy_tree, get_sir_data, build_custom_infection_tree
 from fastapi import Query, Path, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
@@ -46,6 +46,13 @@ def get_graph(num_iter: int = Query(5, description="Number of iterations")):
         num_iter = 5 by default, determines the tree depth
     '''
     return get_dummy_tree(num_iter)
+
+@app.get("/example-tree")
+def get_example_graph():
+    '''
+    Creates dummy tree as json for story example
+    '''
+    return build_custom_infection_tree()
 
 @app.get("/sir")
 def get_graph(
