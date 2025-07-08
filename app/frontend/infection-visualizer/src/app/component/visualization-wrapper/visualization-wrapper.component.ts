@@ -5,6 +5,7 @@ import {Visualization} from '../../model/visualization';
 import {VisualizationTypeEnum} from '../../model/visualization-type.enum';
 import {LinePlotComponent} from '../line-plot/line-plot.component';
 import { MultilinePlotComponent } from '../multiline-plot/multiline-plot.component';
+import { InfectionTreeComponent } from '../infection-tree/infection-tree.component';
 
 @Component({
   selector: 'app-visualization-wrapper',
@@ -13,7 +14,8 @@ import { MultilinePlotComponent } from '../multiline-plot/multiline-plot.compone
     RadialTreeComponent,
     NgIf,
     LinePlotComponent,
-    MultilinePlotComponent
+    MultilinePlotComponent,
+    InfectionTreeComponent
   ],
   templateUrl: './visualization-wrapper.component.html',
   styleUrl: './visualization-wrapper.component.css'

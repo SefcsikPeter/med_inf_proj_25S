@@ -283,7 +283,7 @@
           "type": "example_tree"
         },
         "vis1": {
-          "type": "rad_tree",
+          "type": "inf_tree",
           "show_id": true,
           "depth": 6
         }

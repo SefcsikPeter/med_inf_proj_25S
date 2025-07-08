@@ -1,6 +1,21 @@
 <!-- Visualization 1 -->
 <div *ngIf="showVis" class="col-12 visualization-container">
 
+  
+  <div *ngIf="this.vis.type === VisualizationTypeEnum.inf_tree">
+    <div class="row align-items-center block-title">
+      <div class="col-auto">
+        <h4>Infection Tree</h4>
+      </div>
+      <div class="col-auto">
+        <button class="btn btn-primary" (click)="fetchClick()"> Re-Generate </button>
+      </div>
+    </div>
+    <app-infection-tree
+    
+    ></app-infection-tree>
+  </div>
+
   <div *ngIf="this.vis.type === VisualizationTypeEnum.rad_tree">
     <div class="row align-items-center block-title">
       <div class="col-auto">
