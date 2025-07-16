@@ -13,6 +13,7 @@ export class SliderComponent implements AfterViewInit {
   @Input() min = 0;
   @Input() max = 100;
   @Input() currentValue = 0;
+  @Input() step = 1;
   @Output() valueChange = new EventEmitter<number>();
 
   ngAfterViewInit(): void {
@@ -53,7 +54,10 @@ export class SliderComponent implements AfterViewInit {
 
     slider.call(d3.drag<SVGGElement, unknown>()
       .on('start drag', (event) => {
-        const value = Math.round(x.invert(event.x));
+        let value = x.invert(event.x);
+        value = Math.round(value / this.step) * this.step;
+        const decimals = this.step.toString().split('.')[1]?.length || 0;
+        value = parseFloat(value.toFixed(decimals));
         handle.attr('cx', x(value));
         this.valueChange.emit(value);
       }));
