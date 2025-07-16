@@ -2,8 +2,6 @@
   {
     "id": 0,
     "title": "What is an Epidemic?",
-    "chapter": 0,
-    "level": 0,
     "requires": [],
     "slides": [
       {
@@ -84,8 +82,6 @@
   {
     "id": 1,
     "title": "Motivation for Epidemic Visualization",
-    "chapter": 1,
-    "level": 0,
     "requires": [
       0
     ],
@@ -118,8 +114,6 @@
   {
     "id": 2,
     "title": "Line Plots",
-    "chapter": 1,
-    "level": 1,
     "requires": [
       0,
       1
@@ -242,8 +236,6 @@
   {
     "id": 3,
     "title": "Infection Trees",
-    "chapter": 0,
-    "level": 0,
     "requires": [
       0,
       1
@@ -295,8 +287,6 @@
   {
     "id": 4,
     "title": "Motivation for Epidemic Modelling",
-    "chapter": 1,
-    "level": 0,
     "requires": [
       0,
       1
@@ -320,8 +310,6 @@
   {
     "id": 5,
     "title": "SIR",
-    "chapter": 1,
-    "level": 1,
     "requires": [
       0,
       1,
@@ -417,8 +405,6 @@
   {
     "id": 6,
     "title": "Radial Trees",
-    "chapter": 0,
-    "level": 0,
     "requires": [
       0,
       1
@@ -460,8 +446,6 @@
   {
     "id": 7,
     "title": "Agent-Based Models",
-    "chapter": 1,
-    "level": 1,
     "requires": [],
     "slides": [
       {
@@ -481,8 +465,6 @@
   {
     "id": 7,
     "title": "Test Story",
-    "chapter": 1,
-    "level": 1,
     "requires": [],
     "slides": [
       {
