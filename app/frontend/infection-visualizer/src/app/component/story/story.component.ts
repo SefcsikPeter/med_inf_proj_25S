@@ -184,14 +184,15 @@ export class StoryComponent implements OnInit {
   }
 
   async handleSliderValues(values: Record<string, number>) {
+    console.log('values', values)
     if (values['depth']) {
-      this.vis1 = {
-        ...this.vis1,
+      this.dataParams = {
+        ...this.dataParams,
         depth: values['depth']
       };
     } else if (values['depth'] === 0) {
-      this.vis1 = {
-        ...this.vis1,
+      this.dataParams = {
+        ...this.dataParams,
         depth: values['depth']
       };
     }
@@ -205,6 +206,18 @@ export class StoryComponent implements OnInit {
       this.dataParams = {
         ...this.dataParams,
         n_days: values['n_days']
+      };
+    }
+
+    if (values['transmission_rate']) {
+      this.dataParams = {
+        ...this.dataParams,
+        transmission_rate: values['transmission_rate']
+      };
+    } else if (values['transmission_rate'] === 0) {
+      this.dataParams = {
+        ...this.dataParams,
+        transmission_rate: values['transmission_rate']
       };
     }
 

@@ -56,7 +56,7 @@ def get_example_graph():
 
 @app.get("/sir")
 def get_graph(
-    transmission_rate: int = Query(1, description="Transition rate"),
+    transmission_rate: float = Query(1, description="Transmission rate"),
     recovery_rate: float = Query(0, description="Recovery rate"),
     discrete: bool = Query(True, description="discrete or continuous"),
     pop_size: int = Query(12, description="population size"),
