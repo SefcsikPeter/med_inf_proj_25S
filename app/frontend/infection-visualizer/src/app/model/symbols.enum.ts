@@ -1,3 +1,4 @@
 export const SymbolsEnum: Record<string, string> = {
-  sun: '☀️'
+  sun: '☀️',
+  virus: '🦠',
 };

@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, AfterViewInit, Input, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
 import * as d3 from 'd3';
 
 @Component({
@@ -8,6 +8,8 @@ import * as d3 from 'd3';
   styleUrls: ['./slider.component.css']
 })
 export class SliderComponent implements AfterViewInit {
+  @ViewChild('sliderContainer', { static: false }) sliderContainer!: ElementRef;
+
   @Input() min = 0;
   @Input() max = 100;
   @Input() currentValue = 0;
@@ -18,14 +20,11 @@ export class SliderComponent implements AfterViewInit {
   }
 
   createSlider() {
-    const container = document.getElementById('slider');
-    let width = container?.clientWidth || 150;
-    width = width - 1;
-    console.log(container?.clientWidth)
-
+    const container = this.sliderContainer.nativeElement as HTMLElement;
+    const width = container.clientWidth || 150;
     const height = 30;
 
-    const svg = d3.select('#slider')
+    const svg = d3.select(container)
       .append('svg')
       .attr('width', width)
       .attr('height', height);
