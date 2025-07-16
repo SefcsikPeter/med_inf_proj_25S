@@ -407,7 +407,8 @@
     "title": "Radial Trees",
     "requires": [
       0,
-      1
+      1,
+      3
     ],
     "slides": [
       {
@@ -466,7 +467,7 @@
         }
       }
     ],
-    "progress": 0
+    "progress": 1
   },
   {
     "id": 8,
