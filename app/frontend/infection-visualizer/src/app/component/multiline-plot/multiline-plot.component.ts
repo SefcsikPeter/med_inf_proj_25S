@@ -1,4 +1,4 @@
-import {Component, OnInit, ElementRef, ViewChild, Input, AfterViewInit} from '@angular/core';
+import {Component, OnInit, ElementRef, ViewChild, Input, AfterViewInit, OnChanges, SimpleChanges} from '@angular/core';
 import * as d3 from 'd3';
 
 @Component({
@@ -8,7 +8,7 @@ import * as d3 from 'd3';
   templateUrl: './multiline-plot.component.html',
   styleUrls: ['./multiline-plot.component.css']
 })
-export class MultilinePlotComponent implements OnInit {
+export class MultilinePlotComponent implements OnInit, OnChanges {
   @ViewChild('chart', { static: true }) private chartContainer!: ElementRef;
   @Input() plotData: [number, number][][] = [];
   @Input() xLabel: string = "days";
@@ -45,9 +45,20 @@ export class MultilinePlotComponent implements OnInit {
     this.drawChart()
   }
 
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['plotData'] || changes['temps']) {
+      this.redrawChart();
+    }
+  }
+
+  private redrawChart(): void {
+    d3.select(this.chartContainer.nativeElement).selectAll('*').remove();
+    this.drawChart();
+  }
 
 
   private drawChart(): void {
+    d3.select(this.chartContainer.nativeElement).selectAll('*').remove();
     const margin = { top: 20, right: 30, bottom: 50, left: 60 };
     const containerEl = this.chartContainer.nativeElement as HTMLElement;
     const fullWidth = containerEl.offsetWidth || 460;

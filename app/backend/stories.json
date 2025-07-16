@@ -231,7 +231,7 @@
         }
       }
     ],
-    "progress": 0
+    "progress": 14
   },
   {
     "id": 3,
@@ -282,7 +282,7 @@
         }
       }
     ],
-    "progress": 0
+    "progress": 8
   },
   {
     "id": 4,
@@ -350,7 +350,7 @@
         "image": "SI_transition=1.png"
       },
       {
-        "text": "Sometimes we need to model a lot of people, but when we add a lot more beads to our boxes, it becomes very difficult to count them. Instead, we can use line plots to show how many people are in a compartment each day.",
+        "text": "Sometimes we need to model a lot of people, but when we add a lot more beads to our boxes, it becomes very difficult to count them. Instead, we can use line plots to show how many people are in a compartment each day like in the plot below.",
         "data": {
           "type": "sir",
           "transmission_rate": 1,
@@ -363,11 +363,12 @@
         "vis1": {
           "type": "multiline_plot",
           "x_lab": "days",
-          "y_lab": "people"
+          "y_lab": "people",
+          "n_days": 5
         }
       },
       {
-        "text": "Here, each color represents the compartment with the same color as in our box example, where the dotted line represents the number of people in S, the dashed line represents I, and R is missing since we did not include that compartment in our example yet.",
+        "text": "Here, each color represents the compartment with the same color as in our box example, where the dotted line represents the number of people in S, the dashed line represents I, and R is missing since we did not include that compartment in our example yet. You can try moving the slider to change how many days you would like to show in your plot!",
         "data": {
           "type": "sir",
           "transmission_rate": 1,
@@ -380,8 +381,19 @@
         "vis1": {
           "type": "multiline_plot",
           "x_lab": "days",
-          "y_lab": "people"
-        }
+          "y_lab": "people",
+          "n_days": 5
+        },
+        "sliders": [
+          {
+            "type": "n_days",
+            "min": 2,
+            "max": 10,
+            "current_value": 8,
+            "symbol": "sun",
+            "text": "days"
+          }
+        ]
       },
       {
         "text": "Now that we have seen how S and I relate to each other, we can also add the R compartment. Similarly to how people move from S to I, people can also move from I to R.",
@@ -400,7 +412,7 @@
         "image": ""
       }
     ],
-    "progress": 0
+    "progress": 10
   },
   {
     "id": 6,

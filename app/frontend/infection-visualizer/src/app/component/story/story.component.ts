@@ -183,7 +183,7 @@ export class StoryComponent implements OnInit {
     }
   }
 
-  handleSliderValues(values: Record<string, number>) {
+  async handleSliderValues(values: Record<string, number>) {
     if (values['depth']) {
       this.vis1 = {
         ...this.vis1,
@@ -195,5 +195,19 @@ export class StoryComponent implements OnInit {
         depth: values['depth']
       };
     }
+
+    if (values['n_days']) {
+      this.dataParams = {
+        ...this.dataParams,
+        n_days: values['n_days']
+      };
+    } else if (values['n_days'] === 0) {
+      this.dataParams = {
+        ...this.dataParams,
+        n_days: values['n_days']
+      };
+    }
+
+    await this.handleWrapperFetch();
   }
 }
