@@ -146,22 +146,18 @@ export class RadialTreeComponent implements OnInit {
       });
 
     container.append("g")
-      .attr("stroke-linejoin", "round")
-      .attr("stroke-width", 3)
-      .selectAll("text")
+      .attr("text-anchor", "middle")
+      .attr("alignment-baseline", "hanging")
+      .selectAll("text.node-label")
       .data(visibleNodes)
       .join("text")
-      .attr("transform", (d: any) => `
-          rotate(${d.x * 180 / Math.PI - 90})
-          translate(${d.y},0)
-          rotate(${d.x >= Math.PI ? 180 : 0})
-        `)
-      .attr("dy", "0.31em")
-      .attr("x", (d: any) => d.x < Math.PI === !d.children ? 6 : -6)
-      .attr("text-anchor", (d: any) => d.x < Math.PI === !d.children ? "start" : "end")
-      .attr("paint-order", "stroke")
-      .attr("stroke", "white")
-      .attr("fill", "currentColor")
+      .attr("class", "node-label")
+      .attr("transform", (d: any) => {
+        const x = Math.cos(d.x - Math.PI / 2) * d.y;
+        const y = Math.sin(d.x - Math.PI / 2) * d.y;
+        return `translate(${x}, ${y + 18})`;
+      })
+      .style("font-size", "10px")
       .text((d: any) => this.showNodeIds ? d.data.id : '');
   }
 }

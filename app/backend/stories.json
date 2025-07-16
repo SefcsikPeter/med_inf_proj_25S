@@ -424,7 +424,19 @@
     ],
     "slides": [
       {
-        "text": "Radial trees are just like infection trees but instead of drawing them top-down like a tree, we draw",
+        "text": "Like we saw in the infection tree lecture, graphs can be reordered to improve our overview of the connections. In the infection tree lecture, we saw a classic representation of tree graphs that you can see once again below.",
+        "data": {
+          "type": "example_tree"
+        },
+        "vis1": {
+          "type": "inf_tree",
+          "show_id": true,
+          "step": 30,
+          "depth": 6
+        }
+      },
+      {
+        "text": "Tree graphs dont necessarily need to be drawn from top to bottom, an other useful way to draw them is going from the center outwards. This new way of drawing a tree is called the radial tree which can be seen in the second image.",
         "data": {
           "type": "example_tree"
         },
@@ -442,7 +454,7 @@
         }
       }
     ],
-    "progress": 1
+    "progress": 2
   },
   {
     "id": 7,
