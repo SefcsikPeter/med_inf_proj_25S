@@ -415,6 +415,37 @@
   },
   {
     "id": 6,
+    "title": "Radial Trees",
+    "chapter": 0,
+    "level": 0,
+    "requires": [
+      0,
+      1
+    ],
+    "slides": [
+      {
+        "text": "Radial trees are just like infection trees but instead of drawing them top-down like a tree, we draw",
+        "data": {
+          "type": "example_tree"
+        },
+        "vis1": {
+          "type": "inf_tree",
+          "show_id": true,
+          "step": 30,
+          "depth": 6
+        },
+        "vis2": {
+          "type": "rad_tree",
+          "show_id": true,
+          "step": 30,
+          "depth": 6
+        }
+      }
+    ],
+    "progress": 1
+  },
+  {
+    "id": 7,
     "title": "Test Story",
     "chapter": 1,
     "level": 1,
