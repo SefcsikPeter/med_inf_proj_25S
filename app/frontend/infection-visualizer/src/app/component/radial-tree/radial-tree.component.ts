@@ -7,7 +7,6 @@ import {
   SimpleChanges
 } from '@angular/core';
 import * as d3 from 'd3';
-import { InfectionTreeService } from '../../service/infection-tree.service';
 
 @Component({
   selector: 'app-radial-tree',
@@ -23,7 +22,7 @@ export class RadialTreeComponent implements OnInit {
   @Input() showNodeIds: boolean = false;
   private resizeObserver!: ResizeObserver;
 
-  constructor(private treeService: InfectionTreeService) {}
+  constructor() {}
 
   ngOnInit(): void {
     this.observeResize();

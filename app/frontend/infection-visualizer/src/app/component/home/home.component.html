@@ -1,12 +1,5 @@
 <h2 class="text-center">Please Select Your Next Story</h2>
 
-<div *ngIf="false">
-  <app-infection-tree [popSize]="popSize"></app-infection-tree>
-  <app-slider [min]="1" [max]="500" (valueChange)="onSliderChange($event)"></app-slider>
-
-  <p>Current value: {{ popSize }}</p>
-</div>
-
 <app-lesson-graph [lessons]="stories"></app-lesson-graph>
 
 

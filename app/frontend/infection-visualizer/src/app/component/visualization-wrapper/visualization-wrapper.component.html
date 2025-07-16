@@ -12,7 +12,10 @@
       </div>
     </div>
     <app-infection-tree
-    
+    [maxDepth]="depth"
+    [infectionTreeData]="data"
+    [stepSize]="step"
+    [showNodeIds]="showNodeIds"
     ></app-infection-tree>
   </div>
 

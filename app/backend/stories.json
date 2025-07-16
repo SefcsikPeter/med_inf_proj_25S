@@ -285,6 +285,7 @@
         "vis1": {
           "type": "inf_tree",
           "show_id": true,
+          "step": 30,
           "depth": 6
         }
       }
