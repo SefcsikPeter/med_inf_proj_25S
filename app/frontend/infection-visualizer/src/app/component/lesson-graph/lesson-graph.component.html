@@ -10,7 +10,7 @@
   </app-story-card>
 
   <!-- Line down -->
-  <div class="connector vertical-line"></div>
+  <div class="connector arrow-down"></div>
 
   <!-- Row 1 -->
   <div style="display: flex; justify-content: center; align-items: center;">
@@ -25,7 +25,7 @@
     </app-story-card>
 
     <!-- Horizontal connector -->
-    <div class="connector horizontal-line"></div>
+    <div class="connector arrow-left"></div>
 
     <!-- Middle card -->
     <app-story-card
@@ -38,7 +38,7 @@
     </app-story-card>
 
     <!-- Horizontal connector -->
-    <div class="connector horizontal-line"></div>
+    <div class="connector arrow-right"></div>
 
     <!-- Right card -->
     <app-story-card
@@ -49,10 +49,21 @@
       [quizPassed]="lessons[3].passed"
       [locked]="lessons[3].locked">
     </app-story-card>
+
+    <div class="connector arrow-right"></div>
+
+    <app-story-card
+      [title]="lessons[6].title"
+      [progress]="lessons[6].progress"
+      [storyId]="lessons[6].id"
+      [page]="lessons[6].page"
+      [quizPassed]="lessons[6].passed"
+      [locked]="lessons[6].locked">
+    </app-story-card>
   </div>
 
   <!-- Line down -->
-  <div class="connector vertical-line"></div>
+  <div class="connector arrow-down"></div>
 
   <!-- Row 2 -->
   <div style="display: flex; justify-content: center; align-items: center;">
@@ -67,7 +78,7 @@
     </app-story-card>
 
     <!-- Horizontal connector -->
-    <div class="connector horizontal-line"></div>
+    <div class="connector arrow-left"></div>
 
     <!-- Middle card -->
     <app-story-card
@@ -80,16 +91,16 @@
     </app-story-card>
 
     <!-- Horizontal connector -->
-    <div class="connector horizontal-line"></div>
+    <div class="connector arrow-right"></div>
 
     <!-- Right card -->
     <app-story-card
-      [title]="lessons[6].title"
-      [progress]="lessons[6].progress"
-      [storyId]="lessons[6].id"
-      [page]="lessons[6].page"
-      [quizPassed]="lessons[6].passed"
-      [locked]="lessons[6].locked">
+      [title]="lessons[7].title"
+      [progress]="lessons[7].progress"
+      [storyId]="lessons[7].id"
+      [page]="lessons[7].page"
+      [quizPassed]="lessons[7].passed"
+      [locked]="lessons[7].locked">
     </app-story-card>
   </div>
 
