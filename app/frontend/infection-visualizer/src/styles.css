@@ -25,9 +25,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .tree-container {
   width: 100%;
-  max-width: 500px; /* Maximum size, e.g., for large screens */
+  max-width: 350;
   height: auto;
-  aspect-ratio: 1 / 1; /* Keep it a square */
+  aspect-ratio: 1 / 1;
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -38,6 +38,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   border: 1px solid #ccc;
   padding: 1rem;
   border-radius: 8px;
+  max-width: 350px;
 }
 
 .block-title {
