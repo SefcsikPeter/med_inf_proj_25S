@@ -446,7 +446,13 @@
   {
     "id": 7,
     "title": "Agent-Based Models",
-    "requires": [],
+    "requires": [
+      0,
+      1,
+      2,
+      4,
+      5
+    ],
     "slides": [
       {
         "text": "test",
@@ -460,7 +466,7 @@
         }
       }
     ],
-    "progress": 0
+    "progress": 1
   },
   {
     "id": 7,
