@@ -459,6 +459,27 @@
   },
   {
     "id": 7,
+    "title": "Agent-Based Models",
+    "chapter": 1,
+    "level": 1,
+    "requires": [],
+    "slides": [
+      {
+        "text": "test",
+        "data": {
+          "type": "sir"
+        },
+        "vis1": {
+          "type": "multiline_plot",
+          "x_lab": "days",
+          "y_lab": "people"
+        }
+      }
+    ],
+    "progress": 0
+  },
+  {
+    "id": 7,
     "title": "Test Story",
     "chapter": 1,
     "level": 1,
