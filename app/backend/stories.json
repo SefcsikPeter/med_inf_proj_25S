@@ -352,7 +352,7 @@
         "image": "SI_transmission=1.png"
       },
       {
-        "text": "Sometimes we need to model a lot of people, but when we add a lot more beads to our boxes, it becomes very difficult to count them. Instead, we can use line plots to show how many people are in a compartment each day like in the plot below. Here, the orange line shows the number of people who know about the gossip on a given day, and the blue line shows the number of people who don't allready know.",
+        "text": "Sometimes we need to model a lot of people, but when we add a lot more beads to our boxes, it becomes very difficult to count them. Instead, we can use line plots to show how many people there are in a compartment each day like in the plot below. Here, the orange dashed line shows the number of people who know about the gossip on a given day, and the blue continuous line shows the number of people who don't allready know.",
         "data": {
           "type": "sir",
           "transmission_rate": 1,
@@ -370,7 +370,7 @@
         }
       },
       {
-        "text": "Here, each color represents the compartment with the same color as in our box example, where the dotted line represents the number of people in S, the dashed line represents I, and R is missing since we did not include that compartment in our example yet. You can try moving the slider to change how many days you would like to show in your plot!",
+        "text": "How many days we display in our plot depends our simulation settings and is a choice we can make and adjust. Try playing arond with the number of days displayed using the slider to find a visualization that is the most informative in your opinion!",
         "data": {
           "type": "sir",
           "transmission_rate": 1,
@@ -378,7 +378,7 @@
           "discrete": true,
           "pop_size": 12,
           "n_inf": 1,
-          "n_days": 8
+          "n_days": 4
         },
         "vis1": {
           "type": "multiline_plot",
@@ -392,7 +392,7 @@
             "min": 2,
             "max": 10,
             "step": 1,
-            "current_value": 8,
+            "current_value": 4,
             "symbol": "sun",
             "text": "days"
           }
@@ -438,22 +438,26 @@
       },
       {
         "text": "Now that we have seen how S and I relate to each other, we can also add the R compartment. Similarly to how people move from S to I, people can also move from I to R.",
-        "image": ""
+        "image": "SIR.png"
       },
       {
         "text": "To know how many people move from I to R, we need to know how many days it takes a person on average to recover from the disease.",
-        "image": ""
+        "image": "hospital_bed.png"
       },
       {
-        "text": "After the days required to recover from the disease have passed, we can start moving people that have been in the I compartment for that many days into the R compartment. The rate of this movement is called the recovery rate.",
-        "image": ""
+        "text": "The rate describing the movement of people from the I compartment to the R compartment is called the recovery rate which can be calculated by dividing 1 by the number of days it takes a person on average to recover from the disease. The number of beads we move from I to R depends on the recovery rate and the number of people in the I compartment.",
+        "image": "TODO.png"
+      },
+      {
+        "text": "Give an example where beads are moved from I to R in figma",
+        "image": "TODO.png"
       },
       {
         "text": "To see the transitions between the three compartments, we can take a new example where we have a school with 200 people. In this school, a person got infected by a new disease. People infected by this disease take 7 days to recover and infect 1 person a day on average before recovering. For now, we assume that infected people keep going to school.",
         "image": ""
       }
     ],
-    "progress": 10
+    "progress": 15
   },
   {
     "id": 6,
