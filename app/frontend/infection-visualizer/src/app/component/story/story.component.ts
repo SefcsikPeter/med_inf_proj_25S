@@ -221,6 +221,18 @@ export class StoryComponent implements OnInit {
       };
     }
 
+    if (values['recovery_rate']) {
+      this.dataParams = {
+        ...this.dataParams,
+        recovery_rate: values['recovery_rate']
+      };
+    } else if (values['recovery_rate'] === 0) {
+      this.dataParams = {
+        ...this.dataParams,
+        recovery_rate: values['recovery_rate']
+      };
+    }
+
     await this.handleWrapperFetch();
   }
 }
