@@ -107,16 +107,24 @@ export class MultilinePlotComponent implements OnInit, OnChanges {
       .text(this.yLabel)
       .style("font-size", "12px");
 
+    const dashStyles = [
+      "",
+      "5,5",
+      "1,5",
+      "10,5,2,5"
+    ];
+
     this.plotData.forEach((lineData, i) => {
       svg.append("path")
-        .datum(lineData)
-        .attr("fill", "none")
-        .attr("stroke", d3.schemeCategory10[i % 10])
-        .attr("stroke-width", 1.5)
-        .attr("d", d3.line<[number, number]>()
-          .x(d => x(d[0]))
-          .y(d => y(d[1]))
-        );
+      .datum(lineData)
+      .attr("fill", "none")
+      .attr("stroke", d3.schemeCategory10[i % 10])
+      .attr("stroke-width", 1.5)
+      .attr("stroke-dasharray", dashStyles[i % dashStyles.length])
+      .attr("d", d3.line<[number, number]>()
+        .x(d => x(d[0]))
+        .y(d => y(d[1]))
+      );
     });
 
     if (this.showDots) {
