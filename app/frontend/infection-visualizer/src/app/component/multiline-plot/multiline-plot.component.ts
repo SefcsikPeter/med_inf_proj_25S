@@ -37,12 +37,13 @@ export class MultilinePlotComponent implements OnInit, OnChanges {
   tempsComb: [number, number][][] = [];
 
   ngOnInit(): void {
+    d3.select(this.chartContainer.nativeElement).selectAll('*').remove();
     if (this.temps) {
       this.tempsComb.push(this.temps1)
       this.tempsComb.push(this.temps2)
       this.plotData = this.tempsComb
     }
-    this.drawChart()
+    this.drawChart();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -58,7 +59,9 @@ export class MultilinePlotComponent implements OnInit, OnChanges {
 
 
   private drawChart(): void {
-    d3.select(this.chartContainer.nativeElement).selectAll('*').remove();
+    if (this.plotData === undefined) {
+      return;
+    }
     const margin = { top: 20, right: 30, bottom: 50, left: 60 };
     const containerEl = this.chartContainer.nativeElement as HTMLElement;
     const fullWidth = containerEl.offsetWidth || 460;
