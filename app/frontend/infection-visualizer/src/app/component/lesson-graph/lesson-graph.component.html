@@ -14,6 +14,18 @@
 
   <!-- Row 1 -->
   <div style="display: flex; justify-content: center; align-items: center;">
+    <app-story-card
+      [title]="lessons[8].title"
+      [progress]="lessons[8].progress"
+      [storyId]="lessons[8].id"
+      [page]="lessons[8].page"
+      [quizPassed]="lessons[8].passed"
+      [locked]="lessons[8].locked">
+    </app-story-card>
+
+    <!-- Horizontal connector -->
+    <div class="connector arrow-left"></div>
+
     <!-- Left card -->
     <app-story-card
       [title]="lessons[2].title"

@@ -191,7 +191,7 @@
         }
       },
       {
-        "text": "This is how the line plot from the previous slide looks like without drawing the dots. While it is a bit harder to read the exact temperatures at the exact times like this, only drawing the line makes it easier to compare multiple different lines in the same plot as you will see in the next slide.",
+        "text": "This is how the line plot from the previous slide looks like without drawing the dots. While it is a bit harder to read the exact temperatures at the exact times like this, only drawing the line makes it easier to compare multiple different lines in the same plot as you will see in the lecture about multi-line plots.",
         "vis1": {
           "type": "line_plot",
           "temps": true,
@@ -199,41 +199,9 @@
           "x_lab": "hours",
           "show_dots": false
         }
-      },
-      {
-        "text": "Here, you can see the temperatures of two consecutive days in the same plot. For this, we drew each plot the same way we discussed before, and colored them using different colors to differentiate them easier. You can observe, how not drawing the dots creates a 'less messy' plot where no details of one line are hidden by the other.",
-        "vis1": {
-          "type": "multiline_plot",
-          "temps": true,
-          "y_lab": "temperature",
-          "x_lab": "hours",
-          "show_dots": true
-        },
-        "vis2": {
-          "type": "multiline_plot",
-          "temps": true,
-          "y_lab": "temperature",
-          "x_lab": "hours",
-          "show_dots": false
-        }
-      },
-      {
-        "text": "You can add as many lines to line plots as you like, but you need to keep in mind that with each added line, it can become harder to understand the plot. We will see different uses of the line plots in epidemic modelling, like how we drew the graph below in following chapters.",
-        "data": {
-          "type": "sir",
-          "pop_size": 1000,
-          "recovery_rate": 0.25,
-          "n_days": 30,
-          "discrete": false
-        },
-        "vis1": {
-          "type": "multiline_plot",
-          "y_lab": "People",
-          "x_lab": "days"
-        }
       }
     ],
-    "progress": 14
+    "progress": 12
   },
   {
     "id": 3,
@@ -542,7 +510,7 @@
         }
       }
     ],
-    "progress": 0
+    "progress": 2
   },
   {
     "id": 7,
@@ -571,6 +539,46 @@
   },
   {
     "id": 8,
+    "title": "Multi-Line Plots",
+    "requires": [],
+    "slides": [
+      {
+        "text": "Here, you can see the temperatures of two consecutive days in the same plot. For this, we drew each plot the same way we discussed before, and colored them using different colors to differentiate them easier. You can observe, how not drawing the dots creates a 'less messy' plot where no details of one line are hidden by the other.",
+        "vis1": {
+          "type": "multiline_plot",
+          "temps": true,
+          "y_lab": "temperature",
+          "x_lab": "hours",
+          "show_dots": true
+        },
+        "vis2": {
+          "type": "multiline_plot",
+          "temps": true,
+          "y_lab": "temperature",
+          "x_lab": "hours",
+          "show_dots": false
+        }
+      },
+      {
+        "text": "You can add as many lines to line plots as you like, but you need to keep in mind that with each added line, it can become harder to understand the plot. We will see different uses of the line plots in epidemic modelling, like how we drew the graph below in following chapters.",
+        "data": {
+          "type": "sir",
+          "pop_size": 1000,
+          "recovery_rate": 0.25,
+          "n_days": 30,
+          "discrete": false
+        },
+        "vis1": {
+          "type": "multiline_plot",
+          "y_lab": "People",
+          "x_lab": "days"
+        }
+      }
+    ],
+    "progress": 1
+  },
+  {
+    "id": 9,
     "title": "Test Story",
     "requires": [],
     "slides": [
