@@ -45,3 +45,15 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   width: 350px;
   justify-content: space-between;
 }
+
+.btn-primary {
+  background-color: rgb(208, 0, 111) !important;
+  border-color: rgb(208, 0, 111) !important;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+  background-color: rgb(180, 0, 100) !important;
+  border-color: rgb(180, 0, 100) !important;
+}
