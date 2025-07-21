@@ -158,7 +158,8 @@
           "demo_num": true,
           "only_show_x": true,
           "x_lab": "hours",
-          "show_dots": true
+          "show_dots": true,
+          "draw_line": false
         }
       },
       {

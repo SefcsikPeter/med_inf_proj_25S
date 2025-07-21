@@ -140,7 +140,8 @@ export class LinePlotComponent implements OnInit {
       );
     }
 
-    svg.append("rect")
+    if (this.drawLine || (this.showDots && !this.onlyShowX && !this.onlyShowY)) {
+      svg.append("rect")
       .style("fill", "none")
       .style("pointer-events", "all")
       .attr("width", width)
@@ -202,6 +203,7 @@ export class LinePlotComponent implements OnInit {
         focusLineX.style("opacity", 0);
         focusLineY.style("opacity", 0);
       });
+    }
 
     if (!this.onlyShowY) {
       svg.append("text")
