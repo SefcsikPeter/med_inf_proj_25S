@@ -36,6 +36,7 @@ export class StoryComponent implements OnInit {
   sliders: any;
   showVis2: boolean = false;
   showSliders: boolean = false;
+  showReGenerate: boolean = false;
 
   constructor(
     private storyService: StoryService,

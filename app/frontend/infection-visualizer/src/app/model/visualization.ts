@@ -14,4 +14,5 @@ export interface Visualization {
   show_id?: boolean;
   black_lines?: boolean;
   temps_magn?: boolean;
+  show_re_generate?: boolean;
 }

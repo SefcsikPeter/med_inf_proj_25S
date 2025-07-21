@@ -29,7 +29,8 @@
         "vis1": {
           "type": "rad_tree",
           "depth": 4,
-          "step": 50
+          "step": 50,
+          "show_re_generate": true
         }
       },
       {
@@ -79,7 +80,7 @@
         ]
       }
     ],
-    "progress": 0
+    "progress": 6
   },
   {
     "id": 1,
@@ -469,7 +470,7 @@
         ]
       }
     ],
-    "progress": 16
+    "progress": 7
   },
   {
     "id": 6,

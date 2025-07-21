@@ -39,6 +39,7 @@ export class VisualizationWrapperComponent implements OnInit, OnChanges {
   showNodeIds: boolean = false;
   blackLines: boolean = false;
   tempsMagn: boolean = false;
+  showReGenerate: boolean = false;
 
   ngOnInit() {
     this.updateData();
@@ -91,6 +92,9 @@ export class VisualizationWrapperComponent implements OnInit, OnChanges {
       }
       if (this.vis.temps_magn) {
         this.tempsMagn = true;
+      }
+      if (this.vis.show_re_generate) {
+        this.showReGenerate = true;
       }
     }
   }
