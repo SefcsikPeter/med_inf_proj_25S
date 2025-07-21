@@ -543,7 +543,7 @@
     "requires": [],
     "slides": [
       {
-        "text": "Here, you can see the temperatures of two consecutive days in the same plot. For this, we drew each plot the same way we discussed before, and colored them using different colors to differentiate them easier. You can observe, how not drawing the dots creates a 'less messy' plot where no details of one line are hidden by the other.",
+        "text": "Here, you can see the temperatures of two consecutive days in the same plot. For this, we drew each plot the same way we discussed in the line plot lecture, and colored them using different colors and dashing to differentiate them easier. You can observe, how not drawing the dots creates a 'less messy' plot where no details of one line are hidden by the other.",
         "vis1": {
           "type": "multiline_plot",
           "temps": true,
@@ -557,6 +557,34 @@
           "y_lab": "temperature",
           "x_lab": "hours",
           "show_dots": false
+        }
+      },
+      {
+        "text": "We draw each line differently so that there is still a way for people to easily differentiate the two lines if they can't differentiate the colors.",
+        "vis1": {
+          "type": "multiline_plot",
+          "temps": true,
+          "y_lab": "temperature",
+          "x_lab": "hours",
+          "show_dots": false,
+          "black_lines": false
+        },
+        "vis2": {
+          "type": "multiline_plot",
+          "temps": true,
+          "y_lab": "temperature",
+          "x_lab": "hours",
+          "show_dots": false,
+          "black_lines": true
+        }
+      },
+      {
+        "text": "When drawing multiple lines in the same plot, it is important that the lines we draw are on a similar scale. You can see an example below where this is not the case. In this plot, the orange dashed line has the same values as the blue continuous line multiplied by 10. You can see that in this case, changes in the blue continuous line are much harder to see.",
+        "vis1": {
+          "type": "multiline_plot",
+          "temps_magn": true,
+          "y_lab": "temperature",
+          "x_lab": "hours"
         }
       },
       {
@@ -575,7 +603,7 @@
         }
       }
     ],
-    "progress": 1
+    "progress": 4
   },
   {
     "id": 9,

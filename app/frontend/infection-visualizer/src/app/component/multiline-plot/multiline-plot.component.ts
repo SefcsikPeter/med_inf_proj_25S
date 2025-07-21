@@ -14,7 +14,10 @@ export class MultilinePlotComponent implements OnInit, OnChanges {
   @Input() xLabel: string = "days";
   @Input() yLabel: string = "people";
   @Input() temps: boolean = false;
+  @Input() tempsMagn: boolean = false;
   @Input() showDots: boolean = false;
+  @Input() blackLines: boolean = true;
+
 
   temps1: [number, number][] = [
     [0, 12], [1, 11], [2, 11], [3, 10],
@@ -34,6 +37,16 @@ export class MultilinePlotComponent implements OnInit, OnChanges {
     [20, 14], [21, 13], [22, 12], [23, 11]
   ];
 
+  temps3: [number, number][] = [
+    [0, 120], [1, 110], [2, 110], [3, 100],
+    [4, 100], [5, 90], [6, 90], [7, 100],
+    [8, 120], [9, 140], [10, 160], [11, 180],
+    [12, 200], [13, 210], [14, 220], [15, 220],
+    [16, 210], [17, 200], [18, 180], [19, 170],
+    [20, 150], [21, 140], [22, 130], [23, 120]
+  ];
+
+
   tempsComb: [number, number][][] = [];
 
   ngOnInit(): void {
@@ -41,6 +54,12 @@ export class MultilinePlotComponent implements OnInit, OnChanges {
     if (this.temps) {
       this.tempsComb.push(this.temps1)
       this.tempsComb.push(this.temps2)
+      this.plotData = this.tempsComb
+    }
+
+    if (this.tempsMagn) {
+      this.tempsComb.push(this.temps1)
+      this.tempsComb.push(this.temps3)
       this.plotData = this.tempsComb
     }
     this.drawChart();
@@ -121,7 +140,7 @@ export class MultilinePlotComponent implements OnInit, OnChanges {
       svg.append("path")
       .datum(lineData)
       .attr("fill", "none")
-      .attr("stroke", d3.schemeCategory10[i % 10])
+      .attr("stroke", this.blackLines ? "black" : d3.schemeCategory10[i % 10])
       .attr("stroke-width", 1.5)
       .attr("stroke-dasharray", dashStyles[i % dashStyles.length])
       .attr("d", d3.line<[number, number]>()

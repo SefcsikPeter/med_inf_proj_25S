@@ -37,6 +37,8 @@ export class VisualizationWrapperComponent implements OnInit, OnChanges {
   yLab: string = "";
   xLab: string = "";
   showNodeIds: boolean = false;
+  blackLines: boolean = false;
+  tempsMagn: boolean = false;
 
   ngOnInit() {
     this.updateData();
@@ -83,6 +85,12 @@ export class VisualizationWrapperComponent implements OnInit, OnChanges {
       }
       if (this.vis.show_id) {
         this.showNodeIds = this.vis.show_id;
+      }
+      if (this.vis.black_lines) {
+        this.blackLines = true;
+      }
+      if (this.vis.temps_magn) {
+        this.tempsMagn = true;
       }
     }
   }

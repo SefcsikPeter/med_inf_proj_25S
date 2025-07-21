@@ -12,4 +12,6 @@ export interface Visualization {
   y_lab?: string;
   x_lab?: string;
   show_id?: boolean;
+  black_lines?: boolean;
+  temps_magn?: boolean;
 }
