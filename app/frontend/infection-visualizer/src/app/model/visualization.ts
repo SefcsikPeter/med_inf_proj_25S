@@ -15,4 +15,5 @@ export interface Visualization {
   black_lines?: boolean;
   temps_magn?: boolean;
   show_re_generate?: boolean;
+  line_labels?: string[];
 }

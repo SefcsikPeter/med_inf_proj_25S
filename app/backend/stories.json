@@ -588,7 +588,11 @@
           "type": "multiline_plot",
           "temps_magn": true,
           "y_lab": "temperature",
-          "x_lab": "hours"
+          "x_lab": "hours",
+          "line_labels": [
+            "A",
+            "Ax10"
+          ]
         }
       },
       {
@@ -607,7 +611,7 @@
         }
       }
     ],
-    "progress": 4
+    "progress": 3
   },
   {
     "id": 9,

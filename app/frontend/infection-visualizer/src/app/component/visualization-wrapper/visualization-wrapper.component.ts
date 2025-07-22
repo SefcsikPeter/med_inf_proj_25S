@@ -40,6 +40,7 @@ export class VisualizationWrapperComponent implements OnInit, OnChanges {
   blackLines: boolean = false;
   tempsMagn: boolean = false;
   showReGenerate: boolean = false;
+  lineLabels: string[] = [];
 
   ngOnInit() {
     this.updateData();
@@ -95,6 +96,9 @@ export class VisualizationWrapperComponent implements OnInit, OnChanges {
       }
       if (this.vis.show_re_generate) {
         this.showReGenerate = true;
+      }
+      if (this.vis.line_labels) {
+        this.lineLabels = this.vis.line_labels;
       }
     }
   }

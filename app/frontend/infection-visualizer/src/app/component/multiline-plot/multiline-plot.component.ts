@@ -17,7 +17,7 @@ export class MultilinePlotComponent implements OnInit, OnChanges {
   @Input() tempsMagn: boolean = false;
   @Input() showDots: boolean = false;
   @Input() blackLines: boolean = true;
-
+  @Input() lineLabels: string[] = [];
 
   temps1: [number, number][] = [
     [0, 12], [1, 11], [2, 11], [3, 10],
@@ -162,5 +162,33 @@ export class MultilinePlotComponent implements OnInit, OnChanges {
           .style("fill", d3.schemeCategory10[i % 10]);
       });
     }
+
+    if (this.lineLabels && this.lineLabels.length > 0) {
+      const legend = svg.append("g")
+        .attr("class", "legend")
+        .attr("transform", `translate(${width - 50}, ${-margin.top + 10})`);
+
+      this.lineLabels.forEach((label, i) => {
+        const legendRow = legend.append("g")
+          .attr("transform", `translate(0, ${i * 20})`);
+
+        legendRow.append("line")
+          .attr("x1", 0)
+          .attr("x2", 20)
+          .attr("y1", 5)
+          .attr("y2", 5)
+          .attr("stroke", this.blackLines ? "black" : d3.schemeCategory10[i % 10])
+          .attr("stroke-width", 2)
+          .attr("stroke-dasharray", dashStyles[i % dashStyles.length]);
+
+        legendRow.append("text")
+          .attr("x", 25)
+          .attr("y", 9)
+          .attr("font-size", "12px")
+          .attr("alignment-baseline", "middle")
+          .text(label);
+      });
+    }
+
   }
 }
