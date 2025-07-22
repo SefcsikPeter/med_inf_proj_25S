@@ -186,14 +186,25 @@ export class StoryComponent implements OnInit {
 
   async handleSliderValues(values: Record<string, number>) {
     console.log('values', values)
+
+    let refreshData = false;
+
     if (values['depth']) {
-      this.dataParams = {
-        ...this.dataParams,
+      this.vis1 = {
+        ...this.vis1,
+        depth: values['depth']
+      };
+      this.vis2 = {
+        ...this.vis2,
         depth: values['depth']
       };
     } else if (values['depth'] === 0) {
-      this.dataParams = {
-        ...this.dataParams,
+      this.vis1 = {
+        ...this.vis1,
+        depth: values['depth']
+      };
+      this.vis2 = {
+        ...this.vis2,
         depth: values['depth']
       };
     }
@@ -203,11 +214,13 @@ export class StoryComponent implements OnInit {
         ...this.dataParams,
         n_days: values['n_days']
       };
+      refreshData = true;
     } else if (values['n_days'] === 0) {
       this.dataParams = {
         ...this.dataParams,
         n_days: values['n_days']
       };
+      refreshData = true;
     }
 
     if (values['transmission_rate']) {
@@ -215,11 +228,13 @@ export class StoryComponent implements OnInit {
         ...this.dataParams,
         transmission_rate: values['transmission_rate']
       };
+      refreshData = true;
     } else if (values['transmission_rate'] === 0) {
       this.dataParams = {
         ...this.dataParams,
         transmission_rate: values['transmission_rate']
       };
+      refreshData = true;
     }
 
     if (values['recovery_rate']) {
@@ -227,13 +242,17 @@ export class StoryComponent implements OnInit {
         ...this.dataParams,
         recovery_rate: values['recovery_rate']
       };
+      refreshData = true;
     } else if (values['recovery_rate'] === 0) {
       this.dataParams = {
         ...this.dataParams,
         recovery_rate: values['recovery_rate']
       };
+      refreshData = true;
     }
 
-    await this.handleWrapperFetch();
+    if (refreshData) {
+      await this.handleWrapperFetch();
+    }
   }
 }

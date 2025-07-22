@@ -42,7 +42,8 @@
         "vis1": {
           "type": "rad_tree",
           "depth": 0,
-          "step": 50
+          "step": 50,
+          "show_re_generate": true
         },
         "sliders": [
           {
@@ -65,7 +66,8 @@
         "vis1": {
           "type": "rad_tree",
           "depth": 5,
-          "step": 50
+          "step": 50,
+          "show_re_generate": true
         },
         "sliders": [
           {
@@ -80,7 +82,7 @@
         ]
       }
     ],
-    "progress": 6
+    "progress": 7
   },
   {
     "id": 1,
