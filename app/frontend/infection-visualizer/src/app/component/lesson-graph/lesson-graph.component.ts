@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { StoryCardComponent } from '../story-card/story-card.component';
 
 @Component({
@@ -8,6 +8,14 @@ import { StoryCardComponent } from '../story-card/story-card.component';
   templateUrl: './lesson-graph.component.html',
   styleUrls: ['./lesson-graph.component.css']
 })
-export class LessonGraphComponent {
+export class LessonGraphComponent implements OnChanges {
   @Input() lessons: any[] = [];
+
+  drawCards = false;
+  
+  ngOnChanges(changes: SimpleChanges): void {
+    if (this.lessons) {
+      this.drawCards = true;
+    }
+  }
 }
