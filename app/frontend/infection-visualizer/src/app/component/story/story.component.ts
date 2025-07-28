@@ -251,6 +251,20 @@ export class StoryComponent implements OnInit {
       refreshData = true;
     }
 
+    if (values['pop_size']) {
+      this.dataParams = {
+        ...this.dataParams,
+        pop_size: values['pop_size']
+      };
+      refreshData = true;
+    } else if (values['pop_size'] === 0) {
+      this.dataParams = {
+        ...this.dataParams,
+        pop_size: values['pop_size']
+      };
+      refreshData = true;
+    }
+
     if (refreshData) {
       await this.handleWrapperFetch();
     }

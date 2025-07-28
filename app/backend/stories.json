@@ -300,7 +300,7 @@
         "image": "SIR_box.png"
       },
       {
-        "text": "The total number of beads is the number of people we would like to model.",
+        "text": "The total number of beads is the number of people we would like to model. The total number of people in our simulation is also called the 'population size'.",
         "image": "beads.png"
       },
       {
@@ -479,9 +479,70 @@
             "text": "recovery rate"
           }
         ]
+      },
+      {
+        "text": "The SIR model is very effective, meaning that we can use it to model a population of almost any size without it taking much time. You can try running the simulation on different population sizes using the new slider we just added!",
+        "data": {
+          "type": "sir",
+          "transmission_rate": 1,
+          "recovery_rate": 0.2,
+          "discrete": false,
+          "pop_size": 12,
+          "n_inf": 1,
+          "n_days": 20
+        },
+        "vis1": {
+          "type": "multiline_plot",
+          "x_lab": "days",
+          "y_lab": "people",
+          "n_days": 5,
+          "line_labels": [
+            "S",
+            "I",
+            "R"
+          ]
+        },
+        "sliders": [
+          {
+            "type": "n_days",
+            "min": 2,
+            "max": 50,
+            "step": 1,
+            "current_value": 20,
+            "symbol": "sun",
+            "text": "days"
+          },
+          {
+            "type": "transmission_rate",
+            "min": 0.1,
+            "max": 3,
+            "step": 0.1,
+            "current_value": 1,
+            "symbol": "virus",
+            "text": "transmission rate"
+          },
+          {
+            "type": "recovery_rate",
+            "min": 0,
+            "max": 1,
+            "step": 0.05,
+            "current_value": 0.2,
+            "symbol": "bed",
+            "text": "recovery rate"
+          },
+          {
+            "type": "pop_size",
+            "min": 10,
+            "max": 100000,
+            "step": 100,
+            "current_value": 1000,
+            "symbol": "person",
+            "text": "population size"
+          }
+        ]
       }
     ],
-    "progress": 8
+    "progress": 17
   },
   {
     "id": 6,
@@ -537,9 +598,12 @@
     ],
     "slides": [
       {
-        "text": "test",
+        "text": "As we saw in the SIR story, the SIR model is a simple and effective tool for modelling, how a disease could spread in a population of any size.",
         "data": {
-          "type": "sir"
+          "type": "sir",
+          "recovery_rate": 0.125,
+          "n_days": 35,
+          "pop_size": 20000
         },
         "vis1": {
           "type": "multiline_plot",
