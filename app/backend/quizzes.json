@@ -44,7 +44,7 @@
           "To reduce the number of daily infections"
         ],
         "correct": "To prepare hospitals for potential new patients",
-        "image": "gossip.png",
+        "image": "hospital_bed.png",
         "hint": 1
       }
     ],
@@ -173,6 +173,56 @@
       }
     ],
     "progress": 0,
+    "passed": true
+  },
+  {
+    "id": 7,
+    "title": "Motivation for Epidemic Visualization",
+    "questions": [
+      {
+        "question": "Test question",
+        "options": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ],
+        "correct": "1",
+        "image": "gossip.png",
+        "hint": 0
+      }
+    ],
+    "progress": 0,
+    "passed": true
+  },
+  {
+    "id": 8,
+    "title": "Multi-Line Plots",
+    "questions": [
+      {
+        "question": "What is the 'legend' of a plot?",
+        "options": [
+          "There is no such thing",
+          "A story told by the plot",
+          "An explanation of what each line in the plot represents",
+          "A story that is based on a plot"
+        ],
+        "correct": "An explanation of what each line in the plot represents",
+        "hint": 2
+      },
+      {
+        "question": "What is importand to be considered when adding multiple lines to the same plot?",
+        "options": [
+          "You shouldn't add more than 3 lines",
+          "The lines should have similar scales",
+          "You shouldn't add multiple lines to a plot",
+          "Adding multiple lines is hard"
+        ],
+        "correct": "The lines should have similar scales",
+        "hint": 3
+      }
+    ],
+    "progress": 2,
     "passed": true
   }
 ]

@@ -4,7 +4,7 @@
     <div class="d-flex flex-column flex-md-row-reverse align-items-start gap-4">
 
       <!-- Image -->
-      @if (imagePath) {
+      @if (imagePath !== '') {
         <img [src]="imagePath" alt="Question image" style="max-width: 600px; height: auto;"/>
       }
 

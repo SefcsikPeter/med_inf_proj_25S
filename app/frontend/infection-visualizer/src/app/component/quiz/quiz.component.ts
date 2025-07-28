@@ -71,6 +71,8 @@ async loadQuestion(index: number): Promise<void> {
         this.imagePath = 'http://localhost:8000/static/images/';
         if (data.image != null) {
           this.imagePath += data.image;
+        } else {
+          this.imagePath = '';
         }
 
         this.router.navigate([], {

@@ -30,7 +30,7 @@ export class McQuestionComponent implements OnInit, OnChanges {
     correct: '2',
     hint: 0
   };
-  @Input() imagePath: string = 'http://localhost:8000/static/images/gossip.png';
+  @Input() imagePath: string = '';
   @Input() storyId: number = 0;
 
   shuffledOptions: string[] = [];
