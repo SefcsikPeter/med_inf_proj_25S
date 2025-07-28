@@ -137,22 +137,34 @@
   },
   {
     "id": 5,
-    "title": "Motivation for Epidemic Visualization",
+    "title": "SIR",
     "questions": [
       {
-        "question": "Test question",
+        "question": "What do S, I and R mean in the SIR model?",
         "options": [
-          "1",
-          "2",
-          "3",
-          "4"
+          "S = Susceptible, I = Infected, R = Recovered",
+          "S = Sick, I = Immune, R = Removed",
+          "S = Susceptible, I = Immune, R = Resistant",
+          "S = Sick, I = Infectious, R = Recovered"
         ],
-        "correct": "1",
-        "image": "gossip.png",
-        "hint": 0
+        "correct": "S = Susceptible, I = Infected, R = Recovered",
+        "image": "SIR.png",
+        "hint": 3
+      },
+      {
+        "question": "We got this plot using the SIR model to model the spread of gossip, using only the S and I compartments. We started the simulation with one person knowing about the gossip and a total of 12 people. Which of the lines shows the total number of people in the S compartment, and which shows the total number of people in the I compartment?",
+        "options": [
+          "The blue continuous line is S, and the orange dashed line is I",
+          "The blue continuous line is I, and the orange dashed line is R",
+          "None of the alternatives is correct",
+          "Both lines represent the S compartment"
+        ],
+        "correct": "The blue continuous line is S, and the orange dashed line is I",
+        "image": "gossip_quiz.png",
+        "hint": 8
       }
     ],
-    "progress": 1,
+    "progress": 2,
     "passed": true
   },
   {
@@ -222,7 +234,7 @@
         "hint": 3
       }
     ],
-    "progress": 2,
+    "progress": 1,
     "passed": true
   }
 ]

@@ -279,7 +279,7 @@
         "image": ""
       }
     ],
-    "progress": 0
+    "progress": 1
   },
   {
     "id": 5,
@@ -338,7 +338,11 @@
           "type": "multiline_plot",
           "x_lab": "days",
           "y_lab": "people",
-          "n_days": 5
+          "n_days": 5,
+          "line_labels": [
+            "S",
+            "I"
+          ]
         }
       },
       {
