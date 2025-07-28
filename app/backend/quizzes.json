@@ -36,19 +36,19 @@
     "title": "Motivation for Epidemic Visualization",
     "questions": [
       {
-        "question": "Test question",
+        "question": "Why can it be useful to visualize the number of daily infections caused by a disease?",
         "options": [
-          "1",
-          "2",
-          "3",
-          "4"
+          "To prepare hospitals for potential new patients",
+          "To stop a disease from spreading",
+          "To develop cures for new diseases",
+          "To reduce the number of daily infections"
         ],
-        "correct": "1",
+        "correct": "To prepare hospitals for potential new patients",
         "image": "gossip.png",
-        "hint": 0
+        "hint": 1
       }
     ],
-    "progress": 0,
+    "progress": 1,
     "passed": true
   },
   {
@@ -112,7 +112,7 @@
         "hint": 0
       }
     ],
-    "progress": 0,
+    "progress": 1,
     "passed": true
   },
   {
@@ -152,7 +152,7 @@
         "hint": 0
       }
     ],
-    "progress": 0,
+    "progress": 1,
     "passed": true
   },
   {
