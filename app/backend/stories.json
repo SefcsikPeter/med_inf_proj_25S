@@ -114,7 +114,7 @@
         "image": "mask.png"
       }
     ],
-    "progress": 0
+    "progress": 3
   },
   {
     "id": 2,
@@ -588,6 +588,21 @@
         }
       },
       {
+        "text": "The legend of a plot describes what each line in the plot represents. The legend usually contains short line sections with the same dashing and color as those contained in the plot next to a text describing them. In this case we have a line for the temperatures on day 1 and a line for the temperatures on day 2, which you can also see in the legend added to the plot.",
+        "vis1": {
+          "type": "multiline_plot",
+          "temps": true,
+          "y_lab": "temperature",
+          "x_lab": "hours",
+          "show_dots": false,
+          "black_lines": false,
+          "line_labels": [
+            "day 1",
+            "day 2"
+          ]
+        }
+      },
+      {
         "text": "When drawing multiple lines in the same plot, it is important that the lines we draw are on a similar scale. You can see an example below where this is not the case. In this plot, the orange dashed line has the same values as the blue continuous line multiplied by 10. You can see that in this case, changes in the blue continuous line are much harder to see.",
         "vis1": {
           "type": "multiline_plot",
@@ -601,7 +616,7 @@
         }
       },
       {
-        "text": "You can add as many lines to line plots as you like, but you need to keep in mind that with each added line, it can become harder to understand the plot. We will see different uses of the line plots in epidemic modelling, like how we drew the graph below in following chapters.",
+        "text": "You can add as many lines to line plots as you like, but you need to keep in mind that with each added line, it can become harder to understand the plot. We will see different uses of line plots in epidemic modelling, like how we drew the graph below in following chapters.",
         "data": {
           "type": "sir",
           "pop_size": 1000,
@@ -616,7 +631,7 @@
         }
       }
     ],
-    "progress": 3
+    "progress": 5
   },
   {
     "id": 9,
