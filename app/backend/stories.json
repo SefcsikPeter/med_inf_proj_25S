@@ -312,7 +312,7 @@
         "image": "SI.png"
       },
       {
-        "text": "Let's say that there is one person who starts spreading the gossip. That one person goes into the I compartment and everyone else goes into the S compartment.",
+        "text": "Let's say that there is one person who starts spreading the gossip. That one person goes into the I compartment and everyone else goes into the S compartment. For this simple example, there is a total of 12 people in our simulation, so we place 11 beads in the S compartment.",
         "image": "SI_gossip.png"
       },
       {
@@ -481,7 +481,7 @@
         ]
       }
     ],
-    "progress": 16
+    "progress": 8
   },
   {
     "id": 6,

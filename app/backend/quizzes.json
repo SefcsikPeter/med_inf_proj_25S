@@ -152,6 +152,30 @@
         "hint": 3
       },
       {
+        "question": "Let's say that we would like to model the spread of a disease in a school with 300 people. On the first day, 4 people were infected and started spreading the disease, and one person had already recovered from the disease. How should you set the number of people in each compartment?",
+        "options": [
+          "S: 400, I: 4, R: 1",
+          "S: 395, I: 4, R: 1",
+          "S: 399, I: 1, R: 0",
+          "S: 395, I: 5, R: 0"
+        ],
+        "correct": "S: 395, I: 4, R: 1",
+        "image": "gossip_quiz.png",
+        "hint": 5
+      },
+      {
+        "question": "What is the transmission rate?",
+        "options": [
+          "How many people one sick person infects a day on average",
+          "The rate at which people recover from the disease",
+          "The speed of people moving between each compartment",
+          "The initial number of infected people"
+        ],
+        "correct": "ow many people one sick person infects a day on average",
+        "image": "TODO.png",
+        "hint": 7
+      },
+      {
         "question": "We got this plot using the SIR model to model the spread of gossip, using only the S and I compartments. We started the simulation with one person knowing about the gossip and a total of 12 people. Which of the lines shows the total number of people in the S compartment, and which shows the total number of people in the I compartment?",
         "options": [
           "The blue continuous line is S, and the orange dashed line is I",
@@ -160,11 +184,11 @@
           "Both lines represent the S compartment"
         ],
         "correct": "The blue continuous line is S, and the orange dashed line is I",
-        "image": "gossip_quiz.png",
+        "image": "TODO.png",
         "hint": 8
       }
     ],
-    "progress": 2,
+    "progress": 4,
     "passed": true
   },
   {
