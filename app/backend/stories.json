@@ -418,11 +418,11 @@
       },
       {
         "text": "The rate describing the movement of people from the I compartment to the R compartment is called the recovery rate which can be calculated by dividing 1 by the number of days it takes a person on average to recover from the disease. The number of beads we move from I to R depends on the recovery rate and the number of people in the I compartment.",
-        "image": "TODO.png"
+        "image": "IR_base.png"
       },
       {
-        "text": "Give an example where beads are moved from I to R in figma",
-        "image": "TODO.png"
+        "text": "Here, we have 8 infected people in the beginning, if we assume that the average person takes 2 days to recover, we get a recovery rate of 0.5. We get the number of people we need to move from I to R for each day by multiplying the number of people in I by the recovery rate.",
+        "image": "IR_rec=0.5.png"
       },
       {
         "text": "To see the transitions between the three compartments, we can take a new example where we have a school with 200 people. In this school, a person got infected by a new disease. People infected by this disease take 7 days to recover and infect 1 person a day on average before recovering. For now, we assume that infected people keep going to school.",
@@ -439,7 +439,12 @@
           "type": "multiline_plot",
           "x_lab": "days",
           "y_lab": "people",
-          "n_days": 5
+          "n_days": 5,
+          "line_labels": [
+            "S",
+            "I",
+            "R"
+          ]
         },
         "sliders": [
           {
@@ -472,7 +477,7 @@
         ]
       }
     ],
-    "progress": 7
+    "progress": 16
   },
   {
     "id": 6,
