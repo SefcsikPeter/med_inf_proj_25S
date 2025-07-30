@@ -132,7 +132,7 @@
         }
       }
     ],
-    "progress": 5
+    "progress": 2
   },
   {
     "id": 2,
@@ -350,18 +350,22 @@
     "slides": [
       {
         "text": "Modelling epidemics allows us to not only visualize how a disease has been spreading in the past but to also estimate what will happen in the future.",
-        "image": ""
+        "image": "model_example.png"
       },
       {
-        "text": "",
-        "image": ""
+        "text": "This is particularly useful for hospitals in estimating how many beds they need to keep free.",
+        "image": "hospital_bed.png"
       },
       {
-        "text": "",
-        "image": ""
+        "text": "Or for doctors to be able to tell us if we need to wear masks while shopping or avoid malls entirely.",
+        "image": "mask.png"
+      },
+      {
+        "text": "In the stories at this level, we will learn how some of the models that estimate disease spread work.",
+        "image": "SIR.png"
       }
     ],
-    "progress": 3
+    "progress": 2
   },
   {
     "id": 5,

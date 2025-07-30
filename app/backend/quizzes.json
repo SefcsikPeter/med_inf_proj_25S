@@ -36,15 +36,15 @@
     "title": "Motivation for Epidemic Visualization",
     "questions": [
       {
-        "question": "Why can it be useful to visualize the number of daily infections caused by a disease?",
+        "question": "What are some goals of visualization?",
         "options": [
-          "To prepare hospitals for potential new patients",
-          "To stop a disease from spreading",
-          "To develop cures for new diseases",
-          "To reduce the number of daily infections"
+          "To create avareness and understanding",
+          "To create avareness by inducing fear",
+          "To make data more machine processible and readable",
+          "To confuse people"
         ],
-        "correct": "To prepare hospitals for potential new patients",
-        "image": "hospital_bed.png",
+        "correct": "To create avareness and understanding",
+        "image": "table_to_plot.png",
         "hint": 1
       }
     ],
@@ -141,19 +141,19 @@
   },
   {
     "id": 4,
-    "title": "Motivation for Epidemic Visualization",
+    "title": "Motivation for Epidemic Modelling",
     "questions": [
       {
-        "question": "Test question",
+        "question": "Why can it be useful to model the expected number of new infections in a day?",
         "options": [
-          "1",
-          "2",
-          "3",
-          "4"
+          "To prepare hospitals for potential new patients",
+          "To stop a disease from spreading",
+          "To develop cures for new diseases",
+          "To reduce the number of daily infections"
         ],
-        "correct": "1",
-        "image": "gossip.png",
-        "hint": 0
+        "correct": "To prepare hospitals for potential new patients",
+        "image": "hospital_bed.png",
+        "hint": 1
       }
     ],
     "progress": 1,
@@ -212,7 +212,7 @@
         "hint": 8
       }
     ],
-    "progress": 4,
+    "progress": 1,
     "passed": true
   },
   {
