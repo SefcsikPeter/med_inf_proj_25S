@@ -79,15 +79,27 @@ export class InfectionTreeComponent implements OnInit {
     const visibleNodes = root.descendants().filter((d: any) => d.depth <= this.maxDepth);
     const visibleLinks = root.links().filter((l: any) => l.source.depth < this.maxDepth && l.target.depth <= this.maxDepth);
 
+    // 🔹 Compute extents
+    const xExtent = d3.extent(visibleNodes, (d: any) => d.x) as [number, number];
+    const yExtent = d3.extent(visibleNodes, (d: any) => d.y) as [number, number];
+    const width = xExtent[1] - xExtent[0];
+    const height = yExtent[1] - yExtent[0];
+
+    // 🔹 Compute scale to fit
+    const scale = Math.min(containerWidth / (width + 40), containerHeight / (height + 40));
+
     const svg = d3.select(this.treeContainer.nativeElement)
       .append("svg")
       .attr("width", containerWidth)
       .attr("height", containerHeight)
+      .attr("viewBox", `0 0 ${containerWidth} ${containerHeight}`)
+      .attr("preserveAspectRatio", "xMidYMid meet")
       .style("font", "10px sans-serif");
 
     const g = svg.append("g")
-      .attr("transform", `translate(${containerWidth / 2}, 20)`);
+      .attr("transform", `translate(${containerWidth/2}, ${containerHeight/2}) scale(${scale}) translate(${- (xExtent[0] + xExtent[1]) / 2}, ${- (yExtent[0] + yExtent[1]) / 2})`);
 
+    // 🔹 Draw links
     g.append("g")
       .attr("fill", "none")
       .attr("stroke", "#555")
@@ -100,6 +112,7 @@ export class InfectionTreeComponent implements OnInit {
         .x((d: any) => d.x)
         .y((d: any) => d.y) as any);
 
+    // 🔹 Draw nodes
     g.append("g")
       .selectAll("text.node-emoji")
       .data(visibleNodes)
@@ -121,19 +134,18 @@ export class InfectionTreeComponent implements OnInit {
 
     if (this.showNodeIds) {
       g.append("g")
-        .attr("stroke-linejoin", "round")
-        .attr("stroke-width", 3)
         .selectAll("text")
         .data(visibleNodes)
         .join("text")
         .attr("transform", (d: any) => `translate(${d.x},${d.y + 16})`)
         .attr("text-anchor", "middle")
-        .attr("paint-order", "stroke")
         .attr("stroke", "white")
+        .attr("paint-order", "stroke")
         .attr("fill", "currentColor")
         .text((d: any) => d.data.id);
     }
   }
+
 
 
 }

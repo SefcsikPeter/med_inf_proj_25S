@@ -97,22 +97,46 @@
   },
   {
     "id": 3,
-    "title": "Test Quiz",
+    "title": "Infection Trees",
     "questions": [
       {
-        "question": "Test question",
+        "question": "What is the node marked with the red dashed circle called?",
         "options": [
-          "1",
-          "2",
-          "3",
-          "4"
+          "root node",
+          "main node",
+          "top node",
+          "start node"
         ],
-        "correct": "1",
-        "image": "gossip.png",
-        "hint": 0
+        "correct": "root node",
+        "image": "node_quiz.png",
+        "hint": 6
+      },
+      {
+        "question": "What is the distance between the nodes 2 and 11?",
+        "options": [
+          "4",
+          "3",
+          "2",
+          "1"
+        ],
+        "correct": "2",
+        "image": "distance_quiz.png",
+        "hint": 8
+      },
+      {
+        "question": "What is the depth of this graph?",
+        "options": [
+          "4",
+          "3",
+          "2",
+          "1"
+        ],
+        "correct": "3",
+        "image": "depth_quiz.png",
+        "hint": 9
       }
     ],
-    "progress": 1,
+    "progress": 3,
     "passed": true
   },
   {
@@ -132,7 +156,7 @@
         "hint": 0
       }
     ],
-    "progress": 0,
+    "progress": 1,
     "passed": true
   },
   {
@@ -228,7 +252,7 @@
         "hint": 0
       }
     ],
-    "progress": 0,
+    "progress": 1,
     "passed": true
   },
   {

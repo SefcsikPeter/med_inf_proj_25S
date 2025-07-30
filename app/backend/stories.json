@@ -114,7 +114,7 @@
         "image": "mask.png"
       }
     ],
-    "progress": 3
+    "progress": 2
   },
   {
     "id": 2,
@@ -244,7 +244,7 @@
         "image": "larger_graph_to_tree.png"
       },
       {
-        "text": "This is the same tree as on the previous page, but rotated and drawn in a different style. We don't need to draw the links as arrows, because in this representation, all the arrows point from the left to the right. Here, we can see that Frank started spreading the gossip and it is also easy to track, who told the gossip to whom and how many people the gossip needed to get through to get from a person to an other.",
+        "text": "This is the same tree as on the previous page, just drawn a bit differently. Here, we can see that Frank started spreading the gossip and it is also easy to track, who told the gossip to whom and how many people the gossip needed to get through to get from a person to an other.",
         "data": {
           "type": "example_tree"
         },
@@ -254,9 +254,73 @@
           "step": 30,
           "depth": 6
         }
+      },
+      {
+        "text": "We can measure the distance between two people in the graph by counting the number of links between them. Here are some examples: The distance between Frank and himself is 0 because there are 0 links. The distance between Sophie and Flora is 2 because there are are 2 links between them and the distanve between Frank and Flora is 3.",
+        "data": {
+          "type": "example_tree"
+        },
+        "vis1": {
+          "type": "inf_tree",
+          "show_id": true,
+          "step": 30,
+          "depth": 6
+        }
+      },
+      {
+        "text": "Using the distance between nodes, we can calculate the depth of the tree graph which is the distance between the root node (Frank in this case) and the most distant node from the root node (Tom in this case). The depth of this graph is 4. We can also characterise nodes with the same distance from the root node as nodes of a certain depth. For example, Sophie and Melinda are at the same depth = 1.",
+        "image": "tree_depth.png"
+      },
+      {
+        "text": "Now that you understand, how we calculate the depth of a graph, you can try playing around with the depth that you would like to display from the graph. This can be useful for only displaying infromation that we actually need like if we're intrested in the number of people Frank infected directly, we can set the depth to 1.",
+        "data": {
+          "type": "example_tree"
+        },
+        "vis1": {
+          "type": "inf_tree",
+          "show_id": true,
+          "step": 30,
+          "depth": 6
+        },
+        "sliders": [
+          {
+            "type": "depth",
+            "min": 0,
+            "max": 4,
+            "step": 1,
+            "current_value": 4,
+            "symbol": "water",
+            "text": "depth"
+          }
+        ]
+      },
+      {
+        "text": "Here you can try generating different trees and adjusting their depth.",
+        "data": {
+          "type": "dummy_tree",
+          "num_iter": 4
+        },
+        "vis1": {
+          "type": "inf_tree",
+          "show_id": true,
+          "step": 30,
+          "depth": 6,
+          "show_re_generate": true
+        },
+        "sliders": [
+          {
+            "type": "depth",
+            "min": 0,
+            "max": 4,
+            "step": 1,
+            "current_value": 4,
+            "symbol": "water",
+            "text": "depth"
+          }
+        ]
       }
     ],
-    "progress": 8
+    "progress": 10
   },
   {
     "id": 4,
@@ -267,7 +331,7 @@
     ],
     "slides": [
       {
-        "text": "",
+        "text": "Modelling epidemics allows us to not only visualize how a disease has been spreading in the past but to also estimate what will happen in the future.",
         "image": ""
       },
       {
@@ -279,7 +343,7 @@
         "image": ""
       }
     ],
-    "progress": 1
+    "progress": 3
   },
   {
     "id": 5,
@@ -566,7 +630,7 @@
         }
       },
       {
-        "text": "Tree graphs dont necessarily need to be drawn from top to bottom, an other useful way to draw them is going from the center outwards. This new way of drawing a tree is called the radial tree which can be seen in the second image.",
+        "text": "Tree graphs don't necessarily need to be drawn from top to bottom, an other useful way to draw them is going from the center outwards. This new way of drawing a tree is called the radial tree which can be seen in the second image.",
         "data": {
           "type": "example_tree"
         },
@@ -582,9 +646,21 @@
           "step": 30,
           "depth": 6
         }
+      },
+      {
+        "text": "In radial trees, nodes with the same depth are not drawn in the same line like in classic infection trees but instead in the same circle concentric to the middle node. You can see each depth circle drawn with a grey dashed line, and how this representation resembles an onion.",
+        "data": {
+          "type": "example_tree"
+        },
+        "vis1": {
+          "type": "rad_tree",
+          "show_id": true,
+          "step": 30,
+          "depth": 6
+        }
       }
     ],
-    "progress": 2
+    "progress": 3
   },
   {
     "id": 7,
@@ -598,7 +674,7 @@
     ],
     "slides": [
       {
-        "text": "As we saw in the SIR story, the SIR model is a simple and effective tool for modelling, how a disease could spread in a population of any size.",
+        "text": "As we saw in the SIR story, the SIR model is a simple and effective tool for modelling, how a disease could spread in a population of about any size.",
         "data": {
           "type": "sir",
           "recovery_rate": 0.125,
@@ -610,9 +686,15 @@
           "x_lab": "days",
           "y_lab": "people"
         }
+      },
+      {
+        "text": "The SIR is able to acheive this by assuming each member of the population to have the same properties. It assumes them to be equally sensiteive to new infections, and to be able to recover from them at the same speeds. While this is great for making fast estimations for large populations, sometimes we need more accurate models for more specific cases."
+      },
+      {
+        "text": ""
       }
     ],
-    "progress": 1
+    "progress": 2
   },
   {
     "id": 8,
