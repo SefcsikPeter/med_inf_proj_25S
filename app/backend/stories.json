@@ -710,13 +710,23 @@
         }
       },
       {
-        "text": "The SIR is able to acheive this by assuming each member of the population to have the same properties. It assumes them to be equally sensiteive to new infections, and to be able to recover from them at the same speeds. While this is great for making fast estimations for large populations, sometimes we need more accurate models for more specific cases."
+        "text": "The SIR model works by pretending that everyone in a group is the same, just like how the beads all looked the same in our analogy. It imagines that everyone can get sick just as easily and gets better at the same speed. This makes it good for quickly guessing what might happen to big groups of people. But sometimes, we need a different model to be more exact for special situations.",
+        "image": "beads.png"
       },
       {
-        "text": ""
+        "text": "This is where agent-based models are very useful. Agent-based models handle each member of the population as an individual called an 'agent', with its own unique properties and social networks.",
+        "image": "Agent.png"
+      },
+      {
+        "text": "To understand the benefits of agent based models, we can go back to our gossip analogy. Let's say that we have a group of people: Emily, Lukas, Max, Lila, Henry, and Isabelle.",
+        "image": "Friends.png"
+      },
+      {
+        "text": "In this group, we draw lines between the people who talk with eachother on a regular basis, creating a graph",
+        "image": "Friends_connections.png"
       }
     ],
-    "progress": 1
+    "progress": 5
   },
   {
     "id": 8,
