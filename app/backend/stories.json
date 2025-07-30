@@ -92,29 +92,47 @@
     ],
     "slides": [
       {
-        "text": "To better understand the spreading of diseases, we need a way to visualize the number of people getting infected day by day.",
+        "text": "When a disease spreads, thousands of numbers are recorded every day: infections, recoveries, hospitalizations. Without tools for showing and summarizing all this data, it can become very hard to keep track of what is happening as you can also see in the example table below.",
+        "image": "sir_table.png"
+      },
+      {
+        "text": "Our goal in epidemic visualization is to create representations of the data that are easier to understand and read. You can see an example for this below, both representations contain the same information but the second one is much less mental effort to read. (Don't worry, you don't need to understand what is happening in the image for now.)",
+        "image": "table_to_plot.png"
+      },
+      {
+        "text": "Other than increasing our understanding of the data, visualizations can also help raise awareness of people about their impact on others and how an epidemic evolves.",
+        "image": "vis_mot.png"
+      },
+      {
+        "text": "An example for creating awareness is something like this, where you can trace, how one person infecting a few people can lead to many other people getting infected.",
         "data": {
-          "type": "sir",
-          "n_days": 30,
-          "pop_size": 1000,
-          "recovery_rate": 0.125
+          "type": "example_tree"
         },
         "vis1": {
-          "type": "multiline_plot",
-          "x_lab": "days",
-          "y_lab": "people"
+          "type": "rad_tree",
+          "show_id": false,
+          "step": 30,
+          "depth": 6
         }
       },
       {
-        "text": "Seeing the number of daily infections or hospitalizations caused by a disease can help doctors estimate the need of hospital beds.",
-        "image": "hospital_bed.png"
-      },
-      {
-        "text": "And it also lets us see if we need to wear masks or should avoid going to public spaces like school or the mall.",
-        "image": "mask.png"
+        "text": "In the stories of this level, you will see explanations for how you can understand some of these visualizations, create them and what they are used for.",
+        "data": {
+          "type": "dummy_tree"
+        },
+        "vis1": {
+          "type": "rad_tree",
+          "show_id": false,
+          "step": 30,
+          "depth": 6
+        },
+        "vis2": {
+          "type": "line_plot",
+          "show_re_generate": true
+        }
       }
     ],
-    "progress": 2
+    "progress": 5
   },
   {
     "id": 2,
@@ -694,7 +712,7 @@
         "text": ""
       }
     ],
-    "progress": 2
+    "progress": 1
   },
   {
     "id": 8,

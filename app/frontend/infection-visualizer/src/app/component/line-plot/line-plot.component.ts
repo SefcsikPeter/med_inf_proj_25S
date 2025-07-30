@@ -1,4 +1,4 @@
-import {Component, OnInit, ElementRef, ViewChild, Input, AfterViewInit} from '@angular/core';
+import {Component, OnInit, ElementRef, ViewChild, Input, AfterViewInit, SimpleChanges, OnChanges} from '@angular/core';
 import * as d3 from 'd3';
 
 @Component({
@@ -8,7 +8,7 @@ import * as d3 from 'd3';
   templateUrl: './line-plot.component.html',
   styleUrls: ['./line-plot.component.css']
 })
-export class LinePlotComponent implements OnInit {
+export class LinePlotComponent implements OnInit, OnChanges {
   @ViewChild('chart', { static: true }) private chartContainer!: ElementRef;
   @Input() plotData: { x: number, y: number }[] = [];
   @Input() onlyShowX: boolean = false;
@@ -57,6 +57,20 @@ export class LinePlotComponent implements OnInit {
 
       this.drawChart();
     }
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['plotData'] && !changes['plotData'].firstChange) {
+      if (Array.isArray(this.plotData[0])) {
+        this.plotData = (this.plotData as any[]).map(([x, y]) => ({ x, y }));
+      }
+      this.redrawChart();
+    }
+  }
+
+  private redrawChart(): void {
+    d3.select(this.chartContainer.nativeElement).selectAll('*').remove(); // clear old chart
+    this.drawChart();
   }
 
 
