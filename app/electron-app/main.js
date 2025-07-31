@@ -11,7 +11,7 @@ function createWindow() {
     }
   });
 
-  win.loadFile('C:/Users/ptsef/OneDrive/Desktop/MedInfProject/med_inf_proj_25S/app/frontend/infection-visualizer/dist/infection-visualizer/browser/index.html');
+  win.loadFile('dist/infection-visualizer/browser/index.html');
   win.webContents.openDevTools();
 }
 
