@@ -10,10 +10,10 @@
 
   @if (!locked){
     <p><strong>{{ parseInt('' + progress * 100) }}%</strong></p>
-    @if (progress == 1) {
-      @if (quizPassed) {
-        <p>Quiz: ✔</p>
-      } @else {
+    @if (quizPassed) {
+      <p>Quiz: ✔</p>
+    } @else {
+      @if (progress == 1) {
         <p>Quiz: X</p>
       }
     }
