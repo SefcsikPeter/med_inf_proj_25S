@@ -137,7 +137,7 @@
       }
     ],
     "progress": 0,
-    "passed": false
+    "passed": true
   },
   {
     "id": 4,
@@ -213,7 +213,7 @@
       }
     ],
     "progress": 1,
-    "passed": false
+    "passed": true
   },
   {
     "id": 6,
@@ -233,7 +233,7 @@
       }
     ],
     "progress": 0,
-    "passed": false
+    "passed": true
   },
   {
     "id": 7,
@@ -252,8 +252,8 @@
         "hint": 0
       }
     ],
-    "progress": 0,
-    "passed": false
+    "progress": 1,
+    "passed": true
   },
   {
     "id": 8,

@@ -151,7 +151,8 @@
         "vis1": {
           "type": "line_plot",
           "x_lab": "days",
-          "y_lab": "people"
+          "y_lab": "people",
+          "legend": "people infected"
         }
       },
       {

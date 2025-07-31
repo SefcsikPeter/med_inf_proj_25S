@@ -19,6 +19,8 @@ export class LinePlotComponent implements OnInit, OnChanges {
   @Input() yLabel: string = "people";
   @Input() temps: boolean = false;
   @Input() demoNum: boolean = false;
+  @Input() legend: string = '';
+
   dailyTemp: { x: number, y: number }[] = [
   { x: 0, y: 12 }, { x: 1, y: 11 }, { x: 2, y: 11 }, { x: 3, y: 10 },
   { x: 4, y: 10 }, { x: 5, y: 9 }, { x: 6, y: 9 }, { x: 7, y: 10 },
@@ -152,6 +154,27 @@ export class LinePlotComponent implements OnInit, OnChanges {
         .x((d) => x(d.x))
         .y((d) => y(d.y))
       );
+
+      if (this.legend) {
+        const legend = svg.append("g")
+          .attr("class", "legend")
+          .attr("transform", `translate(${width - 100}, ${10})`);
+
+        legend.append("line")
+          .attr("x1", 0)
+          .attr("x2", 20)
+          .attr("y1", 5)
+          .attr("y2", 5)
+          .attr("stroke", "steelblue")
+          .attr("stroke-width", 2);
+
+        legend.append("text")
+          .attr("x", 25)
+          .attr("y", 9)
+          .attr("font-size", "12px")
+          .attr("alignment-baseline", "middle")
+          .text(this.legend);
+      }
     }
 
     if (this.drawLine || (this.showDots && !this.onlyShowX && !this.onlyShowY)) {

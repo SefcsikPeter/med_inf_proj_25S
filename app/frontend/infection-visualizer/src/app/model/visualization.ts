@@ -16,4 +16,5 @@ export interface Visualization {
   temps_magn?: boolean;
   show_re_generate?: boolean;
   line_labels?: string[];
+  legend?: string;
 }

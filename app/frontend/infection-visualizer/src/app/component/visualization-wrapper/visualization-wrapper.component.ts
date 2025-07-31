@@ -41,6 +41,7 @@ export class VisualizationWrapperComponent implements OnInit, OnChanges {
   tempsMagn: boolean = false;
   showReGenerate: boolean = false;
   lineLabels: string[] = [];
+  legend: string = '';
 
   ngOnInit() {
     this.updateData();
@@ -99,6 +100,9 @@ export class VisualizationWrapperComponent implements OnInit, OnChanges {
       }
       if (this.vis.line_labels) {
         this.lineLabels = this.vis.line_labels;
+      }
+      if (this.vis.legend) {
+        this.legend = this.vis.legend;
       }
     }
   }
