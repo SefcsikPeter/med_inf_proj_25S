@@ -5,7 +5,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 import pathlib
 if pathlib.Path.__doc__ is None:
     pathlib.Path.__doc__ = "Patched docstring for Path"
-    
+
 from fastapi import FastAPI, Body
 import uvicorn
 import json
@@ -179,6 +179,42 @@ def get_story_data(
         "total_pages": len(slides),
         "data": story.get("data", []),
     }
+
+def reset_progress():
+    try:
+        with open("stories.json", "r", encoding="utf-8") as file:
+            stories = json.load(file)
+    except FileNotFoundError:
+        stories = []
+
+    for story in stories:
+        story["progress"] = 0
+
+    with open("stories.json", "w", encoding="utf-8") as file:
+        json.dump(stories, file, indent=2, ensure_ascii=False)
+
+    try:
+        with open("quizzes.json", "r", encoding="utf-8") as file:
+            quizzes = json.load(file)
+    except FileNotFoundError:
+        quizzes = []
+
+    for quiz in quizzes:
+        quiz["progress"] = 0
+        quiz["passed"] = False
+
+    with open("quizzes.json", "w", encoding="utf-8") as file:
+        json.dump(quizzes, file, indent=2, ensure_ascii=False)
+
+    return {"message": "All story and quiz progress have been reset."}
+
+@app.post("/reset")
+def api_reset_progress():
+    """
+    Resets progress for all stories and quizzes.
+    """
+    return reset_progress()
+
 
 @app.get("/quiz/{story_id}/data")
 def get_quiz_data(

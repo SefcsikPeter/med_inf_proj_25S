@@ -53,7 +53,6 @@ async function createWindow() {
   });
 
   win.loadFile(path.join(basePath, 'dist/infection-visualizer/browser/index.html'));
-  win.webContents.openDevTools();
 }
 
 app.on('ready', createWindow);
