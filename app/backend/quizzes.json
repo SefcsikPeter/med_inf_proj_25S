@@ -38,12 +38,12 @@
       {
         "question": "What are some goals of visualization?",
         "options": [
-          "To create avareness and understanding",
-          "To create avareness by inducing fear",
-          "To make data more machine processible and readable",
+          "To create awareness and understanding",
+          "To create awareness by inducing fear",
+          "To make data more machine processable and readable",
           "To confuse people"
         ],
-        "correct": "To create avareness and understanding",
+        "correct": "To create awareness and understanding",
         "image": "table_to_plot.png",
         "hint": 1
       }
@@ -195,7 +195,7 @@
           "The speed of people moving between each compartment",
           "The initial number of infected people"
         ],
-        "correct": "ow many people one sick person infects a day on average",
+        "correct": "How many people one sick person infects a day on average",
         "image": "TODO.png",
         "hint": 7
       },
@@ -271,7 +271,7 @@
         "hint": 2
       },
       {
-        "question": "What is importand to be considered when adding multiple lines to the same plot?",
+        "question": "What is important to be considered when adding multiple lines to the same plot?",
         "options": [
           "You shouldn't add more than 3 lines",
           "The lines should have similar scales",
