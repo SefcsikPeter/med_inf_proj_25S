@@ -365,7 +365,7 @@
         "image": "SIR.png"
       }
     ],
-    "progress": 2
+    "progress": 4
   },
   {
     "id": 5,
@@ -374,7 +374,8 @@
       0,
       1,
       2,
-      4
+      4,
+      8
     ],
     "slides": [
       {
@@ -691,8 +692,11 @@
       0,
       1,
       2,
+      3,
       4,
-      5
+      5,
+      6,
+      8
     ],
     "slides": [
       {
@@ -747,7 +751,11 @@
   {
     "id": 8,
     "title": "Multi-Line Plots",
-    "requires": [],
+    "requires": [
+      0,
+      1,
+      2
+    ],
     "slides": [
       {
         "text": "Here, you can see the temperatures of two consecutive days in the same plot. For this, we drew each plot the same way we discussed in the line plot lecture, and colored them using different colors and dashing to differentiate them easier. You can observe, how not drawing the dots creates a 'less messy' plot where no details of one line are hidden by the other.",
@@ -829,6 +837,6 @@
         }
       }
     ],
-    "progress": 3
+    "progress": 5
   }
 ]

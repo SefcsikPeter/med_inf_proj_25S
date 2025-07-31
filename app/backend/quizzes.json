@@ -48,8 +48,8 @@
         "hint": 1
       }
     ],
-    "progress": 0,
-    "passed": false
+    "progress": 1,
+    "passed": true
   },
   {
     "id": 2,
@@ -92,8 +92,8 @@
         "hint": 9
       }
     ],
-    "progress": 0,
-    "passed": false
+    "progress": 3,
+    "passed": true
   },
   {
     "id": 3,
@@ -156,8 +156,8 @@
         "hint": 1
       }
     ],
-    "progress": 0,
-    "passed": false
+    "progress": 1,
+    "passed": true
   },
   {
     "id": 5,
@@ -212,7 +212,7 @@
         "hint": 8
       }
     ],
-    "progress": 0,
+    "progress": 1,
     "passed": false
   },
   {
@@ -282,7 +282,7 @@
         "hint": 3
       }
     ],
-    "progress": 0,
-    "passed": false
+    "progress": 2,
+    "passed": true
   }
 ]
