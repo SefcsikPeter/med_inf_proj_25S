@@ -104,7 +104,7 @@
         "image": "vis_mot.png"
       },
       {
-        "text": "An example of creating awareness is something like this, where you can trace, how one person infecting a few people can lead to many other people getting infected.",
+        "text": "An example of creating awareness is something like this, where you can trace how one person infecting a few people can lead to many other people getting infected.",
         "data": {
           "type": "example_tree"
         },
@@ -178,7 +178,7 @@
         "image": "x_scale_zero.png"
       },
       {
-        "text": "To calculate the distance between two marks, you can take two numbers at different marks, subtract the smaller from the larger one and and divide this by the number of marks between the two numbers. You can see how to do this again below.",
+        "text": "To calculate the distance between two marks, you can take two numbers at different marks, subtract the smaller from the larger one and divide this by the number of marks between the two numbers. You can see how to do this again below.",
         "image": "step_size.png"
       },
       {
