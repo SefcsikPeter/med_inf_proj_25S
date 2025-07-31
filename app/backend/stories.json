@@ -128,7 +128,10 @@
         },
         "vis2": {
           "type": "line_plot",
-          "show_re_generate": true
+          "show_re_generate": true,
+          "x_lab": "days",
+          "y_lab": "people",
+          "legend": "people infected"
         }
       }
     ],
@@ -232,7 +235,7 @@
         }
       }
     ],
-    "progress": 1
+    "progress": 12
   },
   {
     "id": 3,
@@ -456,7 +459,11 @@
           "type": "multiline_plot",
           "x_lab": "days",
           "y_lab": "people",
-          "n_days": 5
+          "n_days": 5,
+          "line_labels": [
+            "S",
+            "I"
+          ]
         },
         "sliders": [
           {
@@ -485,7 +492,11 @@
           "type": "multiline_plot",
           "x_lab": "days",
           "y_lab": "people",
-          "n_days": 5
+          "n_days": 5,
+          "line_labels": [
+            "S",
+            "I"
+          ]
         },
         "sliders": [
           {
@@ -719,7 +730,12 @@
         "vis1": {
           "type": "multiline_plot",
           "x_lab": "days",
-          "y_lab": "people"
+          "y_lab": "people",
+          "line_labels": [
+            "S",
+            "I",
+            "R"
+          ]
         }
       },
       {
@@ -773,14 +789,22 @@
           "temps": true,
           "y_lab": "temperature",
           "x_lab": "hours",
-          "show_dots": true
+          "show_dots": true,
+          "line_labels": [
+            "day 1",
+            "day 2"
+          ]
         },
         "vis2": {
           "type": "multiline_plot",
           "temps": true,
           "y_lab": "temperature",
           "x_lab": "hours",
-          "show_dots": false
+          "show_dots": false,
+          "line_labels": [
+            "day 1",
+            "day 2"
+          ]
         }
       },
       {
@@ -791,7 +815,11 @@
           "y_lab": "temperature",
           "x_lab": "hours",
           "show_dots": false,
-          "black_lines": false
+          "black_lines": false,
+          "line_labels": [
+            "day 1",
+            "day 2"
+          ]
         },
         "vis2": {
           "type": "multiline_plot",
@@ -799,7 +827,11 @@
           "y_lab": "temperature",
           "x_lab": "hours",
           "show_dots": false,
-          "black_lines": true
+          "black_lines": true,
+          "line_labels": [
+            "day 1",
+            "day 2"
+          ]
         }
       },
       {
@@ -842,7 +874,12 @@
         "vis1": {
           "type": "multiline_plot",
           "y_lab": "People",
-          "x_lab": "days"
+          "x_lab": "days",
+          "line_labels": [
+            "S",
+            "I",
+            "R"
+          ]
         }
       }
     ],
