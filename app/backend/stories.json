@@ -897,9 +897,19 @@
       8
     ],
     "slides": [
-      {}
+      {
+        "text": "We know from the previous SIR story how the basic SIR model works, but we haven't looked at how we can take real-world data and use that to predict what will probably happen in the future.",
+        "data": {
+          "type": "sir"
+        },
+        "vis1": {
+          "type": "multiline_plot",
+          "x_lab": "days",
+          "y_lab": "people"
+        }
+      }
     ],
-    "progress": 0
+    "progress": 1
   },
   {
     "id": 10,
