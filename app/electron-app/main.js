@@ -52,7 +52,7 @@ async function createWindow() {
     }
   });
 
-  win.loadFile(path.join(basePath, 'dist/infection-visualizer/browser/index.html'));
+  win.loadFile('dist/infection-visualizer/browser/index.html');
 }
 
 app.on('ready', createWindow);
