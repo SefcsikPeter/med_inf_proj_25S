@@ -5,7 +5,7 @@
     "requires": [],
     "slides": [
       {
-        "text": "When someone is infected by a new disease, it is kind of like gossip in school.",
+        "text": "When someone is infected by a new disease, it is similar to gossip in school.",
         "image": "gossip.png"
       },
       {
@@ -21,7 +21,7 @@
         "image": "dice.jpg"
       },
       {
-        "text": "To see how many people someone tells the gossip to, we can pretend to roll a 4-sided dice for each person - the number it lands on shows how many people they tell. You can see an example for this below. If you click Re-Generate, you can see how re-rolling the dice for each person changes the outcome!",
+        "text": "To see how many people someone tells the gossip to, we can pretend to roll a 4-sided dice for each person - the number it lands on shows how many people they tell. You can see an example of this below. If you click Re-Generate, you can see how re-rolling the dice for each person changes the outcome!",
         "data": {
           "type": "dummy_tree",
           "num_iter": 5
@@ -96,7 +96,7 @@
         "image": "sir_table.png"
       },
       {
-        "text": "Our goal in epidemic visualization is to create representations of the data that are easier to understand and read. You can see an example for this below, both representations contain the same information but the second one is much less mental effort to read. (Don't worry, you don't need to understand what is happening in the image for now.)",
+        "text": "Our goal in epidemic visualization is to create representations of the data that are easier to understand and read. You can see an example of this below, both representations contain the same information but the second one is much less mental effort to read. (Don't worry, you don't need to understand what is happening in the image for now.)",
         "image": "table_to_plot.png"
       },
       {
@@ -104,7 +104,7 @@
         "image": "vis_mot.png"
       },
       {
-        "text": "An example for creating awareness is something like this, where you can trace, how one person infecting a few people can lead to many other people getting infected.",
+        "text": "An example of creating awareness is something like this, where you can trace, how one person infecting a few people can lead to many other people getting infected.",
         "data": {
           "type": "example_tree"
         },
@@ -259,7 +259,7 @@
         "image": "nodes_and_links.png"
       },
       {
-        "text": "Directional graphs give a much better overview than a table containing the interactions, but if we add more people, it is still easy to lose track. For example, it would be difficult to say, who started the gossip in this group on a glance.",
+        "text": "Directional graphs give a much better overview than a table containing the interactions, but if we add more people, it is still easy to lose track. For example, it would be difficult to say, who started the gossip in this group at a glance.",
         "image": "larger_graph.png"
       },
       {
@@ -283,7 +283,7 @@
         }
       },
       {
-        "text": "We can measure the distance between two people in the graph by counting the number of links between them. Here are some examples: The distance between Frank and himself is 0 because there are 0 links. The distance between Sophie and Flora is 2 because there are are 2 links between them and the distance between Frank and Flora is 3.",
+        "text": "We can measure the distance between two people in the graph by counting the number of links between them. Here are some examples: The distance between Frank and himself is 0 because there are 0 links. The distance between Sophie and Flora is 2 because there are 2 links between them and the distance between Frank and Flora is 3.",
         "data": {
           "type": "example_tree"
         },
@@ -442,7 +442,7 @@
         }
       },
       {
-        "text": "How many days we display in our plot depends our simulation settings and is a choice we can make and adjust. Try playing around with the number of days displayed using the slider to find a visualization that is the most informative in your opinion!",
+        "text": "How many days we display in our plot depends on our simulation settings and is a choice we can make and adjust. Try playing around with the number of days displayed using the slider to find a visualization that is the most informative in your opinion!",
         "data": {
           "type": "sir",
           "transmission_rate": 1,
@@ -650,7 +650,7 @@
     ],
     "slides": [
       {
-        "text": "Like we saw in the infection tree lecture, graphs can be reordered to improve our overview of the connections. In the infection tree lecture, we saw a classic representation of tree graphs that you can see once again below.",
+        "text": "As we saw in the infection tree lecture, graphs can be reordered to improve our overview of the connections. In the infection tree lecture, we saw a classic representation of tree graphs that you can see once again below.",
         "data": {
           "type": "example_tree"
         },
@@ -767,7 +767,7 @@
     ],
     "slides": [
       {
-        "text": "Here, you can see the temperatures of two consecutive days in the same plot. For this, we drew each plot the same way we discussed in the line plot lecture, and colored them using different colors and dashing to differentiate them easier. You can observe, how not drawing the dots creates a 'less messy' plot where no details of one line are hidden by the other.",
+        "text": "Here, you can see the temperatures of two consecutive days in the same plot. For this, we drew each plot the same way we discussed in the line plot lecture, and colored them using different colors and dashing to differentiate them easier. You can observe how not drawing the dots creates a 'less messy' plot where no details of one line are hidden by the other.",
         "vis1": {
           "type": "multiline_plot",
           "temps": true,
