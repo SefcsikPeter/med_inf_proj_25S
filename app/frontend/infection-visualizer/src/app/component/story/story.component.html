@@ -1,5 +1,5 @@
 <div *ngIf="slide" class="story-container">
-  <mat-progress-bar mode="determinate" style="color: violet" value="{{((currentSlide + 1) * 100) / totalSlides}}"></mat-progress-bar>
+  <mat-progress-bar mode="determinate" value="{{((currentSlide + 1) * 100) / totalSlides}}"></mat-progress-bar>
   <div style="display: flex; align-items: center; justify-content: space-between; padding: 0 1rem;">
     <h2>{{ title }}</h2>
     <a>Slide {{ currentSlide + 1 }} of {{ totalSlides }}</a>

@@ -132,7 +132,7 @@
         }
       }
     ],
-    "progress": 2
+    "progress": 5
   },
   {
     "id": 2,
@@ -829,25 +829,6 @@
         }
       }
     ],
-    "progress": 5
-  },
-  {
-    "id": 9,
-    "title": "Test Story",
-    "requires": [],
-    "slides": [
-      {
-        "text": "test",
-        "data": {
-          "type": "sir"
-        },
-        "vis1": {
-          "type": "multiline_plot",
-          "x_lab": "days",
-          "y_lab": "people"
-        }
-      }
-    ],
-    "progress": 0
+    "progress": 3
   }
 ]
