@@ -196,7 +196,7 @@
           "The initial number of infected people"
         ],
         "correct": "How many people one sick person infects a day on average",
-        "image": "TODO.png",
+        "image": "",
         "hint": 7
       },
       {
@@ -208,11 +208,11 @@
           "Both lines represent the S compartment"
         ],
         "correct": "The blue continuous line is S, and the orange dashed line is I",
-        "image": "TODO.png",
+        "image": "SI_quiz.png",
         "hint": 8
       }
     ],
-    "progress": 1,
+    "progress": 4,
     "passed": true
   },
   {
