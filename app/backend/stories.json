@@ -193,7 +193,7 @@
         }
       },
       {
-        "text": "Now that we have our scale for the hours, we can add an other one like this for the temperatures. It works just like the other one, you just need to count upwards instead of counting to the right.",
+        "text": "Now that we have our scale for the hours, we can add another one like this for the temperatures. It works just like the other one, you just need to count upwards instead of counting to the right.",
         "vis1": {
           "type": "line_plot",
           "temps": true,
@@ -212,7 +212,7 @@
         "image": "colored_points.png"
       },
       {
-        "text": "Now that we understan how it is done, we can add a dot for the temperature at each hour in a day. If you use your mouse to hover over a dot, you can see how it was drawn and what it means. A line plot is drawn, by connecting the dots using lines like the ones connecting the dots here, but it is usually drawn without the dots.",
+        "text": "Now that we understand how it is done, we can add a dot for the temperature at each hour in a day. If you use your mouse to hover over a dot, you can see how it was drawn and what it means. A line plot is drawn, by connecting the dots using lines like the ones connecting the dots here, but it is usually drawn without the dots.",
         "vis1": {
           "type": "line_plot",
           "temps": true,
@@ -255,15 +255,15 @@
         "image": "small_graph.png"
       },
       {
-        "text": "In mathematics, this representation is called a directed graph. A graph is a representation containing links and nodes, this graph in our case is called directional, because the links are arrows with a specific direction from a node to an other.",
+        "text": "In mathematics, this representation is called a directed graph. A graph is a representation containing links and nodes, this graph in our case is called directional, because the links are arrows with a specific direction from a node to another.",
         "image": "nodes_and_links.png"
       },
       {
-        "text": "Directional graphs give a much better overview than a table containing the interactions, but if we add more people, it is still easy to loose track. For example, it would be difficult to say, who started the gossip in this group on a glance.",
+        "text": "Directional graphs give a much better overview than a table containing the interactions, but if we add more people, it is still easy to lose track. For example, it would be difficult to say, who started the gossip in this group on a glance.",
         "image": "larger_graph.png"
       },
       {
-        "text": "Apart from being directed, our graph also has an other important property which makes it interesting. It also doesn't contain any loops. Loops in directed graphs are a series of links where the last link points to the same node as where the first link starts from. You can see loop examples in red below.",
+        "text": "Apart from being directed, our graph also has another important property which makes it interesting. It also doesn't contain any loops. Loops in directed graphs are a series of links where the last link points to the same node as where the first link starts from. You can see loop examples in red below.",
         "image": "loop_examples.png"
       },
       {
@@ -271,7 +271,7 @@
         "image": "larger_graph_to_tree.png"
       },
       {
-        "text": "This is the same tree as on the previous page, just drawn a bit differently. Here, we can see that Frank started spreading the gossip and it is also easy to track, who told the gossip to whom and how many people the gossip needed to get through to get from a person to an other.",
+        "text": "This is the same tree as on the previous page, just drawn a bit differently. Here, we can see that Frank started spreading the gossip and it is also easy to track, who told the gossip to whom and how many people the gossip needed to get through to get from a person to another.",
         "data": {
           "type": "example_tree"
         },
@@ -283,7 +283,7 @@
         }
       },
       {
-        "text": "We can measure the distance between two people in the graph by counting the number of links between them. Here are some examples: The distance between Frank and himself is 0 because there are 0 links. The distance between Sophie and Flora is 2 because there are are 2 links between them and the distanve between Frank and Flora is 3.",
+        "text": "We can measure the distance between two people in the graph by counting the number of links between them. Here are some examples: The distance between Frank and himself is 0 because there are 0 links. The distance between Sophie and Flora is 2 because there are are 2 links between them and the distance between Frank and Flora is 3.",
         "data": {
           "type": "example_tree"
         },
@@ -299,7 +299,7 @@
         "image": "tree_depth.png"
       },
       {
-        "text": "Now that you understand, how we calculate the depth of a graph, you can try playing around with the depth that you would like to display from the graph. This can be useful for only displaying infromation that we actually need like if we're intrested in the number of people Frank infected directly, we can set the depth to 1.",
+        "text": "Now that you understand, how we calculate the depth of a graph, you can try playing around with the depth that you would like to display from the graph. This can be useful for only displaying information that we actually need like if we're interested in the number of people Frank infected directly, we can set the depth to 1.",
         "data": {
           "type": "example_tree"
         },
@@ -404,7 +404,7 @@
         "image": "SIR_expl.png"
       },
       {
-        "text": "For a simple example, we can model gossip in school. We only need the S and I compartmetns for this because people can only know and not know about the gossip but can't recover from knowing it.",
+        "text": "For a simple example, we can model gossip in school. We only need the S and I compartments for this because people can only know and not know about the gossip but can't recover from knowing it.",
         "image": "SI.png"
       },
       {
@@ -416,11 +416,11 @@
         "image": "SI_transmission.png"
       },
       {
-        "text": "The transmission rate describes the chance of a person who knows about the gossip telling it to people who don't allready know about it. How many beads we move from S to I depends on the number of people in S, the number of people in I and the transmission rate. With a transmission rate of 1, we can say that for the first few days, we move one bead from S to I for each bead in I like in the image below. After a few days, we only need to move less beads, because the chance of a person knowing about the gossip meeting a person who does not allready know decreases.",
+        "text": "The transmission rate describes the chance of a person who knows about the gossip telling it to people who don't already know about it. How many beads we move from S to I depends on the number of people in S, the number of people in I and the transmission rate. With a transmission rate of 1, we can say that for the first few days, we move one bead from S to I for each bead in I like in the image below. After a few days, we only need to move less beads, because the chance of a person knowing about the gossip meeting a person who does not already know decreases.",
         "image": "SI_transmission=1.png"
       },
       {
-        "text": "Sometimes we need to model a lot of people, but when we add a lot more beads to our boxes, it becomes very difficult to count them. Instead, we can use line plots to show how many people there are in a compartment each day like in the plot below. Here, the orange dashed line shows the number of people who know about the gossip on a given day, and the blue continuous line shows the number of people who don't allready know.",
+        "text": "Sometimes we need to model a lot of people, but when we add a lot more beads to our boxes, it becomes very difficult to count them. Instead, we can use line plots to show how many people there are in a compartment each day like in the plot below. Here, the orange dashed line shows the number of people who know about the gossip on a given day, and the blue continuous line shows the number of people who don't already know.",
         "data": {
           "type": "sir",
           "transmission_rate": 1,
@@ -442,7 +442,7 @@
         }
       },
       {
-        "text": "How many days we display in our plot depends our simulation settings and is a choice we can make and adjust. Try playing arond with the number of days displayed using the slider to find a visualization that is the most informative in your opinion!",
+        "text": "How many days we display in our plot depends our simulation settings and is a choice we can make and adjust. Try playing around with the number of days displayed using the slider to find a visualization that is the most informative in your opinion!",
         "data": {
           "type": "sir",
           "transmission_rate": 1,
@@ -662,7 +662,7 @@
         }
       },
       {
-        "text": "Tree graphs don't necessarily need to be drawn from top to bottom, an other useful way to draw them is going from the center outwards. This new way of drawing a tree is called the radial tree which can be seen in the second image.",
+        "text": "Tree graphs don't necessarily need to be drawn from top to bottom, another useful way to draw them is going from the center outwards. This new way of drawing a tree is called the radial tree which can be seen in the second image.",
         "data": {
           "type": "example_tree"
         },
@@ -735,7 +735,7 @@
         "image": "Friends.png"
       },
       {
-        "text": "In this group, we draw lines between the people who talk with eachother on a regular basis, creating a graph.",
+        "text": "In this group, we draw lines between the people who talk with each other on a regular basis, creating a graph.",
         "image": "Friends_connections.png"
       },
       {
