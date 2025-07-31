@@ -92,7 +92,7 @@
         "hint": 9
       }
     ],
-    "progress": 3,
+    "progress": 1,
     "passed": true
   },
   {
@@ -161,7 +161,7 @@
   },
   {
     "id": 5,
-    "title": "SIR",
+    "title": "Intro to SIR",
     "questions": [
       {
         "question": "What do S, I and R mean in the SIR model?",
@@ -237,7 +237,7 @@
   },
   {
     "id": 7,
-    "title": "Motivation for Epidemic Visualization",
+    "title": "Intro to Agent-Based Models",
     "questions": [
       {
         "question": "Test question",

@@ -82,6 +82,19 @@
     <div style="display: flex; justify-content: center; align-items: center;">
       <!-- Left card -->
       <app-story-card
+        [title]="lessons[9].title"
+        [progress]="lessons[9].progress"
+        [storyId]="lessons[9].id"
+        [page]="lessons[9].page"
+        [quizPassed]="lessons[9].passed"
+        [locked]="lessons[9].locked">
+      </app-story-card>
+
+      <!-- Horizontal connector -->
+      <div class="connector arrow-left"></div>
+
+      <!-- Left card -->
+      <app-story-card
         [title]="lessons[5].title"
         [progress]="lessons[5].progress"
         [storyId]="lessons[5].id"
@@ -114,6 +127,19 @@
         [page]="lessons[7].page"
         [quizPassed]="lessons[7].passed"
         [locked]="lessons[7].locked">
+      </app-story-card>
+
+      <!-- Horizontal connector -->
+      <div class="connector arrow-right"></div>
+
+      <!-- Right card -->
+      <app-story-card
+        [title]="lessons[10].title"
+        [progress]="lessons[10].progress"
+        [storyId]="lessons[10].id"
+        [page]="lessons[10].page"
+        [quizPassed]="lessons[10].passed"
+        [locked]="lessons[10].locked">
       </app-story-card>
     </div>
   }
