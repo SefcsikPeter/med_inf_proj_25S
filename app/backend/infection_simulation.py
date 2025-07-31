@@ -1,9 +1,7 @@
 import covasim as cv
 import networkx as nx
 import numpy as np
-import json
 from networkx.readwrite import json_graph
-from collections import deque
 from epimodels.discrete.models import SIR as SIR_disc
 from epimodels.continuous.models import SIR as SIR
 

@@ -1,8 +1,5 @@
 from fastapi import FastAPI, Body
 import uvicorn
-import covasim as cv
-import networkx as nx
-import numpy as np
 import json
 from infection_simulation import get_inf_tree, get_dummy_tree, get_sir_data, build_custom_infection_tree
 from fastapi import Query, Path, HTTPException

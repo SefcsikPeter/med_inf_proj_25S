@@ -69,7 +69,7 @@ export class LinePlotComponent implements OnInit, OnChanges {
   }
 
   private redrawChart(): void {
-    d3.select(this.chartContainer.nativeElement).selectAll('*').remove(); // clear old chart
+    d3.select(this.chartContainer.nativeElement).selectAll('*').remove();
     this.drawChart();
   }
 

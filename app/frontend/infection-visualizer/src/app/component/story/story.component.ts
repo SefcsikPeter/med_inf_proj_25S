@@ -1,11 +1,10 @@
-import { Component, Input, OnInit, OnDestroy } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StoryService } from '../../service/story.service';
 import { MatProgressBar } from '@angular/material/progress-bar';
 import { RadialTreeComponent } from '../radial-tree/radial-tree.component';
 import { SliderComponent } from '../slider/slider.component';
-import { Subject, firstValueFrom } from 'rxjs';
-import { debounceTime } from 'rxjs/operators';
+import { firstValueFrom } from 'rxjs';
 import { InfectionTreeService } from '../../service/infection-tree.service';
 import { LinePlotComponent } from '../line-plot/line-plot.component';
 import {ActivatedRoute, Router, RouterLink} from '@angular/router';
