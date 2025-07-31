@@ -1,3 +1,11 @@
+import sys, os
+print('cwd', os.getcwd())
+sys.path.insert(0, os.path.dirname(__file__))
+
+import pathlib
+if pathlib.Path.__doc__ is None:
+    pathlib.Path.__doc__ = "Patched docstring for Path"
+    
 from fastapi import FastAPI, Body
 import uvicorn
 import json
@@ -5,8 +13,6 @@ from infection_simulation import get_inf_tree, get_dummy_tree, get_sir_data, bui
 from fastapi import Query, Path, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
-import os
-print('cwd', os.getcwd())
 
 app = FastAPI()
 
