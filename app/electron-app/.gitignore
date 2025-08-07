@@ -1,3 +1,20 @@
 node_modules
 release
-portable_python
+
+# Ignore everything in portable_python
+portable_python/*
+
+# EXCEPTIONS
+
+# Folder itself
+!portable_python/
+
+# Allow requirements.txt
+!portable_python/requirements.txt
+
+# Allow Lib/ and site-packages/ folder structure
+!portable_python/Lib/
+!portable_python/Lib/site-packages/
+
+# Exclude all files inside site-packages
+portable_python/Lib/site-packages/**/*
