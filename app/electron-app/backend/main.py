@@ -9,7 +9,7 @@ if pathlib.Path.__doc__ is None:
 from fastapi import FastAPI, Body
 import uvicorn
 import json
-from infection_simulation import get_inf_tree, get_dummy_tree, get_sir_data, build_custom_infection_tree
+from infection_simulation import get_inf_tree, get_dummy_tree, get_sir_data, build_custom_infection_tree, get_partial_sir_data
 from fastapi import Query, Path, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
@@ -78,6 +78,21 @@ def get_graph(
         pop_size=pop_size,
         n_inf=n_inf,
         n_days=n_days
+        )
+
+@app.get("/sir/at")
+def get_graph(
+    start_index: int = Query(0, description='Start index'),
+    end_index: int = Query(None, description='End index')
+    ):
+    '''
+    Creates sir lineplot data
+    params:
+        transmission_rate = 1 by default, determines the tree depth
+    '''
+    return get_partial_sir_data(
+        start_index=start_index,
+        end_index=end_index
         )
 
 @app.get("/story/{story_id}")

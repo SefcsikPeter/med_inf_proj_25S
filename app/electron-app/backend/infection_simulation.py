@@ -160,4 +160,37 @@ def get_sir_data(
         "plot_data": plots
     }
 
+import json
+
+def get_partial_sir_data(start_index=0, end_index=None):
+    """
+    Extract a subset of SIR data from a JSON file between two indices.
+
+    Parameters:
+        start_index (int): Start index (inclusive).
+        end_index (int): End index (exclusive).
+
+    Returns:
+        section of SIR data estimated from real world covid data from austria.
+        source for estimation:
+        https://github.com/GoogleCloudPlatform/covid-19-open-data/blob/main/docs/table-epidemiology.md
+    
+    Notes:
+        The data points represent estimated SIR compartments for Austria during COVID-19.
+        Index 0 corresponds to the first date after cumulative confirmed cases exceeded 100.
+        
+        Start Date: 2020-03-06  
+        End Date:   2021-10-17
+    """
+    with open('at_covid_sir.json', "r") as f:
+        full_data = json.load(f)
+    
+    partial_data = {
+        "plot_data": [
+            trace[start_index:end_index] for trace in full_data["plot_data"]
+        ]
+    }
+    return partial_data
+
+
 
