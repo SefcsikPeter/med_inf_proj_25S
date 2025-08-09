@@ -28,7 +28,7 @@
         "hint": 3
       }
     ],
-    "progress": 0,
+    "progress": 2,
     "passed": true
   },
   {
@@ -48,7 +48,7 @@
         "hint": 1
       }
     ],
-    "progress": 0,
+    "progress": 1,
     "passed": true
   },
   {
@@ -156,7 +156,7 @@
         "hint": 1
       }
     ],
-    "progress": 0,
+    "progress": 1,
     "passed": true
   },
   {
@@ -283,6 +283,44 @@
       }
     ],
     "progress": 0,
+    "passed": true
+  },
+  {
+    "id": 9,
+    "title": "SIR in Practice",
+    "questions": [
+      {
+        "question": "Test",
+        "options": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ],
+        "correct": "2",
+        "hint": 2
+      }
+    ],
+    "progress": 0,
+    "passed": true
+  },
+  {
+    "id": 10,
+    "title": "Multi-Line Plots",
+    "questions": [
+      {
+        "question": "Test",
+        "options": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ],
+        "correct": "2",
+        "hint": 2
+      }
+    ],
+    "progress": 1,
     "passed": true
   }
 ]

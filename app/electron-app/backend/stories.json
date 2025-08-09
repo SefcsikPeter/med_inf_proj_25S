@@ -82,7 +82,7 @@
         ]
       }
     ],
-    "progress": 0
+    "progress": 7
   },
   {
     "id": 1,
@@ -135,7 +135,7 @@
         }
       }
     ],
-    "progress": 0
+    "progress": 5
   },
   {
     "id": 2,
@@ -377,7 +377,7 @@
         "image": "SIR.png"
       }
     ],
-    "progress": 0
+    "progress": 4
   },
   {
     "id": 5,
@@ -887,7 +887,7 @@
   },
   {
     "id": 9,
-    "title": "SIR in practice",
+    "title": "SIR in Practice",
     "requires": [
       0,
       1,
@@ -924,7 +924,7 @@
   },
   {
     "id": 10,
-    "title": "Covasim in practice",
+    "title": "Covasim in Practice",
     "requires": [
       0,
       1,
