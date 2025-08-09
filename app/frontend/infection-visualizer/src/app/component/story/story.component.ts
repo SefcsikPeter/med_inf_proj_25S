@@ -107,6 +107,18 @@ export class StoryComponent implements OnInit {
     }
   }
 
+  async fetchSIRATData(startIndex: number = 0, endIndex?: number): Promise<boolean> {
+    try {
+      const data = await firstValueFrom(this.modelSerivce.getSIRAT(startIndex, endIndex));
+      this.infectionTreeData = data;
+      console.log('Austria SIR data:', this.infectionTreeData);
+      return true;
+    } catch (err) {
+      console.error('Error fetching Austria SIR data:', err);
+      return false;
+    }
+  }
+
   async loadSlide(index: number): Promise<void> {
     console.log('loading slide', this.slide)
     this.storyService.getStorySlide(this.storyId, index).subscribe({
@@ -178,6 +190,8 @@ export class StoryComponent implements OnInit {
       return this.fetchExampleTree();
     } else if (this.dataParams.type === "sir") {
       return this.fetchSIRData();
+    } else if (this.dataParams.type === "sir_at") {
+      return this.fetchSIRATData();
     } else {
       return false;
     }

@@ -907,9 +907,20 @@
           "x_lab": "days",
           "y_lab": "people"
         }
+      },
+      {
+        "text": "test",
+        "data": {
+          "type": "sir_at"
+        },
+        "vis1": {
+          "type": "multiline_plot",
+          "x_lab": "days",
+          "y_lab": "people"
+        }
       }
     ],
-    "progress": 0
+    "progress": 2
   },
   {
     "id": 10,

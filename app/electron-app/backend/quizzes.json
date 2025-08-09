@@ -29,7 +29,7 @@
       }
     ],
     "progress": 0,
-    "passed": false
+    "passed": true
   },
   {
     "id": 1,
@@ -49,7 +49,7 @@
       }
     ],
     "progress": 0,
-    "passed": false
+    "passed": true
   },
   {
     "id": 2,
@@ -93,7 +93,7 @@
       }
     ],
     "progress": 0,
-    "passed": false
+    "passed": true
   },
   {
     "id": 3,
@@ -137,7 +137,7 @@
       }
     ],
     "progress": 0,
-    "passed": false
+    "passed": true
   },
   {
     "id": 4,
@@ -157,7 +157,7 @@
       }
     ],
     "progress": 0,
-    "passed": false
+    "passed": true
   },
   {
     "id": 5,
@@ -213,7 +213,7 @@
       }
     ],
     "progress": 0,
-    "passed": false
+    "passed": true
   },
   {
     "id": 6,
@@ -233,7 +233,7 @@
       }
     ],
     "progress": 0,
-    "passed": false
+    "passed": true
   },
   {
     "id": 7,
@@ -253,7 +253,7 @@
       }
     ],
     "progress": 0,
-    "passed": false
+    "passed": true
   },
   {
     "id": 8,
@@ -283,6 +283,6 @@
       }
     ],
     "progress": 0,
-    "passed": false
+    "passed": true
   }
 ]

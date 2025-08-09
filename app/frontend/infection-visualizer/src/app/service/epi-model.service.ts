@@ -41,4 +41,20 @@ export class EpiModelService {
 
     return this.http.get(fullUrl);
   }
+
+  getSIRAT(startIndex: number = 0, endIndex?: number): Observable<any> {
+    const url = `${this.baseUrl}/sir/at`;
+
+    let params = new URLSearchParams();
+    params.append('start_index', startIndex.toString());
+
+    if (endIndex !== undefined && endIndex !== null) {
+      params.append('end_index', endIndex.toString());
+    }
+
+    const fullUrl = `${url}?${params.toString()}`;
+    console.log('SIR AT URL:', fullUrl);
+
+    return this.http.get(fullUrl);
+  }
 }
