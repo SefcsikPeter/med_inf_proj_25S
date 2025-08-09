@@ -40,7 +40,7 @@ export class StoryComponent implements OnInit {
   constructor(
     private storyService: StoryService,
     private treeService: InfectionTreeService,
-    private modelSerivce: EpiModelService,
+    private modelService: EpiModelService,
     private route: ActivatedRoute,
     private router: Router
   ) {}
@@ -97,7 +97,7 @@ export class StoryComponent implements OnInit {
 
   async fetchSIRData(): Promise<boolean> {
     try {
-      const data = await firstValueFrom(this.modelSerivce.getSIR(this.dataParams));
+      const data = await firstValueFrom(this.modelService.getSIR(this.dataParams));
       this.infectionTreeData = data;
       console.log('data', this.infectionTreeData)
       return true;
@@ -107,9 +107,9 @@ export class StoryComponent implements OnInit {
     }
   }
 
-  async fetchSIRATData(startIndex: number = 0, endIndex?: number): Promise<boolean> {
+  async fetchSIRATData(): Promise<boolean> {
     try {
-      const data = await firstValueFrom(this.modelSerivce.getSIRAT(startIndex, endIndex));
+      const data = await firstValueFrom(this.modelService.getSIRAT(this.dataParams));
       this.infectionTreeData = data;
       console.log('Austria SIR data:', this.infectionTreeData);
       return true;

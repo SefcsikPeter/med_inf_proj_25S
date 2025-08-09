@@ -17,4 +17,5 @@ export interface Visualization {
   show_re_generate?: boolean;
   line_labels?: string[];
   legend?: string;
+  include_generated?: boolean;
 }

@@ -42,14 +42,25 @@ export class EpiModelService {
     return this.http.get(fullUrl);
   }
 
-  getSIRAT(startIndex: number = 0, endIndex?: number): Observable<any> {
+  getSIRAT(dataParams: any): Observable<any> {
     const url = `${this.baseUrl}/sir/at`;
 
     let params = new URLSearchParams();
-    params.append('start_index', startIndex.toString());
 
-    if (endIndex !== undefined && endIndex !== null) {
-      params.append('end_index', endIndex.toString());
+    if (dataParams.start_index !== undefined && dataParams.start_index !== null) {
+      params.append('start_index', dataParams.start_index.toString());
+    }
+    if (dataParams.end_index !== undefined && dataParams.end_index !== null) {
+      params.append('end_index', dataParams.end_index.toString());
+    }
+    if (dataParams.include_generated !== undefined && dataParams.include_generated !== null) {
+      params.append('include_generated', String(dataParams.include_generated));
+    }
+    if (dataParams.transmission_rate !== undefined && dataParams.transmission_rate !== null) {
+      params.append('transmission_rate', dataParams.transmission_rate.toString());
+    }
+    if (dataParams.recovery_rate !== undefined && dataParams.recovery_rate !== null) {
+      params.append('recovery_rate', dataParams.recovery_rate.toString());
     }
 
     const fullUrl = `${url}?${params.toString()}`;
@@ -57,4 +68,5 @@ export class EpiModelService {
 
     return this.http.get(fullUrl);
   }
+
 }
