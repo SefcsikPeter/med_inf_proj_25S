@@ -4,6 +4,7 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { QuizService } from '../../service/quiz.service';
 import { McQuestionComponent } from '../mc-question/mc-question.component';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-quiz',
@@ -30,7 +31,8 @@ export class QuizComponent implements OnInit {
   constructor(
     private quizService: QuizService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -128,12 +130,23 @@ async loadQuestion(index: number): Promise<void> {
     this.quizService.submitAnswers(this.storyId, this.answers).subscribe({
       next: (data) => {
         console.log('submitted answers', data);
-        this.router.navigate(['/'])
+        this.router.navigate(['/']);
+        this.showBadgeToast();
       },
       error: (err) => {
         console.error(err)
       }
     })
+  }
+
+  showBadgeToast() {
+    const url = `http://localhost:8000/static/badges/${this.storyId}.png`;
+
+    this.toastr.success(
+      `<img src="${url}"">`,
+      'You earned a new badge!',
+      { enableHtml: true }
+    );
   }
 
 }
