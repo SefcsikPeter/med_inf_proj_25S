@@ -16,7 +16,20 @@ export class StoryCardComponent {
   @Input() locked: boolean = false;
   @Input() quizPassed: boolean = false;
 
+  private readonly BADGE_BASE = 'http://localhost:8000/static/badges';
+
   constructor(private router: Router) {}
+
+  get badgeSrc(): string {
+    return this.quizPassed
+      ? `${this.BADGE_BASE}/${this.storyId}.png`
+      : `${this.BADGE_BASE}/-1.png`;
+  }
+
+  useSilhouetteFallback(evt: Event) {
+    const img = evt.target as HTMLImageElement;
+    img.src = `${this.BADGE_BASE}/-1.png`;
+  }
 
   get bgColor(): string {
     const startColor = { r: 255, g: 255, b: 255 };

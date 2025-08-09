@@ -6,6 +6,21 @@
   [style.border]="locked  || progress > 0 ? null : '2px solid #e02988'"
   (click)="navigateToStory()"
 >
+  <!-- badge -->
+  @if (!locked) {
+    <div class="badge-container">
+      <img
+        style="width: 30px;"
+        [src]="badgeSrc"
+        alt=""
+        loading="lazy"
+        decoding="async"
+        (error)="useSilhouetteFallback($event)"
+        [attr.title]="quizPassed ? 'Badge earned' : 'Badge silhouette'"
+      />
+    </div>
+  }
+
   <h6>{{ title }}</h6>
 
   @if (!locked){
