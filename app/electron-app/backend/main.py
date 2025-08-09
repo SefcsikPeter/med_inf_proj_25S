@@ -6,6 +6,7 @@ import pathlib
 if pathlib.Path.__doc__ is None:
     pathlib.Path.__doc__ = "Patched docstring for Path"
 
+from typing import Optional
 from fastapi import FastAPI, Body
 import uvicorn
 import json
@@ -82,18 +83,28 @@ def get_graph(
 
 @app.get("/sir/at")
 def get_graph(
-    start_index: int = Query(0, description='Start index'),
-    end_index: int = Query(None, description='End index')
-    ):
-    '''
-    Creates sir lineplot data
-    params:
-        transmission_rate = 1 by default, determines the tree depth
-    '''
-    return get_partial_sir_data(
-        start_index=start_index,
-        end_index=end_index
+    start_index: int = Query(0, ge=0, description="Start index (inclusive)"),
+    end_index: Optional[int] = Query(None, ge=0, description="End index (exclusive)"),
+    include_generated: bool = Query(False, description="Append generated SIR traces inferred from the first day"),
+    transmission_rate: float = Query(1.0, description="β for generated SIR (used only if include_generated=true)"),
+    recovery_rate: float = Query(0.0, description="γ for generated SIR (used only if include_generated=true)"),
+):
+    """
+    Creates SIR lineplot data for Austria slice.
+    If include_generated=true, appends generated SIR traces whose initial
+    conditions are inferred from the first day of the selected window.
+    """
+    try:
+        return get_partial_sir_data(
+            start_index=start_index,
+            end_index=end_index,
+            include_generated=include_generated,
+            transmission_rate=transmission_rate,
+            recovery_rate=recovery_rate
         )
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
+
 
 @app.get("/story/{story_id}")
 def get_story_slide(

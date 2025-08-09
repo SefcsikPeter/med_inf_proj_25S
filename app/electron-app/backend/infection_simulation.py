@@ -162,35 +162,79 @@ def get_sir_data(
 
 import json
 
-def get_partial_sir_data(start_index=0, end_index=None):
+def get_partial_sir_data(
+    start_index=0, # start: 2020-03-06 
+    end_index=None, # end: 2021-10-17
+    include_generated=False,
+    *,
+    # only used if include_generated=True; pop_size and n_inf are overridden from data
+    transmission_rate=1,
+    recovery_rate=0,
+    discrete=False
+):
     """
     Extract a subset of SIR data from a JSON file between two indices.
-
-    Parameters:
-        start_index (int): Start index (inclusive).
-        end_index (int): End index (exclusive).
+    Optionally generate an SIR series whose initial conditions (pop_size, n_inf)
+    are inferred from the first day of the selected window in the empirical data,
+    and append the generated series to the empirical plot_data.
+    source for estimation:
+    https://github.com/GoogleCloudPlatform/covid-19-open-data/blob/main/docs/table-epidemiology.md
+    The data points represent estimated SIR compartments for Austria during COVID-19.
+    Index 0 corresponds to the first date after cumulative confirmed cases exceeded 100.
 
     Returns:
-        section of SIR data estimated from real world covid data from austria.
-        source for estimation:
-        https://github.com/GoogleCloudPlatform/covid-19-open-data/blob/main/docs/table-epidemiology.md
-    
-    Notes:
-        The data points represent estimated SIR compartments for Austria during COVID-19.
-        Index 0 corresponds to the first date after cumulative confirmed cases exceeded 100.
-        
-        Start Date: 2020-03-06  
-        End Date:   2021-10-17
+        {
+            "plot_data": [
+                S_emp, I_emp, (R_emp if present),
+                S_gen, I_gen, (R_gen if recovery_rate != 0)
+            ]
+        }
     """
     with open('at_covid_sir.json', "r") as f:
         full_data = json.load(f)
-    
-    partial_data = {
-        "plot_data": [
-            trace[start_index:end_index] for trace in full_data["plot_data"]
-        ]
-    }
-    return partial_data
+
+    # real-world SIR estimation from austria
+    plot_data_empirical = [
+        trace[start_index:end_index] for trace in full_data["plot_data"]
+    ]
+
+    result_traces = list(plot_data_empirical)
+
+    if include_generated:
+        try:
+            S0 = float(full_data["plot_data"][0][start_index][1])
+            I0 = float(full_data["plot_data"][1][start_index][1])
+            R0 = float(full_data["plot_data"][2][start_index][1]) if len(full_data["plot_data"]) >= 3 else 0.0
+        except (IndexError, ValueError) as e:
+            raise ValueError(
+                "Unable to infer initial conditions from empirical data at the given start_index."
+            ) from e
+
+        inferred_pop_size = int(round(S0 + I0 + R0))
+        inferred_n_inf   = int(round(I0))
+
+        total_len = len(full_data["plot_data"][0])
+        window_len = (end_index if end_index is not None else total_len) - start_index
+        if window_len <= 0:
+            raise ValueError("The requested index window is empty. Check start_index/end_index.")
+
+        n_days_effective = window_len - 1
+
+        gen = get_sir_data(
+            transmission_rate=transmission_rate,
+            recovery_rate=recovery_rate,
+            discrete=discrete,
+            pop_size=inferred_pop_size,
+            n_inf=inferred_n_inf,
+            n_days=n_days_effective
+        )["plot_data"]
+
+        gen_slice = [trace[:window_len] for trace in gen]
+
+        result_traces.extend(gen_slice)
+
+    return {"plot_data": result_traces}
+
 
 
 
