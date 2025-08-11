@@ -290,18 +290,31 @@
     "title": "SIR in Practice",
     "questions": [
       {
-        "question": "Test",
+        "question": "What are the transitions called in our extended SIR model example?",
+        "image": "SIR_vaccination_quiz.png",
         "options": [
-          "1",
-          "2",
-          "3",
-          "4"
+          "a: vaccination rate, b: transmission rate, c: recovery rate",
+          "a: transmission rate, b: vaccination rate, c: recovery rate",
+          "a: vaccination rate, b: recovery rate, c: transmission rate",
+          "a: recovery rate, b: transmission rate, c: vaccination rate"
         ],
-        "correct": "2",
-        "hint": 2
+        "correct": "a: vaccination rate, b: transmission rate, c: recovery rate",
+        "hint": 7
+      },
+      {
+        "question": "Whhy is it that it is not always simpler to 'just use more data' than extending our base SIR model?",
+        "image": "vis_mot.png",
+        "options": [
+          "Because we don't always have more data",
+          "Because we would have no way to visualize all the data",
+          "Because the computer can't process lots of numbers",
+          "Because we can't always use all the data we have"
+        ],
+        "correct": "Because we don't always have more data",
+        "hint": 10
       }
     ],
-    "progress": 1,
+    "progress": 2,
     "passed": true
   },
   {

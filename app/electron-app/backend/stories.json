@@ -1137,7 +1137,7 @@
       },
       {
         "text": "In contrast, when we simply use more data to improve our predictions, the fitting itself is easier, but we don't always have the extra data we need. For example, if an epidemic just started, we only have a few days of data.",
-        "image": "SIR_vaccination.png"
+        "image": "vis_mot.png"
       }
     ],
     "progress": 11
@@ -1157,8 +1157,13 @@
       8
     ],
     "slides": [
-      {}
+      {
+        "text": "Covasim is an agent-based model specifically created for making predictions about the COVID-19 epidemic."
+      },
+      {
+        "text": "Similarly to the SIR model, you can also set different values for how likely someone is to get infected, recover, and so on, but instead of setting these values for the whole population, you can set them for each individual agent differently."
+      }
     ],
-    "progress": 0
+    "progress": 1
   }
 ]
