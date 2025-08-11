@@ -314,23 +314,23 @@
         "hint": 10
       }
     ],
-    "progress": 2,
+    "progress": 1,
     "passed": true
   },
   {
     "id": 10,
-    "title": "Multi-Line Plots",
+    "title": "Covasim in Practice (Placeholder)",
     "questions": [
       {
-        "question": "Test",
+        "question": "Placeholder question (correct: 1)",
         "options": [
           "1",
           "2",
           "3",
           "4"
         ],
-        "correct": "2",
-        "hint": 2
+        "correct": "1",
+        "hint": 0
       }
     ],
     "progress": 1,

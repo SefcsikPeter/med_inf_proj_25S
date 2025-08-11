@@ -1144,7 +1144,7 @@
   },
   {
     "id": 10,
-    "title": "Covasim in Practice",
+    "title": "Covasim in Practice (Placeholder)",
     "requires": [
       0,
       1,
@@ -1164,6 +1164,6 @@
         "text": "Similarly to the SIR model, you can also set different values for how likely someone is to get infected, recover, and so on, but instead of setting these values for the whole population, you can set them for each individual agent differently."
       }
     ],
-    "progress": 1
+    "progress": 2
   }
 ]
