@@ -1,0 +1,28 @@
+<h2 class="title">Your Badges</h2>
+
+@if (loading) {
+  <p>Loading…</p>
+} @else if (error) {
+  <p class="error">{{ error }}</p>
+} @else {
+  <div class="badges-grid">
+    @for (story of stories; track story.id) {
+      <a class="badge-cell"
+         [class.locked]="!story.passed"
+         [routerLink]="['/story', story.id]"
+         [queryParams]="{ page: story.page ?? 0 }">
+        <img
+          [src]="badgeSrcFor(story)"
+          (error)="useSilhouetteFallback($event)"
+          [attr.alt]="story.title"
+          loading="lazy"
+          decoding="async"
+          [attr.title]="story.passed ? 'Badge earned' : 'Badge silhouette'"
+        />
+        <div class="label">{{ story.title }}</div>
+      </a>
+    } @empty {
+      <p class="empty">No stories yet.</p>
+    }
+  </div>
+}
