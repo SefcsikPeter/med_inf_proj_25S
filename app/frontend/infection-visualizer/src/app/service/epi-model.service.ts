@@ -62,6 +62,9 @@ export class EpiModelService {
     if (dataParams.recovery_rate !== undefined && dataParams.recovery_rate !== null) {
       params.append('recovery_rate', dataParams.recovery_rate.toString());
     }
+    if (dataParams.sim_extra_days !== undefined && dataParams.sim_extra_days !== null) {
+      params.append('sim_extra_days', dataParams.sim_extra_days.toString());
+    }
 
     const fullUrl = `${url}?${params.toString()}`;
     console.log('SIR AT URL:', fullUrl);

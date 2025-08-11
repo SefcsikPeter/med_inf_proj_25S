@@ -88,6 +88,7 @@ def get_graph(
     include_generated: bool = Query(False, description="Append generated SIR traces inferred from the first day"),
     transmission_rate: float = Query(1.0, description="β for generated SIR (used only if include_generated=true)"),
     recovery_rate: float = Query(0.0, description="γ for generated SIR (used only if include_generated=true)"),
+    sim_extra_days: int = Query(0, description="Number of extra days simulation should run for (used only if include_generated=true)"),
 ):
     """
     Creates SIR lineplot data for Austria slice.
@@ -100,7 +101,8 @@ def get_graph(
             end_index=end_index,
             include_generated=include_generated,
             transmission_rate=transmission_rate,
-            recovery_rate=recovery_rate
+            recovery_rate=recovery_rate,
+            sim_extra_days=sim_extra_days
         )
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))

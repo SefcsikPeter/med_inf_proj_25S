@@ -128,6 +128,7 @@ def get_sir_data(
     discrete=True,
     pop_size=12,
     n_inf=1,
+    n_rec=0,
     n_days=8
 ):
     if discrete:
@@ -135,7 +136,7 @@ def get_sir_data(
     else:
         model = SIR()
 
-    model([pop_size - n_inf, n_inf, 0], [0, n_days], pop_size, {
+    model([pop_size - n_inf - n_rec, n_inf, n_rec], [0, n_days], pop_size, {
         'beta': transmission_rate,
         'gamma': recovery_rate
     })
@@ -170,7 +171,8 @@ def get_partial_sir_data(
     # only used if include_generated=True; pop_size and n_inf are overridden from data
     transmission_rate=1,
     recovery_rate=0,
-    discrete=False
+    discrete=False,
+    sim_extra_days=0
 ):
     """
     Extract a subset of SIR data from a JSON file between two indices.
@@ -195,8 +197,10 @@ def get_partial_sir_data(
 
     # real-world SIR estimation from austria
     plot_data_empirical = [
-        trace[start_index:end_index] for trace in full_data["plot_data"]
+        [[i, value] for i, (_, value) in enumerate(trace[start_index:end_index])]
+        for trace in full_data["plot_data"]
     ]
+
 
     result_traces = list(plot_data_empirical)
 
@@ -226,7 +230,8 @@ def get_partial_sir_data(
             discrete=discrete,
             pop_size=inferred_pop_size,
             n_inf=inferred_n_inf,
-            n_days=n_days_effective
+            n_rec=R0,
+            n_days=n_days_effective + sim_extra_days
         )["plot_data"]
 
         gen_slice = [trace[:window_len] for trace in gen]

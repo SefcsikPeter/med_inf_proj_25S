@@ -18,4 +18,5 @@ export interface Visualization {
   line_labels?: string[];
   legend?: string;
   include_generated?: boolean;
+  sim_extra_days?: number;
 }

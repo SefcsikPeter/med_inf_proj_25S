@@ -900,29 +900,136 @@
       {
         "text": "We know from the previous SIR story how the basic SIR model works, but we haven't looked at how we can take real-world data and use that to predict what will probably happen in the future.",
         "data": {
-          "type": "sir"
+          "type": "sir",
+          "pop_size": 1000,
+          "transmission_rate": 1,
+          "recovery_rate": 0.125,
+          "n_days": 30,
+          "discrete": false
         },
         "vis1": {
           "type": "multiline_plot",
           "x_lab": "days",
-          "y_lab": "people"
+          "y_lab": "people",
+          "line_labels": [
+            "S",
+            "I",
+            "R"
+          ]
         }
       },
       {
-        "text": "test",
+        "text": "We created this plot by calculating the number of people in the S, I, and R compartments each day, based on real-world COVID-19 epidemic data from Austria.",
         "data": {
-          "type": "sir_at"
+          "type": "sir_at",
+          "start_index": 500,
+          "end_index": 700
         },
         "vis1": {
           "type": "multiline_plot",
           "x_lab": "days",
-          "y_lab": "people"
+          "y_lab": "people",
+          "line_labels": [
+            "S",
+            "I",
+            "R"
+          ]
         }
+      },
+      {
+        "text": "We can use the SIR model to predict what could happen in the future by adjusting the transmission rate and recovery rate, so that the results calculated by the SIR model match the real-world data as closely as possible.",
+        "data": {
+          "type": "sir_at",
+          "start_index": 500,
+          "end_index": 700,
+          "include_generated": true,
+          "transmission_rate": 0.097,
+          "recovery_rate": 0.0682
+        },
+        "vis1": {
+          "type": "multiline_plot",
+          "x_lab": "days",
+          "y_lab": "people",
+          "line_labels": [
+            "S_AT",
+            "I_AT",
+            "R_AT",
+            "S_SIM",
+            "I_SIM",
+            "R_SIM"
+          ]
+        },
+        "sliders": [
+          {
+            "type": "transmission_rate",
+            "min": 0.08,
+            "max": 0.11,
+            "step": 0.0001,
+            "current_value": 0.097,
+            "symbol": "virus",
+            "text": "transmission rate"
+          },
+          {
+            "type": "recovery_rate",
+            "min": 0.05,
+            "max": 0.075,
+            "step": 0.0001,
+            "current_value": 0.0682,
+            "symbol": "bed",
+            "text": "recovery rate"
+          }
+        ]
       },
       {
         "text": "test",
         "data": {
           "type": "sir_at",
+          "start_index": 500,
+          "end_index": 700,
+          "include_generated": true,
+          "transmission_rate": 0.097,
+          "recovery_rate": 0.0682,
+          "sim_extra_days": 200
+        },
+        "vis1": {
+          "type": "multiline_plot",
+          "x_lab": "days",
+          "y_lab": "people",
+          "line_labels": [
+            "S_AT",
+            "I_AT",
+            "R_AT",
+            "S_SIM",
+            "I_SIM",
+            "R_SIM"
+          ]
+        },
+        "sliders": [
+          {
+            "type": "transmission_rate",
+            "min": 0.08,
+            "max": 0.11,
+            "step": 0.0001,
+            "current_value": 0.097,
+            "symbol": "virus",
+            "text": "transmission rate"
+          },
+          {
+            "type": "recovery_rate",
+            "min": 0.05,
+            "max": 0.075,
+            "step": 0.0001,
+            "current_value": 0.0682,
+            "symbol": "bed",
+            "text": "recovery rate"
+          }
+        ]
+      },
+      {
+        "text": "test",
+        "data": {
+          "type": "sir_at",
+          "start_index": 500,
           "include_generated": true,
           "transmission_rate": 0.0414,
           "recovery_rate": 0.0277
@@ -962,7 +1069,7 @@
         ]
       }
     ],
-    "progress": 2
+    "progress": 3
   },
   {
     "id": 10,
