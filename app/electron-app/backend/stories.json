@@ -898,7 +898,7 @@
     ],
     "slides": [
       {
-        "text": "We know from the previous SIR story how the basic SIR model works, but we haven't looked at how we can take real-world data and use that to predict what will probably happen in the future.",
+        "text": "We know from the previous SIR story how the SIR model works, but we haven't looked at how we can take real-world data and use that to predict what could happen in the future.",
         "data": {
           "type": "sir",
           "pop_size": 1000,
@@ -930,9 +930,9 @@
           "x_lab": "days",
           "y_lab": "people",
           "line_labels": [
-            "S",
-            "I",
-            "R"
+            "S_AT",
+            "I_AT",
+            "R_AT"
           ]
         }
       },
@@ -981,7 +981,7 @@
         ]
       },
       {
-        "text": "test",
+        "text": "Now that we matched the transmission rate and recovery rate in the previous slide, we can let the simulation continue. The vertical line called AT_end marks where our real-world data ends but our simulation continues.",
         "data": {
           "type": "sir_at",
           "start_index": 500,
@@ -995,13 +995,15 @@
           "type": "multiline_plot",
           "x_lab": "days",
           "y_lab": "people",
+          "vert_line": 200,
           "line_labels": [
             "S_AT",
             "I_AT",
             "R_AT",
             "S_SIM",
             "I_SIM",
-            "R_SIM"
+            "R_SIM",
+            "AT_end"
           ]
         },
         "sliders": [
@@ -1026,18 +1028,99 @@
         ]
       },
       {
-        "text": "test",
+        "text": "Since we used past data in our example, we can actually check, how well the SIR model estimated what actually happened. The vertical line shows where we cut off the data before.",
         "data": {
           "type": "sir_at",
           "start_index": 500,
+          "end_index": 900,
           "include_generated": true,
-          "transmission_rate": 0.0414,
-          "recovery_rate": 0.0277
+          "transmission_rate": 0.097,
+          "recovery_rate": 0.0682
         },
         "vis1": {
           "type": "multiline_plot",
           "x_lab": "days",
           "y_lab": "people",
+          "vert_line": 200,
+          "line_labels": [
+            "S_AT",
+            "I_AT",
+            "R_AT",
+            "S_SIM",
+            "I_SIM",
+            "R_SIM",
+            "PREV_CUT"
+          ]
+        },
+        "sliders": [
+          {
+            "type": "transmission_rate",
+            "min": 0.08,
+            "max": 0.11,
+            "step": 0.0001,
+            "current_value": 0.097,
+            "symbol": "virus",
+            "text": "transmission rate"
+          },
+          {
+            "type": "recovery_rate",
+            "min": 0.05,
+            "max": 0.075,
+            "step": 0.0001,
+            "current_value": 0.0682,
+            "symbol": "bed",
+            "text": "recovery rate"
+          }
+        ]
+      },
+      {
+        "text": "You can see that even though the SIR model initially matches the real data well, the S and R compartments start to differ more and more from the real world data even though the I compartments remain close.",
+        "data": {
+          "type": "sir_at",
+          "start_index": 500,
+          "end_index": 900,
+          "include_generated": true,
+          "transmission_rate": 0.097,
+          "recovery_rate": 0.0682
+        },
+        "vis1": {
+          "type": "multiline_plot",
+          "x_lab": "days",
+          "y_lab": "people",
+          "vert_line": 200,
+          "line_labels": [
+            "S_AT",
+            "I_AT",
+            "R_AT",
+            "S_SIM",
+            "I_SIM",
+            "R_SIM",
+            "PREV_CUT"
+          ]
+        }
+      },
+      {
+        "text": "This is because vaccines can move people directly from the S to the I compartment, but going from S to R directly is not possible in our SIR model.",
+        "image": "SIR.png"
+      },
+      {
+        "text": "There are multiple ways to combat this, one is to add an other way to move people from one compartment to the other. In this example, we added a transition called 'vaccination rate', this could be something that moves people from S to R depending on how many people get vaccinated in a day and how successfuly the vaccine protects people from getting infected.",
+        "image": "SIR_vaccination.png"
+      },
+      {
+        "text": "If we don't want to modify our model, we still have a way to improve our results. The more days we can analyse to get our transmission and recovery rate, the better the prediction becomes.",
+        "data": {
+          "type": "sir_at",
+          "start_index": 300,
+          "include_generated": true,
+          "transmission_rate": 0.0433,
+          "recovery_rate": 0.0297
+        },
+        "vis1": {
+          "type": "multiline_plot",
+          "x_lab": "days",
+          "y_lab": "people",
+          "vert_line": 500,
           "line_labels": [
             "S_AT",
             "I_AT",
@@ -1046,30 +1129,18 @@
             "I_SIM",
             "R_SIM"
           ]
-        },
-        "sliders": [
-          {
-            "type": "transmission_rate",
-            "min": 0.03,
-            "max": 0.05,
-            "step": 0.0001,
-            "current_value": 0.0414,
-            "symbol": "virus",
-            "text": "transmission rate"
-          },
-          {
-            "type": "recovery_rate",
-            "min": 0.02,
-            "max": 0.03,
-            "step": 0.0001,
-            "current_value": 0.0277,
-            "symbol": "bed",
-            "text": "recovery rate"
-          }
-        ]
+        }
+      },
+      {
+        "text": "Both methods for improving our predictions have their own benefits and drawbacks. Adding a vaccination rate to the SIR model makes it harder to fit to the real-world data because we don't always know how effectvive a vaccine is, but if we somewhat do, we get a model that more accurately represents the real world.",
+        "image": "SIR_vaccination.png"
+      },
+      {
+        "text": "In contrast, when we simply use more data to improve our predictions, the fitting itself is easier, but we don't always have the extra data we need. For example, if an epidemic just started, we only have a few days of data.",
+        "image": "SIR_vaccination.png"
       }
     ],
-    "progress": 3
+    "progress": 11
   },
   {
     "id": 10,
