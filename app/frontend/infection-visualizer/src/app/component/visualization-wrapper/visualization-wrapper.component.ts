@@ -42,6 +42,7 @@ export class VisualizationWrapperComponent implements OnInit, OnChanges {
   showReGenerate: boolean = false;
   lineLabels: string[] = [];
   legend: string = '';
+  vertLine: number | null = null;
 
   ngOnInit() {
     this.updateData();
@@ -103,6 +104,9 @@ export class VisualizationWrapperComponent implements OnInit, OnChanges {
       }
       if (this.vis.legend) {
         this.legend = this.vis.legend;
+      }
+      if (this.vis.vert_line) {
+        this.vertLine = this.vis.vert_line;
       }
     }
   }

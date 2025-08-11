@@ -1,4 +1,4 @@
-import {Component, OnInit, ElementRef, ViewChild, Input, AfterViewInit, OnChanges, SimpleChanges} from '@angular/core';
+import {Component, OnInit, ElementRef, ViewChild, Input, OnChanges, SimpleChanges} from '@angular/core';
 import * as d3 from 'd3';
 
 @Component({
@@ -18,6 +18,7 @@ export class MultilinePlotComponent implements OnInit, OnChanges {
   @Input() showDots: boolean = false;
   @Input() blackLines: boolean = true;
   @Input() lineLabels: string[] = [];
+  @Input() vertLine: number | null = null;
 
   temps1: [number, number][] = [
     [0, 12], [1, 11], [2, 11], [3, 10],
@@ -52,21 +53,21 @@ export class MultilinePlotComponent implements OnInit, OnChanges {
   ngOnInit(): void {
     d3.select(this.chartContainer.nativeElement).selectAll('*').remove();
     if (this.temps) {
-      this.tempsComb.push(this.temps1)
-      this.tempsComb.push(this.temps2)
-      this.plotData = this.tempsComb
+      this.tempsComb.push(this.temps1);
+      this.tempsComb.push(this.temps2);
+      this.plotData = this.tempsComb;
     }
 
     if (this.tempsMagn) {
-      this.tempsComb.push(this.temps1)
-      this.tempsComb.push(this.temps3)
-      this.plotData = this.tempsComb
+      this.tempsComb.push(this.temps1);
+      this.tempsComb.push(this.temps3);
+      this.plotData = this.tempsComb;
     }
     this.drawChart();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['plotData'] || changes['temps']) {
+    if (changes['plotData'] || changes['temps'] || changes['tempsMagn'] || changes['vert_line'] || changes['blackLines']) {
       this.redrawChart();
     }
   }
@@ -76,11 +77,9 @@ export class MultilinePlotComponent implements OnInit, OnChanges {
     this.drawChart();
   }
 
-
   private drawChart(): void {
-    if (this.plotData === undefined) {
-      return;
-    }
+    if (!this.plotData) return;
+
     const margin = { top: 20, right: 30, bottom: 50, left: 60 };
     const containerEl = this.chartContainer.nativeElement as HTMLElement;
     const fullWidth = containerEl.offsetWidth || 460;
@@ -90,6 +89,7 @@ export class MultilinePlotComponent implements OnInit, OnChanges {
     const height = fullHeight - margin.top - margin.bottom;
 
     const allPoints = this.plotData.flat();
+    if (allPoints.length === 0) return;
 
     const svg = d3.select(this.chartContainer.nativeElement)
       .append("svg")
@@ -100,8 +100,8 @@ export class MultilinePlotComponent implements OnInit, OnChanges {
       .attr("transform", `translate(${margin.left},${margin.top})`);
 
     const x = d3.scaleLinear()
-    .domain(d3.extent(allPoints, d => d[0]) as [number, number])
-    .range([0, width]);
+      .domain(d3.extent(allPoints, d => d[0]) as [number, number])
+      .range([0, width]);
 
     svg.append("g")
       .attr("transform", `translate(0,${height})`)
@@ -111,8 +111,7 @@ export class MultilinePlotComponent implements OnInit, OnChanges {
       .domain([0, d3.max(allPoints, d => d[1])!])
       .range([height, 0]);
 
-    svg.append("g")
-      .call(d3.axisLeft(y));
+    svg.append("g").call(d3.axisLeft(y));
 
     svg.append("text")
       .attr("text-anchor", "middle")
@@ -129,25 +128,39 @@ export class MultilinePlotComponent implements OnInit, OnChanges {
       .text(this.yLabel)
       .style("font-size", "12px");
 
-    const dashStyles = [
-      "",
-      "5,5",
-      "1,5",
-      "10,5,2,5"
-    ];
+    const dashStyles = ["", "5,5", "1,5", "10,5,2,5"];
 
     this.plotData.forEach((lineData, i) => {
       svg.append("path")
-      .datum(lineData)
-      .attr("fill", "none")
-      .attr("stroke", this.blackLines ? "black" : d3.schemeCategory10[i % 10])
-      .attr("stroke-width", 1.5)
-      .attr("stroke-dasharray", dashStyles[i % dashStyles.length])
-      .attr("d", d3.line<[number, number]>()
-        .x(d => x(d[0]))
-        .y(d => y(d[1]))
-      );
+        .datum(lineData)
+        .attr("fill", "none")
+        .attr("stroke", this.blackLines ? "black" : d3.schemeCategory10[i % 10])
+        .attr("stroke-width", 1.5)
+        .attr("stroke-dasharray", dashStyles[i % dashStyles.length])
+        .attr("d", d3.line<[number, number]>()
+          .x(d => x(d[0]))
+          .y(d => y(d[1]))
+        );
     });
+
+    if (this.vertLine !== null && this.vertLine !== undefined) {
+      const idx = this.plotData.length;
+      const stroke = this.blackLines ? "black" : d3.schemeCategory10[idx % 10];
+      const dash = dashStyles[idx % dashStyles.length];
+
+      const [xMin, xMax] = x.domain() as [number, number];
+      const xValue = Math.max(Math.min(this.vertLine, xMax), xMin);
+      const xPos = x(xValue);
+
+      svg.append("line")
+        .attr("x1", xPos)
+        .attr("x2", xPos)
+        .attr("y1", 0)
+        .attr("y2", height)
+        .attr("stroke", stroke)
+        .attr("stroke-width", 1.5)
+        .attr("stroke-dasharray", dash);
+    }
 
     if (this.showDots) {
       this.plotData.forEach((lineData, i) => {
@@ -188,7 +201,31 @@ export class MultilinePlotComponent implements OnInit, OnChanges {
           .attr("alignment-baseline", "middle")
           .text(label);
       });
-    }
 
+      if (this.vertLine !== null && this.vertLine !== undefined) {
+        const idx = this.plotData.length;
+        const stroke = this.blackLines ? "black" : d3.schemeCategory10[idx % 10];
+        const dash = dashStyles[idx % dashStyles.length];
+
+        const legendRow = legend.append("g")
+          .attr("transform", `translate(0, ${this.lineLabels.length * 20})`);
+
+        legendRow.append("line")
+          .attr("x1", 0)
+          .attr("x2", 20)
+          .attr("y1", 5)
+          .attr("y2", 5)
+          .attr("stroke", stroke)
+          .attr("stroke-width", 2)
+          .attr("stroke-dasharray", dash);
+
+        legendRow.append("text")
+          .attr("x", 25)
+          .attr("y", 9)
+          .attr("font-size", "12px")
+          .attr("alignment-baseline", "middle")
+          .text(this.lineLabels[this.lineLabels.length - 1]);
+      }
+    }
   }
 }
