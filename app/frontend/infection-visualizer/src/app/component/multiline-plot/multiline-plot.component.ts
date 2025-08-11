@@ -110,8 +110,9 @@ export class MultilinePlotComponent implements OnInit, OnChanges {
     const y = d3.scaleLinear()
       .domain([0, d3.max(allPoints, d => d[1])!])
       .range([height, 0]);
-
-    svg.append("g").call(d3.axisLeft(y));
+      
+    svg.append("g")
+      .call(d3.axisLeft(y).tickFormat((d: d3.NumberValue, _i: number) => d3.format(".2s")(+d)));
 
     svg.append("text")
       .attr("text-anchor", "middle")
@@ -201,31 +202,6 @@ export class MultilinePlotComponent implements OnInit, OnChanges {
           .attr("alignment-baseline", "middle")
           .text(label);
       });
-
-      if (this.vertLine !== null && this.vertLine !== undefined) {
-        const idx = this.plotData.length;
-        const stroke = this.blackLines ? "black" : d3.schemeCategory10[idx % 10];
-        const dash = dashStyles[idx % dashStyles.length];
-
-        const legendRow = legend.append("g")
-          .attr("transform", `translate(0, ${this.lineLabels.length * 20})`);
-
-        legendRow.append("line")
-          .attr("x1", 0)
-          .attr("x2", 20)
-          .attr("y1", 5)
-          .attr("y2", 5)
-          .attr("stroke", stroke)
-          .attr("stroke-width", 2)
-          .attr("stroke-dasharray", dash);
-
-        legendRow.append("text")
-          .attr("x", 25)
-          .attr("y", 9)
-          .attr("font-size", "12px")
-          .attr("alignment-baseline", "middle")
-          .text(this.lineLabels[this.lineLabels.length - 1]);
-      }
     }
   }
 }
