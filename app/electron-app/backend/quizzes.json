@@ -16,19 +16,43 @@
         "hint": 0
       },
       {
-        "question": "What tool do we use to simulate gossip spreading?",
+        "question": "What tools can we use to simulate gossip spreading?",
         "options": [
-          "Coin",
-          "Dice",
-          "Compass",
-          "Map"
+          "Dice and coins",
+          "Rulers",
+          "Stones",
+          "Maps"
         ],
-        "correct": "Dice",
+        "correct": "Dice and coins",
         "image": "dice.jpg",
         "hint": 3
+      },
+      {
+        "question": "What happens if each infected person spreads a disease to just a few more people?",
+        "options": [
+          "The disease slowly disappears",
+          "The disease spreads faster and faster",
+          "No matter what, everyone will get infected",
+          "The disease is guaranteed to stop after a few days"
+        ],
+        "correct": "The disease spreads faster and faster",
+        "image": "infection.png",
+        "hint": 6
+      },
+      {
+        "question": "Why is flipping a coin a good analogy for how a disease spreads?",
+        "options": [
+          "We don't know what the exact outcome of each coin-flip will be but we can still make predictions, infections work the same way",
+          "Every person always spreads the disease to exactly two other people, like two sides of a coin",
+          "Diseases only spread when people are playing games with coins",
+          "The number of times a coin lands on heads tells us how long the disease lasts"
+        ],
+        "correct": "We don't know what the exact outcome of each coin-flip will be but we can still make predictions, infections work the same way",
+        "image": "coin_flip.png",
+        "hint": 8
       }
     ],
-    "progress": 1,
+    "progress": 3,
     "passed": true
   },
   {
