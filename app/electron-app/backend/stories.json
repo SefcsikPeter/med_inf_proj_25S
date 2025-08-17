@@ -13,15 +13,15 @@
         "image": "gossip_not_listening.png"
       },
       {
-        "text": "Some people hear the story and pass it on, and others don't. But if enough people keep sharing it, soon almost the whole school knows.",
+        "text": "Some people hear the story and pass it on, and others don't.\nBut if enough people keep sharing it, soon almost the whole school knows.",
         "image": "whole_school.png"
       },
       {
-        "text": "If we try to keep track of how the gossip spreads, we can't always take each conversation each person had into consideration. Instead, we can do something similar to rolling the dice for each person.",
+        "text": "If we try to keep track of how the gossip spreads, we can't always take each conversation each person had into consideration.\nInstead, we can do something similar to rolling the dice for each person.",
         "image": "dice.jpg"
       },
       {
-        "text": "To see how many people someone tells the gossip to, we can pretend to roll a 4-sided dice for each person - the number it lands on shows how many people they tell. You can see an example of this below. If you click Re-Generate, you can see how re-rolling the dice for each person changes the outcome!",
+        "text": "To see how many people someone tells the gossip to, we can pretend to roll a 4-sided dice for each person - the number it lands on shows how many people they tell.\nYou can see an example of this below.\nIf you click Re-Generate, you can see how re-rolling the dice for each person changes the outcome!",
         "data": {
           "type": "dummy_tree",
           "num_iter": 5
@@ -60,7 +60,7 @@
         ]
       },
       {
-        "text": "A disease spreads the same way, one person might only infect a few other people, but when they also start infecting other people, the disease starts spreading faster and faster! That is how an epidemic starts.",
+        "text": "A disease spreads the same way, one person might only infect a few other people, but when they also start infecting other people, the disease starts spreading faster and faster!\nThat is how an epidemic starts.",
         "data": {
           "type": "dummy_tree",
           "num_iter": 5
@@ -85,7 +85,7 @@
         ]
       }
     ],
-    "progress": 7
+    "progress": 0
   },
   {
     "id": 1,
@@ -95,11 +95,11 @@
     ],
     "slides": [
       {
-        "text": "When a disease spreads, thousands of numbers are recorded every day: infections, recoveries, hospitalizations. Without tools for showing and summarizing all this data, it can become very hard to keep track of what is happening as you can also see in the example table below.",
+        "text": "When a disease spreads, thousands of numbers are recorded every day: infections, recoveries, hospitalizations.\nWithout tools for showing and summarizing all this data, it can become very hard to keep track of what is happening as you can also see in the example table below.",
         "image": "sir_table.png"
       },
       {
-        "text": "Our goal in epidemic visualization is to create representations of the data that are easier to understand and read. You can see an example of this below, both representations contain the same information but the second one is much less mental effort to read. (Don't worry, you don't need to understand what is happening in the image for now.)",
+        "text": "Our goal in epidemic visualization is to create representations of the data that are easier to understand and read.\nYou can see an example of this below, both representations contain the same information but the second one is much less mental effort to read.\n(Don't worry, you don't need to understand what is happening in the image for now.)",
         "image": "table_to_plot.png"
       },
       {
@@ -141,7 +141,7 @@
         }
       }
     ],
-    "progress": 3
+    "progress": 2
   },
   {
     "id": 2,
@@ -169,7 +169,7 @@
         "vis1": {
           "type": "line_plot",
           "temps": true,
-          "y_lab": "temperature (\u00b0C)",
+          "y_lab": "temperature (\u00c2\u00b0C)",
           "x_lab": "hours",
           "show_dots": true
         }
@@ -208,7 +208,7 @@
           "temps": true,
           "draw_line": false,
           "show_dots": false,
-          "y_lab": "temperature (\u00b0C)",
+          "y_lab": "temperature (\u00c2\u00b0C)",
           "x_lab": "hours"
         }
       },
@@ -225,7 +225,7 @@
         "vis1": {
           "type": "line_plot",
           "temps": true,
-          "y_lab": "temperature (\u00b0C)",
+          "y_lab": "temperature (\u00c2\u00b0C)",
           "x_lab": "hours",
           "show_dots": true
         }
@@ -235,13 +235,13 @@
         "vis1": {
           "type": "line_plot",
           "temps": true,
-          "y_lab": "temperature (\u00b0C)",
+          "y_lab": "temperature (\u00c2\u00b0C)",
           "x_lab": "hours",
           "show_dots": false
         }
       }
     ],
-    "progress": 12
+    "progress": 0
   },
   {
     "id": 3,
@@ -356,7 +356,7 @@
         ]
       }
     ],
-    "progress": 9
+    "progress": 0
   },
   {
     "id": 4,
@@ -383,7 +383,7 @@
         "image": "SIR.png"
       }
     ],
-    "progress": 4
+    "progress": 0
   },
   {
     "id": 5,
@@ -655,7 +655,7 @@
         ]
       }
     ],
-    "progress": 5
+    "progress": 0
   },
   {
     "id": 6,
@@ -709,7 +709,7 @@
         }
       }
     ],
-    "progress": 2
+    "progress": 0
   },
   {
     "id": 7,
@@ -777,7 +777,7 @@
         "image": "Friends_conn_gos_2.png"
       }
     ],
-    "progress": 5
+    "progress": 0
   },
   {
     "id": 8,
@@ -793,7 +793,7 @@
         "vis1": {
           "type": "multiline_plot",
           "temps": true,
-          "y_lab": "temperature (\u00b0C)",
+          "y_lab": "temperature (\u00c2\u00b0C)",
           "x_lab": "hours",
           "show_dots": true,
           "line_labels": [
@@ -804,7 +804,7 @@
         "vis2": {
           "type": "multiline_plot",
           "temps": true,
-          "y_lab": "temperature (\u00b0C)",
+          "y_lab": "temperature (\u00c2\u00b0C)",
           "x_lab": "hours",
           "show_dots": false,
           "line_labels": [
@@ -818,7 +818,7 @@
         "vis1": {
           "type": "multiline_plot",
           "temps": true,
-          "y_lab": "temperature (\u00b0C)",
+          "y_lab": "temperature (\u00c2\u00b0C)",
           "x_lab": "hours",
           "show_dots": false,
           "black_lines": false,
@@ -830,7 +830,7 @@
         "vis2": {
           "type": "multiline_plot",
           "temps": true,
-          "y_lab": "temperature (\u00b0C)",
+          "y_lab": "temperature (\u00c2\u00b0C)",
           "x_lab": "hours",
           "show_dots": false,
           "black_lines": true,
@@ -845,7 +845,7 @@
         "vis1": {
           "type": "multiline_plot",
           "temps": true,
-          "y_lab": "temperature (\u00b0C)",
+          "y_lab": "temperature (\u00c2\u00b0C)",
           "x_lab": "hours",
           "show_dots": false,
           "black_lines": false,
@@ -860,7 +860,7 @@
         "vis1": {
           "type": "multiline_plot",
           "temps_magn": true,
-          "y_lab": "temperature (\u00b0C)",
+          "y_lab": "temperature (\u00c2\u00b0C)",
           "x_lab": "hours",
           "line_labels": [
             "A",
@@ -889,7 +889,7 @@
         }
       }
     ],
-    "progress": 3
+    "progress": 0
   },
   {
     "id": 9,
@@ -1146,7 +1146,7 @@
         "image": "vis_mot.png"
       }
     ],
-    "progress": 2
+    "progress": 0
   },
   {
     "id": 10,
