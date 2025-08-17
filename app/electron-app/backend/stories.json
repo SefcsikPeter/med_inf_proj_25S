@@ -9,7 +9,7 @@
         "image": "gossip.png"
       },
       {
-        "text": "When one of your friends tells a story about someone in your school to your friend group, you and your friends start telling the story to other people - but not everyone you meet.",
+        "text": "When one of your friends tells a story about someone in your school to your friend group, you and your friends start telling the story to other people, but not everyone you meet.",
         "image": "gossip_not_listening.png"
       },
       {
@@ -85,7 +85,7 @@
         ]
       }
     ],
-    "progress": 0
+    "progress": 5
   },
   {
     "id": 1,
@@ -141,7 +141,7 @@
         }
       }
     ],
-    "progress": 2
+    "progress": 3
   },
   {
     "id": 2,
@@ -169,7 +169,7 @@
         "vis1": {
           "type": "line_plot",
           "temps": true,
-          "y_lab": "temperature (\u00c2\u00b0C)",
+          "y_lab": "temperature (\u00b0C)",
           "x_lab": "hours",
           "show_dots": true
         }
@@ -208,7 +208,7 @@
           "temps": true,
           "draw_line": false,
           "show_dots": false,
-          "y_lab": "temperature (\u00c2\u00b0C)",
+          "y_lab": "temperature (\u00b0C)",
           "x_lab": "hours"
         }
       },
@@ -225,7 +225,7 @@
         "vis1": {
           "type": "line_plot",
           "temps": true,
-          "y_lab": "temperature (\u00c2\u00b0C)",
+          "y_lab": "temperature (\u00b0C)",
           "x_lab": "hours",
           "show_dots": true
         }
@@ -235,13 +235,13 @@
         "vis1": {
           "type": "line_plot",
           "temps": true,
-          "y_lab": "temperature (\u00c2\u00b0C)",
+          "y_lab": "temperature (\u00b0C)",
           "x_lab": "hours",
           "show_dots": false
         }
       }
     ],
-    "progress": 0
+    "progress": 11
   },
   {
     "id": 3,
@@ -425,7 +425,7 @@
         "image": "SI_transmission.png"
       },
       {
-        "text": "The transmission rate describes the chance of a person who knows about the gossip telling it to people who don't already know about it. How many beads we move from S to I depends on the number of people in S, the number of people in I and the transmission rate. With a transmission rate of 1, we can say that for the first few days, we move one bead from S to I for each bead in I like in the image below. After a few days, we only need to move less beads, because the chance of a person knowing about the gossip meeting a person who does not already know decreases.",
+        "text": "The transmission rate describes the chance of a person who knows about the gossip telling it to people who don't already know about it.\nHow many beads we move from S to I depends on the number of people in S, the number of people in I and the transmission rate.\nWith a transmission rate of 1, we can say that for the first few days, we move one bead from S to I for each bead in I like in the image below.\nAfter a few days, we only need to move less beads, because the chance of a person knowing about the gossip meeting a person who does not already know decreases.",
         "image": "SI_transmission=1.png"
       },
       {
@@ -655,7 +655,7 @@
         ]
       }
     ],
-    "progress": 0
+    "progress": 8
   },
   {
     "id": 6,
@@ -793,7 +793,7 @@
         "vis1": {
           "type": "multiline_plot",
           "temps": true,
-          "y_lab": "temperature (\u00c2\u00b0C)",
+          "y_lab": "temperature (\u00b0C)",
           "x_lab": "hours",
           "show_dots": true,
           "line_labels": [
@@ -804,7 +804,7 @@
         "vis2": {
           "type": "multiline_plot",
           "temps": true,
-          "y_lab": "temperature (\u00c2\u00b0C)",
+          "y_lab": "temperature (\u00b0C)",
           "x_lab": "hours",
           "show_dots": false,
           "line_labels": [
@@ -818,7 +818,7 @@
         "vis1": {
           "type": "multiline_plot",
           "temps": true,
-          "y_lab": "temperature (\u00c2\u00b0C)",
+          "y_lab": "temperature (\u00b0C)",
           "x_lab": "hours",
           "show_dots": false,
           "black_lines": false,
@@ -830,7 +830,7 @@
         "vis2": {
           "type": "multiline_plot",
           "temps": true,
-          "y_lab": "temperature (\u00c2\u00b0C)",
+          "y_lab": "temperature (\u00b0C)",
           "x_lab": "hours",
           "show_dots": false,
           "black_lines": true,
@@ -845,7 +845,7 @@
         "vis1": {
           "type": "multiline_plot",
           "temps": true,
-          "y_lab": "temperature (\u00c2\u00b0C)",
+          "y_lab": "temperature (\u00b0C)",
           "x_lab": "hours",
           "show_dots": false,
           "black_lines": false,
@@ -860,7 +860,7 @@
         "vis1": {
           "type": "multiline_plot",
           "temps_magn": true,
-          "y_lab": "temperature (\u00c2\u00b0C)",
+          "y_lab": "temperature (\u00b0C)",
           "x_lab": "hours",
           "line_labels": [
             "A",
@@ -1146,7 +1146,7 @@
         "image": "vis_mot.png"
       }
     ],
-    "progress": 0
+    "progress": 11
   },
   {
     "id": 10,
