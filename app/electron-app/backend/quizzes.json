@@ -52,7 +52,7 @@
         "hint": 8
       }
     ],
-    "progress": 3,
+    "progress": 4,
     "passed": true
   },
   {
@@ -116,7 +116,7 @@
         "hint": 9
       }
     ],
-    "progress": 1,
+    "progress": 2,
     "passed": true
   },
   {
@@ -160,7 +160,7 @@
         "hint": 9
       }
     ],
-    "progress": 0,
+    "progress": 1,
     "passed": true
   },
   {
@@ -202,12 +202,12 @@
       {
         "question": "Let's say that we would like to model the spread of a disease in a school with 300 people. On the first day, 4 people were infected and started spreading the disease, and one person had already recovered from the disease. How should you set the number of people in each compartment?",
         "options": [
-          "S: 400, I: 4, R: 1",
-          "S: 395, I: 4, R: 1",
-          "S: 399, I: 1, R: 0",
-          "S: 395, I: 5, R: 0"
+          "S: 300, I: 4, R: 1",
+          "S: 295, I: 4, R: 1",
+          "S: 299, I: 1, R: 0",
+          "S: 295, I: 5, R: 0"
         ],
-        "correct": "S: 395, I: 4, R: 1",
+        "correct": "S: 295, I: 4, R: 1",
         "image": "gossip_quiz.png",
         "hint": 5
       },
@@ -276,7 +276,7 @@
         "hint": 0
       }
     ],
-    "progress": 0,
+    "progress": 1,
     "passed": true
   },
   {
@@ -338,7 +338,7 @@
         "hint": 10
       }
     ],
-    "progress": 0,
+    "progress": 1,
     "passed": true
   },
   {
@@ -357,7 +357,7 @@
         "hint": 0
       }
     ],
-    "progress": 0,
+    "progress": 1,
     "passed": true
   }
 ]
