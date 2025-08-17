@@ -20,6 +20,8 @@ export class LinePlotComponent implements OnInit, OnChanges {
   @Input() temps: boolean = false;
   @Input() demoNum: boolean = false;
   @Input() legend: string = '';
+  @Input() xMaxFixed: number | null = null;
+  @Input() yMaxFixed: number | null = null;
 
   dailyTemp: { x: number, y: number }[] = [
   { x: 0, y: 12 }, { x: 1, y: 11 }, { x: 2, y: 11 }, { x: 3, y: 10 },
@@ -68,6 +70,9 @@ export class LinePlotComponent implements OnInit, OnChanges {
       }
       this.redrawChart();
     }
+    if (changes['xMaxFixed'] || changes['yMaxFixed']) {
+      this.redrawChart();
+    }
   }
 
   private redrawChart(): void {
@@ -96,29 +101,33 @@ export class LinePlotComponent implements OnInit, OnChanges {
       .append("g")
       .attr("transform", `translate(${margin.left},${margin.top})`);
 
+    const dataXMax = d3.max(this.plotData, d => d.x)!;
+    const desiredXMax = this.xMaxFixed ?? dataXMax;
+    const finalXMax = Math.max(desiredXMax, dataXMax);
+
     const x = d3.scaleLinear()
-      .domain(d3.extent(this.plotData, d => d.x) as [number, number])
+      .domain([0, finalXMax])
+      .nice()
       .range([0, width]);
 
     if (!this.onlyShowY) {
       svg.append("g")
         .attr("transform", `translate(0,${height})`)
-        .call(
-          d3.axisBottom(x)
-            .tickFormat((d: d3.NumberValue) => d3.format(".2s")(+d))
-        );
+        .call(d3.axisBottom(x).tickFormat((d: d3.NumberValue) => d3.format(".2s")(+d)));
     }
 
-    const y = d3.scaleLinear()
-      .domain([0, d3.max(this.plotData, d => d.y)!])
-      .range([height, 0]);
+      const dataYMax = d3.max(this.plotData, d => d.y)!;
+      const desiredYMax = this.yMaxFixed ?? dataYMax;
+      const finalYMax = Math.max(desiredYMax, dataYMax);
+
+      const y = d3.scaleLinear()
+        .domain([0, finalYMax])
+        .nice()
+        .range([height, 0]);
 
     if (!this.onlyShowX) {
       svg.append("g")
-        .call(
-          d3.axisLeft(y)
-            .tickFormat((d: d3.NumberValue) => d3.format(".2s")(+d))
-        );
+        .call(d3.axisLeft(y).tickFormat((d: d3.NumberValue) => d3.format(".2s")(+d)));
     }
 
     const bisect = d3.bisector((d: any) => d.x).left;

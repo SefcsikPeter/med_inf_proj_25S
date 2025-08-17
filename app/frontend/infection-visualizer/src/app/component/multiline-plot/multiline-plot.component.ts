@@ -19,6 +19,8 @@ export class MultilinePlotComponent implements OnInit, OnChanges {
   @Input() blackLines: boolean = true;
   @Input() lineLabels: string[] = [];
   @Input() vertLine: number | null = null;
+  @Input() xMaxFixed: number | null = null;
+  @Input() yMaxFixed: number | null = null;
 
   temps1: [number, number][] = [
     [0, 12], [1, 11], [2, 11], [3, 10],
@@ -99,8 +101,14 @@ export class MultilinePlotComponent implements OnInit, OnChanges {
       .append("g")
       .attr("transform", `translate(${margin.left},${margin.top})`);
 
+    const dataXMax = d3.max(allPoints, d => d[0])!;
+    const desiredXMax = this.xMaxFixed ?? dataXMax;
+
+    const finalXMax = Math.max(desiredXMax, dataXMax);
+
     const x = d3.scaleLinear()
-      .domain(d3.extent(allPoints, d => d[0]) as [number, number])
+      .domain([0, finalXMax])
+      .nice()
       .range([0, width]);
 
     svg.append("g")
@@ -110,10 +118,17 @@ export class MultilinePlotComponent implements OnInit, OnChanges {
           .tickFormat((d: d3.NumberValue) => d3.format(".2s")(+d))
       );
 
+    const dataYMax = d3.max(allPoints, d => d[1])!;
+    const desiredYMax = this.yMaxFixed ?? dataYMax;
+
+    // By default, don't clip data: take the larger of the two
+    const finalYMax = Math.max(desiredYMax, dataYMax);
+
     const y = d3.scaleLinear()
-      .domain([0, d3.max(allPoints, d => d[1])!])
+      .domain([0, finalYMax])
+      .nice()
       .range([height, 0]);
-      
+          
     svg.append("g")
       .call(d3.axisLeft(y).tickFormat((d: d3.NumberValue, _i: number) => d3.format(".2s")(+d)));
 
