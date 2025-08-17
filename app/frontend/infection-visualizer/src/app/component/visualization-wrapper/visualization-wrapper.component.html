@@ -4,7 +4,9 @@
   <div *ngIf="this.vis.type === VisualizationTypeEnum.inf_tree">
     <div class="row align-items-center block-title">
       <div class="col-auto">
-        <h4>Infection Tree</h4>
+        @if (showDesc) {
+          <h4>Infection Tree</h4>
+        }
       </div>
       <div class="col-auto">
         @if (showReGenerate) {
@@ -23,7 +25,9 @@
   <div *ngIf="this.vis.type === VisualizationTypeEnum.rad_tree">
     <div class="row align-items-center block-title">
       <div class="col-auto">
-        <h4>Radial Tree</h4>
+        @if (showDesc) {
+          <h4>Radial Tree</h4>
+        }
       </div>
       <div class="col-auto">
         @if (showReGenerate) {
@@ -42,7 +46,9 @@
   <div *ngIf="this.vis.type === VisualizationTypeEnum.line_plot">
     <div class="row align-items-center block-title">
       <div class="col-auto">
-        <h4>Line Plot</h4>
+        @if (showDesc) {
+          <h4>Line Plot</h4>
+        }
       </div>
       <div class="col-auto">
         @if (showReGenerate) {
@@ -66,7 +72,9 @@
   <div *ngIf="this.vis.type === VisualizationTypeEnum.multiline_plot">
     <div class="row align-items-center block-title">
       <div class="col-auto">
-        <h4>Line Plot</h4>
+        @if (showDesc) {
+          <h4>Line Plot</h4>
+        }
       </div>
       <div class="col-auto">
         @if (showReGenerate) {
