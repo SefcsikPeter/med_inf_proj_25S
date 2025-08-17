@@ -44,6 +44,8 @@ export class VisualizationWrapperComponent implements OnInit, OnChanges {
   legend: string = '';
   vertLine: number | null = null;
   showDesc: boolean = true;
+  xMaxFixed: number | null = null;
+  yMaxFixed: number | null = null;
 
   ngOnInit() {
     this.updateData();
@@ -111,6 +113,12 @@ export class VisualizationWrapperComponent implements OnInit, OnChanges {
       }
       if (this.vis.show_desc !== undefined) {
         this.showDesc = this.vis.show_desc;
+      }
+      if (this.vis.x_max_fixed) {
+        this.xMaxFixed = this.vis.x_max_fixed;
+      }
+      if (this.vis.y_max_fixed) {
+        this.yMaxFixed = this.vis.y_max_fixed;
       }
     }
   }

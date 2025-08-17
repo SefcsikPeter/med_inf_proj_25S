@@ -21,4 +21,6 @@ export interface Visualization {
   sim_extra_days?: number;
   vert_line?: number;
   show_desc?: boolean;
+  x_max_fixed?: number;
+  y_max_fixed?: number;
 }

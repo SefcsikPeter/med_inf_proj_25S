@@ -91,19 +91,26 @@
       {
         "text": "Based on the coin-flipping analogy, if we know that a person has an equal chance of spreading or not spreading the gossip, we can predict that about half of the people will spread it and the other half won't.\nHere, you can experiment with changing the number of coin flips using the slider. Observe how increasing the number of flips brings the ratio of heads and tails closer to 50:50.\nMany epidemic modelling methods work the same way, where they don't consider each person on an individual level, but rather look at the overall probabilities across the whole group.",
         "data": {
-          "type": "coin_flip"
+          "type": "coin_flip",
+          "n_flips": 250
         },
         "vis1": {
           "type": "multiline_plot",
-          "show_re_generate": true
+          "show_re_generate": true,
+          "x_max_fixed": 1000,
+          "y_max_fixed": 550,
+          "line_labels": [
+            "Heads",
+            "Tails"
+          ]
         },
         "sliders": [
           {
             "type": "n_flips",
-            "min": 10,
-            "max": 10000,
-            "step": 10,
-            "current_value": 100,
+            "min": 100,
+            "max": 1000,
+            "step": 100,
+            "current_value": 250,
             "symbol": "coin",
             "text": "flips"
           }
@@ -266,7 +273,7 @@
         }
       }
     ],
-    "progress": 12
+    "progress": 0
   },
   {
     "id": 3,
@@ -381,7 +388,7 @@
         ]
       }
     ],
-    "progress": 9
+    "progress": 0
   },
   {
     "id": 4,
@@ -680,7 +687,7 @@
         ]
       }
     ],
-    "progress": 8
+    "progress": 0
   },
   {
     "id": 6,
@@ -1171,7 +1178,7 @@
         "image": "vis_mot.png"
       }
     ],
-    "progress": 11
+    "progress": 0
   },
   {
     "id": 10,

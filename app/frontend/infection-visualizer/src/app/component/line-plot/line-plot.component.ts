@@ -70,9 +70,6 @@ export class LinePlotComponent implements OnInit, OnChanges {
       }
       this.redrawChart();
     }
-    if (changes['xMaxFixed'] || changes['yMaxFixed']) {
-      this.redrawChart();
-    }
   }
 
   private redrawChart(): void {
