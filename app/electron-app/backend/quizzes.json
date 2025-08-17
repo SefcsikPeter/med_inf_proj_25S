@@ -212,7 +212,7 @@
         "hint": 8
       }
     ],
-    "progress": 0,
+    "progress": 4,
     "passed": true
   },
   {
@@ -302,7 +302,7 @@
         "hint": 7
       },
       {
-        "question": "Whhy is it that it is not always simpler to 'just use more data' than extending our base SIR model?",
+        "question": "Why is it that it is not always simpler to 'just use more data' than extending our base SIR model?",
         "image": "vis_mot.png",
         "options": [
           "Because we don't always have more data",
