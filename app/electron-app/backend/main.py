@@ -252,6 +252,25 @@ def api_reset_progress():
     """
     return reset_progress()
 
+@app.get("/quiz/passed")
+def are_all_quizzes_passed():
+    """
+    Returns whether all quizzes are passed.
+    Response: { "all_passed": bool }
+    """
+    try:
+        with open("quizzes.json", "r", encoding="utf-8") as f:
+            quizzes = json.load(f)
+    except FileNotFoundError:
+        raise HTTPException(status_code=500, detail="quizzes.json not found")
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error reading quizzes.json: {str(e)}")
+
+    all_passed = all(q.get("passed", False) for q in quizzes)
+
+    return {
+        "all_passed": all_passed
+    }
 
 @app.get("/quiz/{story_id}/data")
 def get_quiz_data(

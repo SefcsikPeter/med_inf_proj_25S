@@ -130,8 +130,19 @@ async loadQuestion(index: number): Promise<void> {
     this.quizService.submitAnswers(this.storyId, this.answers).subscribe({
       next: (data) => {
         console.log('submitted answers', data);
-        this.router.navigate(['/']);
         this.showBadgeToast();
+        this.quizService.allPassed().subscribe({
+          next: (data) => {
+            if (data.all_passed) {
+              this.router.navigate(['/congrats']);
+            } else {
+              this.router.navigate(['/']);
+            }
+          },
+          error: (err) => {
+            console.error('error checking whether all quizzes are passed: ', err)
+          }
+        });
       },
       error: (err) => {
         console.error(err)

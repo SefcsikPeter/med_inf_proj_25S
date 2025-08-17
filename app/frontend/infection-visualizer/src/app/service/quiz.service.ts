@@ -26,4 +26,10 @@ export class QuizService {
     const url = `${this.baseUrl}/${storyId}/submit`;
     return this.http.post<any>(url, selectedAnswers);
   }
+
+  allPassed(): Observable<any> {
+    const url = `${this.baseUrl}/passed`;
+    console.log(url)
+    return this.http.get<any>(url);
+  }
 }
