@@ -141,7 +141,7 @@
         }
       }
     ],
-    "progress": 5
+    "progress": 3
   },
   {
     "id": 2,
@@ -231,7 +231,7 @@
         }
       },
       {
-        "text": "This is how the line plot from the previous slide looks like without drawing the dots. While it is a bit harder to read the exact temperatures at the exact times like this, only drawing the line makes it easier to compare multiple different lines in the same plot as you will see in the lecture about multi-line plots.",
+        "text": "This is how the line plot from the previous slide looks like without drawing the dots. While it is a bit harder to read the exact temperatures at the exact times this way, not including the dots in our plot makes it easier to compare multiple different lines in the same plot as you will see in the lecture about multi-line plots.",
         "vis1": {
           "type": "line_plot",
           "temps": true,
@@ -241,7 +241,7 @@
         }
       }
     ],
-    "progress": 11
+    "progress": 12
   },
   {
     "id": 3,
@@ -383,7 +383,7 @@
         "image": "SIR.png"
       }
     ],
-    "progress": 0
+    "progress": 4
   },
   {
     "id": 5,
@@ -655,7 +655,7 @@
         ]
       }
     ],
-    "progress": 0
+    "progress": 5
   },
   {
     "id": 6,
@@ -777,7 +777,7 @@
         "image": "Friends_conn_gos_2.png"
       }
     ],
-    "progress": 0
+    "progress": 5
   },
   {
     "id": 8,
@@ -889,7 +889,7 @@
         }
       }
     ],
-    "progress": 1
+    "progress": 3
   },
   {
     "id": 9,
@@ -1146,7 +1146,7 @@
         "image": "vis_mot.png"
       }
     ],
-    "progress": 0
+    "progress": 2
   },
   {
     "id": 10,
