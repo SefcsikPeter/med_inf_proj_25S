@@ -83,9 +83,34 @@
             "text": "days"
           }
         ]
+      },
+      {
+        "text": "Another way to think about it is flipping a coin.\nFor each person who hears the gossip, it's like flipping a coin to see if they decide to pass it on or not.",
+        "image": "coin_flip.png"
+      },
+      {
+        "text": "Based on the coin-flipping analogy, if we know that a person has an equal chance of spreading or not spreading the gossip, we can predict that about half of the people will spread it and the other half won't.\nHere, you can experiment with changing the number of coin flips using the slider. Observe how increasing the number of flips brings the ratio of heads and tails closer to 50:50.\nMany epidemic modelling methods work the same way, where they don't consider each person on an individual level, but rather look at the overall probabilities across the whole group.",
+        "data": {
+          "type": "coin_flip"
+        },
+        "vis1": {
+          "type": "multiline_plot",
+          "show_re_generate": true
+        },
+        "sliders": [
+          {
+            "type": "n_flips",
+            "min": 10,
+            "max": 10000,
+            "step": 10,
+            "current_value": 100,
+            "symbol": "coin",
+            "text": "flips"
+          }
+        ]
       }
     ],
-    "progress": 5
+    "progress": 9
   },
   {
     "id": 1,
@@ -141,7 +166,7 @@
         }
       }
     ],
-    "progress": 3
+    "progress": 5
   },
   {
     "id": 2,
@@ -241,7 +266,7 @@
         }
       }
     ],
-    "progress": 11
+    "progress": 12
   },
   {
     "id": 3,
@@ -356,7 +381,7 @@
         ]
       }
     ],
-    "progress": 0
+    "progress": 9
   },
   {
     "id": 4,

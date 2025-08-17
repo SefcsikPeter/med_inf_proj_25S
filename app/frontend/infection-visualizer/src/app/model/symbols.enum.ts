@@ -3,5 +3,6 @@ export const SymbolsEnum: Record<string, string> = {
   virus: '🦠',
   bed: '🛏️',
   person: '🧍',
-  water: '🌊'
+  water: '🌊',
+  coin: '🪙'
 };

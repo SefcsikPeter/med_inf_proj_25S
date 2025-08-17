@@ -10,7 +10,7 @@ from typing import Optional
 from fastapi import FastAPI, Body
 import uvicorn
 import json
-from infection_simulation import get_inf_tree, get_dummy_tree, get_sir_data, build_custom_infection_tree, get_partial_sir_data
+from infection_simulation import get_inf_tree, get_dummy_tree, get_sir_data, build_custom_infection_tree, get_partial_sir_data, get_coin_flip_data
 from fastapi import Query, Path, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
@@ -50,6 +50,15 @@ def get_graph(num_iter: int = Query(5, description="Number of iterations")):
         num_iter = 5 by default, determines the tree depth
     '''
     return get_dummy_tree(num_iter)
+
+@app.get("/coin-flip")
+def get_graph(n_flips: int = Query(100, description="Number of flips")):
+    '''
+    Get running sums of simulated coin flips.
+    params:
+        n_flips = 100 by default, number of coin flips
+    '''
+    return get_coin_flip_data(n_flips)
 
 @app.get("/example-tree")
 def get_example_graph():

@@ -163,6 +163,29 @@ def get_sir_data(
 
 import json
 
+def get_coin_flip_data(n_flips=100):
+    """
+    Simulate n_flips fair coin flips and return running sums
+    for Heads and Tails in the format:
+    {"plot_data": [heads_data, tails_data]}
+    """
+
+    flips = np.random.randint(0, 2, size=n_flips)
+
+    heads_running = np.cumsum(flips)
+    tails_running = np.cumsum(1 - flips)
+
+    times = np.arange(0, n_flips + 1)
+    heads_running = np.insert(heads_running, 0, 0)
+    tails_running = np.insert(tails_running, 0, 0)
+
+    H_data = [[float(t), float(h)] for t, h in zip(times, heads_running)]
+    T_data = [[float(t), float(tt)] for t, tt in zip(times, tails_running)]
+
+    return {
+        "plot_data": [H_data, T_data]
+    }
+
 def get_partial_sir_data(
     start_index=0, # start: 2020-03-06 
     end_index=None, # end: 2021-10-17

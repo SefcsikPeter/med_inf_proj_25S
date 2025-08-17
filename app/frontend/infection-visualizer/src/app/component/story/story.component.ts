@@ -11,6 +11,7 @@ import {ActivatedRoute, Router, RouterLink} from '@angular/router';
 import {VisualizationWrapperComponent} from '../visualization-wrapper/visualization-wrapper.component';
 import {SliderWrapperComponent} from '../slider-wrapper/slider-wrapper.component';
 import { EpiModelService } from '../../service/epi-model.service';
+import { CoinFlipService } from '../../service/coin-flip.service';
 
 @Component({
   selector: 'app-story',
@@ -40,6 +41,7 @@ export class StoryComponent implements OnInit {
   constructor(
     private storyService: StoryService,
     private treeService: InfectionTreeService,
+    private coinFlipService: CoinFlipService,
     private modelService: EpiModelService,
     private route: ActivatedRoute,
     private router: Router
@@ -79,6 +81,24 @@ export class StoryComponent implements OnInit {
       return true;
     } catch (err) {
       console.error('Error fetching infection tree:', err);
+      return false;
+    }
+  }
+
+  async fetchCoinFlip(): Promise<boolean> {
+    try {
+      let data;
+      if (this.dataParams.n_flips) {
+        data = await firstValueFrom(this.coinFlipService.getCoinFlips(this.dataParams.n_flips));
+      } else {
+        data = await firstValueFrom(this.coinFlipService.getCoinFlips());
+      }
+      
+      this.infectionTreeData = data;
+      console.log(data);
+      return true;
+    } catch (err) {
+      console.error('Error fetching coin flips:', err);
       return false;
     }
   }
@@ -192,6 +212,8 @@ export class StoryComponent implements OnInit {
       return this.fetchSIRData();
     } else if (this.dataParams.type === "sir_at") {
       return this.fetchSIRATData();
+    } else if (this.dataParams.type === "coin_flip") {
+      return this.fetchCoinFlip();
     } else {
       return false;
     }
@@ -274,6 +296,20 @@ export class StoryComponent implements OnInit {
       this.dataParams = {
         ...this.dataParams,
         pop_size: values['pop_size']
+      };
+      refreshData = true;
+    }
+
+    if (values['n_flips']) {
+      this.dataParams = {
+        ...this.dataParams,
+        n_flips: values['n_flips']
+      };
+      refreshData = true;
+    } else if (values['n_flips'] === 0) {
+      this.dataParams = {
+        ...this.dataParams,
+        n_flips: values['n_flips']
       };
       refreshData = true;
     }
