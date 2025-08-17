@@ -169,7 +169,7 @@
         "vis1": {
           "type": "line_plot",
           "temps": true,
-          "y_lab": "temperature",
+          "y_lab": "temperature (\u00b0C)",
           "x_lab": "hours",
           "show_dots": true
         }
@@ -208,7 +208,7 @@
           "temps": true,
           "draw_line": false,
           "show_dots": false,
-          "y_lab": "temperature",
+          "y_lab": "temperature (\u00b0C)",
           "x_lab": "hours"
         }
       },
@@ -225,7 +225,7 @@
         "vis1": {
           "type": "line_plot",
           "temps": true,
-          "y_lab": "temperature",
+          "y_lab": "temperature (\u00b0C)",
           "x_lab": "hours",
           "show_dots": true
         }
@@ -235,13 +235,13 @@
         "vis1": {
           "type": "line_plot",
           "temps": true,
-          "y_lab": "temperature",
+          "y_lab": "temperature (\u00b0C)",
           "x_lab": "hours",
           "show_dots": false
         }
       }
     ],
-    "progress": 1
+    "progress": 11
   },
   {
     "id": 3,
@@ -793,7 +793,7 @@
         "vis1": {
           "type": "multiline_plot",
           "temps": true,
-          "y_lab": "temperature",
+          "y_lab": "temperature (\u00b0C)",
           "x_lab": "hours",
           "show_dots": true,
           "line_labels": [
@@ -804,7 +804,7 @@
         "vis2": {
           "type": "multiline_plot",
           "temps": true,
-          "y_lab": "temperature",
+          "y_lab": "temperature (\u00b0C)",
           "x_lab": "hours",
           "show_dots": false,
           "line_labels": [
@@ -818,7 +818,7 @@
         "vis1": {
           "type": "multiline_plot",
           "temps": true,
-          "y_lab": "temperature",
+          "y_lab": "temperature (\u00b0C)",
           "x_lab": "hours",
           "show_dots": false,
           "black_lines": false,
@@ -830,7 +830,7 @@
         "vis2": {
           "type": "multiline_plot",
           "temps": true,
-          "y_lab": "temperature",
+          "y_lab": "temperature (\u00b0C)",
           "x_lab": "hours",
           "show_dots": false,
           "black_lines": true,
@@ -845,7 +845,7 @@
         "vis1": {
           "type": "multiline_plot",
           "temps": true,
-          "y_lab": "temperature",
+          "y_lab": "temperature (\u00b0C)",
           "x_lab": "hours",
           "show_dots": false,
           "black_lines": false,
@@ -860,7 +860,7 @@
         "vis1": {
           "type": "multiline_plot",
           "temps_magn": true,
-          "y_lab": "temperature",
+          "y_lab": "temperature (\u00b0C)",
           "x_lab": "hours",
           "line_labels": [
             "A",
