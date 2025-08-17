@@ -968,7 +968,8 @@
         }
       },
       {
-        "text": "We created this plot by calculating the number of people in the S, I, and R compartments each day, based on real-world COVID-19 epidemic data from Austria.",
+        "text": "We created this plot by calculating the number of people in the S, I, and R compartments each day, based on real-world COVID-19 epidemic data from Austria*.",
+        "source": "SIR values calculated based on data available here: https://github.com/GoogleCloudPlatform/covid-19-open-data/blob/main/docs/table-epidemiology.md",
         "data": {
           "type": "sir_at",
           "start_index": 500,
@@ -1201,7 +1202,7 @@
         "image": "vis_mot.png"
       }
     ],
-    "progress": 11
+    "progress": 2
   },
   {
     "id": 10,
@@ -1219,12 +1220,13 @@
     ],
     "slides": [
       {
-        "text": "Covasim is an agent-based model specifically created for making predictions about the COVID-19 epidemic."
+        "text": "Covasim* is an agent-based model specifically created for making predictions about the COVID-19 epidemic.",
+        "source": "C. C. Kerr et al. 'Covasim: An agent-based model of COVID-19 dynamics and interventions,' PLOS Comput. Biol., vol. 17, no. 7, p. e1009149, Jul. 2021, doi: 10.1371/journal.pcbi.1009149."
       },
       {
         "text": "Similarly to the SIR model, you can also set different values for how likely someone is to get infected, recover, and so on, but instead of setting these values for the whole population, you can set them for each individual agent differently."
       }
     ],
-    "progress": 2
+    "progress": 1
   }
 ]

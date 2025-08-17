@@ -43,6 +43,10 @@
     </div>
   </div>
 
+  <div *ngIf="slide.source">
+    <p>*= {{this.slide.source}}</p>
+  </div>
+
   <div class="slide-nav">
     <button class="btn btn-secondary" (click)="prevSlide()" [disabled]="currentSlide === 0">Previous</button>
     @if (currentSlide < totalSlides - 1) {
