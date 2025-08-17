@@ -1,2 +1,4 @@
 .idea
 epimodels.log
+app/electron-app/backend/json_modifier.ipynb
+app/electron-app/dist/infection-visualizer
