@@ -105,7 +105,10 @@ export class MultilinePlotComponent implements OnInit, OnChanges {
 
     svg.append("g")
       .attr("transform", `translate(0,${height})`)
-      .call(d3.axisBottom(x));
+      .call(
+        d3.axisBottom(x)
+          .tickFormat((d: d3.NumberValue) => d3.format(".2s")(+d))
+      );
 
     const y = d3.scaleLinear()
       .domain([0, d3.max(allPoints, d => d[1])!])

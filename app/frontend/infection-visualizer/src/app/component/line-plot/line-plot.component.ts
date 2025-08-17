@@ -102,8 +102,11 @@ export class LinePlotComponent implements OnInit, OnChanges {
 
     if (!this.onlyShowY) {
       svg.append("g")
-      .attr("transform", `translate(0,${height})`)
-      .call(d3.axisBottom(x));
+        .attr("transform", `translate(0,${height})`)
+        .call(
+          d3.axisBottom(x)
+            .tickFormat((d: d3.NumberValue) => d3.format(".2s")(+d))
+        );
     }
 
     const y = d3.scaleLinear()
@@ -112,7 +115,10 @@ export class LinePlotComponent implements OnInit, OnChanges {
 
     if (!this.onlyShowX) {
       svg.append("g")
-        .call(d3.axisLeft(y));
+        .call(
+          d3.axisLeft(y)
+            .tickFormat((d: d3.NumberValue) => d3.format(".2s")(+d))
+        );
     }
 
     const bisect = d3.bisector((d: any) => d.x).left;
