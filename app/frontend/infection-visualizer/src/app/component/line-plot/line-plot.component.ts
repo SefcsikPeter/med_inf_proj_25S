@@ -108,9 +108,11 @@ export class LinePlotComponent implements OnInit, OnChanges {
       .range([0, width]);
 
     if (!this.onlyShowY) {
+      const fmtX = (d: number) => Math.abs(d) >= 1000 ? d3.format(".2s")(d) : d3.format("~g")(d);
       svg.append("g")
         .attr("transform", `translate(0,${height})`)
-        .call(d3.axisBottom(x).tickFormat((d: d3.NumberValue) => d3.format(".2s")(+d)));
+        .call(d3.axisBottom(x).tickFormat(d => fmtX(+d)));
+
     }
 
       const dataYMax = d3.max(this.plotData, d => d.y)!;
@@ -123,8 +125,10 @@ export class LinePlotComponent implements OnInit, OnChanges {
         .range([height, 0]);
 
     if (!this.onlyShowX) {
+      const fmtY = (d: number) => Math.abs(d) >= 1000 ? d3.format(".2s")(d) : d3.format("~g")(d);
       svg.append("g")
-        .call(d3.axisLeft(y).tickFormat((d: d3.NumberValue) => d3.format(".2s")(+d)));
+        .call(d3.axisLeft(y).tickFormat(d => fmtY(+d)));
+
     }
 
     const bisect = d3.bisector((d: any) => d.x).left;

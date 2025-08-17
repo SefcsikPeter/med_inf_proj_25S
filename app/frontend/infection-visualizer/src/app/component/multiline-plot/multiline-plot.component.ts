@@ -101,6 +101,14 @@ export class MultilinePlotComponent implements OnInit, OnChanges {
       .append("g")
       .attr("transform", `translate(${margin.left},${margin.top})`);
 
+    const makePrettyFormatter = (threshold = 1000) => {
+      const fSmall = d3.format("~g");
+      const fBig   = d3.format(".2s");
+      return (d: d3.NumberValue) => Math.abs(+d) >= threshold ? fBig(+d) : fSmall(+d);
+    };
+
+    const fmt = makePrettyFormatter(1000);
+
     const dataXMax = d3.max(allPoints, d => d[0])!;
     const desiredXMax = this.xMaxFixed ?? dataXMax;
 
@@ -113,15 +121,12 @@ export class MultilinePlotComponent implements OnInit, OnChanges {
 
     svg.append("g")
       .attr("transform", `translate(0,${height})`)
-      .call(
-        d3.axisBottom(x)
-          .tickFormat((d: d3.NumberValue) => d3.format(".2s")(+d))
-      );
+      .call(d3.axisBottom(x).tickFormat(d => fmt(d)));
+
 
     const dataYMax = d3.max(allPoints, d => d[1])!;
     const desiredYMax = this.yMaxFixed ?? dataYMax;
 
-    // By default, don't clip data: take the larger of the two
     const finalYMax = Math.max(desiredYMax, dataYMax);
 
     const y = d3.scaleLinear()
@@ -130,7 +135,7 @@ export class MultilinePlotComponent implements OnInit, OnChanges {
       .range([height, 0]);
           
     svg.append("g")
-      .call(d3.axisLeft(y).tickFormat((d: d3.NumberValue, _i: number) => d3.format(".2s")(+d)));
+      .call(d3.axisLeft(y).tickFormat(d => fmt(d)));
 
     svg.append("text")
       .attr("text-anchor", "middle")
