@@ -4,6 +4,7 @@ import {StoryComponent} from './component/story/story.component';
 import {QuizComponent} from './component/quiz/quiz.component';
 import { SettingsComponent } from './component/settings/settings.component';
 import { BadgesComponent } from './component/badges/badges.component';
+import { CongratsPageComponent } from './component/congrats-page/congrats-page.component';
 
 export const routes: Routes = [
     { path: 'home', component: HomeComponent },
@@ -11,6 +12,7 @@ export const routes: Routes = [
     { path: 'quiz/:story_id', component: QuizComponent },
     { path: 'settings', component: SettingsComponent },
     { path: 'badges', component: BadgesComponent},
+    { path: 'congrats', component: CongratsPageComponent},
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: '**', redirectTo: 'home' }
 ];

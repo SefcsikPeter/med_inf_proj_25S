@@ -1,0 +1,120 @@
+.lift { animation: cardFloat 6s ease-in-out infinite; }
+@keyframes cardFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-4px)} }
+
+.gradient-text {
+  background: linear-gradient(90deg, #D0006F, #FF0E8E);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.shimmer { position: relative; overflow: hidden; }
+.shimmer::after {
+  content: ""; position: absolute; inset: 0;
+  transform: translateX(-120%);
+  background: linear-gradient(115deg, transparent 40%, rgba(255,255,255,.5) 50%, transparent 60%);
+  animation: shimmer 2.5s ease-in-out infinite;
+}
+@keyframes shimmer {
+  0% { transform: translateX(-120%) }
+  60%,100% { transform: translateX(120%) }
+}
+
+.check { width: 96px; height: 96px; }
+.check .ring { fill: none; stroke: #d1e7dd; stroke-width: 6; }
+.check .tick {
+  fill: none; stroke: #198754; stroke-width: 6;
+  stroke-linecap: round; stroke-linejoin: round;
+  stroke-dasharray: 60; stroke-dashoffset: 60;
+  animation: draw 1s ease forwards .4s;
+}
+@keyframes draw { to { stroke-dashoffset: 0; } }
+
+.confetti-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.card, .mini-card { z-index: 1; }
+.confetti {
+  position: absolute; top: -10%; border-radius: 2px; opacity: 0;
+  animation-name: fall, spin;
+  animation-timing-function: cubic-bezier(.2,.6,.35,1), linear;
+  animation-iteration-count: 1, infinite;
+}
+@keyframes fall {
+  0% { transform: translateY(-10vh) rotate(0); opacity: 0 }
+  10% { opacity: 1 }
+  100% { transform: translateY(110vh) rotate(0); opacity: 0 }
+}
+@keyframes spin { to { transform: rotate(360deg) } }
+
+.mini-card { animation: bob 5.5s ease-in-out infinite; }
+.mini-card:nth-child(2){ animation-delay: .8s }
+.mini-card:nth-child(3){ animation-delay: 1.6s }
+@keyframes bob { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
+
+.progress-animate { width: 0%; animation: grow 1.5s ease forwards .4s; }
+@keyframes grow { from { width: 0% } to { width: 100% } }
+
+@media (prefers-reduced-motion: reduce) {
+  .lift, .mini-card, .confetti, .tick, .shimmer::after, .progress-animate { animation: none !important; width: 100% !important; }
+}
+:host {
+  --magenta-500: #D0006F;
+  --magenta-600: #B80063;
+  --magenta-700: #9E0057;
+  --magenta-100: #FAD1E6;
+}
+.check .ring { stroke: var(--magenta-100); }
+.check .tick { stroke: var(--magenta-500); }
+.text-magenta { color: var(--magenta-500) !important; }
+.progress { background-color: var(--magenta-100); }
+.progress-magenta {
+  background: linear-gradient(90deg, var(--magenta-500), #FF2DA1);
+}
+.btn-magenta {
+  color: #fff;
+  background-color: var(--magenta-500);
+  border-color: var(--magenta-500);
+}
+.btn-magenta:hover {
+  color: #fff;
+  background-color: var(--magenta-600);
+  border-color: var(--magenta-600);
+}
+.btn-magenta:active,
+.btn-magenta.active {
+  color: #fff;
+  background-color: var(--magenta-700);
+  border-color: var(--magenta-700);
+}
+.btn-magenta:focus-visible {
+  outline: 0;
+  box-shadow: 0 0 0 .25rem rgba(208, 0, 111, .35);
+}
+.btn-magenta.shimmer::after {
+  background: linear-gradient(115deg, transparent 40%, rgba(255,255,255,.55) 50%, transparent 60%);
+}
+.btn-outline-magenta {
+  color: var(--magenta-500);
+  border: 2px solid var(--magenta-500);
+  background-color: transparent;
+}
+.btn-outline-magenta:hover {
+  color: #fff;
+  background-color: var(--magenta-500);
+  border-color: var(--magenta-500);
+}
+.btn-outline-magenta:active,
+.btn-outline-magenta.active {
+  color: #fff;
+  background-color: var(--magenta-600);
+  border-color: var(--magenta-600);
+}
+.btn-outline-magenta:focus-visible {
+  outline: 0;
+  box-shadow: 0 0 0 .25rem rgba(208, 0, 111, .35);
+}

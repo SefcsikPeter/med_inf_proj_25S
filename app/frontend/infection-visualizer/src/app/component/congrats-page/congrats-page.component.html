@@ -1,0 +1,74 @@
+<div class="page-wrap position-relative min-vh-100 d-flex align-items-start justify-content-center bg-body-tertiary">
+  <!-- confetti -->
+  <div class="confetti-layer position-absolute top-0 start-0 w-100 h-100 pointer-events-none" aria-hidden="true">
+    <span
+      class="confetti"
+      *ngFor="let p of pieces"
+      [style.left.%]="p.left"
+      [style.width.px]="p.size"
+      [style.height.px]="p.size * 0.5"
+      [style.animationDelay.s]="p.delay"
+      [style.animationDuration.s]="p.duration"
+      [style.transform]="'rotate(' + p.rotate + 'deg)'"
+      [style.background]="'hsl(' + p.hue + ' 85% 55%)'">
+    </span>
+  </div>
+
+  <div class="container py-4">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-10 col-lg-8">
+        <div class="card shadow-lg border-0 rounded-4 lift">
+          <div class="card-body p-4 p-md-5 text-center position-relative" aria-live="polite">
+            <!-- animated check -->
+            <div class="check mx-auto mb-4" aria-hidden="true">
+              <svg viewBox="0 0 64 64" role="img" focusable="false" class="d-block mx-auto">
+                <circle cx="32" cy="32" r="28" class="ring"/>
+                <path d="M18 33 l10 10 l18 -22" class="tick"/>
+              </svg>
+            </div>
+
+            <h1 class="display-6 fw-bold mb-2 gradient-text">
+              Course Completed!
+            </h1>
+            <p class="lead text-secondary mb-4">
+              You've successfully finished the <span class="fw-semibold text-dark">{{ COURSE_NAME }}</span>.
+            </p>
+
+            <!-- animated 100% progress -->
+            <div class="mx-auto" style="max-width: 520px;">
+              <div class="d-flex align-items-center justify-content-between mb-1">
+                <span class="text-secondary">Progress</span>
+                <span class="fw-semibold text-magenta">100%</span>
+              </div>
+              <div class="progress rounded-pill" style="height: 12px;">
+                <div class="progress-bar progress-magenta progress-animate"
+                  role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100"></div>
+              </div>
+            </div>
+
+            <div class="mt-4 d-flex justify-content-center gap-3 flex-wrap">
+              <button type="button" class="btn btn-magenta btn-lg rounded-pill px-4 shimmer">
+                Try Sandbox Mode
+              </button>
+
+              <a routerLink="/home" class="btn btn-outline-magenta btn-lg rounded-pill px-4">
+                Go to Home
+              </a>
+
+              <button type="button"
+                      class="btn btn-outline-magenta btn-lg rounded-pill px-4"
+                      (click)="retriggerConfetti()">
+                Replay Confetti
+              </button>
+            </div>
+
+
+            <div class="mt-4 small text-body-secondary">
+              Great work! You can review lessons on the home page or start your own simulations on the sandbox page!
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
