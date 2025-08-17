@@ -20,4 +20,5 @@ export interface Visualization {
   include_generated?: boolean;
   sim_extra_days?: number;
   vert_line?: number;
+  show_desc?: boolean;
 }

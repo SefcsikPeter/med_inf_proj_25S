@@ -43,6 +43,7 @@ export class VisualizationWrapperComponent implements OnInit, OnChanges {
   lineLabels: string[] = [];
   legend: string = '';
   vertLine: number | null = null;
+  showDesc: boolean = true;
 
   ngOnInit() {
     this.updateData();
@@ -107,6 +108,9 @@ export class VisualizationWrapperComponent implements OnInit, OnChanges {
       }
       if (this.vis.vert_line) {
         this.vertLine = this.vis.vert_line;
+      }
+      if (this.vis.show_desc !== undefined) {
+        this.showDesc = this.vis.show_desc;
       }
     }
   }
