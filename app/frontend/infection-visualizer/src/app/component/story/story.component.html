@@ -5,7 +5,7 @@
     <a>Slide {{ currentSlide + 1 }} of {{ totalSlides }}</a>
   </div>
   <div class="slide" style="justify-content: center">
-    <p style="display: flex; justify-content: center; text-align: center; padding: 0 1rem; white-space: pre-line;">
+    <p style="display: flex; justify-content: center; text-align: center; padding: 0 1rem; white-space: pre-line;" [innerHTML]="slide.text">
       {{ slide.text }}
     </p>
     <img 
