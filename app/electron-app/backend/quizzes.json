@@ -264,16 +264,40 @@
     "title": "Intro to Agent-Based Models",
     "questions": [
       {
-        "question": "Test question",
+        "question": "Why could we need a different model instead of the SIR model?",
         "options": [
-          "1",
-          "2",
-          "3",
-          "4"
+          "Because the SIR model cannot consider differences between individuals",
+          "Because the SIR model takes too long to calculate for large populations",
+          "Because the SIR model always predicts the exact number of sick people",
+          "Because the SIR model requires expensive simulations to run"
         ],
-        "correct": "1",
-        "image": "gossip.png",
-        "hint": 0
+        "correct": "Because the SIR model cannot consider differences between individuals",
+        "image": "SIR.png",
+        "hint": 1
+      },
+      {
+        "question": "What is an 'agent' in agent based models?",
+        "options": [
+          "A group of people who are treated as if they are all the same",
+          "A single individual with their own characteristics and rules",
+          "A mathematical equation that predicts the spread of disease",
+          "A random event like a coin flip"
+        ],
+        "correct": "A single individual with their own characteristics and rules",
+        "image": "Agent.png",
+        "hint": 2
+      },
+      {
+        "question": "In an agent-based model, what makes an agent different from the 'beads' in the SIR analogy?",
+        "options": [
+          "Agents can have different characteristics and behaviors",
+          "Agents cannot change state once they are infected",
+          "Agents all behave exactly the same way",
+          "Agents are used only for very large populations"
+        ],
+        "correct": "Agents can have different characteristics and behaviors",
+        "image": "Friends_conn_gos.png",
+        "hint": 5
       }
     ],
     "progress": 1,

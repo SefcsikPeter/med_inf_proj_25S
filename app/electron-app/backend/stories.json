@@ -417,7 +417,7 @@
         "image": "SIR.png"
       }
     ],
-    "progress": 4
+    "progress": 1
   },
   {
     "id": 5,
@@ -788,7 +788,7 @@
         }
       },
       {
-        "text": "The SIR model works by pretending that everyone in a group is the same, just like how the beads all looked the same in our analogy. It assumes that everyone can get sick just as easily and gets better at the same speed. This makes it good for quickly guessing what might happen to big groups of people. But sometimes, we need a different model to be more exact for special situations.",
+        "text": "The SIR model works by pretending that everyone in a group is the same, just like how the beads all looked the same in our analogy.\nIn our coin flip analogy from the beginning, it assumes that everyone has the same chance of getting sick and recovering at any time.\nThis makes it good for quickly guessing what might happen to big groups of people.\nBut sometimes, we need a different model to be more exact for special situations.",
         "image": "beads.png"
       },
       {
@@ -804,7 +804,7 @@
         "image": "Friends_connections.png"
       },
       {
-        "text": "We also note who likes to talk about gossip and who does not. This will become important once we start to simulate how gossip spreads between these people.",
+        "text": "We also note who likes to talk about gossip and who does not. This will become important once we start to simulate how gossip spreads between these people.\nWe marked Lila in a different color, since she's the only person who does not like to gossip.",
         "image": "Friends_conn_gos.png"
       },
       {
@@ -820,7 +820,7 @@
         "image": "Friends_conn_gos_2.png"
       }
     ],
-    "progress": 9
+    "progress": 6
   },
   {
     "id": 8,
@@ -1227,6 +1227,6 @@
         "text": "Similarly to the SIR model, you can also set different values for how likely someone is to get infected, recover, and so on, but instead of setting these values for the whole population, you can set them for each individual agent differently."
       }
     ],
-    "progress": 1
+    "progress": 2
   }
 ]
