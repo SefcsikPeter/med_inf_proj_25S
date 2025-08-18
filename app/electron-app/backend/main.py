@@ -74,6 +74,7 @@ def get_graph(
     discrete: bool = Query(True, description="discrete or continuous"),
     pop_size: int = Query(12, description="population size"),
     n_inf: int = Query(1, description="number of initially infected"),
+    n_rec: int = Query(0, description="number of people initially in R"),
     n_days: int = Query(8, description="number of days in simulation")
     ):
     '''
@@ -87,6 +88,7 @@ def get_graph(
         discrete=discrete,
         pop_size=pop_size,
         n_inf=n_inf,
+        n_rec=n_rec,
         n_days=n_days
         )
 

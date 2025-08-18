@@ -208,7 +208,7 @@
           "S: 295, I: 5, R: 0"
         ],
         "correct": "S: 295, I: 4, R: 1",
-        "image": "gossip_quiz.png",
+        "image": "sir_init_quiz.png",
         "hint": 5
       },
       {
@@ -220,7 +220,7 @@
           "The initial number of infected people"
         ],
         "correct": "How many people one sick person infects a day on average",
-        "image": "",
+        "image": "SIR.png",
         "hint": 7
       },
       {

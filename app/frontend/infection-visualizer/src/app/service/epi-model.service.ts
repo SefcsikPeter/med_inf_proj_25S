@@ -32,6 +32,9 @@ export class EpiModelService {
     if (dataParams.n_inf) {
       params.append('n_inf', dataParams.n_inf);
     }
+    if (dataParams.n_rec) {
+      params.append('n_rec', dataParams.n_rec);
+    }
     if (dataParams.n_days) {
       params.append('n_days', dataParams.n_days);
     }
