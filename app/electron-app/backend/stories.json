@@ -459,7 +459,11 @@
         "image": "SI_transmission.png"
       },
       {
-        "text": "The transmission rate describes the chance of a person who knows about the gossip telling it to people who don't already know about it.\nHow many beads we move from S to I depends on the number of people in S, the number of people in I and the transmission rate.\nWith a transmission rate of 1, we can say that for the first few days, we move one bead from S to I for each bead in I like in the image below.\nAfter a few days, we only need to move less beads, because the chance of a person knowing about the gossip meeting a person who does not already know decreases.",
+        "text": "The transmission rate describes the chance of a person who knows about the gossip telling it to people who don't already know about it.\nHow many beads we move from S to I depends on the number of people in S, the number of people in I and the transmission rate.",
+        "image": "SI_transmission.png"
+      },
+      {
+        "text": "With a transmission rate of 1, we can say that for the first few days, we move one bead from S to I for each bead in I like in the image below.\nAfter a few days, we only need to move less beads, because the chance of a person knowing about the gossip meeting a person who does not already know decreases.\nYellow beads are the same as red beads and are only colored differently to highlight that they have been moved to the I compartment.",
         "image": "SI_transmission=1.png"
       },
       {
@@ -578,7 +582,7 @@
         "image": "IR_base.png"
       },
       {
-        "text": "Here, we have 8 infected people in the beginning, if we assume that the average person takes 2 days to recover, we get a recovery rate of 0.5. We get the number of people we need to move from I to R for each day by multiplying the number of people in I by the recovery rate.",
+        "text": "Here, we have 8 infected people in the beginning, if we assume that the average person takes 2 days to recover, we get a recovery rate of 0.5.\nWe get the number of people we need to move from I to R for each day by multiplying the number of people in I by the recovery rate.\nOnce again, green beads are the same as red beads and are only colored differently to highlight that they have been moved to the R compartment.",
         "image": "IR_rec=0.5.png"
       },
       {
@@ -698,7 +702,7 @@
         ]
       }
     ],
-    "progress": 17
+    "progress": 8
   },
   {
     "id": 6,

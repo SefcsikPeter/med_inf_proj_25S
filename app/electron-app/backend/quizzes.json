@@ -190,12 +190,12 @@
       {
         "question": "What do S, I and R mean in the SIR model?",
         "options": [
-          "S = Susceptible, I = Infected, R = Recovered",
+          "S = Susceptible, I = Infectious, R = Recovered",
           "S = Sick, I = Immune, R = Removed",
           "S = Susceptible, I = Immune, R = Resistant",
           "S = Sick, I = Infectious, R = Recovered"
         ],
-        "correct": "S = Susceptible, I = Infected, R = Recovered",
+        "correct": "S = Susceptible, I = Infectious, R = Recovered",
         "image": "SIR.png",
         "hint": 3
       },
@@ -236,7 +236,7 @@
         "hint": 8
       }
     ],
-    "progress": 4,
+    "progress": 3,
     "passed": true
   },
   {
