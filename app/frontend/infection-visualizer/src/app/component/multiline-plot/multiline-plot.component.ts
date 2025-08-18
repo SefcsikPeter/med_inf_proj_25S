@@ -1,5 +1,6 @@
 import {Component, OnInit, ElementRef, ViewChild, Input, OnChanges, SimpleChanges} from '@angular/core';
 import * as d3 from 'd3';
+import { LineStyle } from '../../model/visualization';
 
 @Component({
   selector: 'app-multiline-plot',
@@ -21,6 +22,7 @@ export class MultilinePlotComponent implements OnInit, OnChanges {
   @Input() vertLine: number | null = null;
   @Input() xMaxFixed: number | null = null;
   @Input() yMaxFixed: number | null = null;
+  @Input() lineStyles: LineStyle[] | null = [["", "#1f77b4"], ["5, 5", "#ff7f0e"], ["1, 5", "#2ca02c"]];
 
   temps1: [number, number][] = [
     [0, 12], [1, 11], [2, 11], [3, 10],
@@ -69,7 +71,7 @@ export class MultilinePlotComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['plotData'] || changes['temps'] || changes['tempsMagn'] || changes['vert_line'] || changes['blackLines']) {
+    if (changes['plotData'] || changes['temps'] || changes['tempsMagn'] || changes['vertLine'] || changes['blackLines'] || changes['lineStyles']) {
       this.redrawChart();
     }
   }
@@ -79,7 +81,7 @@ export class MultilinePlotComponent implements OnInit, OnChanges {
     this.drawChart();
   }
 
-  private drawChart(): void {
+    private drawChart(): void {
     if (!this.plotData) return;
 
     const margin = { top: 20, right: 30, bottom: 50, left: 60 };
@@ -111,31 +113,21 @@ export class MultilinePlotComponent implements OnInit, OnChanges {
 
     const dataXMax = d3.max(allPoints, d => d[0])!;
     const desiredXMax = this.xMaxFixed ?? dataXMax;
-
     const finalXMax = Math.max(desiredXMax, dataXMax);
 
-    const x = d3.scaleLinear()
-      .domain([0, finalXMax])
-      .nice()
-      .range([0, width]);
+    const x = d3.scaleLinear().domain([0, finalXMax]).nice().range([0, width]);
 
     svg.append("g")
       .attr("transform", `translate(0,${height})`)
       .call(d3.axisBottom(x).tickFormat(d => fmt(d)));
 
-
     const dataYMax = d3.max(allPoints, d => d[1])!;
     const desiredYMax = this.yMaxFixed ?? dataYMax;
-
     const finalYMax = Math.max(desiredYMax, dataYMax);
 
-    const y = d3.scaleLinear()
-      .domain([0, finalYMax])
-      .nice()
-      .range([height, 0]);
-          
-    svg.append("g")
-      .call(d3.axisLeft(y).tickFormat(d => fmt(d)));
+    const y = d3.scaleLinear().domain([0, finalYMax]).nice().range([height, 0]);
+
+    svg.append("g").call(d3.axisLeft(y).tickFormat(d => fmt(d)));
 
     svg.append("text")
       .attr("text-anchor", "middle")
@@ -152,15 +144,39 @@ export class MultilinePlotComponent implements OnInit, OnChanges {
       .text(this.yLabel)
       .style("font-size", "12px");
 
-    const dashStyles = ["", "5,5", "1,5", "10,5,2,5"];
+    const defaultDashStyles = ["", "5,5", "1,5", "10,5,2,5"];
+
+    const normalizeDash = (d: string | number[] | null | undefined): string => {
+      if (Array.isArray(d)) return d.join(",");
+      return d == null ? "" : String(d);
+    };
+
+    const getDashForLine = (i: number): string | null => {
+      const raw = this.lineStyles?.[i]?.[0];
+
+      if (raw == null) return defaultDashStyles[i % defaultDashStyles.length];
+
+      const normalized = normalizeDash(raw).trim();
+
+      if (normalized === "") return null;
+
+      return normalized;
+    };
+
+
+    const getColorForLine = (i: number): string => {
+      const maybeColor = this.lineStyles?.[i]?.[1];
+      if (maybeColor && `${maybeColor}`.trim().length > 0) return String(maybeColor);
+      return this.blackLines ? "black" : d3.schemeCategory10[i % 10];
+    };
 
     this.plotData.forEach((lineData, i) => {
       svg.append("path")
         .datum(lineData)
         .attr("fill", "none")
-        .attr("stroke", this.blackLines ? "black" : d3.schemeCategory10[i % 10])
+        .attr("stroke", getColorForLine(i))
         .attr("stroke-width", 1.5)
-        .attr("stroke-dasharray", dashStyles[i % dashStyles.length])
+        .attr("stroke-dasharray", getDashForLine(i))
         .attr("d", d3.line<[number, number]>()
           .x(d => x(d[0]))
           .y(d => y(d[1]))
@@ -170,7 +186,7 @@ export class MultilinePlotComponent implements OnInit, OnChanges {
     if (this.vertLine !== null && this.vertLine !== undefined) {
       const idx = this.plotData.length;
       const stroke = this.blackLines ? "black" : d3.schemeCategory10[idx % 10];
-      const dash = dashStyles[idx % dashStyles.length];
+      const dash = defaultDashStyles[idx % defaultDashStyles.length];
 
       const [xMin, xMax] = x.domain() as [number, number];
       const xValue = Math.max(Math.min(this.vertLine, xMax), xMin);
@@ -196,7 +212,7 @@ export class MultilinePlotComponent implements OnInit, OnChanges {
           .attr("cx", d => x(d[0]))
           .attr("cy", d => y(d[1]))
           .attr("r", 5)
-          .style("fill", d3.schemeCategory10[i % 10]);
+          .style("fill", getColorForLine(i));
       });
     }
 
@@ -214,9 +230,9 @@ export class MultilinePlotComponent implements OnInit, OnChanges {
           .attr("x2", 20)
           .attr("y1", 5)
           .attr("y2", 5)
-          .attr("stroke", this.blackLines ? "black" : d3.schemeCategory10[i % 10])
+          .attr("stroke", getColorForLine(i))
           .attr("stroke-width", 2)
-          .attr("stroke-dasharray", dashStyles[i % dashStyles.length]);
+          .attr("stroke-dasharray", getDashForLine(i));
 
         legendRow.append("text")
           .attr("x", 25)

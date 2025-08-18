@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 import {RadialTreeComponent} from '../radial-tree/radial-tree.component';
 import {NgIf} from '@angular/common';
-import {Visualization} from '../../model/visualization';
+import {LineStyle, Visualization} from '../../model/visualization';
 import {VisualizationTypeEnum} from '../../model/visualization-type.enum';
 import {LinePlotComponent} from '../line-plot/line-plot.component';
 import { MultilinePlotComponent } from '../multiline-plot/multiline-plot.component';
@@ -46,6 +46,7 @@ export class VisualizationWrapperComponent implements OnInit, OnChanges {
   showDesc: boolean = true;
   xMaxFixed: number | null = null;
   yMaxFixed: number | null = null;
+  lineStyles: LineStyle[] | null = null;
 
   ngOnInit() {
     this.updateData();
@@ -119,6 +120,9 @@ export class VisualizationWrapperComponent implements OnInit, OnChanges {
       }
       if (this.vis.y_max_fixed) {
         this.yMaxFixed = this.vis.y_max_fixed;
+      }
+      if (this.vis.line_styles) {
+        this.lineStyles = this.vis.line_styles;
       }
     }
   }

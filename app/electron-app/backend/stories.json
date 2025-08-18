@@ -1011,7 +1011,33 @@
             "R_SIM"
           ],
           "x_max_fixed": 650,
-          "y_max_fixed": 9000000
+          "y_max_fixed": 9000000,
+          "line_styles": [
+            [
+              "",
+              "#1f77b4"
+            ],
+            [
+              "",
+              "#ff7f0e"
+            ],
+            [
+              "",
+              "#2ca02c"
+            ],
+            [
+              "5, 5",
+              "#1f77b4"
+            ],
+            [
+              "5, 5",
+              "#ff7f0e"
+            ],
+            [
+              "5, 5",
+              "#2ca02c"
+            ]
+          ]
         },
         "sliders": [
           {
@@ -1202,7 +1228,7 @@
         "image": "vis_mot.png"
       }
     ],
-    "progress": 2
+    "progress": 3
   },
   {
     "id": 10,

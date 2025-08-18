@@ -1,5 +1,10 @@
 import { VisualizationTypeEnum } from './visualization-type.enum';
 
+export type LineStyle = [
+  dash: string | number[] | null | undefined,
+  color: string | null | undefined
+];
+
 export interface Visualization {
   type: VisualizationTypeEnum;
   depth?: number;
@@ -23,4 +28,5 @@ export interface Visualization {
   show_desc?: boolean;
   x_max_fixed?: number;
   y_max_fixed?: number;
+  line_styles?: LineStyle[] | null;
 }
