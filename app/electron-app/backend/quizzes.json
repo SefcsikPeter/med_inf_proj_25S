@@ -160,7 +160,7 @@
         "hint": 9
       }
     ],
-    "progress": 1,
+    "progress": 3,
     "passed": true
   },
   {
@@ -246,14 +246,14 @@
       {
         "question": "Test question",
         "options": [
-          "1",
-          "2",
+          "7",
           "3",
+          "6",
           "4"
         ],
-        "correct": "1",
-        "image": "gossip.png",
-        "hint": 0
+        "correct": "6",
+        "image": "rad_tree_quiz.png",
+        "hint": 2
       }
     ],
     "progress": 1,
