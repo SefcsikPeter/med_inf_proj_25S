@@ -233,10 +233,10 @@
         ],
         "correct": "The blue continuous line is S, and the orange dashed line is I",
         "image": "SI_quiz.png",
-        "hint": 8
+        "hint": 9
       }
     ],
-    "progress": 3,
+    "progress": 4,
     "passed": true
   },
   {
