@@ -144,30 +144,60 @@ export class MultilinePlotComponent implements OnInit, OnChanges {
       .text(this.yLabel)
       .style("font-size", "12px");
 
-    const defaultDashStyles = ["", "5,5", "1,5", "10,5,2,5"];
+      const defaultDashStyles = ["", "5,5", "1,5", "10,5,2,5"];
 
-    const normalizeDash = (d: string | number[] | null | undefined): string => {
-      if (Array.isArray(d)) return d.join(",");
-      return d == null ? "" : String(d);
-    };
+      const normalizeDash = (d: string | number[] | null | undefined): string => {
+        if (Array.isArray(d)) return d.join(",");
+        return d == null ? "" : String(d);
+      };
 
-    const getDashForLine = (i: number): string | null => {
-      const raw = this.lineStyles?.[i]?.[0];
+      const getDashForLine = (i: number): string | null => {
+        const raw = this.lineStyles?.[i]?.[0];
 
-      if (raw == null) return defaultDashStyles[i % defaultDashStyles.length];
+        if (raw == null) return defaultDashStyles[i % defaultDashStyles.length];
 
-      const normalized = normalizeDash(raw).trim();
+        const normalized = normalizeDash(raw).trim();
 
-      if (normalized === "") return null;
+        if (normalized === "") return null;
 
-      return normalized;
-    };
+        return normalized;
+      };
 
 
-    const getColorForLine = (i: number): string => {
-      const maybeColor = this.lineStyles?.[i]?.[1];
-      if (maybeColor && `${maybeColor}`.trim().length > 0) return String(maybeColor);
-      return this.blackLines ? "black" : d3.schemeCategory10[i % 10];
+      const getColorForLine = (i: number): string => {
+        const maybeColor = this.lineStyles?.[i]?.[1];
+        if (maybeColor && `${maybeColor}`.trim().length > 0) return String(maybeColor);
+        return this.blackLines ? "black" : d3.schemeCategory10[i % 10];
+      };
+
+      const getVerticalStyle = (): { stroke: string; dash: string | null } => {
+      const idxForDefaults = this.plotData.length; // what you used before
+
+      if (!this.lineStyles || this.lineStyles.length === 0) {
+        // fallback = old behavior
+        return {
+          stroke: this.blackLines ? "black" : d3.schemeCategory10[idxForDefaults % 10],
+          dash: defaultDashStyles[idxForDefaults % defaultDashStyles.length],
+        };
+      }
+
+      const last = this.lineStyles[this.lineStyles.length - 1];
+      const [dashRaw, colorRaw] = last;
+
+      const stroke =
+        colorRaw && `${colorRaw}`.trim().length > 0
+          ? String(colorRaw)
+          : (this.blackLines ? "black" : d3.schemeCategory10[idxForDefaults % 10]);
+
+      let dash: string | null;
+      if (dashRaw == null) {
+        dash = defaultDashStyles[idxForDefaults % defaultDashStyles.length];
+      } else {
+        const normalized = normalizeDash(dashRaw).replace(/\s+/g, "").trim();
+        dash = normalized === "" ? null : normalized; // "" => solid (no attribute)
+      }
+
+      return { stroke, dash };
     };
 
     this.plotData.forEach((lineData, i) => {
@@ -184,23 +214,24 @@ export class MultilinePlotComponent implements OnInit, OnChanges {
     });
 
     if (this.vertLine !== null && this.vertLine !== undefined) {
-      const idx = this.plotData.length;
-      const stroke = this.blackLines ? "black" : d3.schemeCategory10[idx % 10];
-      const dash = defaultDashStyles[idx % defaultDashStyles.length];
+      const { stroke, dash } = getVerticalStyle();
 
       const [xMin, xMax] = x.domain() as [number, number];
       const xValue = Math.max(Math.min(this.vertLine, xMax), xMin);
       const xPos = x(xValue);
 
-      svg.append("line")
+      const v = svg.append("line")
         .attr("x1", xPos)
         .attr("x2", xPos)
         .attr("y1", 0)
         .attr("y2", height)
         .attr("stroke", stroke)
-        .attr("stroke-width", 1.5)
-        .attr("stroke-dasharray", dash);
+        .attr("stroke-width", 1.5);
+
+      if (dash == null) v.attr("stroke-dasharray", null);
+      else v.attr("stroke-dasharray", dash);
     }
+
 
     if (this.showDots) {
       this.plotData.forEach((lineData, i) => {

@@ -968,7 +968,7 @@
         }
       },
       {
-        "text": "We created this plot by calculating the number of people in the S, I, and R compartments each day, based on real-world COVID-19 epidemic data from Austria*.",
+        "text": "We created this plot by calculating the number of people in the S, I, and R compartments each day, based on real-world COVID-19 epidemic data from Austria*.\nIn this plot, S_AT, I_AT, and R_AT represent the S, I, and R compartments in Austria, calculated from epidemiological data.",
         "source": "SIR values calculated based on data available here: https://github.com/GoogleCloudPlatform/covid-19-open-data/blob/main/docs/table-epidemiology.md",
         "data": {
           "type": "sir_at",
@@ -989,7 +989,7 @@
         }
       },
       {
-        "text": "We can use the SIR model to predict what could happen in the future by adjusting the transmission rate and recovery rate, so that the results calculated by the SIR model match the real-world data as closely as possible.",
+        "text": "We can use the SIR model to predict what could happen in the future by adjusting the transmission rate and recovery rate, so that the results calculated by the SIR model match the real-world data as closely as possible.\nIn this plot, S_SIM, I_SIM, and R_SIM represent the S, I, and R compartments calculated using the SIR model.",
         "data": {
           "type": "sir_at",
           "start_index": 500,
@@ -1061,7 +1061,7 @@
         ]
       },
       {
-        "text": "Now that we matched the transmission rate and recovery rate in the previous slide, we can let the simulation continue. The vertical line called AT_end marks where our real-world data ends but our simulation continues.",
+        "text": "Now that we matched the transmission rate and recovery rate in the previous slide, we can let the simulation continue.\nThe vertical line called AT_END marks where our real-world data ends but our simulation continues.",
         "data": {
           "type": "sir_at",
           "start_index": 500,
@@ -1083,7 +1083,7 @@
             "S_SIM",
             "I_SIM",
             "R_SIM",
-            "AT_end"
+            "AT_END"
           ],
           "x_max_fixed": 650,
           "y_max_fixed": 9000000,
@@ -1111,6 +1111,10 @@
             [
               "5, 5",
               "#2ca02c"
+            ],
+            [
+              "3, 3",
+              "#FF746C"
             ]
           ]
         },
@@ -1136,7 +1140,7 @@
         ]
       },
       {
-        "text": "Since we used past data in our example, we can actually check, how well the SIR model estimated what actually happened. The vertical line shows where we cut off the data before.",
+        "text": "Since we used past data in our example, we can actually check, how well the SIR model estimated what actually happened. The vertical line shows where we cut off the data before.\nThe vertical line called CUT shows where we cut our data on the pervious slide.",
         "data": {
           "type": "sir_at",
           "start_index": 500,
@@ -1157,7 +1161,7 @@
             "S_SIM",
             "I_SIM",
             "R_SIM",
-            "PREV_CUT"
+            "CUT"
           ],
           "x_max_fixed": 650,
           "y_max_fixed": 9000000,
@@ -1185,6 +1189,10 @@
             [
               "5, 5",
               "#2ca02c"
+            ],
+            [
+              "3, 3",
+              "#FF746C"
             ]
           ]
         },
@@ -1231,7 +1239,7 @@
             "S_SIM",
             "I_SIM",
             "R_SIM",
-            "PREV_CUT"
+            "CUT"
           ],
           "x_max_fixed": 650,
           "y_max_fixed": 9000000,
@@ -1259,6 +1267,10 @@
             [
               "5, 5",
               "#2ca02c"
+            ],
+            [
+              "3, 3",
+              "#FF746C"
             ]
           ]
         }
@@ -1291,7 +1303,8 @@
             "R_AT",
             "S_SIM",
             "I_SIM",
-            "R_SIM"
+            "R_SIM",
+            "AT_END"
           ],
           "x_max_fixed": 650,
           "y_max_fixed": 9000000,
@@ -1319,6 +1332,10 @@
             [
               "5, 5",
               "#2ca02c"
+            ],
+            [
+              "3, 3",
+              "#FF746C"
             ]
           ]
         }
@@ -1332,7 +1349,7 @@
         "image": "vis_mot.png"
       }
     ],
-    "progress": 9
+    "progress": 11
   },
   {
     "id": 10,
