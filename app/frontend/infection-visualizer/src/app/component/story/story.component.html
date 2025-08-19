@@ -1,26 +1,49 @@
 <div *ngIf="slide" class="story-container">
-  <mat-progress-bar mode="determinate" value="{{((currentSlide + 1) * 100) / totalSlides}}"></mat-progress-bar>
-  <div style="display: flex; align-items: center; justify-content: space-between; padding: 0 1rem;">
+  <mat-progress-bar
+    mode="determinate"
+    [value]="((currentSlide + 1) * 100) / totalSlides"
+  ></mat-progress-bar>
+
+  <div
+    style="display: flex; align-items: center; justify-content: space-between; padding: 0 1rem;"
+  >
     <h2>{{ title }}</h2>
     <a>Slide {{ currentSlide + 1 }} of {{ totalSlides }}</a>
   </div>
+
   <div class="slide" style="justify-content: center">
-    <p style="display: flex; justify-content: center; text-align: center; padding: 0 1rem; white-space: pre-line;" [innerHTML]="slide.text">
-      {{ slide.text }}
-    </p>
-    <img 
-      *ngIf="imagePath != 'http://localhost:8000/static/images/'" 
-      [src]="imagePath" 
-      alt="Slide image" 
-      style="max-width: 600px; max-height: 400px; width: auto; height: auto; display: block; margin: 0 auto;" 
+    <!-- Story text -->
+    <div
+      class="story-text"
+      style="display: flex; flex-direction: column; align-items: center; text-align: center;"
+      *ngIf="slide?.text as t"
+    >
+      <ng-container *ngFor="let line of tokenizeLines(t); let i = index">
+        <p style="margin: 0rem 1rem;">
+          <ng-container *ngFor="let token of line">
+            <strong *ngIf="token.bold">{{ token.text }}</strong>
+            <ng-container *ngIf="!token.bold">{{ token.text }}</ng-container>
+          </ng-container>
+        </p>
+      </ng-container>
+    </div>
+
+    <!-- Slide image -->
+    <img
+      *ngIf="imagePath != 'http://localhost:8000/static/images/'"
+      [src]="imagePath"
+      alt="Slide image"
+      style="max-width: 600px; max-height: 400px; width: auto; height: auto; display: block; margin: 0 auto; margin-top: 1rem;"
     />
 
-
-    <!-- Container for up to three components on the story page -->
-    <div *ngIf="showVis1 || showVis2 || showSliders" style="display: flex; justify-content: center; gap: 2rem; margin-top: 2rem;">
+    <!-- Visualizations / sliders -->
+    <div
+      *ngIf="showVis1 || showVis2 || showSliders"
+      style="display: flex; justify-content: center; gap: 2rem; margin-top: 2rem;"
+    >
       <!-- Visualization 1 -->
       <app-visualization-wrapper
-        [vis]="this.vis1"
+        [vis]="vis1"
         [data]="infectionTreeData"
         [showVis]="showVis1"
         (fetchData)="handleWrapperFetch()"
@@ -28,7 +51,7 @@
 
       <!-- Visualization 2 -->
       <app-visualization-wrapper
-        [vis]="this.vis2"
+        [vis]="vis2"
         [data]="infectionTreeData"
         [showVis]="showVis2"
         (fetchData)="handleWrapperFetch()"
@@ -36,28 +59,45 @@
 
       <!-- Sliders -->
       <app-slider-wrapper
-        [showSliders]="this.showSliders"
-        [sliders]="this.sliders"
+        [showSliders]="showSliders"
+        [sliders]="sliders"
         (sliderValuesChange)="handleSliderValues($event)"
       ></app-slider-wrapper>
     </div>
   </div>
 
+  <!-- Source -->
   <div *ngIf="slide.source">
-    <p>*= {{this.slide.source}}</p>
+    <p>*= {{ slide.source }}</p>
   </div>
 
+  <!-- Navigation -->
   <div class="slide-nav">
-    <button class="btn btn-secondary" (click)="prevSlide()" [disabled]="currentSlide === 0">Previous</button>
+    <button
+      class="btn btn-secondary"
+      (click)="prevSlide()"
+      [disabled]="currentSlide === 0"
+    >
+      Previous
+    </button>
+
     @if (currentSlide < totalSlides - 1) {
-      <button class="btn btn-primary" (click)="nextSlide()" [disabled]="currentSlide === totalSlides - 1">Next</button>
+      <button
+        class="btn btn-primary"
+        (click)="nextSlide()"
+        [disabled]="currentSlide === totalSlides - 1"
+      >
+        Next
+      </button>
     } @else {
       <button
         class="btn btn-primary"
         [routerLink]="['/quiz', storyId]"
         [queryParams]="{ page: 0 }"
         [disabled]="currentSlide !== totalSlides - 1"
-      > Take Quiz </button>
+      >
+        Take Quiz
+      </button>
     }
   </div>
 </div>

@@ -13,6 +13,8 @@ import {SliderWrapperComponent} from '../slider-wrapper/slider-wrapper.component
 import { EpiModelService } from '../../service/epi-model.service';
 import { CoinFlipService } from '../../service/coin-flip.service';
 
+type Token = { text: string; bold: boolean };
+
 @Component({
   selector: 'app-story',
   standalone: true,
@@ -46,6 +48,39 @@ export class StoryComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router
   ) {}
+
+tokenizeLines(value?: string | null): Token[][] {
+  if (!value) return [];
+
+  const normalized = value
+    .replace(/\r\n/g, '\n')
+    .replace(/\r/g, '\n')
+    .replace(/\\n/g, '\n');
+
+  const boldRegex = /\*\*(.+?)\*\*/g;
+
+  return normalized.split('\n').map(line => {
+    const tokens: Token[] = [];
+    let lastIndex = 0;
+    let match: RegExpExecArray | null;
+
+    while ((match = boldRegex.exec(line)) !== null) {
+      if (match.index > lastIndex) {
+        tokens.push({ text: line.slice(lastIndex, match.index), bold: false });
+      }
+      tokens.push({ text: match[1], bold: true });
+      lastIndex = match.index + match[0].length;
+    }
+    if (lastIndex < line.length) {
+      tokens.push({ text: line.slice(lastIndex), bold: false });
+    }
+
+    boldRegex.lastIndex = 0;
+    return tokens.length ? tokens : [{ text: '', bold: false }];
+  });
+}
+
+
   ngOnInit(): void {
     this.showSliders = false;
     this.route.paramMap.subscribe(params => {

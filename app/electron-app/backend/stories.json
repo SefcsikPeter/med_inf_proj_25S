@@ -117,7 +117,7 @@
         ]
       }
     ],
-    "progress": 9
+    "progress": 6
   },
   {
     "id": 1,
@@ -275,7 +275,7 @@
         }
       }
     ],
-    "progress": 12
+    "progress": 1
   },
   {
     "id": 3,
@@ -431,43 +431,51 @@
     ],
     "slides": [
       {
-        "text": "The SIR model is one of the simplest ones for modelling an epidemic.",
+        "text": "The **SIR** model is one of the simplest ones for **modelling** an **epidemic**.",
         "image": "SIR.png"
       },
       {
-        "text": "SIR is a compartmental model, meaning that it divides people into different compartments. You can imagine compartments as boxes and people as beads.",
+        "text": "**SIR** is a **compartmental** model, meaning that it divides people into different compartments.\nYou can imagine **compartments** as **boxes** and **people** as **beads**.",
         "image": "SIR_box.png"
       },
       {
-        "text": "The total number of beads is the number of people we would like to model. The total number of people in our simulation is also called the 'population size'.",
+        "text": "The **total number of beads** is the **number of people** we would like to **model**.\nIn epidemiological modeling, the **total number of people considered in a simulation** is called the **population size**.",
         "image": "beads.png"
       },
       {
-        "text": "The compartments in the SIR model are S: Susceptible, I: Infectious, R: Recovered, this is where the model gets its name from. People in S can get infected by the disease but are not infected yet, people in I are infected, they are spreading the disease and people in R were infected once, but are recovered now, they usually can't get infected by the same disease again.",
+        "text": "The **compartments** in the **SIR** model are **S: Susceptible**, **I: Infectious**, **R: Recovered** or **Removed**, the **SIR** model gets its name from these abbreviations.\nWe will reference **R** as **Recovered** in the future, but you may also find resources where it is called **Removed**.\nThis hints at the fact that, in more complex models, people can also move into this compartment without actually recovering from the disease (for example, through vaccination).",
         "image": "SIR_expl.png"
       },
       {
-        "text": "For a simple example, we can model gossip in school. We only need the S and I compartments for this because people can only know and not know about the gossip but can't recover from knowing it.",
+        "text": "People in **S can get infected by the disease** but are **not infected yet**.\nPeople in **I are infected and/or contagious** meaning that they can spread the disease.\nFinally, people in **R don't spread the disease** and **can't get infected** either because they **recovered** from the disease or are immune to the disease for some other reason.",
+        "image": "SIR_expl.png"
+      },
+      {
+        "text": "For a simple example, we can model **gossip** in school.\nWe only need the **S** and **I** compartments for this because people can only know and not know about the gossip but can't recover from knowing it.",
         "image": "SI.png"
       },
       {
-        "text": "Let's say that there is one person who starts spreading the gossip. That one person goes into the I compartment and everyone else goes into the S compartment. For this simple example, there is a total of 12 people in our simulation, so we place 11 beads in the S compartment.",
+        "text": "Let's say that there is **one person** who **starts spreading** the gossip.\nThat one person goes into the **I** compartment and everyone else goes into the **S** compartment.\nFor this simple example, there is a **total of 12 people** in our simulation, so we place **11 beads in the S compartment**, and **1 bead in the I compartment.**",
+        "image": "SI_gossip_red.png"
+      },
+      {
+        "text": "**We color each bead the same color as its compartment**.\nAs we start moving them in future examples, beads will **keep their original color on the day they are moved**, so that it is easier to see which beads were moved.",
         "image": "SI_gossip.png"
       },
       {
-        "text": "After initially placing the beads in the compartments, we can start moving them from one compartment to the other. How we move the beads depends on the transmission rate.",
+        "text": "After initially placing the beads in the compartments, we can start moving them from one compartment to the other.\nHow we **move the beads from S to I** depends on the **transmission rate**.",
         "image": "SI_transmission.png"
       },
       {
-        "text": "The transmission rate describes the chance of a person who knows about the gossip telling it to people who don't already know about it.\nHow many beads we move from S to I depends on the number of people in S, the number of people in I and the transmission rate.",
+        "text": "The **transmission rate** describes the **chance of a person who knows about the gossip telling it to people who don't already know about it**.\nHow many beads we move **from S to I** depends on the **number of people in S**, **the number of people in I** and the **transmission rate**.",
         "image": "SI_transmission.png"
       },
       {
-        "text": "With a transmission rate of 1, we can say that for the first few days, we move one bead from S to I for each bead in I like in the image below.\nAfter a few days, we only need to move less beads, because the chance of a person knowing about the gossip meeting a person who does not already know decreases.\nYellow beads are the same as red beads and are only colored differently to highlight that they have been moved to the I compartment.",
+        "text": "With a **transmission rate of 1**, we can say that for the **first few days**, we move **one bead from S to I for each bead in I** like in the image below.\nAfter a few days, we only need to move **less beads**, because the **chance** of a person knowing about the gossip meeting a person who does not already know **decreases**.",
         "image": "SI_transmission=1.png"
       },
       {
-        "text": "Sometimes we need to model a lot of people, but when we add a lot more beads to our boxes, it becomes very difficult to count them. Instead, we can use line plots to show how many people there are in a compartment each day like in the plot below. Here, the orange dashed line shows the number of people who know about the gossip on a given day, and the blue continuous line shows the number of people who don't already know.",
+        "text": "Sometimes we need to model a lot of people, but when we add a lot more beads to our boxes, it becomes very difficult to count them.\nInstead, we can use **line plots** to show **how many people** there are in a **compartment each day** like in the plot below.\nHere, the **orange dashed line** shows the **number of people** who know about the gossip, meaning the **number of people in the I compartment on a given day**.\n**The blue continuous line** shows the number of people who don't already know, meaning the **number of people in the S compartment on a given day**.",
         "data": {
           "type": "sir",
           "transmission_rate": 1,
@@ -491,7 +499,7 @@
         }
       },
       {
-        "text": "How many days we display in our plot depends on our simulation settings and is a choice we can make and adjust. Try playing around with the number of days displayed using the slider to find a visualization that is the most informative in your opinion!",
+        "text": "How many days we display in our plot depends on our simulation settings and is a choice we can make and adjust.\nTry playing around with the **number of days** displayed using the **slider** to find a visualization that is the most informative in your opinion!",
         "data": {
           "type": "sir",
           "transmission_rate": 1,
@@ -526,7 +534,7 @@
         ]
       },
       {
-        "text": "As we mentioned it before, the transmission rate describes the rate at which the gossip spreads, you can try changing it around to see how it affects the spreading of the gossip using the second slider! After some experimentation, you will see that with a higher transmission rate, the gossip needs less days to spread to everyone.",
+        "text": "As we mentioned it before, the **transmission rate** describes the **rate at which the gossip spreads**, you can try changing it around to see how it affects the **spreading of the gossip** using the **second slider**!\nAfter some experimentation, you will see that with a **higher transmission rate**, the **gossip needs less days to spread to everyone**.",
         "data": {
           "type": "sir",
           "transmission_rate": 1,
@@ -570,31 +578,55 @@
         ]
       },
       {
-        "text": "Now that we have seen how S and I relate to each other, we can also add the R compartment. Similarly to how people move from S to I, people can also move from I to R.",
+        "text": "Now that we have seen how **S** and **I** relate to each other, we can also add the **R compartment**.\nSimilarly to how people **move from S to I**, people can also **move from I to R**.",
         "image": "SIR.png"
       },
       {
-        "text": "To know how many people move from I to R, we need to know how many days it takes a person on average to recover from the disease.",
+        "text": "To know how many people **move from I to R**, we need to know **how many days it takes a person on average to recover from the disease**.",
         "image": "hospital_bed.png"
       },
       {
-        "text": "The rate describing the movement of people from the I compartment to the R compartment is called the recovery rate which can be calculated by dividing 1 by the number of days it takes a person on average to recover from the disease. The number of beads we move from I to R depends on the recovery rate and the number of people in the I compartment.",
+        "text": "The **rate describing the movement of people from the I compartment to the R compartment** is called the **recovery rate**.\n It can be calculated by **dividing 1 by the number of days it takes a person on average to recover from the disease**.\nThe **number of beads we move from I to R depends on the recovery rate and the number of people in the I compartment**.",
         "image": "IR_base.png"
       },
       {
-        "text": "Here, we have 8 infected people in the beginning, if we assume that the average person takes 2 days to recover, we get a recovery rate of 0.5.\nWe get the number of people we need to move from I to R for each day by multiplying the number of people in I by the recovery rate.\nOnce again, green beads are the same as red beads and are only colored differently to highlight that they have been moved to the R compartment.",
+        "text": "In this example, we have **8 infected people in the beginning**, if we assume that the average person takes **2 days to recover**, we get a recovery rate of **1 divided by 2 = 0.5**.\nWe get the number of people we need to **move from I to R** for each day by **multiplying the number of people in I by the recovery rate**.",
         "image": "IR_rec=0.5.png"
       },
       {
-        "text": "To see the transitions between the three compartments, we can take a new example where we have a school with 200 people. In this school, a person got infected by a new disease. People infected by this disease take 7 days to recover and infect 1 person a day on average before recovering. For now, we assume that infected people keep going to school.",
+        "text": "To see the **transitions** between the **three compartments**, we can take a new example where we have a **school with 200 people**.\nIn this school, **one person got infected by a new disease**.\nPeople infected by this disease take **5 days to recover** and **infect 2 people a day on average** before recovering.\nFor now, we assume that **infected people keep going to school**.",
         "data": {
           "type": "sir",
-          "transmission_rate": 1,
+          "transmission_rate": 2,
           "recovery_rate": 0.2,
           "discrete": false,
-          "pop_size": 12,
+          "pop_size": 200,
           "n_inf": 1,
-          "n_days": 5
+          "n_days": 10
+        },
+        "vis1": {
+          "type": "multiline_plot",
+          "x_lab": "days",
+          "y_lab": "people",
+          "line_labels": [
+            "S",
+            "I",
+            "R"
+          ],
+          "x_max_fixed": 10,
+          "y_max_fixed": 12
+        }
+      },
+      {
+        "text": "This is the **same example** as on the previous page, but now you can try **changing the transmission and recovery rates** to see how they affect the outcomes!",
+        "data": {
+          "type": "sir",
+          "transmission_rate": 2,
+          "recovery_rate": 0.2,
+          "discrete": false,
+          "pop_size": 200,
+          "n_inf": 1,
+          "n_days": 10
         },
         "vis1": {
           "type": "multiline_plot",
@@ -614,7 +646,7 @@
             "min": 1,
             "max": 10,
             "step": 1,
-            "current_value": 5,
+            "current_value": 10,
             "symbol": "sun",
             "text": "days"
           },
@@ -623,7 +655,7 @@
             "min": 0.1,
             "max": 3,
             "step": 0.1,
-            "current_value": 1,
+            "current_value": 2,
             "symbol": "virus",
             "text": "transmission rate"
           },
@@ -631,7 +663,7 @@
             "type": "recovery_rate",
             "min": 0,
             "max": 1,
-            "step": 0.05,
+            "step": 0.01,
             "current_value": 0.2,
             "symbol": "bed",
             "text": "recovery rate"
@@ -639,7 +671,7 @@
         ]
       },
       {
-        "text": "The SIR model is very effective, meaning that we can use it to model a population of almost any size without it taking much time.\nYou can try running the simulation on different population sizes using the new slider we just added!\nPay attention to how the scales for days and people are now set differently because of the larger population and the higher maximum number of days in the simulation.",
+        "text": "The **SIR** model is very **effective**, meaning that we can use it to **model a population of almost any size without it taking much time**.\nYou can try running the simulation on different population sizes using the new slider we just added!\nPay attention to how the scales for days and people are now set differently because of the larger population and the higher maximum number of days in the simulation.",
         "data": {
           "type": "sir",
           "transmission_rate": 2,
@@ -702,7 +734,7 @@
         ]
       }
     ],
-    "progress": 18
+    "progress": 10
   },
   {
     "id": 6,
@@ -756,7 +788,7 @@
         }
       }
     ],
-    "progress": 3
+    "progress": 1
   },
   {
     "id": 7,
@@ -1353,7 +1385,7 @@
         "image": "vis_mot.png"
       }
     ],
-    "progress": 11
+    "progress": 4
   },
   {
     "id": 10,
