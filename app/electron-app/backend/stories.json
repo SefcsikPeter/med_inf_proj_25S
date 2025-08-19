@@ -594,6 +594,14 @@
         "image": "IR_rec=0.5.png"
       },
       {
+        "text": "Now that we have a basic understanding of each compartment, we can look at how we would initially **set up** a **simulation** when using the **SIR model**.\n**Before starting the simulation**, we need to set the **population size**, the **number of people that are infected** initially and the **number of people that are recovered** initially if there's any.",
+        "image": "tot_pop.png"
+      },
+      {
+        "text": "In this example, our **population size** is **15** we have **3** people that are **infected** and **2** people that are **recovered** initially.\nWe can think of the **initialization of our model** as taking the **whole box of beads, our total population** and **dividing** it in our three compartments: **S**, **I** and **R**.\nAfter placing as many beads as there are **infected people in I** and as many beads as there are **recovered people in R**, we can **place the rest of the beads in S**.\n",
+        "image": "tot_pop_divided.png"
+      },
+      {
         "text": "To see the **transitions** between the **three compartments**, we can take a new example where we have a **school with 200 people**.\nIn this school, **one person got infected by a new disease**.\nPeople infected by this disease take **5 days to recover** and **infect 2 people a day on average** before recovering.\nFor now, we assume that **infected people keep going to school**.",
         "data": {
           "type": "sir",
@@ -734,7 +742,7 @@
         ]
       }
     ],
-    "progress": 10
+    "progress": 21
   },
   {
     "id": 6,
