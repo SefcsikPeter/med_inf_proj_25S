@@ -467,7 +467,7 @@
         "image": "SI_transmission.png"
       },
       {
-        "text": "The **transmission rate** describes the **chance of a person who knows about the gossip telling it to people who don't already know about it**.\nHow many beads we move **from S to I** depends on the **number of people in S**, **the number of people in I** and the **transmission rate**.",
+        "text": "The **transmission rate** describes the **chance of a person who knows about the gossip telling it to people who don't already know about it**.\nHow many beads we move **from S to I** depends on the **number of people in S**, **the number of people in I** and the **transmission rate**.\nOutside our gossip example in epidemiology, the **transmission rate** describes the **average number of people a person from the I compartment infects a day**",
         "image": "SI_transmission.png"
       },
       {
@@ -742,7 +742,7 @@
         ]
       }
     ],
-    "progress": 21
+    "progress": 20
   },
   {
     "id": 6,

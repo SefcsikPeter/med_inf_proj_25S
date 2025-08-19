@@ -200,18 +200,6 @@
         "hint": 3
       },
       {
-        "question": "Let's say that we would like to model the spread of a disease in a school with 300 people. On the first day, 4 people were infected and started spreading the disease, and one person had already recovered from the disease. How should you set the number of people in each compartment?",
-        "options": [
-          "S: 300, I: 4, R: 1",
-          "S: 295, I: 4, R: 1",
-          "S: 299, I: 1, R: 0",
-          "S: 295, I: 5, R: 0"
-        ],
-        "correct": "S: 295, I: 4, R: 1",
-        "image": "sir_init_quiz.png",
-        "hint": 5
-      },
-      {
         "question": "What is the transmission rate?",
         "options": [
           "How many people one sick person infects a day on average",
@@ -221,7 +209,7 @@
         ],
         "correct": "How many people one sick person infects a day on average",
         "image": "SIR.png",
-        "hint": 7
+        "hint": 9
       },
       {
         "question": "We got this plot using the SIR model to model the spread of gossip, using only the S and I compartments. We started the simulation with one person knowing about the gossip and a total of 12 people. Which of the lines shows the total number of people in the S compartment, and which shows the total number of people in the I compartment?",
@@ -233,7 +221,19 @@
         ],
         "correct": "The blue continuous line is S, and the orange dashed line is I",
         "image": "SI_quiz.png",
-        "hint": 9
+        "hint": 11
+      },
+      {
+        "question": "Let's say that we would like to model the spread of a disease in a school with 300 people. On the first day, 4 people were infected and started spreading the disease, and one person had already recovered from the disease. How should you set the number of people in each compartment?",
+        "options": [
+          "S: 300, I: 4, R: 1",
+          "S: 295, I: 4, R: 1",
+          "S: 299, I: 1, R: 0",
+          "S: 295, I: 5, R: 0"
+        ],
+        "correct": "S: 295, I: 4, R: 1",
+        "image": "sir_init_quiz.png",
+        "hint": 19
       }
     ],
     "progress": 4,
