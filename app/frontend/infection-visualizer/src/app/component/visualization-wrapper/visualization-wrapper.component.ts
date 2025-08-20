@@ -24,6 +24,7 @@ export class VisualizationWrapperComponent implements OnInit, OnChanges {
   @Input() vis: Visualization = {type: VisualizationTypeEnum.rad_tree};
   @Input() data: any;
   @Input() showVis: boolean = false;
+  @Input() highlight: number | null = null;
 
   @Output() fetchData = new EventEmitter<void>();
   @Output() hoverY = new EventEmitter<number>();

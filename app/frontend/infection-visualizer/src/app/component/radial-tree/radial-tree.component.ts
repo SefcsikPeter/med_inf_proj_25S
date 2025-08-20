@@ -34,7 +34,8 @@ export class RadialTreeComponent implements OnInit {
   ngOnChanges(changes: SimpleChanges): void {
     if ((changes['infectionTreeData'] && !changes['infectionTreeData'].firstChange) ||
       (changes['stepSize'] && !changes['stepSize'].firstChange) ||
-      (changes['maxDepth'] && !changes['maxDepth'].firstChange)) {
+      (changes['maxDepth'] && !changes['maxDepth'].firstChange) ||
+      (changes['highlight'] && !changes['highlight'].firstChange)) {
       this.fetchTree();
     }
   }

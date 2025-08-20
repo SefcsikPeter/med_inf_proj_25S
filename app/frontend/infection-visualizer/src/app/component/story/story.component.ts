@@ -39,6 +39,7 @@ export class StoryComponent implements OnInit {
   showVis2: boolean = false;
   showSliders: boolean = false;
   showReGenerate: boolean = false;
+  highlight: number | null = null;
 
   constructor(
     private storyService: StoryService,
@@ -239,7 +240,8 @@ tokenizeLines(value?: string | null): Token[][] {
   }
 
   onHoverY(y: number) {
-    console.log('Hovered Y:', y);
+    this.highlight = y;
+    console.log('Hovered Y:', this.highlight);
   }
 
   async handleWrapperFetch(): Promise<boolean> {
