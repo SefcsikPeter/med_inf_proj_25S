@@ -106,15 +106,16 @@ export class RadialTreeComponent implements OnInit {
       .sort((a, b) => a - b);
 
     container.append("g")
-      .attr("stroke", "#ccc")
-      .attr("stroke-dasharray", "2,2")
       .attr("fill", "none")
       .selectAll("circle")
       .data(nodeDepths)
       .join("circle")
-      .attr("r", (d: number) => d * this.stepSize);
+      .attr("r", (d: number) => d * this.stepSize)
+      .attr("stroke", "#ccc")
+      .attr("stroke-dasharray", "2,2")
+      .style("opacity", (d: number) => this.highlight == null ? 1 : (d <= (this.highlight as number) ? 1 : 0.2));
 
-    const isHL = (d: any) => this.highlight != null && d.depth === this.highlight;
+    const isHL = (d: any) => this.highlight != null && d.depth <= (this.highlight as number);
 
     // highlighted nodes
     container.append("g")
@@ -134,14 +135,18 @@ export class RadialTreeComponent implements OnInit {
     container.append("g")
       .attr("fill", "none")
       .attr("stroke", "#555")
-      .attr("stroke-opacity", (this.highlight == null) ? 0.4 : 0.15)
       .attr("stroke-width", 1.5)
       .selectAll("path")
       .data(visibleLinks)
       .join("path")
       .attr("d", d3.linkRadial()
         .angle((d: any) => d.x)
-        .radius((d: any) => d.y) as any);
+        .radius((d: any) => d.y) as any)
+      .style("stroke-opacity", (l: any) => {
+        if (this.highlight == null) return 0.4;
+        const h = this.highlight as number;
+        return (l.source.depth <= h && l.target.depth <= h) ? 0.4 : 0.15;
+      });
 
     container.append("g")
       .selectAll("text.node-emoji")
