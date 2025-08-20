@@ -20,6 +20,8 @@ export class RadialTreeComponent implements OnInit {
   @Input() infectionTreeData: any;
   @Input() maxDepth: number = Infinity;
   @Input() showNodeIds: boolean = false;
+  @Input() highlight: number | null = null;
+  
   private resizeObserver!: ResizeObserver;
 
   constructor() {}
@@ -111,10 +113,27 @@ export class RadialTreeComponent implements OnInit {
       .join("circle")
       .attr("r", (d: number) => d * this.stepSize);
 
+    const isHL = (d: any) => this.highlight != null && d.depth === this.highlight;
+
+    // highlighted nodes
+    container.append("g")
+      .attr("class", "node-halos")
+      .selectAll("circle.node-halo")
+      .data(visibleNodes.filter(isHL))
+      .join("circle")
+      .attr("class", "node-halo")
+      .attr("transform", (d: any) => `
+        translate(${Math.cos(d.x - Math.PI / 2) * d.y},
+                  ${Math.sin(d.x - Math.PI / 2) * d.y})
+      `)
+      .attr("r", 16)
+      .attr("fill", "orange")
+      .attr("opacity", 0.25);
+
     container.append("g")
       .attr("fill", "none")
       .attr("stroke", "#555")
-      .attr("stroke-opacity", 0.4)
+      .attr("stroke-opacity", (this.highlight == null) ? 0.4 : 0.15)
       .attr("stroke-width", 1.5)
       .selectAll("path")
       .data(visibleLinks)
@@ -127,10 +146,11 @@ export class RadialTreeComponent implements OnInit {
       .selectAll("text.node-emoji")
       .data(visibleNodes)
       .join("text")
-      .attr("class", "node-emoji")
+      .attr("class", (d: any) => `node-emoji${isHL(d) ? ' highlighted' : ''}`)
       .attr("text-anchor", "middle")
       .attr("alignment-baseline", "middle")
       .style("font-size", "20px")
+      .style("opacity", (d: any) => (this.highlight == null || isHL(d)) ? 1 : 0.25)
       .attr("transform", (d: any) => `
         translate(${Math.cos(d.x - Math.PI / 2) * d.y},
                   ${Math.sin(d.x - Math.PI / 2) * d.y})
@@ -151,7 +171,8 @@ export class RadialTreeComponent implements OnInit {
       .selectAll("text.node-label")
       .data(visibleNodes)
       .join("text")
-      .attr("class", "node-label")
+      .attr("class", (d: any) => `node-label${isHL(d) ? ' highlighted' : ''}`)
+      .style("opacity", (d: any) => (this.highlight == null || isHL(d)) ? 1 : 0.25)
       .attr("transform", (d: any) => {
         const x = Math.cos(d.x - Math.PI / 2) * d.y;
         const y = Math.sin(d.x - Math.PI / 2) * d.y;

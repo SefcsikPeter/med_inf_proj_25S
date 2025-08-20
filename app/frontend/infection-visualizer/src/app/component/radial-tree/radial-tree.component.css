@@ -1,0 +1,13 @@
+/* optional but nice: make highlighted nodes pop */
+.node-emoji.highlighted,
+.node-label.highlighted {
+  paint-order: stroke;         /* let stroke render under fill */
+  stroke: #000;                /* subtle outline improves readability */
+  stroke-width: 0.6px;
+}
+
+.node-halo {
+  /* you can tweak color/opacity purely via CSS if preferred */
+  fill: orange;
+  opacity: 0.25;
+}
