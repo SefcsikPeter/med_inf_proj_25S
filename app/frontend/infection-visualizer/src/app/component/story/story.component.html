@@ -47,6 +47,7 @@
         [data]="infectionTreeData"
         [showVis]="showVis1"
         (fetchData)="handleWrapperFetch()"
+        (hoverY)="onHoverY($event)"
       ></app-visualization-wrapper>
 
       <!-- Visualization 2 -->
@@ -55,6 +56,7 @@
         [data]="infectionTreeData"
         [showVis]="showVis2"
         (fetchData)="handleWrapperFetch()"
+        (hoverY)="onHoverY($event)"
       ></app-visualization-wrapper>
 
       <!-- Sliders -->

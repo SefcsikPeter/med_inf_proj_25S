@@ -238,6 +238,10 @@ tokenizeLines(value?: string | null): Token[][] {
     }
   }
 
+  onHoverY(y: number) {
+    console.log('Hovered Y:', y);
+  }
+
   async handleWrapperFetch(): Promise<boolean> {
     if (this.dataParams.type === "dummy_tree") {
       return this.fetchDummyTree(this.dataParams.num_iter);

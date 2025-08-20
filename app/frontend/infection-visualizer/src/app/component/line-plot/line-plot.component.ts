@@ -1,4 +1,14 @@
-import {Component, OnInit, ElementRef, ViewChild, Input, AfterViewInit, SimpleChanges, OnChanges} from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ElementRef,
+  ViewChild,
+  Input,
+  SimpleChanges,
+  OnChanges,
+  Output,
+  EventEmitter
+} from '@angular/core';
 import * as d3 from 'd3';
 
 @Component({
@@ -22,6 +32,8 @@ export class LinePlotComponent implements OnInit, OnChanges {
   @Input() legend: string = '';
   @Input() xMaxFixed: number | null = null;
   @Input() yMaxFixed: number | null = null;
+
+  @Output() hoverY = new EventEmitter<number>();
 
   dailyTemp: { x: number, y: number }[] = [
   { x: 0, y: 12 }, { x: 1, y: 11 }, { x: 2, y: 11 }, { x: 3, y: 10 },
@@ -218,6 +230,9 @@ export class LinePlotComponent implements OnInit, OnChanges {
         const pointY = y(selectedData.y);
 
         if (selectedData) {
+          //TODO: check why this is inverted
+          this.hoverY.emit(selectedData.x);
+
           focus
             .attr("cx", x(selectedData.x))
             .attr("cy", y(selectedData.y));

@@ -68,6 +68,7 @@
       [legend]="legend"
       [xMaxFixed]="xMaxFixed"
       [yMaxFixed]="yMaxFixed"
+      (hoverY)="hoverY.emit($event)"
     ></app-line-plot>
   </div>
 

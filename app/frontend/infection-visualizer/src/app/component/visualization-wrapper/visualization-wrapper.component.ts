@@ -26,6 +26,7 @@ export class VisualizationWrapperComponent implements OnInit, OnChanges {
   @Input() showVis: boolean = false;
 
   @Output() fetchData = new EventEmitter<void>();
+  @Output() hoverY = new EventEmitter<number>();
 
   depth = 3;
   step = 50;
