@@ -10,8 +10,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .toast-message {
   display: flex;
-  justify-content: center; /* Horizontal center */
-  align-items: center;     /* Vertical center */
+  justify-content: center;
+  align-items: center;
 }
 
 .toast-success {
@@ -32,33 +32,17 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   z-index: 100;
 }
 
-.rad-tree {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100%;
-}
-
-.tree-container {
-  width: 100%;
-  max-width: 350;
-  height: auto;
-  aspect-ratio: 1 / 1;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .visualization-container {
   border: 1px solid #ccc;
   padding: 1rem;
   border-radius: 8px;
-  max-width: 350px;
 }
 
+.visualization-container--sm { width: 30vw }
+.visualization-container--md { width: 40vw}
+.visualization-container--lg { width: 80vw }
+
 .block-title {
-  width: 350px;
   justify-content: space-between;
 }
 

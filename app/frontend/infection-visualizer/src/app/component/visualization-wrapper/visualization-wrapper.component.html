@@ -1,4 +1,4 @@
-<div *ngIf="showVis" class="col-12 visualization-container">
+<div *ngIf="showVis" class="col-12" [ngClass]="['visualization-container', containerClass]">
 
   
   <div *ngIf="this.vis.type === VisualizationTypeEnum.inf_tree">

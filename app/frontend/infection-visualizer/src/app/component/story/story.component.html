@@ -43,6 +43,7 @@
     >
       <!-- Visualization 1 -->
       <app-visualization-wrapper
+        [containerClass]="containerClass"
         [vis]="vis1"
         [data]="infectionTreeData"
         [showVis]="showVis1"
@@ -53,6 +54,7 @@
 
       <!-- Visualization 2 -->
       <app-visualization-wrapper
+        [containerClass]="containerClass"
         [vis]="vis2"
         [data]="infectionTreeData"
         [showVis]="showVis2"
@@ -63,6 +65,7 @@
 
       <!-- Sliders -->
       <app-slider-wrapper
+        [containerClass]="containerClass"
         [showSliders]="showSliders"
         [sliders]="sliders"
         (sliderValuesChange)="handleSliderValues($event)"

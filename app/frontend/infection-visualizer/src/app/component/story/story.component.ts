@@ -40,6 +40,7 @@ export class StoryComponent implements OnInit {
   showSliders: boolean = false;
   showReGenerate: boolean = false;
   highlight: number | null = null;
+  containerClass: string = 'visualization-wrapper--md';
 
   constructor(
     private storyService: StoryService,
@@ -180,9 +181,11 @@ tokenizeLines(value?: string | null): Token[][] {
     this.storyService.getStorySlide(this.storyId, index).subscribe({
       next: async (data) => {
         this.slide = data.slide;
-        console.log('slide', this.slide)
+        console.log('loaded slide', this.slide)
         this.currentSlide = data.page;
         this.imagePath = 'http://localhost:8000/static/images/';
+        let elementCount = 0;
+
         if (data.image != null) {
           this.imagePath += data.image;
         }
@@ -195,18 +198,34 @@ tokenizeLines(value?: string | null): Token[][] {
         if (this.slide.vis1 != null) {
           this.vis1 = this.slide.vis1;
           this.showVis1 = true;
+          elementCount += 1;
         }
 
         if (this.slide.vis2 != null) {
           this.vis2 = this.slide.vis2;
           this.showVis2 = true;
+          elementCount += 1;
         }
 
         if (this.slide.sliders != null) {
           this.sliders = this.slide.sliders;
           this.showSliders = true;
-          console.log(this.sliders)
+          elementCount += 1;
         }
+
+        switch(elementCount) {
+          case 1:
+            this.containerClass = 'visualization-container--lg';
+            break;
+          case 2:
+            this.containerClass = 'visualization-container--md';
+            break;
+          case 3:
+            this.containerClass = 'visualization-container--sm';
+            break;
+        }
+
+        console.log(this.containerClass)
 
         this.router.navigate([], {
           relativeTo: this.route,

@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {NgIf} from '@angular/common';
+import {NgIf, NgClass} from '@angular/common';
 import {SliderComponent} from '../slider/slider.component';
 import {SymbolsEnum} from '../../model/symbols.enum';
 import {Subject} from 'rxjs';
@@ -9,6 +9,7 @@ import {debounceTime} from 'rxjs/operators';
   selector: 'app-slider-wrapper',
   imports: [
     NgIf,
+    NgClass,
     SliderComponent
   ],
   standalone: true,
@@ -18,6 +19,8 @@ import {debounceTime} from 'rxjs/operators';
 export class SliderWrapperComponent implements OnInit{
   @Input() showSliders: boolean = false;
   @Input() sliders: any[] = [];
+  @Input() containerClass: string | string[] = 'visualization-container--md';
+
   @Output() sliderValuesChange = new EventEmitter<Record<string, number>>();
 
   sliderSubjects: Record<string, Subject<number>> = {};

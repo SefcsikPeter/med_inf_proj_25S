@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 import {RadialTreeComponent} from '../radial-tree/radial-tree.component';
-import {NgIf} from '@angular/common';
+import {NgIf, NgClass } from '@angular/common';
 import {LineStyle, Visualization} from '../../model/visualization';
 import {VisualizationTypeEnum} from '../../model/visualization-type.enum';
 import {LinePlotComponent} from '../line-plot/line-plot.component';
@@ -13,6 +13,7 @@ import { InfectionTreeComponent } from '../infection-tree/infection-tree.compone
   imports: [
     RadialTreeComponent,
     NgIf,
+    NgClass,
     LinePlotComponent,
     MultilinePlotComponent,
     InfectionTreeComponent
@@ -25,6 +26,7 @@ export class VisualizationWrapperComponent implements OnInit, OnChanges {
   @Input() data: any;
   @Input() showVis: boolean = false;
   @Input() highlight: number | null = null;
+  @Input() containerClass: string | string[] = 'visualization-container--md';
 
   @Output() fetchData = new EventEmitter<void>();
   @Output() hoverY = new EventEmitter<number>();
