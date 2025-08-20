@@ -116,6 +116,7 @@ def get_dummy_tree(num_iter):
                 for j in range(0, np.random.choice([1, 2, 3, 4])):
                     G.add_edge(n, cnt)
                     cnt += 1
+    plot_data.append([num_iter, cnt])
     for i in G.nodes:
         G.nodes[i]['status'] = 'inf'
     data = json_graph.node_link_data(G)

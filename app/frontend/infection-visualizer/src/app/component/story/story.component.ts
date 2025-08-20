@@ -113,7 +113,7 @@ tokenizeLines(value?: string | null): Token[][] {
     try {
       const data = await firstValueFrom(this.treeService.getDummyTree(numIter));
       this.infectionTreeData = data;
-      console.log(data);
+      console.log('dummy tree: ', data);
       return true;
     } catch (err) {
       console.error('Error fetching infection tree:', err);
