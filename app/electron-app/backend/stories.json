@@ -117,7 +117,7 @@
         ]
       }
     ],
-    "progress": 6
+    "progress": 9
   },
   {
     "id": 1,
@@ -127,11 +127,31 @@
     ],
     "slides": [
       {
-        "text": "When a disease spreads, thousands of numbers are recorded every day: infections, recoveries, hospitalizations.\nWithout tools for showing and summarizing all this data, it can become very hard to keep track of what is happening as you can also see in the example table below.",
+        "text": "When a disease spreads, thousands of numbers are recorded every day: infections, recoveries, hospitalizations.\nWithout tools for showing and summarizing all this data, it can become very hard to keep track of what is happening.",
+        "image": "data_chaos.png"
+      },
+      {
+        "text": "In the table below, you can see an example of typical data an epidemiologist would look at.\nIt contains information about how the state of a thousand people changes in ten days.",
         "image": "sir_table.png"
       },
       {
-        "text": "Our goal in epidemic visualization is to create representations of the data that are easier to understand and read.\nYou can see an example of this below, both representations contain the same information but the second one is much less mental effort to read.\n(Don't worry, you don't need to understand what is happening in the image for now.)",
+        "text": "People in the S column are considered healthy but can get infected by the disease that is analyzed.\nIn this column, the **S** stands for **Susceptible**",
+        "image": "sir_table_s.png"
+      },
+      {
+        "text": "People in the I column are infected, they spread the disease to other people.\nIn this column, the **I** stands for **Infected**",
+        "image": "sir_table_i.png"
+      },
+      {
+        "text": "People in the R column recovered from the disease, so they are healthy, but they differ from people in S because they cannot get infected by the same disease again.\nIn this column, the **R** stands for **Recovered**",
+        "image": "sir_table_r.png"
+      },
+      {
+        "text": "Even though we now have a basic understanding of what information this table contains, it can be hard to make judgments just by looking at it.",
+        "image": "sir_table_sir.png"
+      },
+      {
+        "text": "Our goal in epidemic visualization is to create representations of the data that are easier to understand and read.\nYou can see an example of this below, both representations contain the same information, but the second one takes much less mental effort to understand once you learn how to read it in the upcoming lectures.",
         "image": "table_to_plot.png"
       },
       {
@@ -175,7 +195,7 @@
         }
       }
     ],
-    "progress": 5
+    "progress": 10
   },
   {
     "id": 2,
@@ -275,7 +295,7 @@
         }
       }
     ],
-    "progress": 1
+    "progress": 10
   },
   {
     "id": 3,
@@ -417,7 +437,7 @@
         "image": "SIR.png"
       }
     ],
-    "progress": 1
+    "progress": 4
   },
   {
     "id": 5,
@@ -742,7 +762,7 @@
         ]
       }
     ],
-    "progress": 20
+    "progress": 15
   },
   {
     "id": 6,
@@ -976,7 +996,7 @@
         }
       }
     ],
-    "progress": 5
+    "progress": 1
   },
   {
     "id": 9,
@@ -1416,8 +1436,31 @@
       },
       {
         "text": "Similarly to the SIR model, you can also set different values for how likely someone is to get infected, recover, and so on, but instead of setting these values for the whole population, you can set them for each individual agent differently."
+      },
+      {
+        "text": "test",
+        "data": {
+          "type": "dummy_tree"
+        },
+        "vis1": {
+          "type": "line_plot"
+        },
+        "vis2": {
+          "type": "rad_tree"
+        },
+        "sliders": [
+          {
+            "type": "transmission_rate",
+            "min": 0.08,
+            "max": 0.11,
+            "step": 0.0001,
+            "current_value": 0.097,
+            "symbol": "virus",
+            "text": "transmission rate"
+          }
+        ]
       }
     ],
-    "progress": 2
+    "progress": 3
   }
 ]
