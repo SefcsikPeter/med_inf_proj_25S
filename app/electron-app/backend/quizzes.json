@@ -52,7 +52,7 @@
         "hint": 8
       }
     ],
-    "progress": 4,
+    "progress": 1,
     "passed": true
   },
   {
@@ -69,7 +69,7 @@
         ],
         "correct": "To create awareness and understanding",
         "image": "table_to_plot.png",
-        "hint": 1
+        "hint": 6
       }
     ],
     "progress": 1,
