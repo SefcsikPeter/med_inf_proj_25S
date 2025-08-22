@@ -25,7 +25,7 @@
         "text": "Whenever two people meet, they either talk about gossip or they don't.\nWe can model this by flipping a coin: if it lands heads, the gossip spreads from one person to the other, if it lands tails, it doesn't."
       },
       {
-        "text": "This example examines how gossip spreads within a class. There are 30 classmates.\nLet's say each person has about three conversations with others per day.\nOn the first day, only one person knows the gossip.\nFor each conversation that person has, we flip a coin to determine whether the conversation is about the gossip."
+        "text": "This example examines how gossip spreads within a class. There are 30 classmates.\nLet's say each person has one conversation a day.\nOn the first day, only one person knows the gossip.\nFor each conversation someone has who knows about the gossip, we flip a coin to see if the gossip spreads."
       },
       {
         "text": "Now you can also try changing the slider around to see how the gossip spreads day-by-day. Each ring represents a new day.",
