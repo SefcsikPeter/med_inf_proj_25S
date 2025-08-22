@@ -87,7 +87,7 @@ export class MultilinePlotComponent implements OnInit, OnChanges {
     const margin = { top: 20, right: 30, bottom: 50, left: 60 };
     const containerEl = this.chartContainer.nativeElement as HTMLElement;
     const fullWidth = containerEl.offsetWidth || 460;
-    const fullHeight = containerEl.offsetHeight || fullWidth;
+    const fullHeight = 340;
 
     const width = fullWidth - margin.left - margin.right;
     const height = fullHeight - margin.top - margin.bottom;
