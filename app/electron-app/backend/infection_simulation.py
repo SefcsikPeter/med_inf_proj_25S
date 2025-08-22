@@ -187,6 +187,75 @@ def get_coin_flip_data(n_flips=100):
         "plot_data": [H_data, T_data]
     }
 
+def get_gossip_data(pop_size=30, conversations_per_day=1, n_days=7):
+    """
+    Simulate gossip spread via coin flips.
+
+    Rules:
+      - Start with one person who knows the gossip.
+      - For each of n_days:
+          * Each person initiates `conversations_per_day` conversations.
+          * Conversation partner is chosen uniformly at random from the other people.
+          * If exactly one of the two knows the gossip, there is a 50% chance the
+            other learns it. When someone learns it for the first time, we add a
+            directed edge from the informer to the learner in the infection tree.
+      - The graph returned represents the path of spread (who told whom, first time).
+      - plot_data contains the running sum of people who know the gossip at the end of each day,
+        with an initial point for day 0.
+
+    Returns:
+        dict: node-link graph JSON with an extra key 'plot_data' like:
+              {
+                "nodes": [...],
+                "links": [...],
+                ...,
+                "plot_data": [[day0, count0], [day1, count1], ...]
+              }
+    """
+    G = nx.DiGraph()
+
+    initial = int(np.random.randint(0, pop_size))
+    knows = set([initial])
+    G.add_node(initial, status="inf")
+
+    def choose_partner(i):
+        j = i
+        while j == i:
+            j = int(np.random.randint(0, pop_size))
+        return j
+
+    plot_data = [[0.0, float(len(knows))]]
+
+    for day in range(1, n_days + 1):
+        for person in range(pop_size):
+            for _ in range(conversations_per_day):
+                partner = choose_partner(person)
+
+                a_knows = person in knows
+                b_knows = partner in knows
+
+                if a_knows ^ b_knows:
+                    if int(np.random.randint(0, 2)) == 1:
+                        if a_knows and not b_knows:
+                            source, target = person, partner
+                        else:
+                            source, target = partner, person
+
+                        if target not in knows:
+                            knows.add(target)
+                            if not G.has_node(source):
+                                G.add_node(source, status="inf")
+                            if not G.has_node(target):
+                                G.add_node(target, status="inf")
+                            G.add_edge(source, target)
+
+        plot_data.append([float(day), float(len(knows))])
+
+    data = json_graph.node_link_data(G)
+    data["plot_data"] = plot_data
+    return data
+
+
 def get_partial_sir_data(
     start_index=0, # start: 2020-03-06 
     end_index=None, # end: 2021-10-17
