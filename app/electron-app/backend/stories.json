@@ -171,14 +171,16 @@
       {
         "text": "In the stories of this level, you will see explanations for how you can understand some of these visualizations, create them and what they are used for.",
         "data": {
-          "type": "dummy_tree"
+          "type": "coin_flip_gossip",
+          "pop_size": 30,
+          "conversation_per_person": 1
         },
         "vis1": {
           "type": "rad_tree",
           "show_desc": false,
           "show_id": false,
           "step": 30,
-          "depth": 6
+          "depth": 7
         },
         "vis2": {
           "type": "line_plot",
@@ -187,12 +189,12 @@
           "x_lab": "days",
           "y_lab": "people",
           "legend": "people infected",
-          "x_max_fixed": 4,
-          "y_max_fixed": 140
+          "x_max_fixed": 7,
+          "y_max_fixed": 30
         }
       }
     ],
-    "progress": 7
+    "progress": 10
   },
   {
     "id": 2,
