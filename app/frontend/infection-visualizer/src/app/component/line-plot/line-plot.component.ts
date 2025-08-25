@@ -32,6 +32,8 @@ export class LinePlotComponent implements OnInit, OnChanges {
   @Input() legend: string = '';
   @Input() xMaxFixed: number | null = null;
   @Input() yMaxFixed: number | null = null;
+  @Input() quizTemps: boolean = false;
+  @Input() highlightX: number | null = null;
 
   @Output() hoverY = new EventEmitter<number>();
 
@@ -62,6 +64,9 @@ export class LinePlotComponent implements OnInit, OnChanges {
   ngOnInit(): void {
     if (this.temps) {
       this.plotData = this.dailyTemp;
+    }
+    if (this.quizTemps) {
+      this.plotData = this.dailyTempQuiz1;
     }
     if (this.demoNum) {
       this.plotData = this.nums;
@@ -303,6 +308,17 @@ export class LinePlotComponent implements OnInit, OnChanges {
         .attr("cy", d => this.onlyShowX ? y(0) : y(d.y))
         .attr("r", 5)
         .style("fill", "green");
+    }
+
+    if (this.highlightX !== null) {
+      const match = this.plotData.find(d => d.x === this.highlightX);
+      if (match) {
+        svg.append("circle")
+          .attr("cx", x(match.x))
+          .attr("cy", y(match.y))
+          .attr("r", 6)
+          .style("fill", "red");
+      }
     }
   }
 }

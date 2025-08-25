@@ -2,6 +2,7 @@ import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges
 import { FormsModule } from '@angular/forms';
 import { NgClass } from '@angular/common';
 import {RouterLink} from '@angular/router';
+import { LinePlotComponent } from '../line-plot/line-plot.component';
 
 @Component({
   selector: 'app-mc-question',
@@ -9,7 +10,8 @@ import {RouterLink} from '@angular/router';
   imports: [
     FormsModule,
     NgClass,
-    RouterLink
+    RouterLink,
+    LinePlotComponent
   ],
   templateUrl: './mc-question.component.html',
   styleUrl: './mc-question.component.css'
@@ -23,6 +25,8 @@ export class McQuestionComponent implements OnInit, OnChanges {
     options: string[];
     correct: string;
     hint: number;
+    temp_quiz?: boolean;
+    highlight?: boolean;
   } = {
     text: 'Question not loaded correctly',
     question: '',

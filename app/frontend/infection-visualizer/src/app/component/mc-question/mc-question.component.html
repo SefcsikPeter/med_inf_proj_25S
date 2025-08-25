@@ -8,6 +8,30 @@
         <img [src]="imagePath" alt="Question image" style="max-width: 600px; height: auto;"/>
       }
 
+      @if (question.temp_quiz) {
+        @if (question.highlight) {
+          <div class="visualization-container--sm">
+            <app-line-plot
+              [quizTemps]="true"
+              [drawLine]="true"
+              [yLabel]="'temperature'"
+              [xLabel]="'hour'"
+              [highlightX]="18"
+            ></app-line-plot>
+          </div>
+        }
+        @else {
+          <div class="visualization-container--sm">
+            <app-line-plot
+              [quizTemps]="true"
+              [drawLine]="true"
+              [yLabel]="'temperature'"
+              [xLabel]="'hour'"
+            ></app-line-plot>
+          </div>
+        }
+      }
+
       <!-- Question and options -->
       <div style="flex: 1;">
         <h5 class="card-title">{{ question.text }}</h5>

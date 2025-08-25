@@ -100,8 +100,8 @@
           "4"
         ],
         "correct": "7",
-        "image": "quiz_temps.png",
-        "hint": 8
+        "hint": 8,
+        "temp_quiz": true
       },
       {
         "question": "What hour and temperature does the highlighted point represent?",
@@ -112,11 +112,12 @@
           "temperature: 6, hour: 0"
         ],
         "correct": "temperature: 3, hour: 18",
-        "image": "quiz_temps_highlight.png",
-        "hint": 9
+        "hint": 9,
+        "temp_quiz": true,
+        "highlight": true
       }
     ],
-    "progress": 2,
+    "progress": 1,
     "passed": true
   },
   {
