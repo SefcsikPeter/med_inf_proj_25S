@@ -10,7 +10,7 @@ from typing import Optional
 from fastapi import FastAPI, Body
 import uvicorn
 import json
-from infection_simulation import get_inf_tree, get_dummy_tree, get_sir_data, build_custom_infection_tree, get_partial_sir_data, get_coin_flip_data
+from infection_simulation import get_inf_tree, get_dummy_tree, get_sir_data, build_custom_infection_tree, get_partial_sir_data, get_coin_flip_data, get_gossip_data
 from fastapi import Query, Path, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
@@ -59,6 +59,17 @@ def get_graph(n_flips: int = Query(100, description="Number of flips")):
         n_flips = 100 by default, number of coin flips
     '''
     return get_coin_flip_data(n_flips)
+
+@app.get("/coin-flip/gossip")
+def get_graph(pop_size: int = Query(30, description="Number of people"), conversations_per_day: int = Query(1, description="Number of conversations per day"), n_days: int = Query(7, description="Number of days")):
+    '''
+    Getgossip spread data using coinflip simulation.
+    params:
+        pop_size = 30 by default, specifies the number of people in the simulation
+        conversations_per_day = 1 by default, specifies the number of conversations a person has a day
+        n_days = 7 by default, specifies the number of days the simulation runs for
+    '''
+    return get_gossip_data(pop_size=pop_size, conversations_per_day=conversations_per_day, n_days=n_days)
 
 @app.get("/example-tree")
 def get_example_graph():
