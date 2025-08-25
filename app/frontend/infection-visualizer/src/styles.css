@@ -36,7 +36,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   border: 1px solid #ccc;
   padding: 1rem;
   border-radius: 8px;
-  max-height: 60vh;
   overflow: auto;
 }
 

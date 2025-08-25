@@ -57,7 +57,7 @@ export class InfectionTreeComponent implements OnInit {
 
   createTree(): void {
     const containerWidth = this.treeContainer.nativeElement.offsetWidth;
-    const containerHeight = this.treeContainer.nativeElement.offsetHeight || 500;
+    const containerHeight = Math.min(containerWidth, 700);
 
     const { nodes, links } = this.infectionTreeData;
     const nodeById = new Map(nodes.map((d: any) => [d.id, { ...d, children: [] }]));
