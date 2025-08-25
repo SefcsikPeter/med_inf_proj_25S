@@ -140,6 +140,20 @@ tokenizeLines(value?: string | null): Token[][] {
     }
   }
 
+    async fetchGossipData(): Promise<boolean> {
+    try {
+      let data;
+      data = await firstValueFrom(this.coinFlipService.getGossipData(this.dataParams));
+      
+      this.infectionTreeData = data;
+      console.log(data);
+      return true;
+    } catch (err) {
+      console.error('Error fetching gossip data:', err);
+      return false;
+    }
+  }
+
   async fetchExampleTree(): Promise<boolean> {
     try {
       const data = await firstValueFrom(this.treeService.getExampleTree());
@@ -274,6 +288,8 @@ tokenizeLines(value?: string | null): Token[][] {
       return this.fetchSIRATData();
     } else if (this.dataParams.type === "coin_flip") {
       return this.fetchCoinFlip();
+    } else if (this.dataParams.type === "coin_flip_gossip") {
+      return this.fetchGossipData();
     } else {
       return false;
     }
