@@ -18,13 +18,13 @@
       {
         "question": "What tools can we use to simulate gossip spreading?",
         "options": [
-          "Dice and coins",
+          "Coins",
+          "Dice",
           "Rulers",
-          "Stones",
           "Maps"
         ],
-        "correct": "Dice and coins",
-        "image": "dice.jpg",
+        "correct": "Coins",
+        "image": "coin_flip.png",
         "hint": 3
       },
       {
@@ -37,7 +37,7 @@
         ],
         "correct": "The disease spreads faster and faster",
         "image": "infection.png",
-        "hint": 6
+        "hint": 7
       },
       {
         "question": "Why is flipping a coin a good analogy for how a disease spreads?",
@@ -52,7 +52,7 @@
         "hint": 8
       }
     ],
-    "progress": 1,
+    "progress": 4,
     "passed": true
   },
   {
