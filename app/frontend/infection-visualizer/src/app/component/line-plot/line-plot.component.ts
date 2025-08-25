@@ -96,7 +96,7 @@ export class LinePlotComponent implements OnInit, OnChanges {
     const containerEl = this.chartContainer.nativeElement as HTMLElement;
     //TODO solve
     const fullWidth = containerEl.offsetWidth;
-    const fullHeight = 340;
+    const fullHeight = Math.min(fullWidth, 400);
 
     const width = fullWidth - margin.left - margin.right;
     const height = fullHeight - margin.top - margin.bottom;
