@@ -4,5 +4,6 @@ export const SymbolsEnum: Record<string, string> = {
   bed: '🛏️',
   person: '🧍',
   water: '🌊',
-  coin: '🪙'
+  coin: '🪙',
+  conversation: '🗣️'
 };

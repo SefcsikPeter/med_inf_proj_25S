@@ -36,10 +36,9 @@
         }
       },
       {
-        "text": "Now you can also try changing the slider around to see how the gossip spreads day-by-day. Each ring represents a new day.",
+        "text": "Now you can also try changing the slider around to see how the gossip spreads conversation-by-conversation.\nEach connection represents a conversation where the gossip spread.\nEach ring represents the number of conversations that were needed for the gossip to spread from the first person starting the gossip to the other person.",
         "data": {
-          "type": "dummy_tree",
-          "num_iter": 5
+          "type": "coin_flip_gossip"
         },
         "vis1": {
           "show_desc": false,
@@ -52,19 +51,19 @@
           {
             "type": "depth",
             "min": 0,
-            "max": 5,
+            "max": 7,
             "step": 1,
             "current_value": 0,
-            "symbol": "sun",
-            "text": "days"
+            "symbol": "conversation",
+            "text": "conversations"
           }
         ]
       },
       {
-        "text": "A disease spreads the same way, one person might only infect a few other people, but when they also start infecting other people, the disease starts spreading faster and faster!\nThat is how an epidemic starts.",
+        "text": "Diseases spread very similarly, one person might only infect a few other people, but when they also start infecting other people, the disease starts spreading faster and faster!\nThat is how an epidemic starts.",
         "data": {
-          "type": "dummy_tree",
-          "num_iter": 5
+          "type": "coin_flip_gossip",
+          "pop_size": 100
         },
         "vis1": {
           "type": "rad_tree",
@@ -77,17 +76,13 @@
           {
             "type": "depth",
             "min": 0,
-            "max": 5,
+            "max": 7,
             "step": 1,
             "current_value": 5,
-            "symbol": "sun",
-            "text": "days"
+            "symbol": "virus",
+            "text": "infections"
           }
         ]
-      },
-      {
-        "text": "Another way to think about it is flipping a coin.\nFor each person who hears the gossip, it's like flipping a coin to see if they decide to pass it on or not.",
-        "image": "coin_flip.png"
       },
       {
         "text": "Based on the coin-flipping analogy, if we know that a person has an equal chance of spreading or not spreading the gossip, we can predict that about half of the people will spread it and the other half won't.\nHere, you can experiment with changing the number of coin flips using the slider. Observe how increasing the number of flips brings the ratio of heads and tails closer to 50:50.\nMany epidemic modelling methods work the same way, where they don't consider each person on an individual level, but rather look at the overall probabilities across the whole group.",
@@ -118,7 +113,7 @@
         ]
       }
     ],
-    "progress": 6
+    "progress": 9
   },
   {
     "id": 1,
@@ -298,7 +293,7 @@
         }
       }
     ],
-    "progress": 10
+    "progress": 7
   },
   {
     "id": 3,
@@ -414,7 +409,7 @@
         ]
       }
     ],
-    "progress": 12
+    "progress": 11
   },
   {
     "id": 4,
