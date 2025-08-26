@@ -50,9 +50,11 @@
             </div>
 
             <div class="mt-4 d-flex justify-content-center gap-3 flex-wrap">
-              <button type="button" class="btn btn-magenta btn-lg rounded-pill px-4 shimmer">
-                Try Sandbox Mode
-              </button>
+              @if (showSandbox) {
+                <button type="button" class="btn btn-magenta btn-lg rounded-pill px-4 shimmer">
+                  Try Sandbox Mode
+                </button>
+              }
 
               <a routerLink="/home" class="btn btn-outline-magenta btn-lg rounded-pill px-4">
                 Go to Home

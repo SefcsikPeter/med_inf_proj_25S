@@ -19,6 +19,7 @@ export class CongratsPageComponent {
   title = '';
   progress = 0;
   pieces: ConfettiPiece[] = [];
+  showSandbox = false;
 
   constructor(private router: Router) {
     this.pieces = this.generatePieces();
@@ -36,6 +37,7 @@ export class CongratsPageComponent {
       this.progress = state.progress;
     } else {
       this.progress = 1;
+      this.showSandbox = true;
     }
   }
 
