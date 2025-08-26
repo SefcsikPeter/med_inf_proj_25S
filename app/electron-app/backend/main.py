@@ -265,6 +265,70 @@ def api_reset_progress():
     """
     return reset_progress()
 
+@app.get("/quiz/progress")
+def get_chapter_progress():
+    """
+    Returns id of chapter to be celebrated if not celebrated yet
+    """
+    try:
+        with open("stories.json", "r") as f:
+            stories = json.load(f)
+    except FileNotFoundError:
+        raise HTTPException(status_code=500, detail="stories.json not found")
+    
+    try:
+        with open("quizzes.json", "r") as f:
+            quizzes = json.load(f)
+    except FileNotFoundError:
+        raise HTTPException(status_code=500, detail="quizzes.json not found")
+    
+    try:
+        with open("chapters.json", "r") as f:
+            chapters = json.load(f)
+    except FileNotFoundError:
+        raise HTTPException(status_code=500, detail="chapters.json not found")
+    
+    chapters_ordered = {}
+    check_completed = {}
+    celebrate = None
+    not_celebrated = {}
+    quizzes_passed = {}
+    progress = 0
+
+    for i in range(0, len(chapters)):
+        chapters_ordered[i] = []
+        check_completed[i] = []
+        not_celebrated[i] = not chapters[i]["celebrated"]
+    for story in stories:
+        chapters_ordered[story["chapter"]].append(story["id"])
+    for quiz in quizzes:
+        quizzes_passed[quiz["id"]] = quiz["passed"]
+        progress += quiz["passed"]
+    
+    progress = progress/len(quizzes)
+
+    for i in chapters_ordered:
+        cnt = 0
+        for j in chapters_ordered[i]:
+            if quizzes_passed[j]:
+                cnt += 1
+            if cnt == len(chapters_ordered[i]):
+                if not_celebrated[i]:
+                    celebrate = i
+
+    if celebrate is not None:
+        chapters[celebrate]["celebrated"] = True
+        try:
+            with open("chapters.json", "w") as f:
+                json.dump(chapters, f, indent=2, ensure_ascii=False)
+        except FileNotFoundError:
+            raise HTTPException(status_code=500, detail="chapters.json not found")
+
+    return {
+        "celebrate": celebrate,
+        "progress": round(progress, 2)
+        }
+
 @app.get("/quiz/passed")
 def are_all_quizzes_passed():
     """

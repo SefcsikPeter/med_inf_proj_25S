@@ -2,7 +2,7 @@
   {
     "id": 0,
     "title": "What is an Epidemic?",
-    "chapter": 1,
+    "chapter": 0,
     "requires": [],
     "slides": [
       {
@@ -111,7 +111,7 @@
   {
     "id": 1,
     "title": "Motivation for Epidemic Visualization",
-    "chapter": 1,
+    "chapter": 0,
     "requires": [
       0
     ],
@@ -192,7 +192,7 @@
   {
     "id": 2,
     "title": "Line Plots",
-    "chapter": 1,
+    "chapter": 0,
     "requires": [
       0,
       1
@@ -293,7 +293,7 @@
   {
     "id": 3,
     "title": "Infection Trees",
-    "chapter": 1,
+    "chapter": 0,
     "requires": [
       0,
       1
@@ -409,7 +409,7 @@
   {
     "id": 4,
     "title": "Motivation for Epidemic Modelling",
-    "chapter": 2,
+    "chapter": 1,
     "requires": [
       0,
       1
@@ -437,7 +437,7 @@
   {
     "id": 5,
     "title": "Intro to SIR",
-    "chapter": 2,
+    "chapter": 1,
     "requires": [
       0,
       1,
@@ -763,7 +763,7 @@
   {
     "id": 6,
     "title": "Radial Trees",
-    "chapter": 1,
+    "chapter": 0,
     "requires": [
       0,
       1,
@@ -818,7 +818,7 @@
   {
     "id": 7,
     "title": "Intro to Agent-Based Models",
-    "chapter": 2,
+    "chapter": 1,
     "requires": [
       0,
       1,
@@ -887,7 +887,7 @@
   {
     "id": 8,
     "title": "Multi-Line Plots",
-    "chapter": 1,
+    "chapter": 0,
     "requires": [
       0,
       1,
@@ -1000,7 +1000,7 @@
   {
     "id": 9,
     "title": "SIR in Practice",
-    "chapter": 2,
+    "chapter": 1,
     "requires": [
       0,
       1,
@@ -1418,7 +1418,7 @@
   {
     "id": 10,
     "title": "Covasim in Practice (Placeholder)",
-    "chapter": 2,
+    "chapter": 1,
     "requires": [
       0,
       1,
