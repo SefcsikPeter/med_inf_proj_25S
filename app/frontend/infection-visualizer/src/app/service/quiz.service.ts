@@ -32,4 +32,10 @@ export class QuizService {
     console.log(url)
     return this.http.get<any>(url);
   }
+
+  getProgress(): Observable<any> {
+    const url = `${this.baseUrl}/progress`;
+    console.log(url)
+    return this.http.get<any>(url);
+  }
 }

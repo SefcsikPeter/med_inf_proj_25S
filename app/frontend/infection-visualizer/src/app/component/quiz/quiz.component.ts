@@ -136,6 +136,14 @@ async loadQuestion(index: number): Promise<void> {
             if (data.all_passed) {
               this.router.navigate(['/congrats']);
             } else {
+              this.quizService.getProgress().subscribe({
+                next: (celebration_data) => {
+                  console.log(celebration_data)
+                  if (celebration_data.celebrate === 0 || celebration_data.celebrate) {
+                    console.log('celebration time')
+                  }
+                }
+              })
               this.router.navigate(['/']);
             }
           },
