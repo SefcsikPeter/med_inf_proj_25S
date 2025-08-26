@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NgFor } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 
 type ConfettiPiece = {
   left: number; size: number; delay: number; duration: number; rotate: number; hue: number;
@@ -15,11 +16,27 @@ type ConfettiPiece = {
   host: { class: 'd-block w-100' }
 })
 export class CongratsPageComponent {
-  readonly COURSE_NAME = 'Epidemiology Course';
+  title = '';
+  progress = 0;
   pieces: ConfettiPiece[] = [];
 
-  constructor() {
+  constructor(private router: Router) {
     this.pieces = this.generatePieces();
+
+    const nav = this.router.getCurrentNavigation();
+    const state = nav?.extras.state as { course?: string; progress?: number };
+    if (state?.course) {
+      console.log(state.course);
+      this.title = state.course;
+    } else {
+      this.title = 'Epidemiology Course';
+    }
+    if (state?.progress) {
+      console.log(state.progress);
+      this.progress = state.progress;
+    } else {
+      this.progress = 1;
+    }
   }
 
   private generatePieces(n = 120): ConfettiPiece[] {
@@ -37,10 +54,8 @@ export class CongratsPageComponent {
     return out;
   }
 
-  /** Rebuild the confetti nodes so CSS keyframes restart */
   retriggerConfetti(): void {
-    this.pieces = []; // destroy existing spans
-    // next tick: rebuild with fresh random pieces
+    this.pieces = [];
     requestAnimationFrame(() => {
       this.pieces = this.generatePieces(60);
     });

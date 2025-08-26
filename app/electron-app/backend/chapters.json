@@ -1,12 +1,12 @@
 [
-    {
-        "id": 0,
-        "title": "Epidemic Visualization",
-        "celebrated": false
-    },
-    {
-        "id": 1,
-        "title": "Epidemic Modelling",
-        "celebrated": false
-    }
+  {
+    "id": 0,
+    "title": "Epidemic Visualization",
+    "celebrated": true
+  },
+  {
+    "id": 1,
+    "title": "Epidemic Modelling",
+    "celebrated": false
+  }
 ]

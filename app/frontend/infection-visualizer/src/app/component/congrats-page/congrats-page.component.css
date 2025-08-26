@@ -118,3 +118,11 @@
   outline: 0;
   box-shadow: 0 0 0 .25rem rgba(208, 0, 111, .35);
 }
+
+.progress-animate {
+  animation: fill 800ms forwards;
+}
+@keyframes fill {
+  from { width: 0%; }
+  to   { width: var(--target, 100%); }
+}

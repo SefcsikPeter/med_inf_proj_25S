@@ -31,18 +31,21 @@
               Course Completed!
             </h1>
             <p class="lead text-secondary mb-4">
-              You've successfully finished the <span class="fw-semibold text-dark">{{ COURSE_NAME }}</span>.
+              You've successfully finished the <span class="fw-semibold text-dark">{{ title }}</span>.
             </p>
 
             <!-- animated 100% progress -->
             <div class="mx-auto" style="max-width: 520px;">
               <div class="d-flex align-items-center justify-content-between mb-1">
                 <span class="text-secondary">Progress</span>
-                <span class="fw-semibold text-magenta">100%</span>
+                <span class="fw-semibold text-magenta">{{progress * 100}}%</span>
               </div>
               <div class="progress rounded-pill" style="height: 12px;">
                 <div class="progress-bar progress-magenta progress-animate"
-                  role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100"></div>
+                  [style.--target.%]="progress * 100"
+                  role="progressbar"
+                  aria-valuemin="0" aria-valuemax="100"
+                  [attr.aria-valuenow]="progress * 100">
               </div>
             </div>
 

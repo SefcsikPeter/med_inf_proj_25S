@@ -326,7 +326,8 @@ def get_chapter_progress():
 
     return {
         "celebrate": celebrate,
-        "progress": round(progress, 2)
+        "progress": round(progress, 2),
+        "chapter": chapters[celebrate]["title"]
         }
 
 @app.get("/quiz/passed")
