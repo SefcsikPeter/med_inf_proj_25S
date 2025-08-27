@@ -52,8 +52,8 @@
         "hint": 8
       }
     ],
-    "progress": 1,
-    "passed": true
+    "progress": 0,
+    "passed": false
   },
   {
     "id": 1,
@@ -72,8 +72,8 @@
         "hint": 6
       }
     ],
-    "progress": 1,
-    "passed": true
+    "progress": 0,
+    "passed": false
   },
   {
     "id": 2,
@@ -117,8 +117,8 @@
         "highlight": true
       }
     ],
-    "progress": 1,
-    "passed": true
+    "progress": 0,
+    "passed": false
   },
   {
     "id": 3,
@@ -161,8 +161,8 @@
         "hint": 9
       }
     ],
-    "progress": 3,
-    "passed": true
+    "progress": 0,
+    "passed": false
   },
   {
     "id": 4,
@@ -181,8 +181,8 @@
         "hint": 1
       }
     ],
-    "progress": 1,
-    "passed": true
+    "progress": 0,
+    "passed": false
   },
   {
     "id": 5,
@@ -237,8 +237,8 @@
         "hint": 19
       }
     ],
-    "progress": 4,
-    "passed": true
+    "progress": 0,
+    "passed": false
   },
   {
     "id": 6,
@@ -257,8 +257,8 @@
         "hint": 2
       }
     ],
-    "progress": 1,
-    "passed": true
+    "progress": 0,
+    "passed": false
   },
   {
     "id": 7,
@@ -301,8 +301,8 @@
         "hint": 5
       }
     ],
-    "progress": 1,
-    "passed": true
+    "progress": 0,
+    "passed": false
   },
   {
     "id": 8,
@@ -331,8 +331,8 @@
         "hint": 3
       }
     ],
-    "progress": 2,
-    "passed": true
+    "progress": 0,
+    "passed": false
   },
   {
     "id": 9,
@@ -363,8 +363,8 @@
         "hint": 10
       }
     ],
-    "progress": 1,
-    "passed": true
+    "progress": 0,
+    "passed": false
   },
   {
     "id": 10,
@@ -382,7 +382,7 @@
         "hint": 0
       }
     ],
-    "progress": 1,
-    "passed": true
+    "progress": 0,
+    "passed": false
   }
 ]
