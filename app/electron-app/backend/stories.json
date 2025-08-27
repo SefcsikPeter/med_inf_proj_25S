@@ -125,15 +125,15 @@
         "image": "sir_table.png"
       },
       {
-        "text": "People in the S column are considered healthy but can get infected by the disease that is analyzed.\nIn this column, the **S** stands for **Susceptible**",
+        "text": "People in the **S** column are considered **healthy** but **can get infected** by the disease that is analyzed.\nIn this column, the **S** stands for **Susceptible**",
         "image": "sir_table_s.png"
       },
       {
-        "text": "People in the I column are infected, they spread the disease to other people.\nIn this column, the **I** stands for **Infected**",
+        "text": "People in the **I** column are **infected**, they spread the disease to other people.\nIn this column, the **I** stands for **Infected**",
         "image": "sir_table_i.png"
       },
       {
-        "text": "People in the R column recovered from the disease, so they are healthy, but they differ from people in S because they cannot get infected by the same disease again.\nIn this column, the **R** stands for **Recovered**",
+        "text": "People in the **R** column **recovered** from the disease, so they are healthy, but they differ from people in S because they cannot get infected by the same disease again.\nIn this column, the **R** stands for **Recovered**",
         "image": "sir_table_r.png"
       },
       {
@@ -141,15 +141,15 @@
         "image": "sir_table_sir.png"
       },
       {
-        "text": "Our goal in epidemic visualization is to create representations of the data that are easier to understand and read.\nYou can see an example of this below, both representations contain the same information, but the second one takes much less mental effort to understand once you learn how to read it in the upcoming lectures.",
+        "text": "Our goal in **epidemic visualization** is to **create representations** of the **data** that are **easier to understand and read**.\nYou can see an example of this below, both representations contain the same information, but the second one takes much less mental effort to understand once you learn how to read it in the upcoming lectures.",
         "image": "table_to_plot.png"
       },
       {
-        "text": "Other than increasing our understanding of the data, visualizations can also help raise awareness of people about their impact on others and how an epidemic evolves.",
+        "text": "Other than increasing our **understanding of the data**, visualizations can also help **raise awareness** of people about their **impact on others** and how an **epidemic evolves**.",
         "image": "vis_mot.png"
       },
       {
-        "text": "An example of creating awareness is something like this, where you can trace how one person infecting a few people can lead to many other people getting infected.",
+        "text": "An example of **creating awareness** is something like this, where you can trace how one **person infecting a few people** can **lead to many other people getting infected**.",
         "data": {
           "type": "example_tree"
         },
@@ -162,7 +162,7 @@
         }
       },
       {
-        "text": "In the stories of this level, you will see explanations for how you can understand some of these visualizations, create them and what they are used for.",
+        "text": "In the stories of this level, you will see explanations for how you can understand some of these visualizations, create them and what they are used for.\nYou can try hovering over the second visualization to see how it corresponds to the first visualization.",
         "data": {
           "type": "coin_flip_gossip",
           "pop_size": 30,
@@ -187,7 +187,7 @@
         }
       }
     ],
-    "progress": 1
+    "progress": 10
   },
   {
     "id": 2,
@@ -300,35 +300,35 @@
     ],
     "slides": [
       {
-        "text": "An important task when inspecting the spreading of a disease is to track who infected whom.",
+        "text": "An important task when inspecting the spreading of a disease is to track **who infected whom**.",
         "image": "infection.png"
       },
       {
-        "text": "For a simple example, let's go back to our gossip analogy. Let's say that there's a friend group of 5 people: Alexa, Bobby, Tom, Leila, and Max. Max heard some new gossip from a person outside of their friend group and told it to Leila. Leila told it to Bobby and Tom and Tom told it to Alexa. The table below summarizes the interactions.",
+        "text": "For a simple example, let's go back to our **gossip analogy**.\nLet's say that there's a **friend group of 5 people: Alexa, Bobby, Tom, Leila,** and **Max**.\n**Max** heard some new gossip from a person outside of their friend group and told it to **Leila**.\n**Leila** told it to **Bobby** and **Tom** and **Tom** told it to **Alexa**.\nThe table below summarizes the interactions.",
         "image": "infection_table.png"
       },
       {
-        "text": "To make it easier to imagine, we can draw each person of the friend group as a node and draw arrows between the people who told each other about the gossip. Each arrow points from the person who told the gossip to the person who it was told to.",
+        "text": "To make it easier to imagine, we can draw each **person** of the friend group as a **node** and draw **arrow between the people who told each other about the gossip**.\nEach arrow points from the person who told the gossip to the person who it was told to.",
         "image": "small_graph.png"
       },
       {
-        "text": "In mathematics, this representation is called a directed graph. A graph is a representation containing links and nodes, this graph in our case is called directional, because the links are arrows with a specific direction from a node to another.",
+        "text": "In mathematics, this representation is called a **directed graph**.\nA **graph** is a representation containing **links** and **nodes**, this graph in our case is called **directional**, because the **links** are **arrows** with a **specific direction from a node to another**.",
         "image": "nodes_and_links.png"
       },
       {
-        "text": "Directional graphs give a much better overview than a table containing the interactions, but if we add more people, it is still easy to lose track. For example, it would be difficult to say, who started the gossip in this group at a glance.",
+        "text": "**Directional graphs** give a much better overview than a table containing the interactions, but if we add more people, it is still easy to lose track.\nFor example, it would be difficult to say, who started the gossip in this group at a glance.",
         "image": "larger_graph.png"
       },
       {
-        "text": "Apart from being directed, our graph also has another important property which makes it interesting. It also doesn't contain any loops. Loops in directed graphs are a series of links where the last link points to the same node as where the first link starts from. You can see loop examples in red below.",
+        "text": "Apart from being directed, our graph also has another important property which makes it interesting.\nIt also **doesn't contain any loops**. **Loops** in **directed graphs** are a **series of links where the last link points to the same node as where the first link starts from**.\nYou can see loop examples in red below.",
         "image": "loop_examples.png"
       },
       {
-        "text": "Graphs without loops are called trees. This is because they have a single node called the root node to which no link points to. If we reorder the graph a bit like below, we can see that it sort of resembles an upside down tree with the root node being at the top.",
+        "text": "**Graphs without loops** are called **trees**. This is because they have a **single node** called the **root node** to which **no link points to**.\nIf we reorder the graph a bit like below, we can see that it sort of resembles an upside down tree with the **root** node being at the top being the '**root**' of the tree.",
         "image": "larger_graph_to_tree.png"
       },
       {
-        "text": "This is the same tree as on the previous page, just drawn a bit differently. Here, we can see that Frank started spreading the gossip and it is also easy to track, who told the gossip to whom and how many people the gossip needed to get through to get from a person to another.",
+        "text": "This is the same tree as on the previous page, just drawn a bit differently.\nHere, we can see that Frank started spreading the gossip and it is also easy to track, who told the gossip to whom and how many people the gossip needed to get through to get from a person to another.",
         "data": {
           "type": "example_tree"
         },
@@ -340,7 +340,7 @@
         }
       },
       {
-        "text": "We can measure the distance between two people in the graph by counting the number of links between them. Here are some examples: The distance between Frank and himself is 0 because there are 0 links. The distance between Sophie and Flora is 2 because there are 2 links between them and the distance between Frank and Flora is 3.",
+        "text": "We can measure the **distance** between two people in the graph by counting the **number of links** between them.\nHere are some examples: The distance between Frank and himself is 0 because there are 0 links.\nThe distance between Sophie and Flora is 2 because there are 2 links between them and the distance between Frank and Flora is 3.",
         "data": {
           "type": "example_tree"
         },
@@ -352,11 +352,11 @@
         }
       },
       {
-        "text": "Using the distance between nodes, we can calculate the depth of the tree graph which is the distance between the root node (Frank in this case) and the most distant node from the root node (Tom in this case). The depth of this graph is 4. We can also characterise nodes with the same distance from the root node as nodes of a certain depth. For example, Sophie and Melinda are at the same depth = 1.",
+        "text": "Using the distance between nodes, we can calculate the **depth** of the tree graph which is the **distance** between the **root node** (Frank in this case) and the **most distant node** from the root node (Tom in this case).\nThe **depth** of this **graph** is **4**. We can also characterise nodes with the same distance from the root node as nodes of a certain **depth**. For example, **Sophie** and **Melinda** are at the same **depth = 1**.",
         "image": "tree_depth.png"
       },
       {
-        "text": "Now that you understand, how we calculate the depth of a graph, you can try playing around with the depth that you would like to display from the graph. This can be useful for only displaying information that we actually need like if we're interested in the number of people Frank infected directly, we can set the depth to 1.",
+        "text": "Now that you understand, how we calculate the **depth** of a **graph**, you can try playing around with the **depth** that you would like to display from the graph.\nThis can be useful for only displaying information that we actually need like if we're interested in the number of people Frank infected directly, we can set the depth to 1.",
         "data": {
           "type": "example_tree"
         },
@@ -379,7 +379,7 @@
         ]
       },
       {
-        "text": "Here you can try generating different trees and adjusting their depth.",
+        "text": "Here you can try generating different **trees** and adjusting their **depth**.",
         "data": {
           "type": "dummy_tree",
           "num_iter": 4
@@ -404,7 +404,7 @@
         ]
       }
     ],
-    "progress": 11
+    "progress": 12
   },
   {
     "id": 4,
@@ -416,23 +416,23 @@
     ],
     "slides": [
       {
-        "text": "Modelling epidemics allows us to not only visualize how a disease has been spreading in the past but to also estimate what will happen in the future.",
+        "text": "**Modelling epidemics** allows us to not only visualize how a disease has been spreading in the past but to also **estimate what will happen in the future**.",
         "image": "model_example.png"
       },
       {
-        "text": "This is particularly useful for hospitals in estimating how many beds they need to keep free.",
+        "text": "This is particularly useful for hospitals in **estimating how many beds they need to keep free**.",
         "image": "hospital_bed.png"
       },
       {
-        "text": "Or for doctors to be able to tell us if we need to wear masks while shopping or avoid malls entirely.",
+        "text": "Or for doctors to be able to tell us **if we need to wear masks while shopping or avoid malls entirely**.",
         "image": "mask.png"
       },
       {
-        "text": "In the stories at this level, we will learn how some of the models that estimate disease spread work.",
+        "text": "In the stories at this level, we will learn how some of the **models** that **estimate disease spread** work.",
         "image": "SIR.png"
       }
     ],
-    "progress": 1
+    "progress": 4
   },
   {
     "id": 5,
@@ -771,7 +771,7 @@
     ],
     "slides": [
       {
-        "text": "As we saw in the infection tree lecture, graphs can be reordered to improve our overview of the connections. In the infection tree lecture, we saw a classic representation of tree graphs that you can see once again below.",
+        "text": "As we saw in the infection tree lecture, **graphs** can be **reordered** to **improve our overview** of the connections.\nIn the infection tree lecture, we saw a classic representation of tree graphs that you can see once again below.",
         "data": {
           "type": "example_tree"
         },
@@ -783,7 +783,7 @@
         }
       },
       {
-        "text": "Tree graphs don't necessarily need to be drawn from top to bottom, another useful way to draw them is going from the center outwards. This new way of drawing a tree is called the radial tree which can be seen in the second image.",
+        "text": "Tree graphs don't necessarily need to be drawn from top to bottom, another useful way to draw them is **going from the center outwards**.\nThis new way of drawing a tree is called the **radial tree** which can be seen in the **second visualization**.",
         "data": {
           "type": "example_tree"
         },
@@ -801,7 +801,7 @@
         }
       },
       {
-        "text": "In radial trees, nodes with the same depth are not drawn in the same line like in classic infection trees but instead in the same circle concentric to the middle node. You can see each depth circle drawn with a grey dashed line, and how this representation resembles an onion.",
+        "text": "In **radial trees**, **nodes with the same depth** are not drawn in the same line like in classic infection trees but instead in the **same circle concentric to the middle node**.\nYou can see each depth circle drawn with a grey dashed line, and how this representation resembles an onion.",
         "data": {
           "type": "example_tree"
         },
@@ -831,7 +831,7 @@
     ],
     "slides": [
       {
-        "text": "As we saw in the SIR story, the SIR model is a simple and effective tool for modelling, how a disease could spread in a population of about any size.",
+        "text": "As we saw in the SIR lesson, the **SIR model is a simple and effective tool for modelling, how a disease could spread in a population of about any size**.",
         "data": {
           "type": "sir",
           "recovery_rate": 0.125,
@@ -850,39 +850,39 @@
         }
       },
       {
-        "text": "The SIR model works by pretending that everyone in a group is the same, just like how the beads all looked the same in our analogy.\nIn our coin flip analogy from the beginning, it assumes that everyone has the same chance of getting sick and recovering at any time.\nThis makes it good for quickly guessing what might happen to big groups of people.\nBut sometimes, we need a different model to be more exact for special situations.",
+        "text": "The **SIR** model works by pretending that **everyone in a group is the same**, just like how the beads all looked the same in our analogy.\nIn our coin flip analogy from the beginning, it assumes that everyone has the same chance of getting sick and recovering at any time.\nThis makes it good for quickly guessing what might happen to big groups of people.\nBut sometimes, we need a different model to be more exact for special situations.",
         "image": "beads.png"
       },
       {
-        "text": "This is where agent-based models are very useful. Agent-based models handle each member of the population as an individual called an 'agent', with its own unique properties and social networks.",
+        "text": "This is where **agent-based models** are very useful. **Agent-based models handle each member of the population as an individual** called an '**agent**', with its **own unique properties and social networks**.",
         "image": "Agent.png"
       },
       {
-        "text": "To understand the benefits of agent based models, we can go back to our gossip analogy. Let's say that we have a group of 6 people: Emily, Lukas, Max, Lila, Henry, and Isabelle.",
+        "text": "To understand the benefits of agent **based models**, we can go back to our **gossip analogy**. Let's say that we have a group of **6 people: Emily, Lukas, Max, Lila, Henry, and Isabelle**.",
         "image": "Friends.png"
       },
       {
-        "text": "In this group, we draw lines between the people who talk with each other on a regular basis, creating a graph.",
+        "text": "In this group, we **draw lines between the people who talk with each other on a regular basis**, creating a **graph**.",
         "image": "Friends_connections.png"
       },
       {
-        "text": "We also note who likes to talk about gossip and who does not. This will become important once we start to simulate how gossip spreads between these people.\nWe marked Lila in a different color, since she's the only person who does not like to gossip.",
+        "text": "We also **note who likes to talk about gossip and who does not**. This will become important once we start to **simulate how gossip spreads** between these people.\nWe marked **Lila** in a different color, since she's the only person who does **not like to gossip**.",
         "image": "Friends_conn_gos.png"
       },
       {
-        "text": "Now let's say that Emily starts to spread some new gossip. We mark her in a new color so that we know that she knows about the gossip.",
+        "text": "Now let's say that **Emily starts to spread some new gossip**. We **mark her in a new color** so that we know that she knows about the gossip.",
         "image": "Friends_conn_gos_1.png"
       },
       {
-        "text": "Emily talks to Lukas and Max regularly, and they all love to gossip, so they also start spreading it. Isabelle also likes to gossip, so Max tells her about it as well. However, Lila does not, so even though she's connected to two people who know about it, Lila does not get marked. Since Henry only talks to Lila from the group, and Lila does not talk about gossip, Henry will not get to know about the gossip within this group, even though he likes to gossip.",
+        "text": "Emily talks to Lukas and Max regularly, and they all love to gossip, so they also start spreading it. Isabelle also likes to gossip, so Max tells her about it as well. However, **Lila does not**, so even though she's connected to two people who know about it, **Lila does not get marked**. Since **Henry only talks to Lila** from the group, and Lila does not talk about gossip, **Henry will not get to know about the gossip within this group**, even though he likes to gossip.",
         "image": "Friends_conn_gos_2.png"
       },
       {
-        "text": "This little example demonstrates some important features of the agent-based epidemic modelling approach. It shows how social networks can influence the spread of gossip and how handling each person separately allows us to consider personal details, such as whether a person likes to gossip or not. In contrast, if we had used the SIR model, every person would have gotten marked after a while, since SIR does not consider social networks and personal preferences by default.",
+        "text": "This little example demonstrates some important features of the agent-based epidemic modelling approach.\nIt shows how **social networks** can **influence the spread of gossip** and how **handling each person separately allows us to consider personal details**, such as whether a person likes to gossip or not.\nIn contrast, if we had used the SIR model, every person would have gotten marked after a while, since SIR does not consider social networks and personal preferences by default.",
         "image": "Friends_conn_gos_2.png"
       }
     ],
-    "progress": 6
+    "progress": 9
   },
   {
     "id": 8,
@@ -895,7 +895,7 @@
     ],
     "slides": [
       {
-        "text": "Here, you can see the temperatures of two consecutive days in the same plot. For this, we drew each plot the same way we discussed in the line plot lecture, and colored them using different colors and dashing to differentiate them easier. You can observe how not drawing the dots creates a 'less messy' plot where no details of one line are hidden by the other.",
+        "text": "Here, you can see the **temperatures** per **hour** of **two consecutive days** in the same plot.\nFor this, we drew each plot the same way we discussed in the line plot lecture, and colored them using different colors and dashing to differentiate them easier.\nYou can observe how not drawing the dots creates a 'less messy' plot where no details of one line are hidden by the other.",
         "vis1": {
           "type": "multiline_plot",
           "temps": true,
@@ -920,7 +920,7 @@
         }
       },
       {
-        "text": "We draw each line differently so that there is still a way for people to easily differentiate the two lines if they can't differentiate the colors.",
+        "text": "We draw each line using a different style so that there is still a way for people to easily differentiate the two lines if they can't differentiate the colors.",
         "vis1": {
           "type": "multiline_plot",
           "temps": true,
@@ -947,7 +947,7 @@
         }
       },
       {
-        "text": "The legend of a plot describes what each line in the plot represents. The legend usually contains short line sections with the same dashing and color as those contained in the plot next to a text describing them. In this case we have a line for the temperatures on day 1 and a line for the temperatures on day 2, which you can also see in the legend added to the plot.",
+        "text": "The **legend** of a plot describes what each **line** in the plot **represents**.\nThe **legend** usually contains short line sections with the same dashing and color as those contained in the plot next to the text describing them.\nIn this case we have a line for the **temperatures** on **day 1** and a line for the **temperatures** on **day 2**, which you can also see in the **legend** added to the plot.",
         "vis1": {
           "type": "multiline_plot",
           "temps": true,
@@ -962,7 +962,7 @@
         }
       },
       {
-        "text": "When drawing multiple lines in the same plot, it is important that the lines we draw are on a similar scale. You can see an example below where this is not the case. In this plot, the orange dashed line has the same values as the blue continuous line multiplied by 10. You can see that in this case, changes in the blue continuous line are much harder to see.",
+        "text": "When drawing multiple lines in the same plot, it is important that the lines we draw are on a **similar scale**.\nYou can see an example below where this is **not** the case.\nIn this plot, the orange dashed line has the same values as the blue continuous line multiplied by 10. You can see that in this case, changes in the blue continuous line are much harder to see.",
         "vis1": {
           "type": "multiline_plot",
           "temps_magn": true,
@@ -975,7 +975,7 @@
         }
       },
       {
-        "text": "You can add as many lines to line plots as you like, but you need to keep in mind that with each added line, it can become harder to understand the plot. We will see different uses of line plots in epidemic modelling, like how we drew the graph below in following chapters.",
+        "text": "You can add as **many** lines to line plots as you like, but you need to keep in mind that **with each added line, it can become harder to understand the plot**.\nWe will see different uses of **line plots** in **epidemic modelling**, like how we drew the graph below in following chapters.",
         "data": {
           "type": "sir",
           "pop_size": 1000,
@@ -1011,7 +1011,7 @@
     ],
     "slides": [
       {
-        "text": "We know from the previous SIR story how the SIR model works, but we haven't looked at how we can take real-world data and use that to predict what could happen in the future.",
+        "text": "We know from the previous **SIR** lecture how the **SIR model** works, but we haven't looked at how we can take **real-world data** and use that to **predict what could happen in the future**.",
         "data": {
           "type": "sir",
           "pop_size": 1000,
@@ -1032,7 +1032,7 @@
         }
       },
       {
-        "text": "We created this plot by calculating the number of people in the S, I, and R compartments each day, based on real-world COVID-19 epidemic data from Austria*.\nIn this plot, S_AT, I_AT, and R_AT represent the S, I, and R compartments in Austria, calculated from epidemiological data.",
+        "text": "We created this plot by calculating the number of people in the **S, I, and R** compartments each day, based on **real-world COVID-19 epidemic data from Austria***.\nIn this plot, **S_AT, I_AT, and R_AT** represent the **S, I, and R** compartments in **Austria**, calculated from epidemiological data.",
         "source": "SIR values calculated based on data available here: https://github.com/GoogleCloudPlatform/covid-19-open-data/blob/main/docs/table-epidemiology.md",
         "data": {
           "type": "sir_at",
@@ -1053,7 +1053,7 @@
         }
       },
       {
-        "text": "We can use the SIR model to predict what could happen in the future by adjusting the transmission rate and recovery rate, so that the results calculated by the SIR model match the real-world data as closely as possible.\nIn this plot, S_SIM, I_SIM, and R_SIM represent the S, I, and R compartments calculated using the SIR model.",
+        "text": "We can use the SIR model to predict what could happen in the future by **adjusting the transmission rate and recovery rate**, so that the results calculated by the SIR model **match the real-world data as closely as possible**.\nIn this plot, **S_SIM, I_SIM, and R_SIM** represent the **S, I, and R compartments calculated using the SIR model**.",
         "data": {
           "type": "sir_at",
           "start_index": 500,
@@ -1125,7 +1125,7 @@
         ]
       },
       {
-        "text": "Now that we matched the transmission rate and recovery rate in the previous slide, we can let the simulation continue.\nThe vertical line called AT_END marks where our real-world data ends but our simulation continues.",
+        "text": "Now that we matched the transmission rate and recovery rate in the previous slide, we can let the **simulation continue**.\nThe vertical line called **AT_END** marks where our **real-world data ends but our simulation continues**.",
         "data": {
           "type": "sir_at",
           "start_index": 500,
@@ -1204,7 +1204,7 @@
         ]
       },
       {
-        "text": "Since we used past data in our example, we can actually check, how well the SIR model estimated what actually happened. The vertical line shows where we cut off the data before.\nThe vertical line called CUT shows where we cut our data on the pervious slide.",
+        "text": "Since we used past data in our example, we can actually check, how well the SIR model estimated what actually happened.\nThe vertical line called CUT shows where we cut our data on the pervious slide.",
         "data": {
           "type": "sir_at",
           "start_index": 500,
@@ -1282,7 +1282,7 @@
         ]
       },
       {
-        "text": "You can see that even though the SIR model initially matches the real data well, the S and R compartments start to differ more and more from the real world data even though the I compartments remain close.",
+        "text": "You can see that even though the SIR model initially matches the real data well, the **S and R compartments start to differ more and more** from the real world data even though the **I compartments remain close**.",
         "data": {
           "type": "sir_at",
           "start_index": 500,
@@ -1340,15 +1340,15 @@
         }
       },
       {
-        "text": "This is because vaccines can move people directly from the S to the I compartment, but going from S to R directly is not possible in our SIR model.",
+        "text": "This is because **vaccines can move people directly from the S to the I compartment**, but **going from S to R directly is not possible in our SIR model**.",
         "image": "SIR.png"
       },
       {
-        "text": "There are multiple ways to combat this, one is to add an other way to move people from one compartment to the other. In this example, we added a transition called 'vaccination rate', this could be something that moves people from S to R depending on how many people get vaccinated in a day and how successfuly the vaccine protects people from getting infected.",
+        "text": "There are multiple ways to combat this, one is to add an other way to move people from one compartment to the other.\nIn this example, we added a transition called '**vaccination rate**', this could be something that **moves people from S to R depending on how many people get vaccinated in a day** and **how successfuly the vaccine protects people from getting infected**.",
         "image": "SIR_vaccination.png"
       },
       {
-        "text": "If we don't want to modify our model, we still have a way to improve our results. The more days we can analyse to get our transmission and recovery rate, the better the prediction becomes.",
+        "text": "If we don't want to modify our model, we still have a way to improve our results.\n**The more days we can analyse to get our transmission and recovery rate, the better the prediction becomes**.",
         "data": {
           "type": "sir_at",
           "start_index": 300,
@@ -1405,15 +1405,15 @@
         }
       },
       {
-        "text": "Both methods for improving our predictions have their own benefits and drawbacks. Adding a vaccination rate to the SIR model makes it harder to fit to the real-world data because we don't always know how effectvive a vaccine is, but if we somewhat do, we get a model that more accurately represents the real world.",
+        "text": "Both methods for improving our predictions have their own benefits and drawbacks. **Adding a vaccination rate to the SIR model makes it harder to fit to the real-world data** because we don't always know how effectvive a vaccine is, but if we somewhat do, we get a model that **more accurately represents the real world**.",
         "image": "SIR_vaccination.png"
       },
       {
-        "text": "In contrast, when we simply use more data to improve our predictions, the fitting itself is easier, but we don't always have the extra data we need. For example, if an epidemic just started, we only have a few days of data.",
+        "text": "In contrast, when we simply use more data to improve our predictions, the **fitting itself is easier**, but **we don't always have the extra data we need**.\nFor example, if an epidemic just started, we only have a few days of data.",
         "image": "vis_mot.png"
       }
     ],
-    "progress": 1
+    "progress": 11
   },
   {
     "id": 10,
