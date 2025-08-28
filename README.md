@@ -1,6 +1,24 @@
-## Summary
+## Introduction
 
-This repository contains the code for the epidemiology learning application, which was created as part of the Project in Medical Informatics 2025S.
+This repository contains the code for the epidemiology learning application and its prototypes, which was created as part of the Project in Medical Informatics 2025S.
+
+## Application Summary
+
+This application is meant to give an introduction to epidemiology and epidemic visualization without the need of any specific background knowledge apart from an elementary school-level math understanding.
+
+It is specifically designed for children of ages 10-14 but can also contain new information for different age groups, especially in the later lectures.
+
+On the starting page, the user is presented with a selection of lectures that can be selected. At first, there will be only one alternative, but as the user progresses, more and more lectures get unlocked.
+
+If a lecture is discontinued before the last slide, the progress gets saved, and the user gets to continue from where they exited the lecture.
+
+Each lecture can be 'passed' by doing a quiz about it. If the user makes a mistake in  one of the questions, a hint appears that links to the lecture slide related to the question.
+
+If a user feels that they already know about a certain subject, the lecture about that subject can be skipped by doing the related quiz without needing to read the lecture first.
+
+With each completed quiz, the user receives a badge to signify their progress. The user's collection of badges can be explored on the 'Badges' page. Clicking a badge on this page links to the related lecture.
+
+If,for some reason, the user decides to redo the whole course, there's a button for resetting all progress made in the app at the 'Settings' page.
 
 ## Installer
 
