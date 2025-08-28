@@ -129,18 +129,21 @@
         [locked]="lessons[7].locked">
       </app-story-card>
 
+      <!-- TODO remove hidded once story added and change id to 10 -->
       <!-- Horizontal connector -->
-      <div class="connector arrow-right"></div>
+      <div class="connector arrow-right" style="visibility: hidden;"></div>
 
       <!-- Right card -->
-      <app-story-card
-        [title]="lessons[10].title"
-        [progress]="lessons[10].progress"
-        [storyId]="lessons[10].id"
-        [page]="lessons[10].page"
-        [quizPassed]="lessons[10].passed"
-        [locked]="lessons[10].locked">
-      </app-story-card>
+      <div style="visibility: hidden;">
+        <app-story-card
+          [title]="lessons[1].title"
+          [progress]="lessons[1].progress"
+          [storyId]="lessons[1].id"
+          [page]="lessons[1].page"
+          [quizPassed]="lessons[1].passed"
+          [locked]="lessons[1].locked">
+        </app-story-card>
+      </div>
     </div>
   }
 

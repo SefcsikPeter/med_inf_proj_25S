@@ -365,24 +365,5 @@
     ],
     "progress": 0,
     "passed": false
-  },
-  {
-    "id": 10,
-    "title": "Covasim in Practice (Placeholder)",
-    "questions": [
-      {
-        "question": "Placeholder question (correct: 1)",
-        "options": [
-          "1",
-          "2",
-          "3",
-          "4"
-        ],
-        "correct": "1",
-        "hint": 0
-      }
-    ],
-    "progress": 0,
-    "passed": false
   }
 ]
