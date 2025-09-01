@@ -40,11 +40,13 @@ This application is a web-based system bundled as a desktop executable using Ele
 ## JSON Structure
 The stories and quizzes contained in the application are stored in the form of json files, where new stories, slides, quizzes and quiz questions can be added.
 
+---
 ### stories.json
 - **id**: story identification number (unique, integer, required)
 - **title**: story title (string, required)
 - **chapter**: ID of the chapter that the story belongs to (integer, required)
 - **requires**: array of IDs of stories that are required to be passed for access to the current story ([integer], required)
+- **progress**: saves the number of the last slide the user accessed (integer, required)
 - **slides**: contains an array of slide objects containing the learning material ([object], required)
     - **text**: text displayed within slide (string, required)
     - **image**: name of image displayed within slide, stored at electron-app/backend/static/images (string, optional)
@@ -123,3 +125,24 @@ The stories and quizzes contained in the application are stored in the form of j
     - **y_max_fixed**: fixes y scale to always be at least as long as the set number (float, optional)
     - **line_styles**: specifies the color and dashing of each line displayed in the plot in the format \[dashing pattern, color code\] ([string, string], optional)
     - **vert_line**: draws vertical line at set x value, if needed, label and line style can be set as the last value of both arrays (float, optional)
+---
+### quizzes.json
+
+- **id**: quiz ID, must be the same as the corresponding story ID (number, unique, required)
+- **title**: quiz title, most of the time same as corresponding story title but does not need to be the same (string, required)
+- **passed**: saves if user passed the quiz allready or not (boolean, required)
+- **progress**: saves the highest page number the user reached in the quiz, handling not implemented in app yet (string, optional)
+- **questions**: array of multiple choice questions contained in the quiz, works similarly to story slides ([object], required)
+    - **question**: the text asking the multiple choice question (string, required)
+    - **options**: array of four alternatives as answers to the question ([string], required)
+    - **correct**: correct alternative from answer array as a single string (string, required)
+    - **hint**: slide number of corresponding story that helps in answering the question (integer, required)
+    - **temp_quiz**: if set to true, an interactive plot for the line plot gets displayed (boolean, optional)
+    - **highlight**: only if temp_quiz true, highlights point in question on plot (boolean, optional, only if temp_quiz)
+
+---
+### chapters.json
+
+- **id**: chapter ID, used for chapter assignment of stories in stories.json and for identifying which chapter to celebrate (integer, unique, required)
+- **title**: chapter title, used for celebration page titles (string, required)
+- **celebrated**: saves whether the completion of a chapter was allready celebrated (boolean, required)
