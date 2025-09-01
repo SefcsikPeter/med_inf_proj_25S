@@ -37,3 +37,29 @@ This application is a web-based system bundled as a desktop executable using Ele
 - Port **8000** – Used by the backend server (Python)
 - Port **4200** – Used by the frontend interface (Angular)
 
+## JSON Structure
+The stories and quizzes contained in the application are stored in the form of json files, where new stories, slides, quizzes and quiz questions can be added.
+
+### stories.json
+- **id**: story identification number (unique, integer, required)
+- **title**: story title (string, required)
+- **chapter**: ID of the chapter that the story belongs to (integer, required)
+- **requires**: array of IDs of stories that are required to be passed for access to the current story ([integer], required)
+- **slides**: contains an array of slide objects containing the learning material ([object], required)
+    - **text**: text displayed within slide (string, required)
+    - **image**: name of image displayed within slide, stored at electron-app/backend/static/images (string, optional)
+    - **data**: object containing data that is to be queried from the backend for visualization (object, optional)
+        - **type**: type of data to be queried (enum: [dummy_tree, example_tree, infection_tree, sir, sir_at, coin_flip, coin_flip_gossip], required)
+    - **vis1**: visualization object containing details of a specific visualization type (object, optional)
+        - **type**: type of visualization (enum: [inf_tree, rad_tree, line_plot, multiline_plot], required)
+    - **vis2**: second visualization object containing details of a specific visualization type (object, optional)
+        - **type**: type of visualization (enum: [inf_tree, rad_tree, line_plot, multiline_plot], required)
+    - **sliders**: array of slider objects used to manipulate visualizations ([object], optional)
+        - **type**: type of data or setting that the slider changes (enum: [depth, n_days, transmission_rate, recovery_rate, pop_size, n_flips], required)
+        - **min**: smallest value the slider can take (float, required)
+        - **max**: largest value the slider can take (float, required)
+        - **step**: step size of moved slider (float, required)
+        - **current_value**: value the slider is originally set to upon opening the slide (float, required)
+        - **symbol**: name of symbol displayed before slider (enum: [sun, virus, bed, water, coin, conversation], required)
+        - **text**: text displayed after slider (text, required)
+
