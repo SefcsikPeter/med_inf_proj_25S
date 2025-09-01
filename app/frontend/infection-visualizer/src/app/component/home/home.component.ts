@@ -1,7 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import { InfectionTreeComponent } from '../infection-tree/infection-tree.component';
-import { SliderComponent } from '../slider/slider.component';
-import {StoryCardComponent} from '../story-card/story-card.component';
 import {CommonModule} from '@angular/common';
 import {StoryService} from '../../service/story.service';
 import {LessonGraphComponent} from '../lesson-graph/lesson-graph.component';
@@ -11,9 +8,6 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
   selector: 'app-home',
   standalone: true,
   imports: [
-    SliderComponent,
-    InfectionTreeComponent,
-    StoryCardComponent,
     CommonModule,
     LessonGraphComponent,
     MatProgressBarModule

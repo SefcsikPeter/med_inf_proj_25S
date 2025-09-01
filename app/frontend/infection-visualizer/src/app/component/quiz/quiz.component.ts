@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { QuizService } from '../../service/quiz.service';
 import { McQuestionComponent } from '../mc-question/mc-question.component';
@@ -12,7 +12,6 @@ import { ToastrService } from 'ngx-toastr';
   imports: [
     CommonModule,
     MatProgressBarModule,
-    RouterLink,
     McQuestionComponent
   ],
   templateUrl: './quiz.component.html',

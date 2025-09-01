@@ -2,11 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StoryService } from '../../service/story.service';
 import { MatProgressBar } from '@angular/material/progress-bar';
-import { RadialTreeComponent } from '../radial-tree/radial-tree.component';
-import { SliderComponent } from '../slider/slider.component';
 import { firstValueFrom } from 'rxjs';
 import { InfectionTreeService } from '../../service/infection-tree.service';
-import { LinePlotComponent } from '../line-plot/line-plot.component';
 import {ActivatedRoute, Router, RouterLink} from '@angular/router';
 import {VisualizationWrapperComponent} from '../visualization-wrapper/visualization-wrapper.component';
 import {SliderWrapperComponent} from '../slider-wrapper/slider-wrapper.component';
@@ -18,7 +15,12 @@ type Token = { text: string; bold: boolean };
 @Component({
   selector: 'app-story',
   standalone: true,
-  imports: [CommonModule, MatProgressBar, RadialTreeComponent, SliderComponent, LinePlotComponent, VisualizationWrapperComponent, SliderWrapperComponent, RouterLink],
+  imports: 
+  [CommonModule,
+    MatProgressBar,
+    VisualizationWrapperComponent,
+    SliderWrapperComponent,
+    RouterLink],
   templateUrl: './story.component.html',
   styleUrl: './story.component.css'
 })
