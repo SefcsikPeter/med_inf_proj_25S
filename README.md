@@ -32,10 +32,11 @@ The installer creates a desktop shortcut called 'Infection Visualiser'. This can
 ## Requirements
 Due to the inclusion of numerous assets and a fully packaged Python environment with preinstalled libraries, the application requires around **2 GB** of storage.
 
-This application is a web-based system bundled as a desktop executable using Electron. As a result, it runs a local server and requires the following ports to be available on the host machine:
+This application is a web-based system bundled as a desktop executable using Electron. As a result, it runs a local server and requires the following port to be available on the host machine:
 
 - Port **8000** – Used by the backend server (Python)
-- Port **4200** – Used by the frontend interface (Angular)
+
+The frontend is set to be hosted on port **4200** if ran from the terminal.
 
 ## Running and Building the Application
 
@@ -177,3 +178,10 @@ The stories and quizzes contained in the application are stored in the form of j
 - **id**: chapter ID, used for chapter assignment of stories in stories.json and for identifying which chapter to celebrate (integer, unique, required)
 - **title**: chapter title, used for celebration page titles (string, required)
 - **celebrated**: saves whether the completion of a chapter was allready celebrated (boolean, required)
+
+## Add a Story to the Application
+
+1. You can add a story to the application by following the json documentation above to append a new story object to the existing array. This story needs to have a unique ID.
+2. You will also need to write a quiz for the story in quizzes.json. This quiz needs to have the same ID as the new story.
+3. You can add a badge for this new story at: *electron-app/backend/static/badges* the badge needs to have the name <[your_new_story_id]>.png
+4. For the story to be displayed as a card on the home page, you need to add it in *frontend\infection-visualizer\src\app\component\lesson-graph\lesson-graph.component.html*
