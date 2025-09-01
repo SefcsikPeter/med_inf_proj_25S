@@ -20,6 +20,7 @@ export class CongratsPageComponent {
   progress = 0;
   pieces: ConfettiPiece[] = [];
   showSandbox = false;
+  mainText = 'Course Completed!';
 
   constructor(private router: Router) {
     this.pieces = this.generatePieces();
@@ -28,7 +29,8 @@ export class CongratsPageComponent {
     const state = nav?.extras.state as { course?: string; progress?: number };
     if (state?.course) {
       console.log(state.course);
-      this.title = state.course;
+      this.title = `${state.course} ${'Chapter'}`;
+      this.mainText = 'Chapter Completed';
     } else {
       this.title = 'Epidemiology Course';
     }
