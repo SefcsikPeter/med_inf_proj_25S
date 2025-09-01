@@ -17,7 +17,9 @@
           (valueChange)="onSliderValueChange(slider.type, $event)">
         </app-slider>
       </div>
-      <span style="white-space: nowrap;">{{ slider.text }}: {{ sliderValues[slider.type] ?? slider.current_value }}</span>
+      <span style="white-space: nowrap;">
+        {{ slider.text }}: {{ sliderValues[slider.type] }}
+      </span>
     </div>
   }
   </div>
