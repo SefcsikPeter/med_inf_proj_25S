@@ -37,6 +37,32 @@ This application is a web-based system bundled as a desktop executable using Ele
 - Port **8000** – Used by the backend server (Python)
 - Port **4200** – Used by the frontend interface (Angular)
 
+## Running and Building the Application
+
+For the application building to work properly, everything inside the *app* folder of this repository needs to be cloned without changing the folder structure.
+
+### Portable Python
+The application requires an embeddable python package in this folder in order to work. It uses Python version 3.11.9, and the required packages are listed at *app/electron-app/portable_python/requirements.txt*. Whithout setting this up, the application cannot be started/built from the terminal.
+
+### Backend
+#### Run
+You can run the backend by navigating to *electron-app/backend* in your cloned repository and running main.py using the portable python you just set up.
+#### Build
+The backend is started automatically by the electron app and does not require prior building.
+
+### Frontend
+#### Run
+You can run the frontend separately by navigating to *frontend/infection-visualizer* and running *ng serve*
+#### Build
+The frontend can be built by navigating to *frontend/infection-visualizer* on your local cloned version and running *ng build*.
+
+### Electron App
+#### Run
+You can run the app using the *npm start* command after naviagting to *electron-app* in your cloned repository. This command automatically builds the frontend, starts the backend and finally also starts the application, meaning that this command on its own is enough to run the application on your device, and the other alternatives rather serve for debugging.
+#### Build installer
+You can build the application installer by running *npm run dist* at *electron-app*. This automatically builds the frontend first and then packages every needed file in the installer. Because of the large size of the python package needed for the app, this process can take a long time.
+
+
 ## JSON Structure
 The stories and quizzes contained in the application are stored in the form of json files, where new stories, slides, quizzes and quiz questions can be added.
 
