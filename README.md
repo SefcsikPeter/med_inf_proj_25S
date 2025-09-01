@@ -74,5 +74,16 @@ The stories and quizzes contained in the application are stored in the form of j
     - **n_inf**: number of people initially infected, meaning people in **I** compartment in simulation (integer)
     - **n_rec**: number of people initially recovered/removed, meaning people in **R** compartment in simulation (integer)
     - **n_days**: number of days in simulation (integer)
-
-
+- **sir_at**: returns real-world sir data from austria in given time period with possibility to also include sir generated data, uses electron-app/backend/infection_simulation.py:*get_partial_sir_data()*, **returns** plot data
+    - **start_index**: start index of real-world data to be returned (integer)
+    - **end_index**: end index of real-world data to be returned (integer)
+    - **include_generated**: adds sir generated data if true, does not if false (boolean)
+    - **transmission_rate**: simulation transmission rate *beta* (float, only if include_generated)
+    - **recovery_rate**: simulation recovery_rate rate *gamma* (float, only if include_generated)
+    - **sim_extra_days**: can be used to set simulation to run longer than the selected real world data window, adds as many days to simulation as specified by the set number (integer, only if include_generated)
+- **coin_flip**: returns running sum of number of heads and tails of simulated coin flips, uses electron-app/backend/infection_simulation.py:*get_coin_flip_data()*, returns plot data
+    -**n_flips**: number of flips to be generated (integer)
+- **coin_flip_gossip**: returns gossip spread simulation data, uses electron-app/backend/infection_simulation.py:*get_gossip_data()*, returns tree and plot data
+    - **pop_size**: population size in simulation (integer)
+    - **conversations_per_day**: number of conversations an instance of the population has a day (integer)
+    - **n_days**: number of simulated days (integer)
