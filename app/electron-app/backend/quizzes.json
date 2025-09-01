@@ -53,7 +53,7 @@
       }
     ],
     "progress": 0,
-    "passed": false
+    "passed": true
   },
   {
     "id": 1,
@@ -73,7 +73,7 @@
       }
     ],
     "progress": 0,
-    "passed": false
+    "passed": true
   },
   {
     "id": 2,
@@ -117,8 +117,8 @@
         "highlight": true
       }
     ],
-    "progress": 0,
-    "passed": false
+    "progress": 2,
+    "passed": true
   },
   {
     "id": 3,
@@ -162,7 +162,7 @@
       }
     ],
     "progress": 0,
-    "passed": false
+    "passed": true
   },
   {
     "id": 4,
@@ -182,7 +182,7 @@
       }
     ],
     "progress": 0,
-    "passed": false
+    "passed": true
   },
   {
     "id": 5,
@@ -238,14 +238,14 @@
       }
     ],
     "progress": 0,
-    "passed": false
+    "passed": true
   },
   {
     "id": 6,
     "title": "Radial Trees",
     "questions": [
       {
-        "question": "Test question",
+        "question": "What is the depth of this tree?",
         "options": [
           "7",
           "3",
@@ -257,8 +257,8 @@
         "hint": 2
       }
     ],
-    "progress": 0,
-    "passed": false
+    "progress": 1,
+    "passed": true
   },
   {
     "id": 7,
@@ -302,7 +302,7 @@
       }
     ],
     "progress": 0,
-    "passed": false
+    "passed": true
   },
   {
     "id": 8,
@@ -331,8 +331,8 @@
         "hint": 3
       }
     ],
-    "progress": 0,
-    "passed": false
+    "progress": 1,
+    "passed": true
   },
   {
     "id": 9,
@@ -364,6 +364,6 @@
       }
     ],
     "progress": 0,
-    "passed": false
+    "passed": true
   }
 ]
