@@ -22,7 +22,7 @@ export class MultilinePlotComponent implements OnInit, OnChanges {
   @Input() vertLine: number | null = null;
   @Input() xMaxFixed: number | null = null;
   @Input() yMaxFixed: number | null = null;
-  @Input() lineStyles: LineStyle[] | null = [["", "#1f77b4"], ["5, 5", "#ff7f0e"], ["1, 5", "#2ca02c"]];
+  @Input() lineStyles: LineStyle[] | null = [["", "#31D1E3"], ["5, 5", "#F4AD3A"], ["1, 5", "#42E630"]];
 
   temps1: [number, number][] = [
     [0, 12], [1, 11], [2, 11], [3, 10],
