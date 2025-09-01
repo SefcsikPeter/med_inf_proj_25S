@@ -49,7 +49,7 @@ The stories and quizzes contained in the application are stored in the form of j
     - **text**: text displayed within slide (string, required)
     - **image**: name of image displayed within slide, stored at electron-app/backend/static/images (string, optional)
     - **data**: object containing data that is to be queried from the backend for visualization (object, optional)
-        - **type**: type of data to be queried (enum: [dummy_tree, example_tree, infection_tree, sir, sir_at, coin_flip, coin_flip_gossip], required)
+        - **type**: type of data to be queried (enum: [dummy_tree, example_tree, sir, sir_at, coin_flip, coin_flip_gossip], required)
     - **vis1**: visualization object containing details of a specific visualization type (object, optional)
         - **type**: type of visualization (enum: [inf_tree, rad_tree, line_plot, multiline_plot], required)
     - **vis2**: second visualization object containing details of a specific visualization type (object, optional)
@@ -62,4 +62,17 @@ The stories and quizzes contained in the application are stored in the form of j
         - **current_value**: value the slider is originally set to upon opening the slide (float, required)
         - **symbol**: name of symbol displayed before slider (enum: [sun, virus, bed, water, coin, conversation], required)
         - **text**: text displayed after slider (text, required)
+### stories.json:data Details by Type
+- **dummy_tree**: generates dummy tree using the *get_dummy_tree()* function from electron-app/backend/infection_simulation.py, **returns** tree and plot data
+    - **num_iter**: number of iterations performed for generating tree (integer)
+- **example_tree**: returns specific tree created for the infection tree story, has no additional parameters, **returns** tree data
+- **sir**: generates sir data based on the input parameters using electron-app/backend/infection_simulation.py:*get_sir_data()*, **returns** plot data    
+    - **transmission_rate**: transmission rate *beta* (float)
+    - **recovery_rate**: recovery_rate rate *gamma* (float)
+    - **discrete**: if true, a discrete sir implementation is used, if false, the standard continuous implementation is used (boolean)
+    - **pop_size**: total population size in simulation (integer)
+    - **n_inf**: number of people initially infected, meaning people in **I** compartment in simulation (integer)
+    - **n_rec**: number of people initially recovered/removed, meaning people in **R** compartment in simulation (integer)
+    - **n_days**: number of days in simulation (integer)
+
 
