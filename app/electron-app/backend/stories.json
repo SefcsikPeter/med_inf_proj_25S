@@ -381,12 +381,13 @@
       {
         "text": "Here you can try generating different **trees** and adjusting their **depth**.",
         "data": {
-          "type": "dummy_tree",
-          "num_iter": 4
+          "type": "coin_flip_gossip",
+          "pop_size": 20,
+          "n_days": 4
         },
         "vis1": {
           "type": "inf_tree",
-          "show_id": true,
+          "show_id": false,
           "step": 30,
           "depth": 6,
           "show_re_generate": true
@@ -404,7 +405,7 @@
         ]
       }
     ],
-    "progress": 0
+    "progress": 12
   },
   {
     "id": 4,
@@ -813,7 +814,7 @@
         }
       }
     ],
-    "progress": 3
+    "progress": 1
   },
   {
     "id": 7,
@@ -1413,6 +1414,6 @@
         "image": "vis_mot.png"
       }
     ],
-    "progress": 10
+    "progress": 4
   }
 ]
