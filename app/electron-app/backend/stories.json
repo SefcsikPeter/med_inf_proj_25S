@@ -26,17 +26,22 @@
         "image": "gossip_no_gossip.png"
       },
       {
-        "text": "This example examines how **gossip spreads within a class**. There are **30 classmates**.\nLet's say each **person** has **one conversation a day**.\nOn the **first day**, only **one person knows the gossip**.\nFor **each conversation** someone has who knows about the gossip, we **flip a coin to see if the gossip spreads**.",
+        "text": "This example examines how **gossip spreads within a class**.\nThere are **30 classmates**. Let's say each **person** has **one conversation a day**. On the **first day**, only **one person knows the gossip**.\nFor **each conversation** someone has who knows about the gossip, we **flip a coin to see if the gossip spreads**.",
+        "image": "gossip_no_gossip.png"
+      },
+      {
+        "text": "Here you can see a visualization of the gossip spreading. Each **connection** is a **conversation where the gossip spread**. The person in the **middle** is the one who **started the gossip**.\nCounting the **circles** up to a person in the visualization reveals the **number of conversations about the gossip** it took for it to get from the first person to that person.",
         "data": {
           "type": "coin_flip_gossip"
         },
         "vis1": {
+          "show_desc": false,
           "type": "rad_tree",
           "depth": 10
         }
       },
       {
-        "text": "Now you can also try **changing the slider** around to see how the **gossip spreads conversation-by-conversation**.\nEach **connection** represents a **conversation** in which the **gossip spread**.\nEach **ring** represents the **number of conversations** that were needed for the gossip to spread **from the first person** starting the gossip **to the other person**.",
+        "text": "Now you can also try **changing the slider** around to see how the **gossip spreads**.\nOnce you find the number on the slider from which the visualization does not change anymore, you have found the highest number of conversations the gossip needed to spread to everyone.\nWe can call this the **max chain length**, as we essentially measure the **length of the conversation chain** for the gossip to get to one person from an other.",
         "data": {
           "type": "coin_flip_gossip"
         },
@@ -55,7 +60,7 @@
             "step": 1,
             "current_value": 0,
             "symbol": "conversation",
-            "text": "conversations"
+            "text": "max chain length"
           }
         ]
       },
@@ -80,7 +85,7 @@
             "step": 1,
             "current_value": 5,
             "symbol": "virus",
-            "text": "infections"
+            "text": "max chain length"
           }
         ]
       },
@@ -106,7 +111,7 @@
         "image": "scientist_confident.png"
       }
     ],
-    "progress": 8
+    "progress": 11
   },
   {
     "id": 1,
@@ -1054,7 +1059,7 @@
         }
       },
       {
-        "text": "We can use the SIR model to predict what could happen in the future by **adjusting the transmission rate and recovery rate**, so that the results calculated by the SIR model **match the real-world data as closely as possible**.\nIn this plot, **S_SIM, I_SIM, and R_SIM** represent the **S, I, and R compartments calculated using the SIR model**.",
+        "text": "We can use the SIR model to predict what could happen in the future by **adjusting the transmission rate and recovery rate**, so that the results calculated by the SIR model **match the real-world data as closely as possible**. In this plot, **S_SIM, I_SIM, and R_SIM** represent the **S, I, and R compartments calculated using the SIR model**.\nIn this example, and the following ones as well, the **values are pre-adjusted** because it can be hard to find the exact values, but you can still try changing them around.",
         "data": {
           "type": "sir_at",
           "start_index": 500,

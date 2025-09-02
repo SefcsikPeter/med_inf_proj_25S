@@ -37,7 +37,7 @@
         ],
         "correct": "The disease spreads faster and faster",
         "image": "infection.png",
-        "hint": 7
+        "hint": 8
       },
       {
         "question": "Why is flipping a coin a good analogy for how a disease spreads?",
@@ -49,10 +49,10 @@
         ],
         "correct": "We don't know what the exact outcome of each coin-flip will be but we can still make predictions, infections work the same way",
         "image": "coin_flip.png",
-        "hint": 8
+        "hint": 9
       }
     ],
-    "progress": 0,
+    "progress": 4,
     "passed": true
   },
   {
@@ -363,7 +363,7 @@
         "hint": 10
       }
     ],
-    "progress": 0,
+    "progress": 2,
     "passed": true
   }
 ]
