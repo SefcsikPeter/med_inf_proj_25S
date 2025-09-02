@@ -238,7 +238,7 @@
         "image": "step_size.png"
       },
       {
-        "text": "Let's say that this **scale** represents the **hours in a day**. The **first mark** is at **0**, and the **last** is at **23**.\nThe **distance** between each **marking** is **2**.\nNow we can add some **hours as dots**. If we want to **add hours 0, 5, 12**, and **23**, we can use the **numbers at the marks** and the **distance between them**, to **find their place**.",
+        "text": "Let's say that this **scale** represents the **hours in a day**. The **first mark** is at **0**, and the **last** is at **23**.\nThe **distance** between each **marking** is **2**.\nNow we can add some **hours as dots**. If we want to **add hours 0, 5, 12**, and **23**, we can use the **numbers at the marks** and the **distance between them** to **find their place**.",
         "vis1": {
           "type": "line_plot",
           "demo_num": true,
@@ -288,7 +288,7 @@
         }
       }
     ],
-    "progress": 1
+    "progress": 7
   },
   {
     "id": 3,
@@ -483,7 +483,7 @@
         "image": "SI_transmission.png"
       },
       {
-        "text": "The **transmission rate** describes the **chance of a person who knows about the gossip telling it to people who don't already know about it**.\nHow many beads we move **from S to I** depends on the **number of people in S**, **the number of people in I** and the **transmission rate**.\nOutside our gossip example in epidemiology, the **transmission rate** describes the **average number of people a person from the I compartment infects a day**",
+        "text": "The **transmission rate** describes the **chance of a person who knows about the gossip telling it to people who don't already know about it**.\nHow many beads we move **from S to I** depends on the **number of people in S**, **the number of people in I** and the **transmission rate**.\nOutside our gossip example in epidemiology, the **transmission rate** describes the **average number of people a person from the I compartment infects in a day.**",
         "image": "SI_transmission.png"
       },
       {
@@ -758,7 +758,7 @@
         ]
       }
     ],
-    "progress": 13
+    "progress": 20
   },
   {
     "id": 6,
@@ -975,7 +975,7 @@
         }
       },
       {
-        "text": "You can add as **many** lines to line plots as you like, but you need to keep in mind that **with each added line, it can become harder to understand the plot**.\nWe will see different uses of **line plots** in **epidemic modelling**, like how we drew the graph below in following chapters.",
+        "text": "You can add as **many** lines to line plots as you like, but you need to keep in mind that **with each added line, it can become harder to understand the plot**.\nWe will see different uses of **line plots** in **epidemic modelling**, like how we drew the graph below in following chapter.",
         "data": {
           "type": "sir",
           "pop_size": 1000,
@@ -995,7 +995,7 @@
         }
       }
     ],
-    "progress": 1
+    "progress": 5
   },
   {
     "id": 9,
@@ -1344,7 +1344,7 @@
         "image": "SIR.png"
       },
       {
-        "text": "There are multiple ways to combat this, one is to add an other way to move people from one compartment to the other.\nIn this example, we added a transition called '**vaccination rate**', this could be something that **moves people from S to R depending on how many people get vaccinated in a day** and **how successfuly the vaccine protects people from getting infected**.",
+        "text": "There are multiple ways to combat this, one is to add another way to move people from one compartment to the other.\nIn this example, we added a transition called '**vaccination rate**', this could be something that **moves people from S to R depending on how many people get vaccinated in a day** and **how successfuly the vaccine protects people from getting infected**.",
         "image": "SIR_vaccination.png"
       },
       {
@@ -1405,7 +1405,7 @@
         }
       },
       {
-        "text": "Both methods for improving our predictions have their own benefits and drawbacks. **Adding a vaccination rate to the SIR model makes it harder to fit to the real-world data** because we don't always know how effectvive a vaccine is, but if we somewhat do, we get a model that **more accurately represents the real world**.",
+        "text": "Both methods for improving our predictions have their own benefits and drawbacks. **Adding a vaccination rate to the SIR model makes it harder to fit to the real-world data** because we don't always know how effectvive a vaccine is, but if we have some knowledge about it, we get a model that **more accurately represents the real world**.",
         "image": "SIR_vaccination.png"
       },
       {
@@ -1413,6 +1413,6 @@
         "image": "vis_mot.png"
       }
     ],
-    "progress": 11
+    "progress": 10
   }
 ]
