@@ -136,7 +136,7 @@ def get_story_slide(
     page: int = Query(0, description="Page number (slide index)")
 ):
     try:
-        with open("stories.json", "r") as f:
+        with open("stories.json", "r", encoding="utf-8") as f:
             stories = json.load(f)
     except FileNotFoundError:
         raise HTTPException(status_code=500, detail="stories.json not found")
@@ -152,8 +152,8 @@ def get_story_slide(
     stories[story_index]["progress"] = page + 1
 
     try:
-        with open("stories.json", "w") as f:
-            json.dump(stories, f, indent=2)
+        with open("stories.json", "w", encoding="utf-8") as f:
+            json.dump(stories, f, indent=2, ensure_ascii=True)
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error saving progress: {str(e)}")
 
@@ -166,13 +166,13 @@ def get_story_slide(
 @app.get("/story")
 def get_stories():
     try:
-        with open("stories.json", "r") as f:
+        with open("stories.json", "r", encoding="utf-8") as f:
             stories = json.load(f)
     except FileNotFoundError:
         raise HTTPException(status_code=500, detail="stories.json not found")
     
     try:
-        with open("quizzes.json", "r") as f:
+        with open("quizzes.json", "r", encoding="utf-8") as f:
             quizzes = json.load(f)
     except FileNotFoundError:
         raise HTTPException(status_code=500, detail="quizzes.json not found")
@@ -213,7 +213,7 @@ def get_story_data(
     story_id: int = Path(..., description="ID of the story"),
 ):
     try:
-        with open("stories.json", "r") as f:
+        with open("stories.json", "r", encoding="utf-8") as f:
             stories = json.load(f)
     except FileNotFoundError:
         raise HTTPException(status_code=500, detail="stories.json not found")
@@ -241,7 +241,7 @@ def reset_progress():
         story["progress"] = 0
 
     with open("stories.json", "w", encoding="utf-8") as file:
-        json.dump(stories, file, indent=2, ensure_ascii=False)
+        json.dump(stories, file, indent=2, ensure_ascii=True)
 
     try:
         with open("quizzes.json", "r", encoding="utf-8") as file:
@@ -254,7 +254,7 @@ def reset_progress():
         quiz["passed"] = False
 
     with open("quizzes.json", "w", encoding="utf-8") as file:
-        json.dump(quizzes, file, indent=2, ensure_ascii=False)
+        json.dump(quizzes, file, indent=2, ensure_ascii=True)
 
     return {"message": "All story and quiz progress have been reset."}
 
@@ -271,19 +271,19 @@ def get_chapter_progress():
     Returns id of chapter to be celebrated if not celebrated yet
     """
     try:
-        with open("stories.json", "r") as f:
+        with open("stories.json", "r", encoding="utf-8") as f:
             stories = json.load(f)
     except FileNotFoundError:
         raise HTTPException(status_code=500, detail="stories.json not found")
     
     try:
-        with open("quizzes.json", "r") as f:
+        with open("quizzes.json", "r", encoding="utf-8") as f:
             quizzes = json.load(f)
     except FileNotFoundError:
         raise HTTPException(status_code=500, detail="quizzes.json not found")
     
     try:
-        with open("chapters.json", "r") as f:
+        with open("chapters.json", "r", encoding="utf-8") as f:
             chapters = json.load(f)
     except FileNotFoundError:
         raise HTTPException(status_code=500, detail="chapters.json not found")
@@ -319,8 +319,8 @@ def get_chapter_progress():
     if celebrate is not None:
         chapters[celebrate]["celebrated"] = True
         try:
-            with open("chapters.json", "w") as f:
-                json.dump(chapters, f, indent=2, ensure_ascii=False)
+            with open("chapters.json", "w", encoding="utf-8") as f:
+                json.dump(chapters, f, indent=2, ensure_ascii=True)
         except FileNotFoundError:
             raise HTTPException(status_code=500, detail="chapters.json not found")
 
@@ -355,7 +355,7 @@ def get_quiz_data(
     story_id: int = Path(..., description="ID of the story of the quiz"),
 ):
     try:
-        with open("quizzes.json", "r") as f:
+        with open("quizzes.json", "r", encoding="utf-8") as f:
             quizzes = json.load(f)
     except FileNotFoundError:
         raise HTTPException(status_code=500, detail="quizzes.json not found")
@@ -377,7 +377,7 @@ def get_question(
     page: int = Query(0, description="Page number (question index)")
 ):
     try:
-        with open("quizzes.json", "r") as f:
+        with open("quizzes.json", "r", encoding="utf-8") as f:
             quizzes = json.load(f)
     except FileNotFoundError:
         raise HTTPException(status_code=500, detail="quizzes.json not found")
@@ -393,8 +393,8 @@ def get_question(
     quizzes[quiz_index]["progress"] = page + 1
 
     try:
-        with open("quizzes.json", "w") as f:
-            json.dump(quizzes, f, indent=2)
+        with open("quizzes.json", "w", encoding="utf-8") as f:
+            json.dump(quizzes, f, indent=2, ensure_ascii=True)
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error saving progress: {str(e)}")
 
@@ -414,13 +414,13 @@ def submit_quiz_answers(
     If all are correct, quiz is marked as passed.
     """
     try:
-        with open("quizzes.json", "r") as f:
+        with open("quizzes.json", "r", encoding="utf-8") as f:
             quizzes = json.load(f)
     except FileNotFoundError:
         raise HTTPException(status_code=500, detail="quizzes.json not found")
     
     try:
-        with open("stories.json", "r") as f:
+        with open("stories.json", "r", encoding="utf-8") as f:
             stories = json.load(f)
     except FileNotFoundError:
         raise HTTPException(status_code=500, detail="stories.json not found")
@@ -448,15 +448,15 @@ def submit_quiz_answers(
     if all_correct:
         quizzes[quiz_index]["passed"] = True
         try:
-            with open("quizzes.json", "w") as f:
-                json.dump(quizzes, f, indent=2)
+            with open("quizzes.json", "w", encoding="utf-8") as f:
+                json.dump(quizzes, f, indent=2, ensure_ascii=True)
         except Exception as e:
             raise HTTPException(status_code=500, detail=f"Error saving quiz result: {str(e)}")
         
         stories[quiz["id"]]["progress"] = len(stories[quiz["id"]]["slides"])
         try:
-            with open("stories.json", "w") as f:
-                json.dump(stories, f, indent=2)
+            with open("stories.json", "w", encoding="utf-8") as f:
+                json.dump(stories, f, indent=2, ensure_ascii=True)
         except Exception as e:
             raise HTTPException(status_code=500, detail=f"Error saving progress: {str(e)}")
 
