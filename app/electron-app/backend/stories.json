@@ -106,7 +106,7 @@
         "image": "scientist_confident.png"
       }
     ],
-    "progress": 10
+    "progress": 8
   },
   {
     "id": 1,
@@ -121,7 +121,7 @@
         "image": "data_chaos.png"
       },
       {
-        "text": "In the table below, you can see an example of typical data an epidemiologist would look at.\nIt contains information about how the state of a thousand people changes in ten days.",
+        "text": "In the table below, you can see an example of typical data an epidemiologist would look at.\nIt contains information about how the state of a thousand people changes in ten days.\nYou don't need to understand this table, we will just use it as an example here.",
         "image": "sir_table.png"
       },
       {
@@ -187,7 +187,7 @@
         }
       }
     ],
-    "progress": 10
+    "progress": 2
   },
   {
     "id": 2,
@@ -288,7 +288,7 @@
         }
       }
     ],
-    "progress": 0
+    "progress": 1
   },
   {
     "id": 3,
@@ -758,7 +758,7 @@
         ]
       }
     ],
-    "progress": 21
+    "progress": 13
   },
   {
     "id": 6,
@@ -995,7 +995,7 @@
         }
       }
     ],
-    "progress": 5
+    "progress": 1
   },
   {
     "id": 9,
@@ -1413,6 +1413,6 @@
         "image": "vis_mot.png"
       }
     ],
-    "progress": 3
+    "progress": 11
   }
 ]
