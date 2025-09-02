@@ -179,6 +179,11 @@ The stories and quizzes contained in the application are stored in the form of j
 - **title**: chapter title, used for celebration page titles (string, required)
 - **celebrated**: saves whether the completion of a chapter was allready celebrated (boolean, required)
 
+---
+### json_modifier.ipynb
+json_modifier.ipynb can be found at *electron-app/backend/json_modifier.ipynb* and contains helper code for bulk modifications of the stories and quizzes. The most important ones are the ones resetting progress, as these are recommended to be used before building the installer, othervise, unwanted progress can get included in the installer.
+
+---
 ## Add a Story to the Application
 
 1. You can add a story to the application by following the json documentation above to append a new story object to the existing array. This story needs to have a unique ID.
