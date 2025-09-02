@@ -99,7 +99,7 @@ export class LinePlotComponent implements OnInit, OnChanges {
   private drawChart(): void {
     const margin = { top: 20, right: 30, bottom: 50, left: 60 };
     const containerEl = this.chartContainer.nativeElement as HTMLElement;
-    //TODO solve
+
     const fullWidth = containerEl.offsetWidth;
     const fullHeight = Math.min(fullWidth, 400);
 
@@ -236,21 +236,20 @@ export class LinePlotComponent implements OnInit, OnChanges {
         const pointY = y(selectedData.y);
 
         if (selectedData) {
-          //TODO: check why this is inverted
           this.hoverY.emit(selectedData.x);
 
           focus
             .attr("cx", x(selectedData.x))
             .attr("cy", y(selectedData.y));
 
+          const hintText = `${this.xLabel}: ${selectedData.x} - ${this.yLabel}: ${selectedData.y}`;
           let textOffset = 15
           if (selectedData.x > xMax/2) {
-            //TODO: change so that it is dynamic
-            textOffset = -150;
+            textOffset = -hintText.length*7.5;
           }
 
           focusText
-            .text(`${this.xLabel}: ${selectedData.x} - ${this.yLabel}: ${selectedData.y}`)
+            .text(hintText)
             .attr("x", x(selectedData.x) + textOffset)
             .attr("y", y(selectedData.y))
             .attr("text-anchor", "start")
