@@ -293,7 +293,7 @@
         }
       }
     ],
-    "progress": 0
+    "progress": 1
   },
   {
     "id": 3,
@@ -502,16 +502,15 @@
           "type": "sir",
           "transmission_rate": 1,
           "recovery_rate": 0,
-          "discrete": true,
+          "discrete": false,
           "pop_size": 12,
           "n_inf": 1,
-          "n_days": 8
+          "n_days": 7
         },
         "vis1": {
           "type": "multiline_plot",
           "x_lab": "days",
           "y_lab": "people",
-          "n_days": 5,
           "line_labels": [
             "S",
             "I"
@@ -526,7 +525,7 @@
           "type": "sir",
           "transmission_rate": 1,
           "recovery_rate": 0,
-          "discrete": true,
+          "discrete": false,
           "pop_size": 12,
           "n_inf": 1,
           "n_days": 4
@@ -535,7 +534,6 @@
           "type": "multiline_plot",
           "x_lab": "days",
           "y_lab": "people",
-          "n_days": 5,
           "line_labels": [
             "S",
             "I"
@@ -570,7 +568,6 @@
           "type": "multiline_plot",
           "x_lab": "days",
           "y_lab": "people",
-          "n_days": 5,
           "line_labels": [
             "S",
             "I"
@@ -715,7 +712,6 @@
           "type": "multiline_plot",
           "x_lab": "days",
           "y_lab": "people",
-          "n_days": 5,
           "line_labels": [
             "S",
             "I",
@@ -764,7 +760,7 @@
         ]
       }
     ],
-    "progress": 1
+    "progress": 12
   },
   {
     "id": 6,
@@ -1419,6 +1415,6 @@
         "image": "vis_mot.png"
       }
     ],
-    "progress": 1
+    "progress": 11
   }
 ]
