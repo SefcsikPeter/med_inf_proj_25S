@@ -293,7 +293,7 @@
         }
       }
     ],
-    "progress": 1
+    "progress": 0
   },
   {
     "id": 3,
@@ -410,7 +410,7 @@
         ]
       }
     ],
-    "progress": 11
+    "progress": 0
   },
   {
     "id": 4,
@@ -438,7 +438,7 @@
         "image": "SIR.png"
       }
     ],
-    "progress": 1
+    "progress": 0
   },
   {
     "id": 5,
@@ -760,7 +760,7 @@
         ]
       }
     ],
-    "progress": 12
+    "progress": 0
   },
   {
     "id": 6,
@@ -815,7 +815,7 @@
         }
       }
     ],
-    "progress": 1
+    "progress": 0
   },
   {
     "id": 7,
@@ -884,7 +884,7 @@
         "image": "Friends_conn_gos_2.png"
       }
     ],
-    "progress": 1
+    "progress": 0
   },
   {
     "id": 8,
@@ -997,7 +997,7 @@
         }
       }
     ],
-    "progress": 5
+    "progress": 0
   },
   {
     "id": 9,
@@ -1415,6 +1415,6 @@
         "image": "vis_mot.png"
       }
     ],
-    "progress": 11
+    "progress": 0
   }
 ]
