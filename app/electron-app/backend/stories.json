@@ -111,7 +111,7 @@
         "image": "scientist_confident.png"
       }
     ],
-    "progress": 11
+    "progress": 0
   },
   {
     "id": 1,
@@ -192,7 +192,7 @@
         }
       }
     ],
-    "progress": 2
+    "progress": 0
   },
   {
     "id": 2,
@@ -293,7 +293,7 @@
         }
       }
     ],
-    "progress": 7
+    "progress": 0
   },
   {
     "id": 3,
@@ -333,7 +333,7 @@
         "image": "larger_graph_to_tree.png"
       },
       {
-        "text": "This is the same tree as on the previous page, just drawn a bit differently.\nHere, we can see that Frank started spreading the gossip and it is also easy to track, who told the gossip to whom and how many people the gossip needed to get through to get from a person to another.",
+        "text": "This is the same tree as on the previous page, just drawn a bit differently.\nThis visualization type is generally referred to as an **infection tree**.We can use it here because even though we are talking about gossip, its spreading is very similar to that of infections.\nHere, we can see that Frank started spreading the gossip and it is also easy to track, who told the gossip to whom and how many people the gossip needed to get through to get from a person to another.",
         "data": {
           "type": "example_tree"
         },
@@ -361,7 +361,7 @@
         "image": "tree_depth.png"
       },
       {
-        "text": "Now that you understand, how we calculate the **depth** of a **graph**, you can try playing around with the **depth** that you would like to display from the graph.\nThis can be useful for only displaying information that we actually need like if we're interested in the number of people Frank infected directly, we can set the depth to 1.",
+        "text": "Now that you understand, how we calculate the **depth** of a **graph**, you can try playing around with the **depth** that you would like to display from the graph.\nThis can be useful for only displaying information that we actually need like if we're interested in the number of people Frank told the gossip to directly, we can set the depth to 1.",
         "data": {
           "type": "example_tree"
         },
@@ -410,7 +410,7 @@
         ]
       }
     ],
-    "progress": 12
+    "progress": 11
   },
   {
     "id": 4,
@@ -764,7 +764,7 @@
         ]
       }
     ],
-    "progress": 20
+    "progress": 0
   },
   {
     "id": 6,
@@ -819,7 +819,7 @@
         }
       }
     ],
-    "progress": 1
+    "progress": 0
   },
   {
     "id": 7,
@@ -1001,7 +1001,7 @@
         }
       }
     ],
-    "progress": 5
+    "progress": 0
   },
   {
     "id": 9,
@@ -1419,6 +1419,6 @@
         "image": "vis_mot.png"
       }
     ],
-    "progress": 4
+    "progress": 0
   }
 ]
