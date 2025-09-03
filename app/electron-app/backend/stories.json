@@ -438,7 +438,7 @@
         "image": "SIR.png"
       }
     ],
-    "progress": 0
+    "progress": 1
   },
   {
     "id": 5,
@@ -764,7 +764,7 @@
         ]
       }
     ],
-    "progress": 0
+    "progress": 1
   },
   {
     "id": 6,
@@ -819,7 +819,7 @@
         }
       }
     ],
-    "progress": 0
+    "progress": 1
   },
   {
     "id": 7,
@@ -888,7 +888,7 @@
         "image": "Friends_conn_gos_2.png"
       }
     ],
-    "progress": 0
+    "progress": 1
   },
   {
     "id": 8,
@@ -953,7 +953,7 @@
         }
       },
       {
-        "text": "The **legend** of a plot describes what each **line** in the plot **represents**.\nThe **legend** usually contains short line sections with the same dashing and color as those contained in the plot next to the text describing them.\nIn this case we have a line for the **temperatures** on **day 1** and a line for the **temperatures** on **day 2**, which you can also see in the **legend** added to the plot.",
+        "text": "The **legend** of a plot describes what each **line** in the plot **represents**.\nThe **legend** usually contains short line sections with the same dashing and color as those contained in the plot next to the text describing them.\nIn this case we have a line for the **temperatures** on **day 1** and a line for the **temperatures** on **day 2**, which you can also see in the **legend** added to the plot in the top right corner displaying 'day 1' and 'day 2'.",
         "vis1": {
           "type": "multiline_plot",
           "temps": true,
@@ -1001,7 +1001,7 @@
         }
       }
     ],
-    "progress": 0
+    "progress": 5
   },
   {
     "id": 9,
@@ -1419,6 +1419,6 @@
         "image": "vis_mot.png"
       }
     ],
-    "progress": 0
+    "progress": 1
   }
 ]
